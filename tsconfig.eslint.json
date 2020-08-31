@@ -1,0 +1,20 @@
+{
+  // extend your base config to share compilerOptions, etc
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    // ensure that nobody can accidentally use this config for a build
+    "noEmit": true
+  },
+  "include": [
+    // whatever paths you intend to lint
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "./.eslintrc.js",
+    "./webpack.main.config.js",
+    "./webpack.plugins.js",
+    "./webpack.renderer.config.js",
+    "./webpack.rules.js",
+    "resources/**/*.js",
+  ]
+}

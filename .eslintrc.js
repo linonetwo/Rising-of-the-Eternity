@@ -53,6 +53,7 @@ module.exports = {
       },
     ],
     'unicorn/consistent-function-scoping': [0],
+    'no-void': [0],
   },
   extends: [
     'eslint:recommended',

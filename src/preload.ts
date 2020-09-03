@@ -10,6 +10,7 @@ contextBridge.exposeInMainWorld('mod', {
   [Mod.getTexture]: ({ modName, texturePath }: IGetTextureArgument) => ipcRenderer.invoke(Mod.getTexture, { modName, texturePath }),
   [Mod.loadModList]: () => ipcRenderer.invoke(Mod.loadModList),
   [Mod.loadModInitializationScript]: ({ modName }: { modName: string }) => ipcRenderer.invoke(Mod.loadModInitializationScript, { modName }),
+  [Mod.loadModMapList]: ({ modName }: { modName: string }) => ipcRenderer.invoke(Mod.loadModMapList, { modName }),
 });
 
 const store = new Store();

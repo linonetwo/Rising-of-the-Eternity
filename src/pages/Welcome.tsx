@@ -25,7 +25,7 @@ export default function Welcome(): JSX.Element {
   return (
     <Container>
       <Menu>
-        <Link to={ROUTE.world}>
+        <Link to={ROUTE.sandbox}>
           <Button>Playground</Button>
         </Link>
       </Menu>

@@ -1,18 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Switch, Route } from 'react-router';
 import { ConnectedRouter } from 'connected-react-router';
-import { Provider } from 'react-redux';
+import { Provider, useDispatch } from 'react-redux';
 
 import './preload.type';
-import { store, history } from './redux';
+import { store, history, Dispatch } from './redux';
 import GlobalStyle from './globalStyles';
 
 import ROUTE from './constants/route';
 import Welcome from './pages/Welcome';
+import Sandbox from './pages/Sandbox';
 import World from './pages/World';
 
-import { useMods } from './utils/mod';
 
 const Container = styled.div`
   width: 100vw;
@@ -22,18 +22,28 @@ const Container = styled.div`
 
 export function App(): JSX.Element {
   // load mods
-  useMods();
+  const dispatch = useDispatch<Dispatch>();
+  useEffect(() => {
+    void dispatch.mod.loadMods().then(() => dispatch.mod.initializeMods());
+  }, []);
 
+  return (
+    <Switch>
+      <Route exact path={ROUTE.welcome} component={Welcome} />
+      <Route exact path={ROUTE.sandbox} component={Sandbox} />
+      <Route path={ROUTE.world} component={World} />
+    </Switch>
+  );
+}
+
+export function AppWithProvider(): JSX.Element {
   return (
     <>
       <GlobalStyle />
       <Container>
         <Provider store={store}>
           <ConnectedRouter history={history}>
-            <Switch>
-              <Route exact path={ROUTE.welcome} component={Welcome} />
-              <Route path={ROUTE.world} component={World} />
-            </Switch>
+            <App />
           </ConnectedRouter>
         </Provider>
       </Container>

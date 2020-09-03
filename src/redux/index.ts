@@ -1,16 +1,16 @@
 import { RematchDispatch, RematchRootState, Models } from '@rematch/core';
 
 import createStore from './createStore';
-import debug from './models/debug';
+import { RootModel } from './rootModelType';
 
-export { history } from './createStore';
+import { debug } from './models/debug';
+import { mod } from './models/mod';
 
-export interface RootModel extends Models<RootModel> {
-  debug: typeof debug;
-}
-const models: RootModel = { debug };
+const models: RootModel = { debug, mod };
 export const store = createStore((models as unknown) as Models);
 
 export type Store = typeof store;
 export type Dispatch = RematchDispatch<RootModel>;
 export type RootState = RematchRootState<RootModel>;
+
+export { history } from './createStore';

@@ -1,0 +1,43 @@
+{
+  "materials": [
+    {
+      "@type": "floorMaterial",
+      "@id": "LabFloor",
+      "texture": "core/textures/floors/HEXAGA.png"
+    },
+    {
+      "@type": "timeMachineMultiverse",
+      "@id": "timeMachine",
+      "size": [2, 2],
+      "texture": "core/textures/wall/Titanium_MenuIcon.png"
+    }
+  ],
+  "maps": [
+    {
+      "name": "TT1Lab",
+      "tiles": [
+        ["LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor"],
+        ["LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor"],
+        ["LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor"],
+        ["LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor"],
+        [
+          "LabFloor",
+          "LabFloor",
+          "LabFloor",
+          "LabFloor",
+          ["LabFloor", "timeMachine"],
+          "LabFloor",
+          "LabFloor",
+          "LabFloor",
+          "LabFloor",
+          "LabFloor"
+        ],
+        ["LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor"],
+        ["LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor"],
+        ["LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor"],
+        ["LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor"],
+        ["LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor", "LabFloor"]
+      ]
+    }
+  ]
+}

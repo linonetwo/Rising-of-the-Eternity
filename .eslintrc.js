@@ -30,23 +30,29 @@ module.exports = {
         },
       },
     ],
-    'comma-dangle': [2, 'always-multiline'],
     '@typescript-eslint/member-delimiter-style': [
       'warn',
       {
         multiline: {
-          delimiter: 'none',
+          delimiter: 'semi', // 'none' or 'semi' or 'comma'
+          requireLast: true,
+        },
+        singleline: {
+          delimiter: 'semi', // 'semi' or 'comma'
+          requireLast: false,
         },
       },
     ],
+    'comma-dangle': [2, 'always-multiline'],
     'no-undef': 'off',
     'unicorn/filename-case': [
-      'error',
+      0,
       {
         case: 'camelCase',
         ignore: [/tsx$/],
       },
     ],
+    'unicorn/consistent-function-scoping': [0],
   },
   extends: [
     'eslint:recommended',

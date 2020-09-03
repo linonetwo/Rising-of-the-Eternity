@@ -1,4 +1,3 @@
-// @flow
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import ReactDOM from 'react-dom';
@@ -81,8 +80,8 @@ export default class ContextMenu extends Component<ContextMenuProps, ContextMenu
     return <MenuItem key={text} text={text} icon={item.icon} onMouseDown={(event) => this.onClickMark(item, event)} />;
   };
 
-  getMenuStyle = () => {
-    if (this.menuRef === undefined) return {};
+  getMenuStyle = (): { opacity: number; top: string; left: string } => {
+    if (this.menuRef === undefined) return { opacity: 0, top: '-99999px', left: '-99999px' };
     return {
       opacity: 1,
       top: `calc(${this.state.position[1]}px)`,

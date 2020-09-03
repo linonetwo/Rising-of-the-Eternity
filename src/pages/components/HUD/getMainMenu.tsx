@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import ROUTES from '../../../constants/route';
 
-export default function getDebugMenu() {
+export default function getDebugMenu(): JSX.Element {
   return (
     <Menu>
       <Link to={ROUTES.welcome}>

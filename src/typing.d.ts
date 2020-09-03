@@ -10,7 +10,7 @@ declare module 'fast-fuzzy' {
 
 declare module 'i18next-electron-fs-backend' {
   import { IpcRenderer } from 'electron';
-  export function preloadBindings(ipcRenderer: IpcRenderer): { onLanguageChange: (args: { lng: string }) => void };
+  export function preloadBindings(ipcRenderer: IpcRenderer): { onLanguageChange: (arguments_: { lng: string }) => void };
 }
 declare module 'secure-electron-store' {
   import { IpcRenderer } from 'electron';

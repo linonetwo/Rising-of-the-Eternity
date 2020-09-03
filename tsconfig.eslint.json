@@ -14,7 +14,7 @@
     "./webpack.main.config.js",
     "./webpack.plugins.js",
     "./webpack.renderer.config.js",
-    "./webpack.rules.js",
-    "resources/**/*.js",
-  ]
+    "./webpack.rules.js"
+  ],
+  "exclude": ["resources/**/*.js"]
 }

@@ -13,6 +13,7 @@ import Welcome from './pages/Welcome';
 import Sandbox from './pages/Sandbox';
 import World from './pages/World';
 
+import { startGameLoop } from './ecs';
 
 const Container = styled.div`
   width: 100vw;
@@ -25,6 +26,10 @@ export function App(): JSX.Element {
   const dispatch = useDispatch<Dispatch>();
   useEffect(() => {
     void dispatch.mod.loadMods().then(() => dispatch.mod.initializeMods());
+  }, []);
+  // start ECS
+  useEffect(() => {
+    startGameLoop();
   }, []);
 
   return (

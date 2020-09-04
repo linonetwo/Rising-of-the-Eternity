@@ -39,7 +39,7 @@ export const mod = createModel<RootModel>()({
     },
   },
   effects: (dispatch) => ({
-    async loadMods() {
+    async loadModList() {
       try {
         dispatch.mod.setModLoadingState(MOD_LOADING_STATE.prepare);
         const modList = await window.mod.loadModList();
@@ -63,10 +63,8 @@ export const mod = createModel<RootModel>()({
         console.error(error);
       }
     },
-    async loadMaps(_, rootState) {
+    async loadMapList(_, rootState) {
       try {
-        // DEBUG: console
-        console.log(`rootState.mod.modList`, rootState.mod.modList);
         let mapList: string[] = [];
         for (const modName of rootState.mod.modList) {
           const mapListOfMod = await window.mod.loadModMapList({ modName });

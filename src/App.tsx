@@ -25,7 +25,7 @@ export function App(): JSX.Element {
   // load mods
   const dispatch = useDispatch<Dispatch>();
   useEffect(() => {
-    void dispatch.mod.loadMods().then(() => dispatch.mod.initializeMods());
+    void dispatch.mod.loadModList().then(() => dispatch.mod.initializeMods());
   }, []);
   // start ECS
   useEffect(() => {

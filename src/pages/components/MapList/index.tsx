@@ -20,7 +20,7 @@ export default function MapList(): JSX.Element {
   // load maps
   const dispatch = useDispatch<Dispatch>();
   useEffect(() => {
-    void dispatch.mod.loadMaps();
+    void dispatch.mod.loadMapList();
   }, []);
   const mapList = useSelector((state: RootState) => state.mod.mapList);
 

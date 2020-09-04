@@ -1,20 +1,21 @@
-import { init } from '@rematch/core';
-import type { Models } from '@rematch/core';
+import { init, Plugin } from '@rematch/core';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import createLoadingPlugin from '@rematch/loading';
 import immerPlugin from '@rematch/immer';
 import { createHashHistory } from 'history';
 
+import { RootModel } from './rootModelType';
+
 const loadingOptions = {};
-const loading = createLoadingPlugin(loadingOptions);
-const immer = immerPlugin();
+const loading = createLoadingPlugin<RootModel>(loadingOptions);
+const immer = immerPlugin() as Plugin<RootModel>;
 
 export const history = createHashHistory();
 
 const reducers = { router: connectRouter(history) };
 
-export default (models: Models): ReturnType<typeof init> =>
-  init({
+export default (models: RootModel): ReturnType<typeof init> =>
+  init<RootModel>({
     redux: {
       reducers,
       middlewares: [routerMiddleware(history)],

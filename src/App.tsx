@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Switch, Route } from 'react-router';
 import { ConnectedRouter } from 'connected-react-router';
-import { Provider, useDispatch } from 'react-redux';
+import { Provider as ReduxProvider, useDispatch } from 'react-redux';
 
 import './preload.type';
 import { store, history, Dispatch } from './redux';
@@ -13,7 +13,8 @@ import Welcome from './pages/Welcome';
 import Sandbox from './pages/Sandbox';
 import World from './pages/World';
 
-import { startGameLoop } from './ecs';
+import { WorldProvider } from './ecs/react-javelin-ecs';
+import { startGameLoop, world } from './ecs';
 
 const Container = styled.div`
   width: 100vw;
@@ -46,11 +47,13 @@ export function AppWithProvider(): JSX.Element {
     <>
       <GlobalStyle />
       <Container>
-        <Provider store={store}>
-          <ConnectedRouter history={history}>
-            <App />
-          </ConnectedRouter>
-        </Provider>
+        <WorldProvider world={world}>
+          <ReduxProvider store={store}>
+            <ConnectedRouter history={history}>
+              <App />
+            </ConnectedRouter>
+          </ReduxProvider>
+        </WorldProvider>
       </Container>
     </>
   );

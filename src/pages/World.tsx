@@ -1,30 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import styled from 'styled-components';
 import { Stage } from 'react-pixi-fiber';
 import { Provider } from 'react-redux';
+import { query } from '@javelin/ecs';
 
+import { WorldProvider, useMappedQuery, MappedComponentProps } from '../ecs/react-javelin-ecs';
+import { world } from '../ecs';
 import { store } from '../redux';
 import HUD from './components/HUD';
 import ContextMenu from './components/ContextMenu';
 import Pawn from './sprites/pawn';
+import { VisibleItem } from '../ecs/components/VisibleItem';
 
 const Container = styled.main``;
 
 const containerID = 'game-container';
 
-export default function World(): JSX.Element {
-  const [contextMenuIsOpen, contextMenuIsOpenSetter] = useState(false);
-  const [mouseEntity, mouseEntitySetter] = useState({ position: [0, 0] });
-
+function PawnWithTexture(props: MappedComponentProps<[typeof VisibleItem]>): JSX.Element {
   const randomHeadName = 'Female_Narrow_Pointy';
   const randomHairName = 'Hubert';
   const randomBodyName = 'Naked_Thin';
-  const renderedEntities = [
+
+  return (
     <Pawn
       key="testPawn"
       facing="south"
       collider={{ type: 'block', width: 160, height: 160 }}
-      position={[0, 0]}
+      position={[props.components[0].x, props.components[0].y]}
       texture={{
         head: {
           north: `${randomHeadName}_north`,
@@ -42,8 +44,21 @@ export default function World(): JSX.Element {
           east: `${randomBodyName}_east`,
         },
       }}
-    />,
-  ];
+    />
+  );
+}
+
+function Pawns(): JSX.Element {
+  const positions = useMemo(() => query(VisibleItem), []);
+  const pawns = useMappedQuery(positions, PawnWithTexture);
+
+  return <>{pawns}</>;
+}
+
+export default function World(): JSX.Element {
+  const [contextMenuIsOpen, contextMenuIsOpenSetter] = useState(false);
+  const [mouseEntity, mouseEntitySetter] = useState({ position: [0, 0] });
+
   return (
     <Container id={containerID}>
       <HUD />
@@ -75,7 +90,11 @@ export default function World(): JSX.Element {
         onClick={() => {
           contextMenuIsOpenSetter(false);
         }}>
-        <Provider store={store}>{renderedEntities}</Provider>
+        <Provider store={store}>
+          <WorldProvider world={world}>
+            <Pawns />
+          </WorldProvider>
+        </Provider>
       </Stage>
 
       <ContextMenu

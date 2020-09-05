@@ -18,8 +18,6 @@ class ResourcePool {
    * @param {*} copyFrom Name of resource, You can copy a texture and create a flipped version
    */
   getTexture(name: string, modifyTexture: (texture: PIXI.Texture) => PIXI.Texture = (i) => i, copyFrom?: string): PIXI.Texture | void {
-    // DEBUG: console
-    console.log(`name`, name);
     // generate a new texture from another texture
     let cachedTexture = this.textures[name];
     if (copyFrom && !cachedTexture && this.textures[copyFrom]) {

@@ -65,19 +65,22 @@ export interface MappedComponentProps<S extends Selector> {
   components: SelectorResult<S>;
 }
 
-export function useMappedQuery<S extends Selector>(q: Query<S>, Component: React.ComponentType<MappedComponentProps<S>>): JSX.Element[] {
+export function useMappedQuery<S extends Selector>(
+  query: Query<S>,
+  Component: React.ComponentType<MappedComponentProps<S>>,
+): JSX.Element[] {
   const [components, setComponents] = useState<JSX.Element[]>([]);
   const { registerSubsystem, world } = useWorld();
   const subsystem = useCallback(() => {
     const elements: JSX.Element[] = [];
 
-    for (const [entity, [...components]] of q(world)) {
+    for (const [entity, [...components]] of query(world)) {
       const element = <Component entity={entity} components={components as SelectorResult<S>} />;
       elements.push(element);
     }
 
     setComponents(elements);
-  }, [q]);
+  }, [query]);
 
   useEffect(() => {
     return registerSubsystem(subsystem);

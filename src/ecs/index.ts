@@ -2,6 +2,7 @@ import { createWorld } from '@javelin/ecs';
 import { VisibleItem } from './components/VisibleItem';
 import componentTypes from './components';
 import systems from './systems';
+import { spawnPawnTopic } from './topics/spawn';
 
 interface ISystemData {
   deltaTime: number;
@@ -16,6 +17,7 @@ let previousTime = 0;
 
 function loop(time = 0) {
   const deltaTime = time - (previousTime || time);
+  spawnPawnTopic.flush();
   world.tick({ deltaTime });
 
   previousTime = time;
@@ -23,6 +25,6 @@ function loop(time = 0) {
 }
 
 export function startGameLoop(): void {
-  world.spawn(world.component(VisibleItem));
+  world.spawn(world.component(VisibleItem, 100, 100));
   loop();
 }

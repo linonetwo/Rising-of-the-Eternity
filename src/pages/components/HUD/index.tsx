@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { RootState, Dispatch } from '../../../redux';
 import getMainMenu from './getMainMenu';
+import { spawnPawnTopic } from '../../../ecs/topics/spawn';
 
 const Nav = styled(Navbar)`
   position: absolute;
@@ -27,7 +28,14 @@ export default function HUD(): JSX.Element {
             <Button className={Classes.MINIMAL} icon="menu" />
           </Popover>
           <NavbarDivider />
-          <Button className={Classes.MINIMAL} icon="user" text="Spawn Protagonist" />
+          <Button
+            className={Classes.MINIMAL}
+            icon="user"
+            text="Spawn Protagonist"
+            onClick={() => {
+              spawnPawnTopic.push(['spawnPawn', [100 * Math.random(), 100 * Math.random()]]);
+            }}
+          />
           <DebugSwitch checked={inDebugMode} label="Debug" onChange={dispatch.debug.toggleDebugMode} />
         </NavbarGroup>
         <NavbarGroup align={Alignment.RIGHT}>

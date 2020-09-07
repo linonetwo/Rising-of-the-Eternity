@@ -17,8 +17,8 @@ let previousTime = 0;
 
 function loop(time = 0) {
   const deltaTime = time - (previousTime || time);
-  spawnPawnTopic.flush();
   world.tick({ deltaTime });
+  spawnPawnTopic.flush();
 
   previousTime = time;
   requestAnimationFrame(loop);

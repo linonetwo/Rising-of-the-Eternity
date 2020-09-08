@@ -8,8 +8,9 @@ export const VisibleItem = createComponentType({
     y: number,
     texture: string,
   },
-  initialize: (position, x = 0, y = 0) => {
-    position.x = x;
-    position.y = y;
+  initialize: (_this, x = 0, y = 0, textureName = 'noTexture') => {
+    _this.x = x;
+    _this.y = y;
+    _this.texture = textureName;
   },
 });

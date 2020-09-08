@@ -3,4 +3,5 @@ export enum Mod {
   loadModList = 'loadModList',
   loadModMapList = 'loadModMapList',
   loadModInitializationScript = 'loadModInitializationScript',
+  loadMap = 'loadMap',
 }

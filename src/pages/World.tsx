@@ -10,6 +10,7 @@ import { store } from '../redux';
 import HUD from './components/HUD';
 import ContextMenu from './components/ContextMenu';
 import Pawn from './sprites/pawn';
+import Tiles from './sprites/tile/tiles';
 import { VisibleItem } from '../ecs/components/VisibleItem';
 
 const Container = styled.main``;
@@ -92,7 +93,7 @@ export default function World(): JSX.Element {
         }}>
         <Provider store={store}>
           <WorldProvider world={world}>
-            <Pawns />
+            <Tiles />
           </WorldProvider>
         </Provider>
       </Stage>

@@ -80,7 +80,7 @@ textureIndex.heads.female.forEach(async (resourceName) => {
     const resourceDetailName = `${resourceName}_${facing}`;
     const resourceBuffer = await window.mod.getTexture({
       modName,
-      texturePath: `heads/female/${resourceDetailName}.png`,
+      texturePath: `core/textures/heads/female/${resourceDetailName}.png`,
     });
     resources.addTextureRaw(resourceDetailName, resourceBuffer);
   }
@@ -90,7 +90,7 @@ textureIndex.hair.forEach(async (resourceName) => {
     const resourceDetailName = `${resourceName}_${facing}`;
     const resourceBuffer = await window.mod.getTexture({
       modName,
-      texturePath: `hair/${resourceDetailName}.png`,
+      texturePath: `core/textures/hair/${resourceDetailName}.png`,
     });
     resources.addTextureRaw(resourceDetailName, resourceBuffer);
   }
@@ -100,7 +100,7 @@ textureIndex.bodies.forEach(async (resourceName) => {
     const resourceDetailName = `${resourceName}_${facing}`;
     const resourceBuffer = await window.mod.getTexture({
       modName,
-      texturePath: `bodies/${resourceDetailName}.png`,
+      texturePath: `core/textures/bodies/${resourceDetailName}.png`,
     });
     resources.addTextureRaw(resourceDetailName, resourceBuffer);
   }
@@ -109,7 +109,7 @@ Object.keys(textureIndex.flowers).forEach(async (resourceName) => {
   for (const resourceDetailName of textureIndex.flowers[resourceName]) {
     const resourceBuffer = await window.mod.getTexture({
       modName,
-      texturePath: `flowers/${resourceName}/${resourceDetailName}.png`,
+      texturePath: `core/textures/flowers/${resourceName}/${resourceDetailName}.png`,
     });
     resources.addTextureRaw(resourceDetailName, resourceBuffer);
   }
@@ -118,7 +118,7 @@ Object.keys(textureIndex.tree).forEach(async (resourceName) => {
   for (const resourceDetailName of textureIndex.tree[resourceName]) {
     const resourceBuffer = await window.mod.getTexture({
       modName,
-      texturePath: `tree/${resourceName}/${resourceDetailName}.png`,
+      texturePath: `core/textures/tree/${resourceName}/${resourceDetailName}.png`,
     });
     resources.addTextureRaw(resourceDetailName, resourceBuffer);
   }
@@ -126,14 +126,14 @@ Object.keys(textureIndex.tree).forEach(async (resourceName) => {
 textureIndex.floors.forEach(async (resourceName) => {
   const resourceBuffer = await window.mod.getTexture({
     modName,
-    texturePath: `floors/${resourceName}.png`,
+    texturePath: `core/textures/floors/${resourceName}.png`,
   });
   resources.addTextureRaw(resourceName, resourceBuffer);
 });
 textureIndex.wall.forEach(async (resourceName) => {
   const resourceBuffer = await window.mod.getTexture({
     modName,
-    texturePath: `wall/${resourceName}.png`,
+    texturePath: `core/textures/wall/${resourceName}.png`,
   });
   resources.addTextureRaw(resourceName, resourceBuffer);
 });

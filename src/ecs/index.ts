@@ -2,7 +2,7 @@ import { createWorld } from '@javelin/ecs';
 import { VisibleItem } from './components/VisibleItem';
 import componentTypes from './components';
 import systems from './systems';
-import { spawnPawnTopic } from './topics/spawn';
+import topics from './topics';
 
 interface ISystemData {
   deltaTime: number;
@@ -18,7 +18,7 @@ let previousTime = 0;
 function loop(time = 0) {
   const deltaTime = time - (previousTime || time);
   world.tick({ deltaTime });
-  spawnPawnTopic.flush();
+  topics.forEach((topic) => topic.flush());
 
   previousTime = time;
   requestAnimationFrame(loop);

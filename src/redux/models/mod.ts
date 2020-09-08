@@ -20,7 +20,7 @@ const initialState = {
 export type IState = {
   modList: string[];
   modLoadingState: MOD_LOADING_STATE;
-  mapList: string[];
+  mapList: { modName: string; mapName: string }[];
 };
 export const mod = createModel<RootModel>()({
   state: initialState as IState,
@@ -33,7 +33,7 @@ export const mod = createModel<RootModel>()({
       state.modLoadingState = newLoadingState;
       return state;
     },
-    setMapList(state: IState, newMapList: string[]) {
+    setMapList(state: IState, newMapList: { modName: string; mapName: string }[]) {
       state.mapList = newMapList;
       return state;
     },
@@ -65,10 +65,10 @@ export const mod = createModel<RootModel>()({
     },
     async loadMapList(_, rootState) {
       try {
-        let mapList: string[] = [];
+        let mapList: { modName: string; mapName: string }[] = [];
         for (const modName of rootState.mod.modList) {
           const mapListOfMod = await window.mod.loadModMapList({ modName });
-          mapList = [...mapList, ...mapListOfMod];
+          mapList = [...mapList, ...mapListOfMod.map((mapName) => ({ modName, mapName }))];
         }
         dispatch.mod.setMapList(mapList);
       } catch (error) {

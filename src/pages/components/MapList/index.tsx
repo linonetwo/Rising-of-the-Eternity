@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import ROUTE from '../../../constants/route';
 import { RootState, Dispatch } from '../../../redux';
+import { loadMap } from '../../../ecs/topics/map';
 
 const Menu = styled(Card)`
   display: flex;
@@ -26,9 +27,9 @@ export default function MapList(): JSX.Element {
 
   return (
     <Menu>
-      {mapList.map((mapName) => (
-        <Link key={mapName} to={ROUTE.world}>
-          <Button>{mapName}</Button>
+      {mapList.map((mapInfo) => (
+        <Link key={mapInfo.mapName} to={ROUTE.world}>
+          <Button onClick={() => loadMap(mapInfo)}>{mapInfo.mapName.replace('.json', '')}</Button>
         </Link>
       ))}
     </Menu>

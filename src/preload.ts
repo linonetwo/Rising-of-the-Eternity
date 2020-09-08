@@ -4,13 +4,13 @@ import * as i18nextBackend from 'i18next-electron-fs-backend';
 import Store from 'secure-electron-store';
 
 import { Mod } from './constants/handlerNames';
-import { IGetTextureArgument } from './preload.type';
 
 contextBridge.exposeInMainWorld('mod', {
-  [Mod.getTexture]: ({ modName, texturePath }: IGetTextureArgument) => ipcRenderer.invoke(Mod.getTexture, { modName, texturePath }),
+  [Mod.getTexture]: ({ texturePath }: { texturePath: string }) => ipcRenderer.invoke(Mod.getTexture, { texturePath }),
   [Mod.loadModList]: () => ipcRenderer.invoke(Mod.loadModList),
   [Mod.loadModInitializationScript]: ({ modName }: { modName: string }) => ipcRenderer.invoke(Mod.loadModInitializationScript, { modName }),
   [Mod.loadModMapList]: ({ modName }: { modName: string }) => ipcRenderer.invoke(Mod.loadModMapList, { modName }),
+  [Mod.loadMap]: ({ modName, mapName }: { modName: string; mapName: string }) => ipcRenderer.invoke(Mod.loadMap, { modName, mapName }),
 });
 
 const store = new Store();

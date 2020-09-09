@@ -75,7 +75,7 @@ export function useMappedQuery<S extends Selector>(
     const elements: JSX.Element[] = [];
 
     for (const [entity, [...components]] of query(world)) {
-      const element = <Component entity={entity} components={components as SelectorResult<S>} />;
+      const element = <Component entity={entity} key={entity} components={components as SelectorResult<S>} />;
       elements.push(element);
     }
 

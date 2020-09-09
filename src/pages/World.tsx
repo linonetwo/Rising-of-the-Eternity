@@ -1,12 +1,12 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import styled from 'styled-components';
 import { Stage } from 'react-pixi-fiber';
-import { Provider } from 'react-redux';
+import { Provider, useDispatch } from 'react-redux';
 import { query } from '@javelin/ecs';
 
 import { WorldProvider, useMappedQuery, MappedComponentProps } from '../ecs/react-javelin-ecs';
 import { world } from '../ecs';
-import { store } from '../redux';
+import { store, Dispatch } from '../redux';
 import HUD from './components/HUD';
 import ContextMenu from './components/ContextMenu';
 import Pawn from './sprites/pawn';
@@ -57,8 +57,16 @@ function Pawns(): JSX.Element {
 }
 
 export default function World(): JSX.Element {
+  const dispatch = useDispatch<Dispatch>();
+  const setMousePosition = useCallback(
+    (event: React.MouseEvent<HTMLCanvasElement, MouseEvent>) => {
+      if (typeof event.clientX === 'number' && typeof event.clientY === 'number') {
+        dispatch.cameraMouse.mouseMoveTo({ x: event.clientX, y: event.clientY });
+      }
+    },
+    [dispatch],
+  );
   const [contextMenuIsOpen, contextMenuIsOpenSetter] = useState(false);
-  const [mouseEntity, mouseEntitySetter] = useState({ position: [0, 0] });
 
   return (
     <Container id={containerID}>
@@ -76,10 +84,7 @@ export default function World(): JSX.Element {
           height: window.innerHeight,
           width: window.innerWidth,
         }}
-        onMouseMove={(event) => {
-          // should send to game system instead
-          mouseEntitySetter({ position: [event.clientX, event.clientY] });
-        }}
+        onMouseMove={setMousePosition}
         onContextMenu={(event) => {
           event.preventDefault();
           // reopen the menu to refresh its props
@@ -106,7 +111,6 @@ export default function World(): JSX.Element {
             icon: 'people',
           },
         ]}
-        position={mouseEntity ? mouseEntity.position : [0, 0]}
         open={contextMenuIsOpen}
         mountPoint={containerID}
       />

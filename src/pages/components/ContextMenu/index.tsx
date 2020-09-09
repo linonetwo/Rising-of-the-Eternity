@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import ReactDOM from 'react-dom';
+import { connect, ConnectedProps } from 'react-redux';
 import { search } from 'fast-fuzzy';
 import { Menu, MenuItem, IconName } from '@blueprintjs/core';
+
+import { RootState } from '../../../redux';
 
 export interface IMenuItem {
   title: string;
@@ -27,31 +30,50 @@ const MenuContainer = styled.div`
   }
 `;
 
-export type ContextMenuProps = {
+function mapStoreToProps(store: RootState) {
+  const { mouseX, mouseY } = store.cameraMouse;
+  return {
+    x: mouseX,
+    y: mouseY,
+  };
+}
+const connector = connect(mapStoreToProps);
+
+type IPropsFromRedux = ConnectedProps<typeof connector>;
+interface IProps extends IPropsFromRedux {
   open?: boolean;
   mountPoint: string;
   items: IMenuItem[];
-  position: number[];
-};
-type ContextMenuState = {
+}
+interface IState {
   filter: string;
   items: IMenuItem[];
   position: number[];
-};
-export default class ContextMenu extends Component<ContextMenuProps, ContextMenuState> {
+}
+
+class ContextMenu extends Component<IProps, IState> {
   state = {
     filter: '',
     items: [],
     position: [0, 0],
   };
 
-  static getDerivedStateFromProps(nextProps: ContextMenuProps): Partial<ContextMenuState> | null {
+  static getDerivedStateFromProps(nextProps: IProps): Partial<IState> | null {
     // stop update menu position when it is open, so it won't follow cursor around
     if (nextProps.open) {
       // eslint-disable-next-line unicorn/no-null
       return null;
     }
-    return { position: nextProps.position, items: nextProps.items };
+    const { x, y } = nextProps;
+    return { position: [x, y], items: nextProps.items };
+  }
+
+  shouldComponentUpdate(nextProps: IProps) {
+    // we need to update only if parent toggle this component, we get latest position data from parent
+    if (this.props.open === nextProps.open) {
+      return false;
+    }
+    return true;
   }
 
   componentDidMount(): void {
@@ -62,7 +84,7 @@ export default class ContextMenu extends Component<ContextMenuProps, ContextMenu
     document.removeEventListener('keydown', this.handleSearch, false);
   }
 
-  menuRef: HTMLDivElement | void = undefined;
+  menuRef: HTMLDivElement | undefined;
 
   /**
    * When a mark button is clicked, toggle the current mark.
@@ -81,11 +103,11 @@ export default class ContextMenu extends Component<ContextMenuProps, ContextMenu
   };
 
   getMenuStyle = (): { opacity: number; top: string; left: string } => {
-    if (this.menuRef === undefined) return { opacity: 0, top: '-99999px', left: '-99999px' };
+    if (this.menuRef === undefined || this.props.open !== true) return { opacity: 0, top: '-99999px', left: '-99999px' };
     return {
       opacity: 1,
-      top: `calc(${this.state.position[1]}px)`,
-      left: `calc(${this.state.position[0]}px - ${this.menuRef.offsetWidth / 2}px)`,
+      top: `${this.state.position[1]}px`,
+      left: `${this.state.position[0]}px`,
     };
   };
 
@@ -111,10 +133,9 @@ export default class ContextMenu extends Component<ContextMenuProps, ContextMenu
   };
 
   render(): JSX.Element {
-    if (!this.props.open) return <div />;
     const { opacity, top, left } = this.getMenuStyle();
     const mountPoint = document.querySelector(`#${this.props.mountPoint}`);
-    if (mountPoint && this.state.items.length > 0) {
+    if (mountPoint) {
       const itemsToDisplay =
         this.state.filter.length > 0
           ? search(this.state.filter, this.state.items, {
@@ -134,6 +155,7 @@ export default class ContextMenu extends Component<ContextMenuProps, ContextMenu
           }}>
           <Menu>{itemsToDisplay.map((item) => this.renderMarkButton(item))}</Menu>
           {this.state.filter}
+          {this.state.items.length === 0 && 'No Data'}
         </MenuContainer>,
         mountPoint,
       );
@@ -141,3 +163,5 @@ export default class ContextMenu extends Component<ContextMenuProps, ContextMenu
     return <div />;
   }
 }
+
+export default connector(ContextMenu);

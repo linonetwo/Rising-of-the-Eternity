@@ -54,6 +54,8 @@ module.exports = {
     ],
     'unicorn/consistent-function-scoping': [0],
     'no-void': [0],
+    'no-use-before-define': [0],
+    '@typescript-eslint/no-use-before-define': [1],
   },
   extends: [
     'eslint:recommended',

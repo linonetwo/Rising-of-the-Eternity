@@ -106,7 +106,7 @@
     "eslint-plugin-standard": "4.0.1",
     "eslint-plugin-unicorn": "21.0.0",
     "file-loader": "6.1.0",
-    "fork-ts-checker-webpack-plugin": "5.1.0",
+    "fork-ts-checker-webpack-plugin": "5.2.0",
     "node-loader": "1.0.1",
     "prettier": "2.1.1",
     "react-hot-loader": "4.12.21",

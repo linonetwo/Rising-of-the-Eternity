@@ -75,7 +75,7 @@
     "@electron-forge/plugin-webpack": "6.0.0-beta.53",
     "@types/csp-html-webpack-plugin": "3.0.0",
     "@types/electron-devtools-installer": "2.2.0",
-    "@types/eslint": "7.2.2",
+    "@types/eslint": "7.2.3",
     "@types/eslint-plugin-prettier": "3.1.0",
     "@types/file-loader": "4.2.0",
     "@types/fs-extra": "9.0.1",

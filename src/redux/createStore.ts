@@ -1,4 +1,4 @@
-import { init, Plugin } from '@rematch/core';
+import { init, Plugin, RematchStore } from '@rematch/core';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import createLoadingPlugin from '@rematch/loading';
 import immerPlugin from '@rematch/immer';
@@ -14,7 +14,7 @@ export const history = createHashHistory();
 
 const reducers = { router: connectRouter(history) };
 
-export default (models: RootModel): ReturnType<typeof init> =>
+export default (models: RootModel): RematchStore<RootModel> =>
   init<RootModel>({
     redux: {
       reducers,

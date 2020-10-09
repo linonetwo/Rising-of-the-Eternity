@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { createModel } from '@rematch/core';
 import { RootModel } from '../rootModelType';
+import { Direction } from '@typings/move';
 
 const initialState = {
   cameraX: 0,
@@ -32,6 +33,26 @@ export const cameraMouse = createModel<RootModel>()({
     ) {
       state.mouseX = newLocation.x;
       state.mouseY = newLocation.y;
+      return state;
+    },
+    cameraMove(state: IState, direction: Direction, distance = 10) {
+      switch (direction) {
+        case Direction.up:
+          state.cameraY += distance;
+          break;
+        case Direction.down:
+          state.cameraY -= distance;
+          break;
+        case Direction.left:
+          state.cameraX -= distance;
+          break;
+        case Direction.right:
+          state.cameraX += distance;
+          break;
+
+        default:
+          break;
+      }
       return state;
     },
   },

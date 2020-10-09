@@ -6,12 +6,13 @@ import { query } from '@javelin/ecs';
 
 import { WorldProvider, useMappedQuery, MappedComponentProps } from '../ecs/react-javelin-ecs';
 import { world } from '../ecs';
-import { store, Dispatch } from '../redux';
+import { store, StoreDispatch } from '@/redux';
 import HUD from './components/HUD';
 import ContextMenu from './components/ContextMenu';
 import Pawn from './sprites/pawn';
 import Tiles from './sprites/tile/tiles';
 import { VisibleItem } from '../ecs/components/VisibleItem';
+import { Direction } from '@typings/move';
 
 const Container = styled.main``;
 
@@ -57,7 +58,7 @@ function Pawns(): JSX.Element {
 }
 
 export default function World(): JSX.Element {
-  const dispatch = useDispatch<Dispatch>();
+  const dispatch = useDispatch<StoreDispatch>();
   const setMousePosition = useCallback(
     (event: React.MouseEvent<HTMLCanvasElement, MouseEvent>) => {
       if (typeof event.clientX === 'number' && typeof event.clientY === 'number') {
@@ -67,6 +68,20 @@ export default function World(): JSX.Element {
     [dispatch],
   );
   const [contextMenuIsOpen, contextMenuIsOpenSetter] = useState(false);
+
+  const handleKeyDownEvent = useCallback(
+    (event: React.KeyboardEvent<HTMLCanvasElement>) => {
+      switch (event.key) {
+        case 'w':
+          dispatch.cameraMouse.cameraMove(Direction.up);
+          break;
+
+        default:
+          break;
+      }
+    },
+    [dispatch],
+  );
 
   return (
     <Container id={containerID}>
@@ -84,6 +99,7 @@ export default function World(): JSX.Element {
           height: window.innerHeight,
           width: window.innerWidth,
         }}
+        onKeyDown={handleKeyDownEvent}
         onMouseMove={setMousePosition}
         onContextMenu={(event) => {
           event.preventDefault();

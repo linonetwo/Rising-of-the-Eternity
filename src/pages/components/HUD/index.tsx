@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Alignment, Button, Classes, Navbar, NavbarDivider, NavbarGroup, Position, Switch, Popover } from '@blueprintjs/core';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { RootState, Dispatch } from '../../../redux';
+import { RootState, StoreDispatch } from '../../../redux';
 import getMainMenu from './getMainMenu';
 import { spawnPawnTopic } from '../../../ecs/topics/spawn';
 
@@ -18,7 +18,7 @@ const DebugSwitch = styled(Switch)`
 
 export default function HUD(): JSX.Element {
   const inDebugMode: boolean = useSelector((state: RootState) => state.debug.inDebugMode);
-  const dispatch = useDispatch<Dispatch>();
+  const dispatch = useDispatch<StoreDispatch>();
 
   return (
     <>

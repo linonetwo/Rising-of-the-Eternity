@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import ROUTE from '../../../constants/route';
-import { RootState, Dispatch } from '../../../redux';
+import { RootState, StoreDispatch } from '../../../redux';
 import { loadMap } from '../../../ecs/topics/map';
 
 const Menu = styled(Card)`
@@ -19,7 +19,7 @@ const Menu = styled(Card)`
 
 export default function MapList(): JSX.Element {
   // load maps
-  const dispatch = useDispatch<Dispatch>();
+  const dispatch = useDispatch<StoreDispatch>();
   useEffect(() => {
     void dispatch.mod.loadMapList();
   }, []);

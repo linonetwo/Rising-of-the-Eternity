@@ -5,7 +5,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import { Provider as ReduxProvider, useDispatch } from 'react-redux';
 
 import './preload.type';
-import { store, history, Dispatch } from './redux';
+import { store, history, StoreDispatch } from './redux';
 import GlobalStyle from './globalStyles';
 
 import ROUTE from './constants/route';
@@ -24,7 +24,7 @@ const Container = styled.div`
 
 export function App(): JSX.Element {
   // load mods
-  const dispatch = useDispatch<Dispatch>();
+  const dispatch = useDispatch<StoreDispatch>();
   useEffect(() => {
     void dispatch.mod.loadModList().then(() => dispatch.mod.initializeMods());
   }, []);

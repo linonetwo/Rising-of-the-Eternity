@@ -11,7 +11,7 @@ const models: RootModel = { debug, mod, cameraMouse };
 export const store = createStore(models);
 
 export type Store = typeof store;
-export type Dispatch = RematchDispatch<RootModel>;
+export type StoreDispatch = RematchDispatch<RootModel>;
 export type RootState = RematchRootState<RootModel>;
 
 export { history } from './createStore';

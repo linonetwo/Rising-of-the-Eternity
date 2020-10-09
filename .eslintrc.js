@@ -16,6 +16,16 @@ module.exports = {
       node: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
+      alias: {
+        map: [
+          ['@', './src'],
+          ['@typings', './src/typings'],
+          ['@constants', './src/constants'],
+          ['@redux', './src/redux'],
+          ['@ecs', './src/ecs'],
+        ],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
     },
   },
   rules: {

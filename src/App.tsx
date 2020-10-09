@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { Switch, Route } from 'react-router';
-import { ConnectedRouter } from 'connected-react-router';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import { Provider as ReduxProvider, useDispatch } from 'react-redux';
 
 import './preload.type';
-import { store, history, StoreDispatch } from './redux';
+import { store, StoreDispatch } from './redux';
 import GlobalStyle from './globalStyles';
 
 import ROUTE from './constants/route';
@@ -49,9 +48,9 @@ export function AppWithProvider(): JSX.Element {
       <Container>
         <WorldProvider world={world}>
           <ReduxProvider store={store}>
-            <ConnectedRouter history={history}>
+            <Router>
               <App />
-            </ConnectedRouter>
+            </Router>
           </ReduxProvider>
         </WorldProvider>
       </Container>

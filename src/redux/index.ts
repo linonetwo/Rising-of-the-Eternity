@@ -13,5 +13,3 @@ export const store = createStore(models);
 export type Store = typeof store;
 export type StoreDispatch = RematchDispatch<RootModel>;
 export type RootState = RematchRootState<RootModel>;
-
-export { history } from './createStore';

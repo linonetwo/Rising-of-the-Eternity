@@ -20,7 +20,13 @@
   "license": "Apache License Version 2.0",
   "config": {
     "forge": {
-      "packagerConfig": {},
+      "packagerConfig": {
+        "icon": "resources/icon.icns",
+        "asar": true,
+        "extraResource": [
+          "resources/mods"
+        ]
+      },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",

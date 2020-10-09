@@ -1,5 +1,5 @@
-import { init, Plugin, RematchStore } from '@rematch/core';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
+import { init, RematchStore } from '@rematch/core';
 import createLoadingPlugin from '@rematch/loading';
 import immerPlugin from '@rematch/immer';
 import { createHashHistory } from 'history';
@@ -8,7 +8,7 @@ import { RootModel } from './rootModelType';
 
 const loadingOptions = {};
 const loading = createLoadingPlugin<RootModel>(loadingOptions);
-const immer = immerPlugin() as Plugin<RootModel>;
+const immer = immerPlugin<RootModel>();
 
 export const history = createHashHistory();
 

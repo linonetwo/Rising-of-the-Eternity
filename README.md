@@ -6,6 +6,8 @@ This game is about time-traveling in the high-dimensional space-time, prevent ti
 
 ## 游戏背景 Background
 
+[包含时间旅行概念的游戏系统](https://onetwo.ren/wiki/#:%E5%8C%85%E5%90%AB%E6%97%B6%E9%97%B4%E6%97%85%E8%A1%8C%E6%A6%82%E5%BF%B5%E7%9A%84%E6%B8%B8%E6%88%8F%E7%B3%BB%E7%BB%9F%20Index)
+
 此游戏的灵感来源是 [如何评价多维时空旅行五维象棋 5D Chess With Multiverse Time Travel？ - 林一二的回答 - 知乎](https://www.zhihu.com/question/408746496/answer/1442077583)。以及阿西莫夫的《[永恒的终结](https://www.99csw.com/book/8715/index.htm)》，只有成为超越时间的永恒之人，才有可能参与跨时空的叙事。
 
 本游戏将允许使用多种多样的时间旅行方式，体验各种各样的时间悖论，并可能允许多人对抗场景。

@@ -46,6 +46,4 @@ export function buildKnowledgeBaseFromCDDAData(fileItem: InspectResultWithConten
 // ##       ##     ## ##     ## ##     ## ##       ##    ##  ##    ##
 // ########  #######  ##     ## ########  ######## ##     ##  ######
 
-cddaLoaders.MOD_INFO = (item: ICDDAJSON, knowledgeBase: IGun) => {
-  
-}
+cddaLoaders.MOD_INFO = (item: ICDDAJSON, knowledgeBase: IGun) => {};

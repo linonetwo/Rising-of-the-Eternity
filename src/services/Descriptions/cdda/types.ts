@@ -71,6 +71,81 @@ export enum CDDA_JSON_TYPES {
   event_transformation = 'event_transformation',
 }
 
+interface PocketDaum {
+  pocket_type?: string;
+  max_contains_volume?: string;
+  max_contains_weight?: string;
+  moves?: number;
+  max_item_length?: string;
+  magazine_well?: string;
+  rigid?: boolean;
+  max_item_volume?: string;
+  watertight?: boolean;
+  holster?: boolean;
+  flag_restriction?: string[];
+  min_item_volume?: string;
+  ammo_restriction?: AmmoRestriction;
+}
+
+export interface AmmoRestriction {
+  '32'?: number;
+  '38'?: number;
+  '40'?: number;
+  '44'?: number;
+  '45'?: number;
+  '46'?: number;
+  '57'?: number;
+  '380'?: number;
+  '454'?: number;
+  '460'?: number;
+  '500'?: number;
+  '762x25'?: number;
+  '357mag'?: number;
+  '357sig'?: number;
+  '38super'?: number;
+  '10mm'?: number;
+  '45colt'?: number;
+  '9x18'?: number;
+  '9mm'?: number;
+  rock?: number;
+  '40x46mm'?: number;
+  '40x53mm'?: number;
+  '22'?: number;
+  '50'?: number;
+  '223'?: number;
+  '300'?: number;
+  '308'?: number;
+  '762'?: number;
+  '3006'?: number;
+  '4570'?: number;
+  '270win'?: number;
+  '300blk'?: number;
+  '5x50'?: number;
+  '545x39'?: number;
+  '762R'?: number;
+  '8x40mm'?: number;
+  '700nx'?: number;
+  flintlock?: number;
+  '36paper'?: number;
+  '44paper'?: number;
+  blunderbuss?: number;
+  shotcanister?: number;
+  shotpaper?: number;
+  '410shot'?: number;
+  shot?: number;
+  '20x66mm'?: number;
+  signal_flare?: number;
+  arrow?: number;
+  bolt?: number;
+  pebble?: number;
+  BB?: number;
+  '12mm'?: number;
+  metal_rail?: number;
+  stimpack_ammo?: number;
+  ampoule?: number;
+  paintball?: number;
+}
+
 type Name = string | { str: string; str_pl?: string };
 type Color = string | string[];
 type RangeOrFixed = number | number[];
@@ -83,8 +158,14 @@ interface Effect {
   spell_effects: SpellEffect[];
 }
 
+interface Effect2 {
+  id: string;
+  duration: number;
+}
+
 interface Extend {
-  effects: string[];
+  effects?: string[];
+  flags?: string[];
 }
 
 interface Proportional {
@@ -96,6 +177,20 @@ interface Proportional {
   loudness?: number;
   dispersion?: number;
   range?: number;
+  encumbrance?: number;
+  warmth?: number;
+}
+
+interface SnippetCategory {
+  id: string;
+  text: string;
+}
+
+interface ArmorPortionDaum {
+  covers?: string[];
+  coverage?: number;
+  encumbrance: RangeOrFixed;
+  sided?: boolean;
 }
 
 interface Delete {
@@ -110,6 +205,8 @@ interface Relative {
   dispersion?: number;
   price?: number;
   recoil?: number;
+  bashing?: number;
+  material_thickness?: number;
 }
 
 interface Explosion {
@@ -306,6 +403,350 @@ interface Entry {
   damage: RangeOrFixed;
   '//'?: string;
 }
+
+// ██╗   ██╗███████╗███████╗ █████╗  ██████╗████████╗██╗ ██████╗ ███╗   ██╗
+// ██║   ██║██╔════╝██╔════╝██╔══██╗██╔════╝╚══██╔══╝██║██╔═══██╗████╗  ██║
+// ██║   ██║███████╗█████╗  ███████║██║        ██║   ██║██║   ██║██╔██╗ ██║
+// ██║   ██║╚════██║██╔══╝  ██╔══██║██║        ██║   ██║██║   ██║██║╚██╗██║
+// ╚██████╔╝███████║███████╗██║  ██║╚██████╗   ██║   ██║╚██████╔╝██║ ╚████║
+//  ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+
+interface ChangeScent {
+  type: 'change_scent';
+  scent_typeid: string;
+  moves: number;
+  duration: string;
+  charges_to_use: number;
+  effects: Effect2[];
+}
+
+interface DeployFurn {
+  type: 'deploy_furn';
+  furn_type: string;
+}
+
+interface Firestarter {
+  type: 'firestarter';
+  moves?: number;
+  moves_slow?: number;
+  need_sunlight?: boolean;
+}
+
+interface DelayedTransform {
+  target: string;
+  msg: string;
+  moves: number;
+  type: 'delayed_transform';
+  transform_age: number;
+  not_ready_msg: string;
+  '//'?: string;
+  container?: string;
+  target_charges?: number;
+  active?: boolean;
+}
+
+interface Unpack {
+  type: 'unpack';
+  group: string;
+  items_fit?: boolean;
+  filthy_volume_threshold: string;
+}
+
+interface Transform {
+  target: string;
+  msg: string;
+  active?: boolean;
+  menu_text?: string;
+  type: 'transform';
+  need_fire?: number;
+  rand_target_charges?: number[];
+  target_charges?: number;
+  need_charges?: number;
+  need_charges_msg?: string;
+  need_worn?: boolean;
+  moves?: number;
+  qualities_needed?: QualitiesNeeded;
+  need_wielding?: boolean;
+  target_ammo?: string;
+  need_fire_msg?: string;
+}
+
+interface QualitiesNeeded {
+  SCREW_FINE: number;
+}
+
+interface CastSpell {
+  type: 'cast_spell';
+  spell_id: string;
+  no_fail: boolean;
+  level: number;
+}
+
+interface ExplosionUseAction {
+  type: 'explosion';
+  sound_volume?: number;
+  sound_msg?: string;
+  no_deactivate_msg?: string;
+  explosion?: Explosion;
+  draw_explosion_radius?: number;
+  draw_explosion_color?: string;
+  emp_blast_radius?: number;
+  do_flashbang?: boolean;
+  fields_type?: string;
+  fields_radius?: number;
+  fields_min_intensity?: number;
+  fields_max_intensity?: number;
+  scrambler_blast_radius?: number;
+  power?: number;
+  shrapnel?: Shrapnel;
+}
+
+interface Shrapnel {
+  casing_mass: number;
+  fragment_mass: number;
+  drop?: string;
+  recovery?: number;
+}
+
+interface PlaceMonster {
+  type: 'place_monster';
+  monster_id: string;
+  friendly_msg?: string;
+  hostile_msg?: string;
+  '//'?: string;
+  difficulty: number;
+  moves: number;
+  skills: string[];
+  place_randomly?: boolean;
+}
+
+interface FireweaponOff {
+  type: 'fireweapon_off';
+  target_id: string;
+  moves: number;
+  noise: number;
+  success_chance?: number;
+  success_message: string;
+  failure_message?: string;
+  lacks_fuel_message: string;
+}
+
+interface Mutagen {
+  type: 'mutagen';
+  is_weak?: boolean;
+  mutation_category?: string;
+  is_strong?: boolean;
+}
+
+interface Holster {
+  type: 'holster';
+  holster_prompt?: string;
+  holster_msg?: string;
+}
+
+interface Manualnoise {
+  type: 'manualnoise';
+  no_charges_message: string;
+  use_message: string;
+  '//': string;
+  noise_message: string;
+  noise_id: string;
+  noise_variant: string;
+  noise: number;
+  moves: number;
+}
+
+interface RevealMap {
+  type: 'reveal_map';
+  radius: number;
+  terrain: Array<string | OMTerrain>;
+  message: string;
+}
+
+interface OMTerrain {
+  om_terrain: string;
+  om_terrain_match_type: string;
+}
+
+interface ConsumeDrug {
+  type: 'consume_drug';
+  activation_message?: string;
+  effects?: Effect2[];
+  moves?: number;
+  used_up_item?: string;
+  stat_adjustments?: StatAdjustments;
+  fields_produced?: FieldsProduced;
+  charges_needed?: ChargesNeeded;
+  tools_needed?: ToolsNeeded;
+  vitamins?: ItemShortHand[];
+}
+
+interface StatAdjustments {
+  hunger: number;
+  thirst?: number;
+}
+
+interface FieldsProduced {
+  fd_weedsmoke?: number;
+  fd_cigsmoke?: number;
+  fd_cracksmoke?: number;
+}
+
+interface ChargesNeeded {
+  fire: number;
+}
+
+interface ToolsNeeded {
+  apparatus?: number;
+  syringe?: number;
+  dab_pen_on?: number;
+}
+
+interface Heal {
+  type: 'heal';
+  bandages_power?: number;
+  bleed?: number;
+  move_cost: number;
+  disinfectant_power?: number;
+  bite?: number;
+  used_up_item?: UsedUpItem;
+  effects?: Effect2[];
+}
+
+interface UsedUpItem {
+  id: string;
+  quantity: number;
+  charges?: number;
+  flags: string[];
+}
+
+interface StrongAntibiotic {
+  type: string;
+}
+
+interface MutagenIv {
+  type: 'mutagen_iv';
+  mutation_category?: string;
+}
+
+interface Ammobelt {
+  type: 'ammobelt';
+  belt: string;
+}
+
+interface PlaceTrap {
+  type: 'place_trap';
+  trap: string;
+  moves: number;
+  practice: number;
+  done_message: string;
+  allow_under_player?: boolean;
+  allow_underwater?: boolean;
+  bury_question?: string;
+  bury?: Bury;
+  outer_layer_trap?: string;
+  needs_solid_neighbor?: boolean;
+}
+
+interface Bury {
+  trap: string;
+  moves: number;
+  practice: number;
+  done_message: string;
+}
+
+interface UnfoldVehicle {
+  type: 'unfold_vehicle';
+  vehicle_name: string;
+  unfold_msg: string;
+  moves: number;
+  tools_needed?: ToolsNeeded2;
+}
+
+interface ToolsNeeded2 {
+  hand_pump: number;
+}
+
+interface Countdown {
+  type: 'countdown';
+  name: string;
+  message: string;
+}
+
+interface Inscribe {
+  type: 'inscribe';
+  verb: string;
+  gerund: string;
+  on_terrain: boolean;
+  material_restricted: boolean;
+}
+
+interface MusicalInstrument {
+  type: 'musical_instrument';
+  volume: number;
+  fun: number;
+  fun_bonus: number;
+  speed_penalty: number;
+  description_frequency: number;
+  player_descriptions: string[];
+  npc_descriptions?: string[];
+}
+
+interface DeployTent {
+  type: 'deploy_tent';
+  radius: number;
+  broken_type: string;
+  wall: string;
+  floor: string;
+  floor_center?: string;
+  door_opened: string;
+  door_closed: string;
+}
+
+interface RepairItem {
+  type: 'repair_item';
+  item_action_type: string;
+  materials: string[];
+  skill: string;
+  tool_quality: number;
+  cost_scaling: number;
+  move_cost: number;
+}
+
+interface WeighSelf {
+  type: 'weigh_self';
+  max_weight: string;
+}
+
+type UseAction =
+  | ChangeScent
+  | DeployFurn
+  | Firestarter
+  | DelayedTransform
+  | Unpack
+  | Transform
+  | CastSpell
+  | ExplosionUseAction
+  | PlaceMonster
+  | FireweaponOff
+  | Mutagen
+  | Holster
+  | Manualnoise
+  | string
+  | RevealMap
+  | ConsumeDrug
+  | Heal
+  | StrongAntibiotic
+  | MutagenIv
+  | Ammobelt
+  | PlaceTrap
+  | UnfoldVehicle
+  | Countdown
+  | Inscribe
+  | MusicalInstrument
+  | DeployTent
+  | RepairItem
+  | WeighSelf;
 
 type Alias = string | string[];
 
@@ -545,4 +986,51 @@ export type ICDDAJSON =
       explosion?: Explosion;
       seed_data?: SeedData;
       critical_multiplier?: number;
+    }
+  | {
+      id?: string;
+      type: string;
+      name: Name;
+      description?: string;
+      weight?: string;
+      volume?: string;
+      price?: number;
+      price_postapoc?: number;
+      to_hit?: number;
+      bashing?: number;
+      material?: string[];
+      symbol?: string;
+      looks_like?: string;
+      color?: string;
+      covers?: string[];
+      sided?: boolean;
+      coverage?: number;
+      material_thickness?: number;
+      flags?: string[];
+      category?: string;
+      encumbrance?: number;
+      warmth?: number;
+      environmental_protection?: number;
+      techniques?: string[];
+      use_action: UseAction | UseAction[];
+      'copy-from'?: string;
+      '//'?: string;
+      repairs_like?: string;
+      qualities?: ItemShortHand[];
+      delete?: Delete;
+      relic_data?: RelicData;
+      pocket_data?: PocketDaum[];
+      proportional?: Proportional;
+      relative?: Relative;
+      valid_mods?: string[];
+      cutting?: number;
+      abstract?: string;
+      extend?: Extend;
+      max_encumbrance?: number;
+      snippet_category?: SnippetCategory[];
+      ascii_picture?: string;
+      armor_portion_data?: ArmorPortionDaum[];
+      power_armor?: boolean;
+      longest_side?: string;
+      properties?: string[][];
     };

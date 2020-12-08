@@ -4,10 +4,10 @@ const path = require('path');
 const JsonToTS = require('json-to-ts');
 const { camelCase, capitalize } = require('lodash');
 
-const base = '/Users/linonetwo/Desktop/repo/Cataclysm-DDA/data/json';
-const mods = '/Users/linonetwo/Desktop/repo/Cataclysm-DDA/data/mods';
-const out = '/Users/linonetwo/Desktop/repo/Eternity-Foundation/scripts/out.json';
-const tsFilePathBase = '/Users/linonetwo/Desktop/repo/Eternity-Foundation/scripts/types';
+const base = './resources/mods/cdda/core';
+const mods = './resources/mods/cdda/mods';
+const out = './scripts/out.json';
+const tsFilePathBase = './src/services/Descriptions/cdda/types';
 
 // const type = 'GENERIC';
 let files = [

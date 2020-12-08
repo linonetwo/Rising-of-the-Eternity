@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/consistent-type-assertions */
-import { IProcessors, ICDDAJSON, CDDA_JSON_TYPES } from './types';
+import { IProcessors, ICDDAJSON } from './types';
 import { IGun, InspectResultWithContent } from '../types';
 
 /**
@@ -18,10 +18,10 @@ export function buildKnowledgeBaseFromCDDAData(fileItem: InspectResultWithConten
     if (Array.isArray(content)) {
       // CDDA data is normally an Array of object
       for (const descriptionItem of content) {
-        const translator = knowledgeBaseBuilders[descriptionItem.type as CDDA_JSON_TYPES];
+        const translator = knowledgeBaseBuilders[descriptionItem.type];
         if (translator === undefined) {
           // TODO: use logger instead, and we read logger output for user later, just like the rimworld
-          console.warn(`No translator found for ${descriptionItem.type as CDDA_JSON_TYPES}`);
+          console.warn(`No translator found for ${descriptionItem.type}`);
         } else {
           translator(descriptionItem as never, knowledgeBase);
         }

@@ -3,6 +3,10 @@ const fs = require('fs-extra');
 const path = require('path');
 const JsonToTS = require('json-to-ts');
 const { camelCase, capitalize } = require('lodash');
+const prettier = require('prettier');
+const { ESLint } = require('eslint');
+
+const eslint = new ESLint({ fix: true });
 
 const base = './resources/mods/cdda/core';
 const mods = './resources/mods/cdda/mods';
@@ -61,25 +65,36 @@ contents.forEach((dataObject) => {
 
 // fs.writeJsonSync(out, contents);
 console.log('starting JsonToTS');
-for (const type of types) {
-  let [nameStart, ...nameRest] = camelCase(type).split('');
-  const camelCasedTypeName = [capitalize(nameStart), ...nameRest].join('');
-  console.log(`For ${type} (${camelCasedTypeName}):`);
-  const contentOfThisType = contents.filter((item) => item.type === type);
+async function main() {
+  for (const type of types) {
+    let [nameStart, ...nameRest] = camelCase(type).split('');
+    const camelCasedTypeName = [capitalize(nameStart), ...nameRest].join('');
+    console.log(`For ${type} (${camelCasedTypeName}):`);
+    const contentOfThisType = contents.filter((item) => item.type === type);
 
-  let tsString = `import { CDDA_JSON_TYPES } from './names'\n\n`;
-  JsonToTS(contentOfThisType).forEach((typeInterface) => {
-    tsString += typeInterface;
-    tsString += '\n\n';
-    const isRootObject = tsString.includes('interface RootObject');
-    if (isRootObject) {
-      tsString = tsString.replace('interface RootObject', `export interface I${camelCasedTypeName}`);
-      tsString = tsString.replace('  type: string;', `  type: CDDA_JSON_TYPES.${type};`);
+    let tsString = ``;
+    JsonToTS(contentOfThisType).forEach((typeInterface) => {
+      tsString += typeInterface;
+      tsString += '\n\n';
+      const isRootObject = tsString.includes('interface RootObject');
+      if (isRootObject) {
+        tsString = tsString.replace('interface RootObject', `export interface I${camelCasedTypeName}`);
+        tsString = tsString.replace('  type: string;', `  type: '${type}';`);
+      }
+    });
+    tsString = tsString.replace(/'''\?\: /gm, `"'"?: `);
+
+    if (!fs.existsSync(tsFilePathBase)) {
+      fs.mkdirSync(tsFilePathBase);
     }
-  });
-
-  if (!fs.existsSync(tsFilePathBase)) {
-    fs.mkdirSync(tsFilePathBase);
+    console.log('Output formatted content');
+    const prettierOption = await prettier.resolveConfig(tsFilePathBase);
+    tsString = prettier.format(tsString, { parser: 'babel', ...prettierOption });
+    const newFilePath = path.join(tsFilePathBase, `${camelCasedTypeName}.ts`);
+    await fs.writeFile(newFilePath, tsString);
+    const results = await eslint.lintFiles([newFilePath]);
+    await ESLint.outputFixes(results);
   }
-  fs.writeFileSync(path.join(tsFilePathBase, `${camelCasedTypeName}.ts`), tsString);
 }
+
+main();

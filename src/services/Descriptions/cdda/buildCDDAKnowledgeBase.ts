@@ -1,10 +1,11 @@
-import { CDDA_JSON_TYPES, ICDDAJSON } from './types';
+/* eslint-disable @typescript-eslint/consistent-type-assertions */
+import { IProcessors, ICDDAJSON, CDDA_JSON_TYPES } from './types';
 import { IGun, InspectResultWithContent } from '../types';
 
 /**
  * Loaders of each type of CDDA data JSON Object, load things into GUN db
  */
-export const cddaLoaders: { [key in CDDA_JSON_TYPES]?: (item: ICDDAJSON, knowledgeBase: IGun) => void } = {};
+export const knowledgeBaseBuilders = {} as IProcessors<IGun>;
 
 /**
  * Put all things from CDDA data JSON to GUN db
@@ -17,12 +18,12 @@ export function buildKnowledgeBaseFromCDDAData(fileItem: InspectResultWithConten
     if (Array.isArray(content)) {
       // CDDA data is normally an Array of object
       for (const descriptionItem of content) {
-        const translator = cddaLoaders[descriptionItem.type];
+        const translator = knowledgeBaseBuilders[descriptionItem.type as CDDA_JSON_TYPES];
         if (translator === undefined) {
           // TODO: use logger instead, and we read logger output for user later, just like the rimworld
-          console.warn(`No translator found for ${descriptionItem.type}`);
+          console.warn(`No translator found for ${descriptionItem.type as CDDA_JSON_TYPES}`);
         } else {
-          translator(descriptionItem, knowledgeBase);
+          translator(descriptionItem as never, knowledgeBase);
         }
       }
     } else {
@@ -46,4 +47,4 @@ export function buildKnowledgeBaseFromCDDAData(fileItem: InspectResultWithConten
 // ##       ##     ## ##     ## ##     ## ##       ##    ##  ##    ##
 // ########  #######  ##     ## ########  ######## ##     ##  ######
 
-cddaLoaders.MOD_INFO = (item: ICDDAJSON, knowledgeBase: IGun) => {};
+knowledgeBaseBuilders.achievement = (item, gun) => {};

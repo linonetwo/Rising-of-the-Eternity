@@ -1,8 +1,6 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IMissionDefinition {
   id: string;
-  type: CDDA_JSON_TYPES.mission_definition;
+  type: 'mission_definition';
   name: Name | string;
   goal: string;
   difficulty: number;
@@ -447,7 +445,7 @@ interface Effect19 {
 
 interface End24 {
   opinion: Opinion;
-  effect: (Effect4 | Effect2 | string)[];
+  effect: Array<Effect4 | Effect2 | string>;
 }
 
 interface End23 {
@@ -553,7 +551,7 @@ interface End13 {
 }
 
 interface End12 {
-  effect: (Effect15 | Effect4 | string)[];
+  effect: Array<Effect15 | Effect4 | string>;
 }
 
 interface Effect15 {
@@ -562,7 +560,7 @@ interface Effect15 {
 }
 
 interface End11 {
-  effect: (Effect12 | Effect26 | string)[];
+  effect: Array<Effect12 | Effect26 | string>;
 }
 
 interface Effect26 {
@@ -625,7 +623,7 @@ interface Placevehicle2 {
 }
 
 interface End7 {
-  effect: (Effect12 | Effect25 | string)[];
+  effect: Array<Effect12 | Effect25 | string>;
 }
 
 interface Effect25 {
@@ -707,7 +705,7 @@ interface Effect9 {
 }
 
 interface End {
-  effect: (Effect8 | Effect24 | Effect4 | string)[];
+  effect: Array<Effect8 | Effect24 | Effect4 | string>;
 }
 
 interface Effect24 {
@@ -754,7 +752,7 @@ interface Assignmissiontarget16 {
 }
 
 interface Start38 {
-  effect: (Effect7 | string)[];
+  effect: Array<Effect7 | string>;
   assign_mission_target: Assignmissiontarget15;
   update_mapgen: Updatemapgen15[];
 }
@@ -780,7 +778,7 @@ interface Effect7 {
 }
 
 interface Start37 {
-  effect: (Effect6 | Effect3 | Effect22 | string)[];
+  effect: Array<Effect6 | Effect3 | Effect22 | string>;
 }
 
 interface Effect6 {
@@ -1106,7 +1104,7 @@ interface Start19 {
 }
 
 interface Start18 {
-  effect: (Effect3 | Effect23 | Effect22 | string)[];
+  effect: Array<Effect3 | Effect23 | Effect22 | string>;
 }
 
 interface Effect23 {
@@ -1125,7 +1123,7 @@ interface Assignmissiontarget5 {
 }
 
 interface Start16 {
-  effect: (Effect | string)[];
+  effect: Array<Effect | string>;
   assign_mission_target: Assignmissiontarget2;
 }
 
@@ -1156,7 +1154,7 @@ interface Start12 {
 }
 
 interface Start11 {
-  effect: (Effect3 | Effect22 | string)[];
+  effect: Array<Effect3 | Effect22 | string>;
 }
 
 interface Effect22 {

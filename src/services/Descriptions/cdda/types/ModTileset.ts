@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IModTileset {
-  type: CDDA_JSON_TYPES.mod_tileset;
+  type: 'mod_tileset';
   compatibility: string[];
   'tiles-new': Tilesnew[];
 }

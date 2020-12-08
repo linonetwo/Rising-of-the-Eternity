@@ -1,8 +1,6 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IGeneric {
   id?: string;
-  type: CDDA_JSON_TYPES.GENERIC;
+  type: 'GENERIC';
   category?: string;
   name: Name | Name2 | Name3 | Name4 | string;
   description?: Description | string;
@@ -43,7 +41,7 @@ export interface IGeneric {
   to_hit?: number;
   techniques?: string[];
   bashing?: number;
-  qualities?: (number | string)[][];
+  qualities?: Array<Array<number | string>>;
   '//'?: string;
   cutting?: number;
   ascii_picture?: string;
@@ -88,7 +86,7 @@ interface Conditionalname {
 interface Gunmoddata {
   location: string;
   mod_targets: string[];
-  mode_modifier: (string[] | number | string)[][];
+  mode_modifier: Array<Array<string[] | number | string>>;
   install_time: string;
 }
 
@@ -98,7 +96,7 @@ interface Throwndamage {
 }
 
 interface Delete {
-  qualities: (number | string)[][];
+  qualities: Array<Array<number | string>>;
 }
 
 interface Countdownaction {
@@ -110,7 +108,7 @@ interface Countdownaction {
 
 interface Extend {
   flags?: string[];
-  qualities?: (number | string)[][];
+  qualities?: Array<Array<number | string>>;
 }
 
 interface Milling {
@@ -295,7 +293,7 @@ interface Useaction14 {
 interface Useaction13 {
   type: string;
   radius: number;
-  terrain: (Terrain | string)[];
+  terrain: Array<Terrain | string>;
   message: string;
 }
 

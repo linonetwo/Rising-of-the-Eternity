@@ -1,8 +1,6 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IEventTransformation {
   id: string;
-  type: CDDA_JSON_TYPES.event_transformation;
+  type: 'event_transformation';
   event_type?: string;
   value_constraints?: Valueconstraints;
   drop_fields?: string[];

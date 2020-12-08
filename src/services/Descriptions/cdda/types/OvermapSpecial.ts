@@ -1,9 +1,7 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IOvermapSpecial {
   id: string;
-  type: CDDA_JSON_TYPES.overmap_special;
-  overmaps: (Overmap | Overmaps2 | Overmaps3)[];
+  type: 'overmap_special';
+  overmaps: Array<Overmap | Overmaps2 | Overmaps3>;
   connections?: Connection[];
   locations?: string[];
   city_distance?: number[];

@@ -1,10 +1,8 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IRegionSettings {
-  type: CDDA_JSON_TYPES.region_settings;
+  type: 'region_settings';
   id: string;
   default_oter?: string;
-  default_groundcover?: (number | string)[][];
+  default_groundcover?: Array<Array<number | string>>;
   region_terrain_and_furniture?: Regionterrainandfurniture;
   river_scale?: number;
   field_coverage?: Fieldcoverage;

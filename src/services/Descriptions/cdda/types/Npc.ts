@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface INpc {
-  type: CDDA_JSON_TYPES.npc;
+  type: 'npc';
   id: string;
   name_suffix?: string;
   '//'?: string;

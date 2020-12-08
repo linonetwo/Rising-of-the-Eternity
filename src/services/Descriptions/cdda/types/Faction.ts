@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IFaction {
-  type: CDDA_JSON_TYPES.faction;
+  type: 'faction';
   id: string;
   name: string;
   likes_u: number;

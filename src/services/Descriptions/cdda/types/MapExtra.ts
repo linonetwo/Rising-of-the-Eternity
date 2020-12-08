@@ -1,8 +1,6 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IMapExtra {
   id: string;
-  type: CDDA_JSON_TYPES.map_extra;
+  type: 'map_extra';
   name: Name;
   description: string;
   generator: Generator;

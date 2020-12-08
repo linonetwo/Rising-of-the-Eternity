@@ -1,8 +1,6 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IToolmod {
   id?: string;
-  type: CDDA_JSON_TYPES.TOOLMOD;
+  type: 'TOOLMOD';
   category?: string;
   name: Name | string;
   description?: string;
@@ -19,7 +17,7 @@ export interface IToolmod {
   flags?: string[];
   abstract?: string;
   pocket_mods?: Pocketmod[];
-  magazine_adaptor?: (string[] | string)[][];
+  magazine_adaptor?: Array<Array<string[] | string>>;
 }
 
 interface Pocketmod {

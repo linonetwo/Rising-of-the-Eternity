@@ -1,8 +1,6 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IMigration {
   id: string[] | string;
-  type: CDDA_JSON_TYPES.MIGRATION;
+  type: 'MIGRATION';
   replace: string;
   flags?: string[];
   charges?: number;

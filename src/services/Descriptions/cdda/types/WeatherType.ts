@@ -1,8 +1,6 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IWeatherType {
   id: string;
-  type: CDDA_JSON_TYPES.weather_type;
+  type: 'weather_type';
   name: string;
   color: string;
   map_color: string;

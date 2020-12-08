@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IDiseaseType {
-  type: CDDA_JSON_TYPES.disease_type;
+  type: 'disease_type';
   id: string;
   min_duration: string;
   max_duration: string;

@@ -1,10 +1,8 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IEffectType {
-  type: CDDA_JSON_TYPES.effect_type;
+  type: 'effect_type';
   id: string;
   '//'?: string;
-  name?: (Name | string)[];
+  name?: Array<Name | string>;
   desc?: string[];
   int_add_val?: number;
   max_intensity?: number;
@@ -20,7 +18,7 @@ export interface IEffectType {
   int_dur_factor?: number | string;
   removes_effects?: string[];
   blood_analysis_description?: string;
-  miss_messages?: (number | string)[][];
+  miss_messages?: Array<Array<number | string>>;
   resist_traits?: string[];
   pain_sizing?: boolean;
   hurt_sizing?: boolean;

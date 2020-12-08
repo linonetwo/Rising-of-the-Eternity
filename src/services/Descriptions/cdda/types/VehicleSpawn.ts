@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IVehicleSpawn {
-  type: CDDA_JSON_TYPES.vehicle_spawn;
+  type: 'vehicle_spawn';
   id: string;
   spawn_types: Spawntype[];
 }

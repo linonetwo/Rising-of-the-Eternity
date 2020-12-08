@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IColordef {
-  type: CDDA_JSON_TYPES.colordef;
+  type: 'colordef';
   BLACK: number[];
   RED: number[];
   GREEN: number[];

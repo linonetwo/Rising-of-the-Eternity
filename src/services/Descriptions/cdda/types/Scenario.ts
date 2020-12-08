@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IScenario {
-  type: CDDA_JSON_TYPES.scenario;
+  type: 'scenario';
   id: string;
   name?: string;
   points?: number;

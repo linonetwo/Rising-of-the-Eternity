@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names'
-
 export interface IMapgen {
-  type: CDDA_JSON_TYPES.mapgen;
+  type: 'mapgen';
   method: string;
   om_terrain?: string[] | string[][] | string;
   weight?: number;
@@ -18,14 +16,203 @@ interface Object {
   rows?: string[];
   palettes?: string[];
   items?: Items;
-  place_monsters?: (Placemonster | Placemonsters2 | Placemonsters3 | Placemonsters4 | Placemonsters5 | Placemonsters6 | Placemonsters7 | Placemonsters8 | Placemonsters9 | Placemonsters10 | Placemonsters11 | Placemonsters12 | Placemonsters13 | Placemonsters14 | Placemonsters15 | Placemonsters16 | Placemonsters17 | Placemonsters18 | Placemonsters19 | Placemonsters20 | Placemonsters21 | Placemonsters22 | Placemonsters23 | Placemonsters24 | Placemonsters25 | Placemonsters26 | Placemonsters27 | Placemonsters28 | Placemonsters29 | Placemonsters30 | Placemonsters31 | Placemonsters32 | Placemonsters33 | Placemonsters34 | Placemonsters35 | Placemonsters36 | Placemonsters37 | Placemonsters38 | Placemonsters39 | Placemonsters40)[];
+  place_monsters?: Array<
+    | Placemonster
+    | Placemonsters2
+    | Placemonsters3
+    | Placemonsters4
+    | Placemonsters5
+    | Placemonsters6
+    | Placemonsters7
+    | Placemonsters8
+    | Placemonsters9
+    | Placemonsters10
+    | Placemonsters11
+    | Placemonsters12
+    | Placemonsters13
+    | Placemonsters14
+    | Placemonsters15
+    | Placemonsters16
+    | Placemonsters17
+    | Placemonsters18
+    | Placemonsters19
+    | Placemonsters20
+    | Placemonsters21
+    | Placemonsters22
+    | Placemonsters23
+    | Placemonsters24
+    | Placemonsters25
+    | Placemonsters26
+    | Placemonsters27
+    | Placemonsters28
+    | Placemonsters29
+    | Placemonsters30
+    | Placemonsters31
+    | Placemonsters32
+    | Placemonsters33
+    | Placemonsters34
+    | Placemonsters35
+    | Placemonsters36
+    | Placemonsters37
+    | Placemonsters38
+    | Placemonsters39
+    | Placemonsters40
+  >;
   toilets?: Toilets;
   terrain?: Terrain;
   furniture?: Furniture;
   place_vehicles?: Placevehicle[];
-  place_items?: (Placeitem | Placeitems2 | Placeitems3 | Placeitems4 | Placeitems5 | Placeitems6 | Placeitems7 | Placeitems8 | Placeitems9 | Placeitems10 | Placeitems11 | Placeitems12 | Placeitems13 | Placeitems14 | Placeitems15 | Placeitems16 | Placeitems17 | Placeitems18 | Placeitems19 | Placeitems20 | Placeitems21 | Placeitems22 | Placeitems23 | Placeitems24 | Placeitems25 | Placeitems26 | Placeitems27 | Placeitems28 | Placeitems29 | Placeitems30 | Placeitems31 | Placeitems32)[];
-  place_loot?: (Placeloot | Placeloot2 | Placeloot3 | Placeloot4 | Placeloot5 | Placeloot6 | Placeloot7 | Placeitems6 | Placeloot9 | Placeloot10 | Placeloot11 | Placeloot12 | Placeitems7 | Placeloot14 | Placeloot15 | Placeloot16 | Placeloot17 | Placeloot18 | Placeloot19 | Placeloot20 | Placeloot21 | Placeloot22 | Placeloot23 | Placeloot24 | Placeitems9 | Placeloot26 | Placeloot27 | Placeloot28 | Placeloot29 | Placeloot30 | Placeitems12 | Placeloot32 | Placeloot33 | Placeloot34 | Placeloot35 | Placeitems15 | Placeloot37 | Placeloot38 | Placeloot39 | Placeloot40 | Placeloot41 | Placeloot42 | Placeloot43 | Placeitems18 | Placeloot45 | Placeloot46 | Placeloot47 | Placeitems20 | Placeloot49 | Placeloot50 | Placeloot51 | Placeloot52 | Placeloot53 | Placeloot54 | Placeloot55 | Placeloot56 | Placeloot57 | Placeloot58 | Placeloot59 | Placeitems22 | Placeloot61 | Placeloot62 | Placeloot63 | Placeloot64 | Placeitems24 | Placeloot66 | Placeloot67 | Placeitems25 | Placeloot69 | Placeloot70 | Placeloot71 | Placeitems26 | Placeloot73 | Placeloot74 | Placeitems27 | Placeitems28 | Placeloot77 | Placeloot78 | Placeloot79 | Placeloot80 | Placeloot81 | Placeitems31 | Placeloot83 | Placeloot84 | Placeloot85 | Placeloot86 | Placeloot87 | Placeloot88)[];
-  set?: (Set | Set2 | Set3 | Set4 | Set5 | Set6 | Set7 | Set8 | Set9 | Set10 | Set11 | Set12 | Set13 | Set14 | Set15 | Set16 | Set17 | Set18 | Set19 | Set20 | Set21 | Set22 | Set23 | Set24 | Set25)[];
+  place_items?: Array<
+    | Placeitem
+    | Placeitems2
+    | Placeitems3
+    | Placeitems4
+    | Placeitems5
+    | Placeitems6
+    | Placeitems7
+    | Placeitems8
+    | Placeitems9
+    | Placeitems10
+    | Placeitems11
+    | Placeitems12
+    | Placeitems13
+    | Placeitems14
+    | Placeitems15
+    | Placeitems16
+    | Placeitems17
+    | Placeitems18
+    | Placeitems19
+    | Placeitems20
+    | Placeitems21
+    | Placeitems22
+    | Placeitems23
+    | Placeitems24
+    | Placeitems25
+    | Placeitems26
+    | Placeitems27
+    | Placeitems28
+    | Placeitems29
+    | Placeitems30
+    | Placeitems31
+    | Placeitems32
+  >;
+  place_loot?: Array<
+    | Placeloot
+    | Placeloot2
+    | Placeloot3
+    | Placeloot4
+    | Placeloot5
+    | Placeloot6
+    | Placeloot7
+    | Placeitems6
+    | Placeloot9
+    | Placeloot10
+    | Placeloot11
+    | Placeloot12
+    | Placeitems7
+    | Placeloot14
+    | Placeloot15
+    | Placeloot16
+    | Placeloot17
+    | Placeloot18
+    | Placeloot19
+    | Placeloot20
+    | Placeloot21
+    | Placeloot22
+    | Placeloot23
+    | Placeloot24
+    | Placeitems9
+    | Placeloot26
+    | Placeloot27
+    | Placeloot28
+    | Placeloot29
+    | Placeloot30
+    | Placeitems12
+    | Placeloot32
+    | Placeloot33
+    | Placeloot34
+    | Placeloot35
+    | Placeitems15
+    | Placeloot37
+    | Placeloot38
+    | Placeloot39
+    | Placeloot40
+    | Placeloot41
+    | Placeloot42
+    | Placeloot43
+    | Placeitems18
+    | Placeloot45
+    | Placeloot46
+    | Placeloot47
+    | Placeitems20
+    | Placeloot49
+    | Placeloot50
+    | Placeloot51
+    | Placeloot52
+    | Placeloot53
+    | Placeloot54
+    | Placeloot55
+    | Placeloot56
+    | Placeloot57
+    | Placeloot58
+    | Placeloot59
+    | Placeitems22
+    | Placeloot61
+    | Placeloot62
+    | Placeloot63
+    | Placeloot64
+    | Placeitems24
+    | Placeloot66
+    | Placeloot67
+    | Placeitems25
+    | Placeloot69
+    | Placeloot70
+    | Placeloot71
+    | Placeitems26
+    | Placeloot73
+    | Placeloot74
+    | Placeitems27
+    | Placeitems28
+    | Placeloot77
+    | Placeloot78
+    | Placeloot79
+    | Placeloot80
+    | Placeloot81
+    | Placeitems31
+    | Placeloot83
+    | Placeloot84
+    | Placeloot85
+    | Placeloot86
+    | Placeloot87
+    | Placeloot88
+  >;
+  set?: Array<
+    | Set
+    | Set2
+    | Set3
+    | Set4
+    | Set5
+    | Set6
+    | Set7
+    | Set8
+    | Set9
+    | Set10
+    | Set11
+    | Set12
+    | Set13
+    | Set14
+    | Set15
+    | Set16
+    | Set17
+    | Set18
+    | Set19
+    | Set20
+    | Set21
+    | Set22
+    | Set23
+    | Set24
+    | Set25
+  >;
   gaspumps?: Gaspumps;
   place_vendingmachines?: Placevendingmachine[];
   place_fields?: Placefield[];
@@ -44,11 +231,50 @@ interface Object {
   predecessor_mapgen?: string;
   place_monster?: Placemonster2[];
   faction_owner?: Factionowner[];
-  place_npcs?: (Placenpc | Placenpcs2)[];
+  place_npcs?: Array<Placenpc | Placenpcs2>;
   place_nested?: Placenested[];
   nested?: Nested;
   mapgensize?: number[];
-  place_item?: (Placeitems2 | Placeitem2 | Placeitem3 | Placeitem4 | Placeitem5 | Placeloot12 | Placeitem7 | Placeitem8 | Placeitems8 | Placeitems9 | Placeitem11 | Placeitem12 | Placeitems10 | Placeitems11 | Placeitem15 | Placeitem16 | Placeitems12 | Placeitems14 | Placeitem19 | Placeitem20 | Placeitem21 | Placeitems18 | Placeloot45 | Placeitem24 | Placeitem25 | Placeitems20 | Placeitem27 | Placeitem28 | Placeitem29 | Placeitem30 | Placeitems24 | Placeitems25 | Placeloot74 | Placeitems27 | Placeitems28 | Placeitem36 | Placeloot80 | Placeitem38)[];
+  place_item?: Array<
+    | Placeitems2
+    | Placeitem2
+    | Placeitem3
+    | Placeitem4
+    | Placeitem5
+    | Placeloot12
+    | Placeitem7
+    | Placeitem8
+    | Placeitems8
+    | Placeitems9
+    | Placeitem11
+    | Placeitem12
+    | Placeitems10
+    | Placeitems11
+    | Placeitem15
+    | Placeitem16
+    | Placeitems12
+    | Placeitems14
+    | Placeitem19
+    | Placeitem20
+    | Placeitem21
+    | Placeitems18
+    | Placeloot45
+    | Placeitem24
+    | Placeitem25
+    | Placeitems20
+    | Placeitem27
+    | Placeitem28
+    | Placeitem29
+    | Placeitem30
+    | Placeitems24
+    | Placeitems25
+    | Placeloot74
+    | Placeitems27
+    | Placeitems28
+    | Placeitem36
+    | Placeloot80
+    | Placeitem38
+  >;
   place_terrain?: Placeterrain[];
   place_furniture?: Placefurniture[];
   place_graffiti?: Placegraffiti[];
@@ -97,7 +323,7 @@ interface Placegaspump {
 interface Placeliquid {
   liquid: string;
   chance?: number;
-  amount?: (number[] | number)[];
+  amount?: Array<number[] | number>;
   x: number[] | number;
   y: number[] | number[] | number | number;
   repeat?: number[] | number;
@@ -161,20 +387,20 @@ interface Sealeditem {
   Q?: Q4;
   p?: Q4;
   P?: Q4;
-  '1'?: _110;
-  '2'?: _110;
-  '3'?: _110;
-  '4'?: _110;
-  '5'?: _110;
-  '6'?: _110;
-  '8'?: _110;
+  1?: _110;
+  2?: _110;
+  3?: _110;
+  4?: _110;
+  5?: _110;
+  6?: _110;
+  8?: _110;
   D?: D6;
   '♥'?: _30;
   '♠'?: _30;
   '♦'?: _30;
   '♣'?: _30;
-  'Ʌ'?: _31;
-  'Δ'?: _31;
+  Ʌ?: _31;
+  Δ?: _31;
   '‡'?: _31;
   '%'?: _31;
   '#'?: _32;
@@ -189,10 +415,10 @@ interface Sealeditem {
   z?: _29;
   u?: _29;
   m?: _29;
-  '0'?: _02;
-  '7'?: _29;
-  '9'?: _29;
-  '$'?: _29;
+  0?: _02;
+  7?: _29;
+  9?: _29;
+  $?: _29;
   '~'?: _29;
   '&'?: _29;
   '!'?: _33;
@@ -267,20 +493,20 @@ interface Liquids {
   O?: E2;
   t?: E2;
   X?: E2;
-  '6'?: E2;
+  6?: E2;
   Y?: E2;
   T?: E2;
   '!'?: E2;
   w?: E2;
   h?: E2;
-  '4'?: E2;
+  4?: E2;
   ' '?: _28[];
   '.'?: _28[];
   ','?: E2;
   Z?: E2;
   ';'?: E2;
   K?: E2;
-  '0'?: E2;
+  0?: E2;
   o?: E2;
   l?: E2;
   ')'?: E2;
@@ -298,12 +524,12 @@ interface E2 {
 }
 
 interface Computers {
-  '6'?: _63;
-  '7'?: _72;
-  '5'?: _52;
-  '0'?: _52;
+  6?: _63;
+  7?: _72;
+  5?: _52;
+  0?: _52;
   a?: A2;
-  '8'?: A2;
+  8?: A2;
 }
 
 interface A2 {
@@ -540,31 +766,31 @@ interface Placeitem2 {
 }
 
 interface Nested {
-  '1'?: _1;
-  '0'?: _0;
+  1?: _1;
+  0?: _0;
   '|'?: _0;
   U?: _1;
   Z?: _1;
   J?: _0;
-  '2'?: _1;
-  '3'?: _1;
-  '4'?: _1;
+  2?: _1;
+  3?: _1;
+  4?: _1;
   R?: _1;
   G?: _1;
   '-'?: _0;
-  'А'?: _0;
-  'Б'?: _0;
-  'В'?: _0;
-  'Г'?: _0;
-  'Д'?: _0;
-  'Е'?: _0;
+  А?: _0;
+  Б?: _0;
+  В?: _0;
+  Г?: _0;
+  Д?: _0;
+  Е?: _0;
   '!'?: _0;
   T?: _0;
   S?: _0;
   '{'?: _0;
   D?: _0;
   M?: M2;
-  '7'?: _0;
+  7?: _0;
   r?: _0;
   ']'?: _0;
   t?: _0;
@@ -575,12 +801,12 @@ interface Nested {
   '.'?: _0;
   '#'?: _0;
   '}'?: _0;
-  '5'?: _1;
-  '6'?: _0;
-  '8'?: _0;
-  'Ƨ'?: _0;
-  'ϻ'?: _0;
-  '9'?: _0;
+  5?: _1;
+  6?: _0;
+  8?: _0;
+  Ƨ?: _0;
+  ϻ?: _0;
+  9?: _0;
   E?: _0;
   B?: _0;
 }
@@ -590,11 +816,11 @@ interface M2 {
 }
 
 interface _0 {
-  chunks: (number | string)[][];
+  chunks: Array<Array<number | string>>;
 }
 
 interface _1 {
-  chunks: ((number | string)[] | string)[];
+  chunks: Array<Array<number | string> | string>;
 }
 
 interface Placenested {
@@ -633,7 +859,7 @@ interface Factionowner {
 }
 
 interface Placemonster2 {
-  monster?: string[] | string[] | ((number | string)[] | string)[] | (number | string)[][] | string | string | string;
+  monster?: string[] | string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string | string | string;
   x: number[] | number[] | number | number;
   y: number[] | number[] | number | number;
   repeat?: number[] | number[] | number | number;
@@ -658,15 +884,15 @@ interface Ammo {
 interface Vendingmachines {
   v?: V4;
   V?: V5;
-  '6'?: _62;
-  '7'?: _62;
-  '8'?: _62;
-  '9'?: _62;
-  'ñ'?: _27;
+  6?: _62;
+  7?: _62;
+  8?: _62;
+  9?: _62;
+  ñ?: _27;
   D?: _62;
   F?: _62;
-  '1'?: _62;
-  '2'?: _62;
+  1?: _62;
+  2?: _62;
   U?: _62;
   K?: _62;
   l?: _62;
@@ -720,21 +946,21 @@ interface Placetrap {
 interface Traps {
   _?: string[] | _26 | string;
   '='?: string;
-  '2'?: _26 | string;
-  '3'?: string;
-  '4'?: string;
-  '5'?: string;
-  '6'?: string;
+  2?: _26 | string;
+  3?: string;
+  4?: string;
+  5?: string;
+  6?: string;
   F?: string;
   q?: string;
   f?: _26;
   g?: _26;
   p?: _26;
-  '1'?: _26;
+  1?: _26;
   c?: string;
   v?: string;
   T?: string;
-  'Я'?: string;
+  Я?: string;
 }
 
 interface _26 {
@@ -744,14 +970,14 @@ interface _26 {
 interface Mapping {
   y?: Y4;
   X?: X3;
-  '9'?: _93;
+  9?: _93;
   W?: W;
   H?: H;
   B?: B2;
   h?: H2;
   e?: E;
   Y?: Y5;
-  '$'?: _19;
+  $?: _19;
   r?: R2;
   c?: C3;
   d?: D4;
@@ -971,7 +1197,7 @@ interface Item8 {
   R?: X2;
   c?: C2;
   '~'?: _17;
-  '$'?: X2 | V2[];
+  $?: X2 | V2[];
   D?: C2[];
   J?: _[] | W2;
   T?: X2 | W2 | _ | W2[];
@@ -982,7 +1208,7 @@ interface Item8 {
   '!'?: _18;
   C?: R7;
   f?: X2;
-  '1'?: _;
+  1?: _;
   _?: _[] | _2;
   i?: D2;
   S?: S;
@@ -995,23 +1221,23 @@ interface Item8 {
   o?: _2;
   q?: _;
   U?: _;
-  'Ы'?: _2;
+  Ы?: _2;
   r?: R | _[] | _;
   t?: C2;
   u?: _[] | W2;
   e?: _;
-  '3'?: D2;
-  '8'?: _2;
+  3?: D2;
+  8?: _2;
   ' '?: _[];
   M?: _;
   F?: _;
   B?: B;
   n?: _[];
   '*'?: _;
-  '0'?: W2;
+  0?: W2;
   m?: _;
   s?: _;
-  'ü'?: _;
+  ü?: _;
   a?: A[] | _;
 }
 
@@ -1099,13 +1325,13 @@ interface Npcs {
   T?: Z2;
   G?: Z2;
   Q?: Z2;
-  '1'?: Z2;
-  '2'?: Z2;
-  '3'?: Z2;
-  '4'?: Z2;
-  '5'?: Z2;
-  '6'?: Z2;
-  '7'?: Z2;
+  1?: Z2;
+  2?: Z2;
+  3?: Z2;
+  4?: Z2;
+  5?: Z2;
+  6?: Z2;
+  7?: Z2;
 }
 
 interface Z2 {
@@ -1142,9 +1368,9 @@ interface Monster {
   O?: O2;
   q?: Q2;
   r?: _15;
-  '7'?: _15;
-  '8'?: _15;
-  'ö'?: _15;
+  7?: _15;
+  8?: _15;
+  ö?: _15;
   X?: Q2;
   Y?: Y2;
   M?: _15;
@@ -1172,7 +1398,7 @@ interface Monster {
   A?: _15;
   k?: _15;
   i?: O2;
-  'ü'?: _15;
+  ü?: _15;
 }
 
 interface _16 {
@@ -1293,12 +1519,12 @@ interface Fields {
   W?: _10;
   '?'?: _10;
   '#'?: _10;
-  '1'?: _10;
-  '2'?: _10;
-  '3'?: _10;
-  '4'?: _10;
-  '5'?: _10;
-  '6'?: _10;
+  1?: _10;
+  2?: _10;
+  3?: _10;
+  4?: _10;
+  5?: _10;
+  6?: _10;
   f?: _10;
   u?: _10;
   i?: _10;
@@ -1349,11 +1575,11 @@ interface Placevendingmachine {
 interface Gaspumps {
   '&'?: _9;
   G?: G;
-  '$'?: _9;
+  $?: _9;
   O?: O;
   J?: _9;
   D?: D;
-  '1'?: _9;
+  1?: _9;
 }
 
 interface D {
@@ -2478,31 +2704,31 @@ interface Placevehicle {
 }
 
 interface Furniture {
-  '7'?: string[] | string;
-  '3'?: string[] | string;
-  '2'?: string[] | string;
-  '!'?: string[] | ((number | string)[] | string)[] | string;
-  R?: string[] | (number | string)[][] | string;
-  Q?: string[] | (number | string)[][] | string;
-  '0'?: string[] | string;
+  7?: string[] | string;
+  3?: string[] | string;
+  2?: string[] | string;
+  '!'?: string[] | Array<Array<number | string> | string> | string;
+  R?: string[] | Array<Array<number | string>> | string;
+  Q?: string[] | Array<Array<number | string>> | string;
+  0?: string[] | string;
   v?: string;
   c?: string[] | string;
   t?: string[] | string;
-  Y?: string[] | (number | string)[][] | string;
+  Y?: string[] | Array<Array<number | string>> | string;
   Z?: string[] | string;
-  z?: string[] | ((number | string)[] | string)[] | string;
+  z?: string[] | Array<Array<number | string> | string> | string;
   x?: string[] | string;
-  X?: string[] | ((number | string)[] | string)[] | string;
+  X?: string[] | Array<Array<number | string> | string> | string;
   y?: string[] | string;
   H?: string[] | string;
   i?: string[] | string;
   I?: string[] | string;
-  '9'?: string[] | string;
+  9?: string[] | string;
   h?: string[] | string;
   V?: string;
   q?: string[] | string;
-  '%'?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
-  '8'?: string[] | string;
+  '%'?: string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string;
+  8?: string[] | string;
   '^'?: string[] | string;
   p?: string[] | string;
   j?: string[] | string;
@@ -2511,20 +2737,20 @@ interface Furniture {
   J?: string[] | string;
   N?: string[] | string;
   $?: string[] | string;
-  ','?: string[] | ((number | string)[] | string)[] | string;
-  '1'?: string[] | string;
-  '4'?: string[] | string;
+  ','?: string[] | Array<Array<number | string> | string> | string;
+  1?: string[] | string;
+  4?: string[] | string;
   '|'?: string;
-  b?: string[] | (number | string)[][] | string;
+  b?: string[] | Array<Array<number | string>> | string;
   d?: string[] | string;
   f?: string[] | string;
-  a?: string[] | (number | string)[][] | string;
+  a?: string[] | Array<Array<number | string>> | string;
   '}'?: string[] | string;
   A?: string[] | string;
   s?: string[] | string;
-  C?: string[] | (number | string)[][] | string;
+  C?: string[] | Array<Array<number | string>> | string;
   g?: string[] | string;
-  r?: string[] | (number | string)[][] | string;
+  r?: string[] | Array<Array<number | string>> | string;
   u?: string[] | string;
   W?: string[] | string;
   m?: string[] | string;
@@ -2532,42 +2758,42 @@ interface Furniture {
   M?: string[] | string;
   w?: string;
   ')'?: string;
-  '&'?: string[] | ((number | string)[] | string)[] | string;
+  '&'?: string[] | Array<Array<number | string> | string> | string;
   '`'?: string;
   '='?: string[] | string;
-  '-'?: string[] | (_23 | string)[] | string;
+  '-'?: string[] | Array<_23 | string> | string;
   '?'?: string[] | string;
   B?: string[] | string;
   '@'?: string[] | string;
   S?: string[] | string;
   D?: string[] | string;
   G?: string[] | string;
-  O?: string[] | ((number | string)[] | string)[] | string;
+  O?: string[] | Array<Array<number | string> | string> | string;
   F?: string[] | string;
   L?: string[] | string;
   P?: string[] | string;
   T?: string[] | string;
-  l?: string[] | ((number | string)[] | string)[] | string;
+  l?: string[] | Array<Array<number | string> | string> | string;
   n?: string[] | string;
-  o?: string[] | ((number | string)[] | string)[] | string;
+  o?: string[] | Array<Array<number | string> | string> | string;
   E?: string[] | string;
   e?: string[] | string;
   '/'?: string[] | string;
-  '5'?: string[] | string;
-  '#'?: string[] | ((number | string)[] | string)[] | string;
+  5?: string[] | string;
+  '#'?: string[] | Array<Array<number | string> | string> | string;
   '{'?: string[] | string;
   Á?: string;
   ':'?: string[] | string;
-  '*'?: string[] | ((number | string)[] | string)[] | string;
-  _?: ((number | string)[] | string)[] | string;
-  ' '?: ((number | string)[] | string)[] | string;
-  '.'?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
-  '6'?: string[] | string;
+  '*'?: string[] | Array<Array<number | string> | string> | string;
+  _?: Array<Array<number | string> | string> | string;
+  ' '?: Array<Array<number | string> | string> | string;
+  '.'?: string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string;
+  6?: string[] | string;
   '>'?: string[] | string;
   '+'?: string;
   ']'?: string[] | string;
   "'"?: string;
-  '~'?: (number | string)[][] | string;
+  '~'?: Array<Array<number | string>> | string;
   ';'?: string;
   Δ?: string;
   '('?: string;
@@ -2602,9 +2828,9 @@ interface _23 {
 }
 
 interface Terrain {
-  '7'?: string[] | string;
+  7?: string[] | string;
   K?: string[] | string;
-  T?: string[] | ((number | string)[] | string)[] | string;
+  T?: string[] | Array<Array<number | string> | string> | string;
   b?: string[] | string;
   c?: string[] | string;
   r?: string[] | string;
@@ -2614,43 +2840,43 @@ interface Terrain {
   t?: string[] | string;
   u?: string[] | string;
   f?: string[] | string;
-  o?: string[] | ((number | string)[] | string)[] | string;
+  o?: string[] | Array<Array<number | string> | string> | string;
   S?: string[] | string;
   h?: string[] | string;
   O?: string[] | string;
-  '3'?: string[] | string;
+  3?: string[] | string;
   ')'?: string[] | string;
   x?: string[] | string;
-  '2'?: string[] | string;
-  ' '?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
-  '!'?: string[] | ((number | string)[] | string)[] | string;
+  2?: string[] | string;
+  ' '?: string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string;
+  '!'?: string[] | Array<Array<number | string> | string> | string;
   '?'?: string[] | string;
   M?: string[] | string;
-  '.'?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
-  "'"?: string[] | (number | string)[][] | string;
-  ':'?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
+  '.'?: string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string;
+  "'"?: string[] | Array<Array<number | string>> | string;
+  ':'?: string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string;
   '#'?: string[] | string;
   R?: string[] | string;
   W?: string[] | string;
   Q?: string[] | string;
-  ','?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
+  ','?: string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string;
   g?: string[] | string;
   '='?: string[] | string;
   j?: string;
-  P?: string[] | ((number | string)[] | string)[] | string;
+  P?: string[] | Array<Array<number | string> | string> | string;
   y?: string[] | string;
-  '9'?: string[] | ((number | string)[] | string)[] | string;
-  p?: string[] | (number | string)[][] | string;
-  '%'?: string[] | ((number | string)[] | string)[] | string;
-  '5'?: string[] | string;
+  9?: string[] | Array<Array<number | string> | string> | string;
+  p?: string[] | Array<Array<number | string>> | string;
+  '%'?: string[] | Array<Array<number | string> | string> | string;
+  5?: string[] | string;
   I?: string[] | string;
   l?: string[] | string;
   v?: string[] | string;
   Y?: string[] | string;
-  '1'?: string[] | string;
+  1?: string[] | string;
   '-'?: string[] | string;
-  '|'?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
-  '+'?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
+  '|'?: string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string;
+  '+'?: string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string;
   s?: string[] | string;
   w?: string[] | string;
   q?: string[] | string;
@@ -2662,29 +2888,29 @@ interface Terrain {
   G?: string[] | string;
   k?: string[] | string;
   '^'?: string[] | string;
-  '*'?: string[] | ((number | string)[] | string)[] | string;
+  '*'?: string[] | Array<Array<number | string> | string> | string;
   E?: string[] | string;
-  $?: string[] | ((number | string)[] | string)[] | string;
+  $?: string[] | Array<Array<number | string> | string> | string;
   F?: string[] | string;
-  z?: string[] | ((number | string)[] | string)[] | string;
+  z?: string[] | Array<Array<number | string> | string> | string;
   Z?: string[] | string;
-  '0'?: string[] | (number | string)[][] | string;
-  '8'?: string[] | string;
-  X?: string[] | (number | string)[][] | string;
-  '~'?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
-  _?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
+  0?: string[] | Array<Array<number | string>> | string;
+  8?: string[] | string;
+  X?: string[] | Array<Array<number | string>> | string;
+  '~'?: string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string;
+  _?: string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string;
   e?: string[] | string;
-  a?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
+  a?: string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string;
   '>'?: string[] | string;
   '<'?: string[] | string;
-  i?: string[] | ((number | string)[] | string)[] | string;
-  '4'?: string[] | string;
-  '6'?: string[] | string;
-  '['?: string[] | ((number | string)[] | string)[] | string;
-  N?: string[] | (number | string)[][] | string;
+  i?: string[] | Array<Array<number | string> | string> | string;
+  4?: string[] | string;
+  6?: string[] | string;
+  '['?: string[] | Array<Array<number | string> | string> | string;
+  N?: string[] | Array<Array<number | string>> | string;
   U?: string[] | string;
   A?: string[] | string;
-  '`'?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
+  '`'?: string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string;
   n?: string;
   '}'?: string[] | string;
   '&'?: string[] | string;
@@ -2697,7 +2923,7 @@ interface Terrain {
   D?: string[] | string;
   '{'?: string[] | string;
   '@'?: string[] | string;
-  ';'?: string[] | (_22 | string)[] | (number | string)[][] | string;
+  ';'?: string[] | Array<_22 | string> | Array<Array<number | string>> | string;
   V?: string[] | string;
   '♥'?: string;
   '♠'?: string[] | string;
@@ -2740,14 +2966,14 @@ interface Toilets {
   U?: _9;
   L?: _9;
   '?'?: _9;
-  '9'?: _92;
+  9?: _92;
   '@'?: _9;
   B?: _9;
-  '$'?: _9;
+  $?: _9;
   P?: _9;
-  '7'?: _9;
+  7?: _9;
   j?: _9;
-  '4'?: _9;
+  4?: _9;
   q?: _9;
   p?: _9;
 }
@@ -2756,8 +2982,7 @@ interface _92 {
   amount?: number;
 }
 
-interface _9 {
-}
+interface _9 {}
 
 interface T2 {
   '//'?: string;
@@ -3083,7 +3308,7 @@ interface Items {
   j?: _2[] | D3[] | _2 | _;
   o?: _[] | D3[] | _2 | _;
   t?: _[] | _2[] | D3[] | _2 | _ | R7[];
-  '2'?: D2 | _2[] | _2 | _;
+  2?: D2 | _2[] | _2 | _;
   O?: _[] | _2[] | D3[] | O4 | _2 | _;
   d?: _[] | _2[] | D3[] | _2 | _;
   q?: _2[] | D3[] | _2 | _ | R7[];
@@ -3092,8 +3317,8 @@ interface Items {
   g?: D3[] | _2 | _;
   '@'?: D3;
   '%'?: _3[] | _[] | _2[] | _2 | _ | _6[];
-  '4'?: _[] | _2[] | _2 | _ | R7[];
-  '3'?: _[] | _2[] | _2 | _;
+  4?: _[] | _2[] | _2 | _ | R7[];
+  3?: _[] | _2[] | _2 | _;
   ';'?: _[] | _2[] | D3[] | _2 | _;
   H?: _[] | _2[] | D3[] | _2 | _;
   Q?: _[] | _2[] | D3[] | _2 | _;
@@ -3108,7 +3333,7 @@ interface Items {
   ']'?: _[] | _2[] | _;
   '#'?: _[] | D2 | _2[] | _2 | _ | R7[];
   p?: _[] | D3[] | _2 | _;
-  '8'?: _[] | _2[] | D3[] | _2 | _;
+  8?: _[] | _2[] | D3[] | _2 | _;
   Y?: _[] | D2 | _2[] | _2 | _;
   z?: _[] | _2[] | _2 | _;
   B?: _[] | D2 | _2[] | D3[] | _2 | _ | B7;
@@ -3134,7 +3359,7 @@ interface Items {
   m?: _[] | _2[] | _2 | _;
   w?: D2 | _2[] | _2 | F6 | _;
   M?: _[] | _2[] | _2 | _;
-  '0'?: _[] | _2[] | D3[] | _2 | _;
+  0?: _[] | _2[] | D3[] | _2 | _;
   '&'?: _[] | D2 | _2[] | D3[] | _2 | _ | R7[];
   '='?: _[] | _2[] | D3[] | _2 | _;
   '~'?: _[] | _2[] | D3[] | _2 | _;
@@ -3144,14 +3369,14 @@ interface Items {
   y?: D3;
   P?: _[] | _2[] | _2 | _;
   E?: _[] | _2[] | _2 | _;
-  '9'?: _2[] | _2 | _;
+  9?: _2[] | _2 | _;
   '^'?: _[] | _2[] | _2 | _ | R7[];
   '{'?: _[] | D2 | _2[] | _2 | _ | R7[] | R8;
   ','?: _2[] | D3[] | _;
-  '7'?: _[] | D2 | _2[] | D3[] | _2 | _;
-  '1'?: _[] | _2[] | _2 | _;
-  '5'?: D2 | _2[] | _2 | _;
-  '6'?: D2 | _2[] | _2 | _;
+  7?: _[] | D2 | _2[] | D3[] | _2 | _;
+  1?: _[] | _2[] | _2 | _;
+  5?: D2 | _2[] | _2 | _;
+  6?: D2 | _2[] | _2 | _;
   n?: _[] | _2[] | D3[] | _2 | _;
   ')'?: D2 | _2[] | _2 | _;
   '/'?: _[] | _;
@@ -3386,4 +3611,3 @@ interface _ {
   item: string;
   chance: number;
 }
-

@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface ISkill {
-  type: CDDA_JSON_TYPES.skill;
+  type: 'skill';
   id: string;
   name: Name | string;
   description: string;

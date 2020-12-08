@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface ITrap {
-  type: CDDA_JSON_TYPES.trap;
+  type: 'trap';
   id: string;
   name: string;
   color: string;
@@ -10,7 +8,7 @@ export interface ITrap {
   avoidance: number;
   difficulty: number;
   action: string;
-  drops?: (Drop | string | string)[];
+  drops?: Array<Drop | string | string>;
   vehicle_data?: Vehicledata;
   comfort?: number;
   floor_bedding_warmth?: number;
@@ -34,7 +32,7 @@ interface Vehicledata {
   sound_type?: string;
   sound_variant?: string;
   remove_trap?: boolean;
-  spawn_items?: (Spawnitem | string | string)[];
+  spawn_items?: Array<Spawnitem | string | string>;
   chance?: number;
   set_trap?: string;
   do_explosion?: boolean;

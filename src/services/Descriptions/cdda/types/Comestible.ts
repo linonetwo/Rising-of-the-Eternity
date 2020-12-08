@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IComestible {
-  type: CDDA_JSON_TYPES.COMESTIBLE;
+  type: 'COMESTIBLE';
   id?: string;
   name: Name | Name2 | Name3 | string;
   weight?: string;
@@ -20,7 +18,7 @@ export interface IComestible {
   volume?: string;
   flags?: string[];
   charges?: number;
-  vitamins?: (number | string)[][];
+  vitamins?: Array<Array<number | string>>;
   fun?: number;
   category?: string;
   smoking_result?: string;
@@ -124,7 +122,7 @@ interface Milling {
 }
 
 interface Relative {
-  vitamins?: (number | string)[][];
+  vitamins?: Array<Array<number | string>>;
   fun?: number;
 }
 
@@ -360,7 +358,7 @@ interface Usedupitem {
 interface Useaction11 {
   type: string;
   activation_message: string;
-  vitamins: (number | string)[][];
+  vitamins: Array<Array<number | string>>;
 }
 
 interface Useaction10 {
@@ -388,7 +386,7 @@ interface Useaction7 {
   type: string;
   activation_message: string;
   tools_needed: Toolsneeded2;
-  vitamins: (number | string)[][];
+  vitamins: Array<Array<number | string>>;
 }
 
 interface Toolsneeded2 {

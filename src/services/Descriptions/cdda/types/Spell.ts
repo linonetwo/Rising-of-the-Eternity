@@ -1,8 +1,6 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface ISpell {
   id: string;
-  type: CDDA_JSON_TYPES.SPELL;
+  type: 'SPELL';
   name: Name | string;
   description: string;
   valid_targets: string[];

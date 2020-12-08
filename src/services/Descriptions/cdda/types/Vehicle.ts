@@ -1,11 +1,9 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IVehicle {
   id: string;
-  type: CDDA_JSON_TYPES.vehicle;
+  type: 'vehicle';
   name: string;
-  blueprint?: (string[] | string)[];
-  parts: (
+  blueprint?: Array<string[] | string>;
+  parts: Array<
     | Part
     | Parts2
     | Parts3
@@ -24,23 +22,10 @@ export interface IVehicle {
     | Parts16
     | Parts17
     | Parts18
-  )[];
-  items?: (
-    | Item
-    | Items2
-    | Items3
-    | Items4
-    | Items5
-    | Items6
-    | Items7
-    | Items8
-    | Items9
-    | Items10
-    | Items11
-    | Items12
-    | Items13
-    | Items14
-  )[];
+  >;
+  items?: Array<
+    Item | Items2 | Items3 | Items4 | Items5 | Items6 | Items7 | Items8 | Items9 | Items10 | Items11 | Items12 | Items13 | Items14
+  >;
   '//'?: string;
 }
 
@@ -168,7 +153,7 @@ interface Item {
 interface Parts18 {
   x: number;
   y: number;
-  parts?: (Part2 | Part2 | string | string)[];
+  parts?: Array<Part2 | Part2 | string | string>;
   part?: string;
   fuel?: string;
 }
@@ -176,7 +161,7 @@ interface Parts18 {
 interface Parts17 {
   x: number;
   y: number;
-  parts?: (Part3 | Part2 | Part2 | string | string | string)[];
+  parts?: Array<Part3 | Part2 | Part2 | string | string | string>;
   part?: string;
 }
 
@@ -199,7 +184,7 @@ interface Parts16 {
 interface Parts15 {
   x: number;
   y: number;
-  parts?: (Part2 | string | string)[];
+  parts?: Array<Part2 | string | string>;
   part?: string;
   ammo?: number;
   ammo_types?: string[];
@@ -210,7 +195,7 @@ interface Parts15 {
 interface Parts14 {
   x: number;
   y: number;
-  parts?: (Part2 | string | string)[];
+  parts?: Array<Part2 | string | string>;
   part?: string;
   ammo?: number;
   ammo_qty?: number[];
@@ -228,14 +213,14 @@ interface Parts13 {
 interface Parts12 {
   x: number;
   y: number;
-  parts?: (Part2 | string | string)[];
+  parts?: Array<Part2 | string | string>;
   part?: string;
 }
 
 interface Parts11 {
   x: number;
   y: number;
-  parts?: (Part2 | Part2 | Parts32 | string | string | string)[];
+  parts?: Array<Part2 | Part2 | Parts32 | string | string | string>;
   part?: string;
 }
 
@@ -249,7 +234,7 @@ interface Parts32 {
 interface Parts10 {
   x: number;
   y: number;
-  parts?: (Part2 | string | string)[];
+  parts?: Array<Part2 | string | string>;
   part?: string;
   ammo?: number;
   ammo_types?: string[];
@@ -271,7 +256,7 @@ interface Parts8 {
 interface Parts7 {
   x: number;
   y: number;
-  parts: (Part2 | string | string)[];
+  parts: Array<Part2 | string | string>;
 }
 
 interface Parts6 {
@@ -294,7 +279,7 @@ interface Parts5 {
 interface Parts4 {
   x: number;
   y: number;
-  parts?: (Part2 | string | string)[];
+  parts?: Array<Part2 | string | string>;
   part?: string;
   fuel?: string;
 }
@@ -313,7 +298,7 @@ interface Parts3 {
 interface Parts2 {
   x: number;
   y: number;
-  parts: (Part2 | string)[];
+  parts: Array<Part2 | string>;
 }
 
 interface Part2 {

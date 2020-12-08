@@ -1,9 +1,7 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IWheel {
   id: string;
   category?: string;
-  type: CDDA_JSON_TYPES.WHEEL;
+  type: 'WHEEL';
   name: Name | Name2 | string;
   description: string;
   weight?: string;

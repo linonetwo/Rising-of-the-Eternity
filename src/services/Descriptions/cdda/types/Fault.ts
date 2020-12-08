@@ -1,8 +1,6 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IFault {
   id: string;
-  type: CDDA_JSON_TYPES.fault;
+  type: 'fault';
   name: Name;
   description: string;
   mending_methods: Mendingmethod[];
@@ -23,8 +21,8 @@ interface Mendingmethod {
 
 interface Requirements {
   qualities?: Skill[];
-  components?: (number | string)[][][];
-  tools?: (number | string)[][][];
+  components?: Array<Array<Array<number | string>>>;
+  tools?: Array<Array<Array<number | string>>>;
 }
 
 interface Skill {

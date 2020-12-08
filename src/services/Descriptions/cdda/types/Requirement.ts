@@ -1,11 +1,9 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IRequirement {
   id: string;
-  type: CDDA_JSON_TYPES.requirement;
-  components?: (number | string)[][][];
+  type: 'requirement';
+  components?: Array<Array<Array<number | string>>>;
   '//'?: string;
-  tools?: (number | string)[][][];
+  tools?: Array<Array<Array<number | string>>>;
   qualities?: Quality[];
 }
 

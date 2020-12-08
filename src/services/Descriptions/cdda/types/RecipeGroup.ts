@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IRecipeGroup {
-  type: CDDA_JSON_TYPES.recipe_group;
+  type: 'recipe_group';
   id: string;
   building_type: string;
   recipes: Recipe[];

@@ -1,8 +1,6 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IBook {
   id?: string;
-  type: CDDA_JSON_TYPES.BOOK;
+  type: 'BOOK';
   name: Name | Name2 | Name3 | Name4 | string;
   description?: Description | string;
   weight?: string;

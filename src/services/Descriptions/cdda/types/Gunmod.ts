@@ -1,8 +1,6 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IGunmod {
   id: string;
-  type: CDDA_JSON_TYPES.GUNMOD;
+  type: 'GUNMOD';
   name: Name | Name2 | Name3 | string;
   description?: string;
   weight?: string;
@@ -30,26 +28,26 @@ export interface IGunmod {
   loudness_modifier?: number;
   '//'?: string;
   integral_volume?: string;
-  min_skills?: (number | string)[][];
+  min_skills?: Array<Array<number | string>>;
   use_action?: Useaction;
   'copy-from'?: string;
   acceptable_ammo?: string[];
-  magazine_adaptor?: (string[] | string)[][];
+  magazine_adaptor?: Array<Array<string[] | string>>;
   range_modifier?: number;
   ammo_effects?: string[];
-  mode_modifier?: (string[] | number | string)[][][];
+  mode_modifier?: Array<Array<Array<string[] | number | string>>>;
   ammo_modifier?: string[] | string;
   ups_charges_multiplier?: number;
   integral_weight?: string;
   weight_multiplier?: number;
   '//durability_modifier'?: number;
-  add_mod?: (number | string)[][];
+  add_mod?: Array<Array<number | string>>;
   proportional?: Proportional;
   delete?: Delete;
   extend?: Delete;
   longest_side?: string;
   cutting?: number;
-  qualities?: (number | string)[][];
+  qualities?: Array<Array<number | string>>;
   faults?: string[];
 }
 

@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface ICityBuilding {
-  type: CDDA_JSON_TYPES.city_building;
+  type: 'city_building';
   id: string;
   overmaps: Overmap[];
   locations: string[];

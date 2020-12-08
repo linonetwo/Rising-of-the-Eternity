@@ -1,10 +1,8 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IItemGroup {
-  type: CDDA_JSON_TYPES.item_group;
+  type: 'item_group';
   subtype?: string;
   id: string;
-  entries?: (
+  entries?: Array<
     | Entry
     | Entries2
     | Entries3
@@ -189,8 +187,8 @@ export interface IItemGroup {
     | Entries182
     | Entries183
     | Entries184
-  )[];
-  items?: (
+  >;
+  items?: Array<
     | Item
     | Items2
     | Entries4
@@ -424,105 +422,105 @@ export interface IItemGroup {
     | Entries115
     | Items232
     | Items233
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
     | Entries126
     | Entries126
     | Entries126
@@ -635,7 +633,7 @@ export interface IItemGroup {
     | Items442
     | Items443
     | Items444
-  )[];
+  >;
   '//'?: string;
   'container-item'?: string;
   on_overflow?: string;
@@ -643,7 +641,7 @@ export interface IItemGroup {
   '//3'?: string;
   magazine?: number;
   ammo?: number;
-  groups?: ((number | string)[] | string)[];
+  groups?: Array<Array<number | string> | string>;
   '//TODO'?: string;
 }
 

@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IClothingMod {
-  type: CDDA_JSON_TYPES.clothing_mod;
+  type: 'clothing_mod';
   id: string;
   flag: string;
   item: string;

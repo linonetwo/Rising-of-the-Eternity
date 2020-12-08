@@ -1,27 +1,25 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface INpcClass {
-  type: CDDA_JSON_TYPES.npc_class;
+  type: 'npc_class';
   id: string;
   name: Name | string;
   job_description: string;
   skills?: Skill[];
   bonus_str?: Bonusstr | number;
   bonus_dex?: Bonusdex | Bonusstr | Bonusdex3 | number;
-  traits?: (
+  traits?: Array<
     | Trait
     | Traits2
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
     | Traits7
     | Distribution
     | Distribution
     | Distribution
     | Traits11
     | Traits12
-  )[];
+  >;
   bonus_per?: Bonusstr | Bonusdex3 | Bonusper3 | number;
   bonus_int?: Bonusstr | Bonusdex3 | number;
   '//'?: string;

@@ -1,11 +1,9 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IMonstergroup {
-  type: CDDA_JSON_TYPES.monstergroup;
+  type: 'monstergroup';
   name: string;
   default?: string;
   is_animal?: boolean;
-  monsters?: (
+  monsters?: Array<
     | Monster
     | Monsters2
     | Monsters3
@@ -30,7 +28,7 @@ export interface IMonstergroup {
     | Monsters22
     | Monsters23
     | Monsters24
-  )[];
+  >;
   is_safe?: boolean;
   '//'?: string;
   auto_total?: boolean;

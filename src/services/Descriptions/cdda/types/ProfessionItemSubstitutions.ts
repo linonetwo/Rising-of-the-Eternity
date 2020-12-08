@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IProfessionItemSubstitutions {
-  type: CDDA_JSON_TYPES.profession_item_substitutions;
+  type: 'profession_item_substitutions';
   trait?: string;
   sub?: Sub[];
   item?: string;
@@ -15,7 +13,7 @@ interface Bonus {
 
 interface Sub {
   item?: string;
-  new: (New | New | string | string)[];
+  new: Array<New | New | string | string>;
   present?: string[];
   absent?: string[];
 }

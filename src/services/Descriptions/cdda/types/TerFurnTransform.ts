@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface ITerFurnTransform {
-  type: CDDA_JSON_TYPES.ter_furn_transform;
+  type: 'ter_furn_transform';
   id: string;
   terrain?: Terrain[];
   fail_message?: string;
@@ -17,7 +15,7 @@ interface Furniture {
 }
 
 interface Terrain {
-  result: (number | string)[][] | string | string;
+  result: Array<Array<number | string>> | string | string;
   valid_flags?: string[];
   valid_terrain?: string[];
   message?: string;

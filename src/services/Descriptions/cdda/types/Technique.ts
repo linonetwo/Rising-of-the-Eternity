@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface ITechnique {
-  type: CDDA_JSON_TYPES.technique;
+  type: 'technique';
   id: string;
   name: string;
   messages?: string[];

@@ -1,8 +1,6 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IActivityType {
   id: string;
-  type: CDDA_JSON_TYPES.activity_type;
+  type: 'activity_type';
   activity_level: string;
   verb: Verb | string;
   suspendable?: boolean;

@@ -1,8 +1,6 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IItemCategory {
   id: string;
-  type: CDDA_JSON_TYPES.ITEM_CATEGORY;
+  type: 'ITEM_CATEGORY';
   name: Name;
   zone?: string;
   sort_rank: number;

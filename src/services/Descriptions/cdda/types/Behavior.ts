@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IBehavior {
-  type: CDDA_JSON_TYPES.behavior;
+  type: 'behavior';
   id: string;
   strategy?: string;
   children?: string[];

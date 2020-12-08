@@ -1,8 +1,6 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface ITool {
   id?: string;
-  type: CDDA_JSON_TYPES.TOOL;
+  type: 'TOOL';
   name: Name | Name2 | Name3 | string;
   description?: string;
   weight?: string;
@@ -14,7 +12,7 @@ export interface ITool {
   material?: string[] | string;
   symbol?: string;
   color?: string;
-  qualities?: (number | string)[][];
+  qualities?: Array<Array<number | string>>;
   use_action?:
     | Useaction
     | Useaction2
@@ -41,13 +39,13 @@ export interface ITool {
     | Useaction18
     | Useaction24
     | Useaction25
-    | (Useaction26 | Useaction262 | string)[]
+    | Array<Useaction26 | Useaction262 | string>
     | Useaction27
-    | (Useaction28 | string)[]
-    | (Useaction29 | string)[]
+    | Array<Useaction28 | string>
+    | Array<Useaction29 | string>
     | Useaction30
     | Useaction31[]
-    | (Useaction32 | string)[]
+    | Array<Useaction32 | string>
     | Useaction33
     | Useaction34
     | Useaction35
@@ -60,18 +58,18 @@ export interface ITool {
     | Useaction42
     | Useaction43
     | Useaction44
-    | (Useaction42 | string)[]
+    | Array<Useaction42 | string>
     | Useaction46
     | Useaction47[]
     | Useaction48
     | Useaction49[]
     | Useaction50
     | Useaction51
-    | (Useaction27 | Useaction522 | string)[]
+    | Array<Useaction27 | Useaction522 | string>
     | Useaction53
     | Useaction54
     | Useaction55
-    | (Useaction34 | Useaction262 | Useaction563 | string)[]
+    | Array<Useaction34 | Useaction262 | Useaction563 | string>
     | Useaction57
     | Useaction29
     | Useaction59
@@ -91,7 +89,7 @@ export interface ITool {
     | Useaction73
     | Useaction74
     | Useaction75
-    | (Useaction24 | string)[]
+    | Array<Useaction24 | string>
     | Useaction522
     | Useaction78
     | Useaction79
@@ -113,7 +111,7 @@ export interface ITool {
   longest_side?: string;
   cutting?: number;
   techniques?: string[];
-  min_skills?: (number | string)[][];
+  min_skills?: Array<Array<number | string>>;
   min_intelligence?: number;
   min_perception?: number;
   ammo?: string[] | string;
@@ -136,7 +134,7 @@ export interface ITool {
   ascii_picture?: string;
   rand_charges?: number[];
   extend?: Extend;
-  magazines?: (string[] | string)[][];
+  magazines?: Array<Array<string[] | string>>;
   repairs_like?: string;
   revert_msg?: string;
   properties?: string[][];
@@ -175,12 +173,12 @@ interface Gunmoddata {
   mod_targets: string[];
   install_time: string;
   dispersion_modifier?: number;
-  mode_modifier?: (string[] | number | string)[][];
+  mode_modifier?: Array<Array<string[] | number | string>>;
 }
 
 interface Delete {
   flags?: string[];
-  qualities?: (number | string)[][];
+  qualities?: Array<Array<number | string>>;
 }
 
 interface Proportional {

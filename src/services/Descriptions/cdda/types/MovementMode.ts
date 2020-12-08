@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IMovementMode {
-  type: CDDA_JSON_TYPES.movement_mode;
+  type: 'movement_mode';
   id: string;
   character: string;
   panel_char: string;

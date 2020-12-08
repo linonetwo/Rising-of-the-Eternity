@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IAmmo {
-  type: CDDA_JSON_TYPES.AMMO;
+  type: 'AMMO';
   id?: string;
   price?: number;
   name: Name | Name2 | Name3 | string;
@@ -23,7 +21,7 @@ export interface IAmmo {
   dispersion?: number;
   loudness?: number;
   to_hit?: number;
-  qualities?: (number | string)[][];
+  qualities?: Array<Array<number | string>>;
   looks_like?: string;
   '//'?: string;
   price_postapoc?: number;

@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IFurniture {
-  type: CDDA_JSON_TYPES.furniture;
+  type: 'furniture';
   id: string;
   name: string;
   description: string;
@@ -59,7 +57,7 @@ interface Workbench {
 }
 
 interface Deconstruct {
-  items: (
+  items: Array<
     | Item
     | Items2
     | Items32
@@ -77,7 +75,7 @@ interface Deconstruct {
     | Items16
     | Items17
     | Items172
-  )[];
+  >;
   furn_set?: string;
 }
 
@@ -122,7 +120,7 @@ interface Bash {
   str_max?: number;
   sound?: string;
   sound_fail?: string;
-  items?: (
+  items?: Array<
     | Item
     | Items2
     | Items3
@@ -140,7 +138,7 @@ interface Bash {
     | Items15
     | Items16
     | Items17
-  )[];
+  >;
   furn_set?: string;
   explosive?: number;
   sound_vol?: number;

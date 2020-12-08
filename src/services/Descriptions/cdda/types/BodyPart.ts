@@ -1,8 +1,6 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IBodyPart {
   id: string;
-  type: CDDA_JSON_TYPES.body_part;
+  type: 'body_part';
   name: string;
   accusative: Accusative;
   heading: string;

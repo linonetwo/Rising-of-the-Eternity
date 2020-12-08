@@ -1,19 +1,17 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IRecipe {
   result?: string;
-  type: CDDA_JSON_TYPES.recipe;
+  type: 'recipe';
   activity_level?: string;
   category?: string;
   subcategory?: string;
   skill_used?: string;
   difficulty?: number;
   time?: number | string;
-  using?: ((number | string)[] | number | string)[][][];
-  qualities?: (Quality[] | Quality[] | Qualities3 | Quality | Quality)[];
-  components?: (number | string)[][][];
+  using?: Array<Array<Array<Array<number | string> | number | string>>>;
+  qualities?: Array<Quality[] | Quality[] | Qualities3 | Quality | Quality>;
+  components?: Array<Array<Array<number | string>>>;
   description?: string;
-  autolearn?: boolean | (number | string)[][];
+  autolearn?: boolean | Array<Array<number | string>>;
   never_learn?: boolean;
   construction_blueprint?: string;
   blueprint_name?: string;
@@ -35,19 +33,19 @@ export interface IRecipe {
     | Booklearn9
     | Booklearn10
     | string[][]
-    | (number | string | string)[][]
-    | (number | string)[][]
+    | Array<Array<number | string | string>>
+    | Array<Array<number | string>>
     | Booklearn14
     | Booklearn15
     | Booklearn16
     | Booklearn17;
-  tools?: (number | string)[][][];
+  tools?: Array<Array<Array<number | string>>>;
   id_suffix?: string;
   'copy-from'?: string;
   result_mult?: number;
-  byproducts?: (number | string | string)[][];
+  byproducts?: Array<Array<number | string | string>>;
   proficiencies?: Proficiency[];
-  skills_required?: (number | number | string | string)[][];
+  skills_required?: Array<Array<number | number | string | string>>;
   flags?: string[];
   batch_time_factors?: number[];
   charges?: number;
@@ -181,14 +179,14 @@ interface Textbookgaswarfare {
 
 interface Blueprintneeds {
   time?: string;
-  skills?: (number | string)[][];
+  skills?: Array<Array<number | string>>;
   inline?: Inline;
 }
 
 interface Inline {
-  tools: (number | string)[][][];
+  tools: Array<Array<Array<number | string>>>;
   qualities: Quality2[][];
-  components: (number | string)[][][];
+  components: Array<Array<Array<number | string>>>;
 }
 
 interface Quality2 {

@@ -1,8 +1,6 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IMonster {
   id?: string;
-  type: CDDA_JSON_TYPES.MONSTER;
+  type: 'MONSTER';
   name?: Name | Name2 | Name3 | Name4 | string;
   description?: string;
   'copy-from'?: string;
@@ -30,7 +28,7 @@ export interface IMonster {
   vision_day?: number;
   vision_night?: number;
   harvest?: string;
-  special_attacks?: (
+  special_attacks?: Array<
     | Specialattack
     | Specialattack
     | Specialattack
@@ -88,50 +86,50 @@ export interface IMonster {
     | Specialattacks55
     | Specialattacks55
     | Specialattacks57
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
-    | (number | string)[]
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
+    | Array<number | string>
     | Specialattacks102
     | Specialattacks103
     | Specialattacks104
@@ -171,7 +169,7 @@ export interface IMonster {
     | Specialattacks133
     | Specialattacks139
     | Specialattacks139
-  )[];
+  >;
   death_function?: string[];
   flags?: string[];
   categories?: string[];
@@ -212,7 +210,7 @@ export interface IMonster {
   melee_damage?: Meleedamage[];
   zombify_into?: string;
   relative?: Relative;
-  special_when_hit?: (number | string)[];
+  special_when_hit?: Array<number | string>;
   attack_effs?: Attackeff[];
   burn_into?: string;
   revert_to_itype?: string;
@@ -279,7 +277,7 @@ interface Startingammo {
   '762_51'?: number;
   napalm?: number;
   '40mm_incendiary'?: number;
-  '223'?: number;
+  223?: number;
   milk_raw_choc?: number;
   rock?: number;
   pistol_ball?: number;
@@ -288,7 +286,7 @@ interface Startingammo {
   grenade_ammo_hedp?: number;
   grenade_ammo_beanbag?: number;
   acidic_bore?: number;
-  '556'?: number;
+  556?: number;
   '40x46mm_m433'?: number;
   nail?: number;
   water?: number;
@@ -322,7 +320,7 @@ interface Startingammo {
 
 interface Deathdrops10 {
   subtype: string;
-  groups: (number | string)[][];
+  groups: Array<Array<number | string>>;
 }
 
 interface Deathdrops9 {
@@ -342,7 +340,7 @@ interface Deathdrops5 {
 }
 
 interface Deathdrops4 {
-  groups: (number | string)[][];
+  groups: Array<Array<number | string>>;
 }
 
 interface Deathdrops3 {
@@ -363,7 +361,7 @@ interface Deathdrops2 {
 
 interface Deathdrop {
   subtype: string;
-  groups: (number | string)[][];
+  groups: Array<Array<number | string>>;
   '//': string;
 }
 
@@ -381,16 +379,16 @@ interface Upgrades {
 
 interface Extend {
   flags?: string[];
-  special_attacks?: (
+  special_attacks?: Array<
     | Specialattack2
     | Spelldata
-    | (number | string)[]
-    | (number | string)[]
+    | Array<number | string>
+    | Array<number | string>
     | Specialattacks129
     | Specialattacks62
     | Specialattacks131
     | Specialattacks131
-  )[];
+  >;
   categories?: string[];
   death_function?: string[];
 }
@@ -401,12 +399,12 @@ interface Specialattacks62 {
   move_cost: number;
   gun_type: string;
   ammo_type: string;
-  fake_skills: (number | string)[][];
+  fake_skills: Array<Array<number | string>>;
   fake_dex: number;
   fake_per: number;
   require_targeting_player: boolean;
   description: string;
-  ranges: (number | string)[][];
+  ranges: Array<Array<number | string>>;
   no_ammo_sound: string;
 }
 
@@ -445,11 +443,11 @@ interface Specialattacks131 {
   cooldown: number;
   move_cost: number;
   gun_type: string;
-  fake_skills: (number | string)[][];
+  fake_skills: Array<Array<number | string>>;
   fake_dex: number;
   fake_per: number;
   require_targeting_player: boolean;
-  ranges: (number | string)[][];
+  ranges: Array<Array<number | string>>;
   description: string;
 }
 
@@ -477,8 +475,8 @@ interface Specialattacks125 {
   type: string;
   cooldown: number;
   gun_type: string;
-  fake_skills: (number | string)[][];
-  ranges: (number | string)[][];
+  fake_skills: Array<Array<number | string>>;
+  ranges: Array<Array<number | string>>;
   targeting_sound: string;
   description: string;
 }
@@ -523,9 +521,9 @@ interface Specialattacks109 {
   move_cost: number;
   gun_type: string;
   ammo_type: string;
-  fake_skills: (number | string)[][];
+  fake_skills: Array<Array<number | string>>;
   fake_dex: number;
-  ranges: (number | string)[][];
+  ranges: Array<Array<number | string>>;
   require_targeting_npc: boolean;
   require_targeting_monster: boolean;
   laser_lock: boolean;
@@ -550,10 +548,10 @@ interface Specialattacks107 {
   move_cost: number;
   gun_type: string;
   ammo_type: string;
-  fake_skills: (number | string)[][];
+  fake_skills: Array<Array<number | string>>;
   fake_dex: number;
   no_ammo_sound: string;
-  ranges: (number | string)[][];
+  ranges: Array<Array<number | string>>;
 }
 
 interface Specialattacks106 {
@@ -572,7 +570,7 @@ interface Specialattacks105 {
   move_cost: number;
   gun_type: string;
   max_ammo: number;
-  ranges: (number | string)[][];
+  ranges: Array<Array<number | string>>;
   require_targeting_npc: boolean;
   require_targeting_monster: boolean;
   laser_lock: boolean;
@@ -593,7 +591,7 @@ interface Specialattacks103 {
   type: string;
   cooldown: number;
   gun_type: string;
-  ranges: (number | string)[][];
+  ranges: Array<Array<number | string>>;
   targeting_sound: string;
   description: string;
 }
@@ -602,9 +600,9 @@ interface Specialattacks102 {
   type: string;
   cooldown: number;
   gun_type: string;
-  fake_skills: (number | string)[][];
+  fake_skills: Array<Array<number | string>>;
   fake_dex: number;
-  ranges: (number | string)[][];
+  ranges: Array<Array<number | string>>;
   require_targeting_player: boolean;
   require_targeting_npc: boolean;
   require_targeting_monster: boolean;
@@ -633,8 +631,8 @@ interface Specialattacks55 {
   type: string;
   cooldown: number;
   gun_type: string;
-  fake_skills: (number | string)[][];
-  ranges: (number | string)[][];
+  fake_skills: Array<Array<number | string>>;
+  ranges: Array<Array<number | string>>;
 }
 
 interface Specialattacks54 {
@@ -642,10 +640,10 @@ interface Specialattacks54 {
   cooldown: number;
   gun_type: string;
   ammo_type: string;
-  fake_skills: (number | string)[][];
+  fake_skills: Array<Array<number | string>>;
   fake_dex: number;
   no_ammo_sound: string;
-  ranges: (number | string)[][];
+  ranges: Array<Array<number | string>>;
   require_targeting_player: boolean;
   require_targeting_npc: boolean;
   require_targeting_monster: boolean;
@@ -661,9 +659,9 @@ interface Specialattacks53 {
   move_cost: number;
   gun_type: string;
   ammo_type: string;
-  fake_skills: (number | string)[][];
+  fake_skills: Array<Array<number | string>>;
   fake_dex: number;
-  ranges: (number | string)[][];
+  ranges: Array<Array<number | string>>;
   require_targeting_npc: boolean;
   require_targeting_monster: boolean;
   laser_lock: boolean;
@@ -689,9 +687,9 @@ interface Specialattacks48 {
   type: string;
   cooldown: number;
   gun_type: string;
-  fake_skills: (number | string)[][];
+  fake_skills: Array<Array<number | string>>;
   fake_dex: number;
-  ranges: (number | string)[][];
+  ranges: Array<Array<number | string>>;
   require_targeting_player: boolean;
   require_targeting_npc: boolean;
   require_targeting_monster: boolean;
@@ -706,9 +704,9 @@ interface Specialattacks47 {
   move_cost: number;
   cooldown: number;
   gun_type: string;
-  fake_skills: (number | string)[][];
+  fake_skills: Array<Array<number | string>>;
   fake_dex: number;
-  ranges: (number | string)[][];
+  ranges: Array<Array<number | string>>;
   require_targeting_player: boolean;
   require_targeting_npc: boolean;
   require_targeting_monster: boolean;
@@ -760,9 +758,9 @@ interface Specialattacks36 {
   move_cost: number;
   gun_type: string;
   ammo_type: string;
-  fake_skills: (number | string)[][];
+  fake_skills: Array<Array<number | string>>;
   fake_dex: number;
-  ranges: (number | string)[][];
+  ranges: Array<Array<number | string>>;
   require_targeting_npc: boolean;
   require_targeting_monster: boolean;
   laser_lock: boolean;
@@ -776,10 +774,10 @@ interface Specialattacks35 {
   cooldown: number;
   gun_type: string;
   ammo_type: string;
-  fake_skills: (number | string)[][];
+  fake_skills: Array<Array<number | string>>;
   fake_dex: number;
   no_ammo_sound: string;
-  ranges: (number | string)[][];
+  ranges: Array<Array<number | string>>;
   require_targeting_player: boolean;
   require_targeting_npc: boolean;
   require_targeting_monster: boolean;
@@ -794,7 +792,7 @@ interface Specialattacks34 {
   type: string;
   cooldown: number;
   gun_type: string;
-  ranges: (number | string)[][];
+  ranges: Array<Array<number | string>>;
   description: string;
 }
 
@@ -836,11 +834,11 @@ interface Specialattacks26 {
   cooldown: number;
   move_cost?: number;
   gun_type?: string;
-  fake_skills?: (number | string)[][];
+  fake_skills?: Array<Array<number | string>>;
   fake_dex?: number;
   fake_per?: number;
   require_targeting_player?: boolean;
-  ranges?: (number | string)[][];
+  ranges?: Array<Array<number | string>>;
   description?: string;
 }
 
@@ -850,10 +848,10 @@ interface Specialattacks25 {
   move_cost: number;
   gun_type: string;
   ammo_type: string;
-  fake_skills: (number | string)[][];
+  fake_skills: Array<Array<number | string>>;
   fake_dex: number;
   no_ammo_sound: string;
-  ranges: (number | string)[][];
+  ranges: Array<Array<number | string>>;
   require_targeting_player: boolean;
   require_targeting_npc: boolean;
   require_targeting_monster: boolean;
@@ -887,8 +885,8 @@ interface Specialattacks17 {
   type: string;
   cooldown: number;
   gun_type: string;
-  fake_skills: (number | string)[][];
-  ranges: (number | string)[][];
+  fake_skills: Array<Array<number | string>>;
+  ranges: Array<Array<number | string>>;
   require_sunlight: boolean;
 }
 
@@ -909,7 +907,7 @@ interface Specialattacks15 {
   type: string;
   cooldown: number;
   gun_type: string;
-  ranges: (number | string)[][];
+  ranges: Array<Array<number | string>>;
   targeting_sound: string;
 }
 
@@ -947,9 +945,9 @@ interface Specialattacks8 {
   cooldown: number;
   gun_type: string;
   ammo_type: string;
-  fake_skills: (number | string)[][];
+  fake_skills: Array<Array<number | string>>;
   fake_dex: number;
-  ranges: (number | string)[][];
+  ranges: Array<Array<number | string>>;
 }
 
 interface Specialattacks6 {
@@ -967,9 +965,9 @@ interface Specialattacks5 {
   type: string;
   move_cost: number;
   gun_type: string;
-  fake_skills: (number | string)[][];
+  fake_skills: Array<Array<number | string>>;
   fake_dex: number;
-  ranges: (number | string)[][];
+  ranges: Array<Array<number | string>>;
 }
 
 interface Specialattack {

@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IOvermapTerrain {
-  type: CDDA_JSON_TYPES.overmap_terrain;
+  type: 'overmap_terrain';
   id?: string[] | string;
   name?: Name | string;
   sym?: string;
@@ -71,7 +69,7 @@ interface Set {
 }
 
 interface Furniture {
-  '6'?: string;
+  6?: string;
   x?: string;
   d?: string;
   O?: string;
@@ -95,7 +93,7 @@ interface Furniture {
 }
 
 interface Terrain {
-  '5': string;
+  5: string;
   ' ': string;
   d?: string;
   '%'?: string;
@@ -120,10 +118,10 @@ interface Terrain {
   c?: string;
   l?: string;
   s?: string;
-  '1'?: string;
-  '2'?: string;
-  '3'?: string;
-  '4'?: string;
+  1?: string;
+  2?: string;
+  3?: string;
+  4?: string;
   y?: string;
   A?: string;
   B?: string;

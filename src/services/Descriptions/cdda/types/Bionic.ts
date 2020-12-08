@@ -1,28 +1,26 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IBionic {
   id: string;
-  type: CDDA_JSON_TYPES.bionic;
+  type: 'bionic';
   name: Name;
   description: string;
-  occupied_bodyparts?: (number | string)[][];
+  occupied_bodyparts?: Array<Array<number | string>>;
   act_cost?: number | string;
   flags?: string[];
   react_cost?: number | string;
   time?: number;
-  bash_protec?: (number | string)[][];
-  cut_protec?: (number | string)[][];
-  bullet_protec?: (number | string)[][];
-  env_protec?: (number | string)[][];
+  bash_protec?: Array<Array<number | string>>;
+  cut_protec?: Array<Array<number | string>>;
+  bullet_protec?: Array<Array<number | string>>;
+  env_protec?: Array<Array<number | string>>;
   fuel_options?: string[];
   fuel_efficiency?: number;
   fuel_capacity?: number;
   fake_item?: string;
-  encumbrance?: (number | string)[][];
+  encumbrance?: Array<Array<number | string>>;
   included?: boolean;
   is_remote_fueled?: boolean;
   enchantments?: string[];
-  stat_bonus?: (number | string)[][];
+  stat_bonus?: Array<Array<number | string>>;
   vitamin_absorb_mod?: number;
   included_bionics?: string[];
   exothermic_power_gen?: boolean;

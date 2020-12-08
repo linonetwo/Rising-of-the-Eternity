@@ -1,9 +1,7 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IBionicItem {
   id?: string;
   'copy-from'?: string;
-  type: CDDA_JSON_TYPES.BIONIC_ITEM;
+  type: 'BIONIC_ITEM';
   name: Name;
   description?: string;
   price?: number;

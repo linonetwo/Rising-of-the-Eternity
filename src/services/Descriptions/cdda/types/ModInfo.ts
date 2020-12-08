@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IModInfo {
-  type: CDDA_JSON_TYPES.MOD_INFO;
+  type: 'MOD_INFO';
   id: string;
   name: string;
   description: string;

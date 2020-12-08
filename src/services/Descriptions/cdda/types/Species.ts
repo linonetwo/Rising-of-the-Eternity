@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface ISpecies {
-  type: CDDA_JSON_TYPES.SPECIES;
+  type: 'SPECIES';
   id: string;
   description?: string;
   fear_triggers?: string[];

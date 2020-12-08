@@ -1,9 +1,7 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IHarvest {
   id: string;
-  type: CDDA_JSON_TYPES.harvest;
-  entries: (
+  type: 'harvest';
+  entries: Array<
     | Entry
     | Entries2
     | Entries3
@@ -18,7 +16,7 @@ export interface IHarvest {
     | Entries12
     | Entries13
     | Entries14
-  )[];
+  >;
   message?: string;
   '//'?: string;
   leftovers?: string;

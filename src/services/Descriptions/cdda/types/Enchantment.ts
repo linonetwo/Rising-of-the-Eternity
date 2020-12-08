@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IEnchantment {
-  type: CDDA_JSON_TYPES.enchantment;
+  type: 'enchantment';
   id: string;
   condition?: string;
   ench_effects?: Encheffect[];

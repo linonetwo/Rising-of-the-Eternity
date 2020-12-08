@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IGate {
-  type: CDDA_JSON_TYPES.gate;
+  type: 'gate';
   id: string;
   alias?: string[];
   door: string;

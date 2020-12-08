@@ -1,9 +1,7 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IVehiclePart {
   id?: string;
   'copy-from'?: string;
-  type: CDDA_JSON_TYPES.vehicle_part;
+  type: 'vehicle_part';
   name?: Name | string;
   item?: string;
   categories?: string[];
@@ -57,7 +55,7 @@ export interface IVehiclePart {
   backfire_freq?: number;
   damaged_power_factor?: number;
   fuel_options?: string[];
-  qualities?: (number | string)[][];
+  qualities?: Array<Array<number | string>>;
   delete?: Delete;
   transform_terrain?: Transformterrain;
   exclusions?: string[];
@@ -146,24 +144,24 @@ interface Requirements {
 }
 
 interface Repair {
-  skills?: (number | string)[][];
+  skills?: Array<Array<number | string>>;
   time: string;
-  using?: (number | string)[][];
+  using?: Array<Array<number | string>>;
 }
 
 interface Removal {
-  skills?: (number | string)[][];
+  skills?: Array<Array<number | string>>;
   time?: number | string;
   qualities?: Quality[];
-  using?: any[] | (number | string)[][] | string;
+  using?: any[] | Array<Array<number | string>> | string;
 }
 
 interface Install {
-  skills?: (number | string)[][];
+  skills?: Array<Array<number | string>>;
   time?: number | string;
   qualities?: Quality[];
-  using?: any[] | (number | string)[][] | string;
-  components?: (number | string)[][][];
+  using?: any[] | Array<Array<number | string>> | string;
+  components?: Array<Array<Array<number | string>>>;
 }
 
 interface Quality {

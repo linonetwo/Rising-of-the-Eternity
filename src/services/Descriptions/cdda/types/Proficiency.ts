@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IProficiency {
-  type: CDDA_JSON_TYPES.proficiency;
+  type: 'proficiency';
   id: string;
   name: Name;
   description: string;

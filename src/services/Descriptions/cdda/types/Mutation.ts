@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IMutation {
-  type: CDDA_JSON_TYPES.mutation;
+  type: 'mutation';
   id: string;
   name?: Name | string;
   points?: number;
@@ -25,19 +23,19 @@ export interface IMutation {
   cancels?: string[];
   can_only_eat?: string[];
   can_only_heal_with?: string[];
-  vitamin_rates?: (number | string)[][];
+  vitamin_rates?: Array<Array<number | string>>;
   healing_awake?: number;
   healing_resting?: number;
   healthy_rate?: number;
   bleed_resist?: number;
   fat_to_max_hp?: number;
-  anger_relations?: (number | string)[][];
+  anger_relations?: Array<Array<number | string>>;
   allowed_category?: string[];
   no_cbm_on_bp?: string[];
   armor?: Armor[];
   flags?: string[];
   prereqs?: string[];
-  spells_learned?: (number | string)[][];
+  spells_learned?: Array<Array<number | string>>;
   crafting_speed_multiplier?: number;
   bionic_mana_penalty?: number;
   bionic_slot_bonuses?: Bionicslotbonuses;
@@ -52,14 +50,14 @@ export interface IMutation {
   threshold?: boolean;
   threshreq?: string[] | string;
   mana_modifier?: number;
-  lumination?: (number | string)[][];
+  lumination?: Array<Array<number | string>>;
   'copy-from'?: string;
   extend?: Extend;
   bodytemp_modifiers?: number[];
   changes_to?: string[];
   types?: string[];
   mana_regen_multiplier?: number;
-  encumbrance_always?: (number | string)[][];
+  encumbrance_always?: Array<Array<number | string>>;
   restricts_gear?: string[];
   attacks?:
     | Attack
@@ -86,7 +84,7 @@ export interface IMutation {
   fatigue_modifier?: number;
   dodge_modifier?: number;
   metabolism_modifier?: number;
-  vitamins_absorb_multi?: ((number | string)[][] | string)[][];
+  vitamins_absorb_multi?: Array<Array<Array<Array<number | string>> | string>>;
   temperature_speed_modifier?: number;
   allow_soft_gear?: boolean;
   pierce_dmg_bonus?: number;
@@ -100,7 +98,7 @@ export interface IMutation {
   stamina_regen_modifier?: number;
   player_display?: boolean;
   hearing_modifier?: number;
-  craft_skill_bonus?: (number | string)[][];
+  craft_skill_bonus?: Array<Array<number | string>>;
   movecost_obstacle_modifier?: number;
   scent_intensity?: number;
   bodytemp_sleep?: number;
@@ -109,7 +107,7 @@ export interface IMutation {
   cost?: number;
   time?: number;
   hunger?: boolean;
-  encumbrance_covered?: (number | string)[][];
+  encumbrance_covered?: Array<Array<number | string>>;
   triggers?: Trigger[][];
   transform?: Transform;
   mending_modifier?: number;

@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IRegionOverlay {
-  type: CDDA_JSON_TYPES.region_overlay;
+  type: 'region_overlay';
   regions: string[];
   overmap_feature_flag_settings?: Overmapfeatureflagsettings;
   map_extras?: Mapextras;

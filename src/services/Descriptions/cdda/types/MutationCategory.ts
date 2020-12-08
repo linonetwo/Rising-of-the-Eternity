@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IMutationCategory {
-  type: CDDA_JSON_TYPES.mutation_category;
+  type: 'mutation_category';
   id: string;
   name: string;
   threshold_mut: string;

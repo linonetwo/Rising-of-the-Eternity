@@ -1,22 +1,20 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IUncraft {
   result?: string;
-  type: CDDA_JSON_TYPES.uncraft;
+  type: 'uncraft';
   activity_level?: string;
   skill_used?: string;
   difficulty?: number;
   time?: number | string;
   qualities?: Quality[];
-  components?: (number | string)[][][];
-  using?: (number | string)[][];
+  components?: Array<Array<Array<number | string>>>;
+  using?: Array<Array<number | string>>;
   '//'?: string;
-  skills_required?: (number | number | string | string)[][];
-  tools?: (number | string)[][][];
+  skills_required?: Array<Array<number | number | string | string>>;
+  tools?: Array<Array<Array<number | string>>>;
   flags?: string[];
   abstract?: string;
   'copy-from'?: string;
-  decomp_learn?: (number | string)[][] | number;
+  decomp_learn?: Array<Array<number | string>> | number;
 }
 
 interface Quality {

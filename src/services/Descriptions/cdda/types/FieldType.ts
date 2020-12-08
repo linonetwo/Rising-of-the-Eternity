@@ -1,8 +1,6 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IFieldType {
   id: string;
-  type: CDDA_JSON_TYPES.field_type;
+  type: 'field_type';
   legacy_enum_id?: number;
   intensity_levels: Intensitylevel[];
   description_affix?: string;
@@ -53,7 +51,7 @@ interface Bash {
 
 interface Immunitydata {
   traits?: string[];
-  body_part_env_resistance?: (number | string)[][];
+  body_part_env_resistance?: Array<Array<number | string>>;
 }
 
 interface Intensitylevel {

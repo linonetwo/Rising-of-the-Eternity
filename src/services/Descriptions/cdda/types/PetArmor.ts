@@ -1,8 +1,6 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IPetArmor {
   id?: string;
-  type: CDDA_JSON_TYPES.PET_ARMOR;
+  type: 'PET_ARMOR';
   name: Name;
   description?: string;
   weight?: string;

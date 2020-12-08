@@ -1,8 +1,6 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IAchievement {
   id: string;
-  type: CDDA_JSON_TYPES.achievement;
+  type: 'achievement';
   name: Name | string;
   requirements: Requirement[];
   time_constraint?: Timeconstraint;

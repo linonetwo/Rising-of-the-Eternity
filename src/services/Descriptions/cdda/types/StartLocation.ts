@@ -1,10 +1,8 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IStartLocation {
-  type: CDDA_JSON_TYPES.start_location;
+  type: 'start_location';
   id: string;
   name: string;
-  terrain?: (Terrain | string)[];
+  terrain?: Array<Terrain | string>;
   'copy-from'?: string;
   extend?: Extend;
   flags?: string[];

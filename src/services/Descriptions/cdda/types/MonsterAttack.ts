@@ -1,13 +1,11 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IMonsterAttack {
-  type: CDDA_JSON_TYPES.monster_attack;
+  type: 'monster_attack';
   attack_type: string;
   id: string;
   cooldown: number;
   move_cost?: number;
   damage_max_instance: Damagemaxinstance[];
-  body_parts?: (number | string)[][];
+  body_parts?: Array<Array<number | string>>;
   effects?: Effect[];
   hit_dmg_u: string;
   hit_dmg_npc: string;

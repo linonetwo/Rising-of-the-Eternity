@@ -1,9 +1,7 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IEngine {
   id?: string;
   'copy-from'?: string;
-  type: CDDA_JSON_TYPES.ENGINE;
+  type: 'ENGINE';
   name: Name;
   description?: string;
   weight?: string;

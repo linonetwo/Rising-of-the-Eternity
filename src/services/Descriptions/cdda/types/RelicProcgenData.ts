@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IRelicProcgenData {
-  type: CDDA_JSON_TYPES.relic_procgen_data;
+  type: 'relic_procgen_data';
   id: string;
   charge_types: Chargetype[];
   active_procgen_values: Activeprocgenvalue[];

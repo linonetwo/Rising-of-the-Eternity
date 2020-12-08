@@ -1,8 +1,6 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IBattery {
   id: string;
-  type: CDDA_JSON_TYPES.BATTERY;
+  type: 'BATTERY';
   category: string;
   name: Name;
   description: string;

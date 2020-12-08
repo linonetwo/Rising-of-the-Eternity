@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface ITalkTopic {
-  type: CDDA_JSON_TYPES.talk_topic;
+  type: 'talk_topic';
   id: string[] | string;
   '//'?: string[] | string;
   dynamic_line?:
@@ -29,7 +27,7 @@ export interface ITalkTopic {
     | Dynamicline22
     | Dynamicline23
     | Dynamicline24
-    | (Dynamicline25 | Dynamicline252 | string)[]
+    | Array<Dynamicline25 | Dynamicline252 | string>
     | Dynamicline26
     | Dynamicline27
     | Dynamicline28
@@ -53,7 +51,7 @@ export interface ITalkTopic {
     | Dynamicline46
     | Dynamicline29[]
     | Yes3
-    | (Dynamicline252 | string)[]
+    | Array<Dynamicline252 | string>
     | Dynamicline50
     | No4
     | Dynamicline52
@@ -325,20 +323,20 @@ interface Response {
   success?: Success;
   effect?:
     | Effect
-    | (Effect2 | string | string)[]
+    | Array<Effect2 | string | string>
     | Effect3[]
     | Effect4
     | Effect5
     | Effect6
     | Effect7[]
-    | (Effect | string)[]
+    | Array<Effect | string>
     | Effect2
     | Effect10
     | Effect11[]
     | Effect12[]
     | Effect13[]
     | Effect14
-    | (Effect15 | string)[]
+    | Array<Effect15 | string>
     | Effect16
     | string;
   condition?:
@@ -515,11 +513,11 @@ interface Not6 {
 }
 
 interface Condition22 {
-  and: (Condition17 | string)[];
+  and: Array<Condition17 | string>;
 }
 
 interface Condition21 {
-  and: (And18 | string)[];
+  and: Array<And18 | string>;
 }
 
 interface And18 {
@@ -605,7 +603,7 @@ interface And16 {
 }
 
 interface Condition6 {
-  and: (Or | string)[];
+  and: Array<Or | string>;
 }
 
 interface Condition5 {
@@ -627,7 +625,7 @@ interface Not3 {
 }
 
 interface Condition3 {
-  and: (And14 | string)[];
+  and: Array<And14 | string>;
 }
 
 interface And14 {
@@ -844,7 +842,7 @@ interface Yes14 {
 }
 
 interface Dynamicline53 {
-  and: (And10 | string)[];
+  and: Array<And10 | string>;
 }
 
 interface And10 {
@@ -987,11 +985,11 @@ interface Yes10 {
 }
 
 interface Dynamicline39 {
-  and: (And32 | string)[];
+  and: Array<And32 | string>;
 }
 
 interface Dynamicline38 {
-  and: (And9 | string)[];
+  and: Array<And9 | string>;
 }
 
 interface And9 {
@@ -1073,7 +1071,7 @@ interface No20 {
 }
 
 interface Dynamicline34 {
-  and: (And8 | string)[];
+  and: Array<And8 | string>;
 }
 
 interface And8 {
@@ -1112,7 +1110,7 @@ interface Dynamicline29 {
 }
 
 interface Dynamicline28 {
-  and: (And7 | string)[];
+  and: Array<And7 | string>;
 }
 
 interface And7 {
@@ -1134,7 +1132,7 @@ interface No18 {
 }
 
 interface Dynamicline27 {
-  and: (And6 | string)[];
+  and: Array<And6 | string>;
 }
 
 interface And6 {
@@ -1191,7 +1189,7 @@ interface No14 {
 }
 
 interface Dynamicline23 {
-  and: (And5 | Yes8 | And32 | string)[];
+  and: Array<And5 | Yes8 | And32 | string>;
 }
 
 interface And32 {
@@ -1264,7 +1262,7 @@ interface Dynamicline22 {
 interface Dynamicline21 {
   u_is_wearing: string;
   yes: string[];
-  no: (No8 | string)[];
+  no: Array<No8 | string>;
 }
 
 interface No8 {
@@ -1304,7 +1302,7 @@ interface Dynamicline17 {
 }
 
 interface Dynamicline16 {
-  and: (And | And2 | string)[];
+  and: Array<And | And2 | string>;
 }
 
 interface And2 {

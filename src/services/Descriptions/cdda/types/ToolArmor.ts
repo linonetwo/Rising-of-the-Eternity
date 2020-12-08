@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IToolArmor {
-  type: CDDA_JSON_TYPES.TOOL_ARMOR;
+  type: 'TOOL_ARMOR';
   id?: string;
   weight?: string;
   volume?: string;
@@ -47,7 +45,7 @@ export interface IToolArmor {
   charges_per_use?: number;
   category?: string;
   to_hit?: number;
-  qualities?: (number | string)[][];
+  qualities?: Array<Array<number | string>>;
   max_charges?: number;
   initial_charges?: number;
   turns_per_charge?: number;
@@ -60,7 +58,7 @@ export interface IToolArmor {
   power_draw?: number;
   techniques?: string[];
   armor_portion_data?: Armorportiondatum[];
-  magazines?: (string[] | string)[][];
+  magazines?: Array<Array<string[] | string>>;
   extend?: Extend;
   environmental_protection_with_filter?: number;
   longest_side?: string;

@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface ITerrain {
-  type: CDDA_JSON_TYPES.terrain;
+  type: 'terrain';
   id: string;
   name: string;
   description: string;

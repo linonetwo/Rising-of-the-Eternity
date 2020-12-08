@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IProfession {
-  type: CDDA_JSON_TYPES.profession;
+  type: 'profession';
   id: string;
   name: Name | string;
   description: Description | string;

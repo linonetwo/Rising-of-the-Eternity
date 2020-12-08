@@ -1,23 +1,10 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface ITraitGroup {
-  type: CDDA_JSON_TYPES.trait_group;
+  type: 'trait_group';
   id: string;
   subtype: string;
-  traits: (
-    | Trait
-    | Traits2
-    | Traits3
-    | Distribution2
-    | Traits5
-    | Distribution
-    | Traits7
-    | Traits8
-    | Traits9
-    | Traits10
-    | Traits11
-    | Traits12
-  )[];
+  traits: Array<
+    Trait | Traits2 | Traits3 | Distribution2 | Traits5 | Distribution | Traits7 | Traits8 | Traits9 | Traits10 | Traits11 | Traits12
+  >;
   '//'?: string;
   '//2'?: string;
   '//3'?: string;

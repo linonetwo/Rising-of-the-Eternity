@@ -1,8 +1,6 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IVitamin {
   id: string;
-  type: CDDA_JSON_TYPES.vitamin;
+  type: 'vitamin';
   vit_type: string;
   name: Name;
   deficiency?: string;

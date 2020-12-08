@@ -1,8 +1,6 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IAmmoEffect {
   id: string;
-  type: CDDA_JSON_TYPES.ammo_effect;
+  type: 'ammo_effect';
   aoe?: Aoe;
   explosion?: Explosion;
   do_flashbang?: boolean;

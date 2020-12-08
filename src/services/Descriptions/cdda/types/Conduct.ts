@@ -1,8 +1,6 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IConduct {
   id: string;
-  type: CDDA_JSON_TYPES.conduct;
+  type: 'conduct';
   name: string;
   requirements: Requirement[];
   hidden_by?: string[];

@@ -1,9 +1,7 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface ISnippet {
-  type: CDDA_JSON_TYPES.snippet;
+  type: 'snippet';
   category: string;
-  text: string[] | Text2[] | Text3[] | (Text42 | string)[] | Text5[] | string;
+  text: string[] | Text2[] | Text3[] | Array<Text42 | string> | Text5[] | string;
   '//'?: string;
 }
 

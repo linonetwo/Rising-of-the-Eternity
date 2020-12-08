@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IMartialArt {
-  type: CDDA_JSON_TYPES.martial_art;
+  type: 'martial_art';
   id: string;
   name: Name | string;
   description?: string;

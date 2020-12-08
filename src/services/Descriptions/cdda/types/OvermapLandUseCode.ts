@@ -1,8 +1,6 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IOvermapLandUseCode {
   '//'?: string;
-  type: CDDA_JSON_TYPES.overmap_land_use_code;
+  type: 'overmap_land_use_code';
   id: string;
   sym: string;
   color: string;

@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IArmor {
-  type: CDDA_JSON_TYPES.ARMOR;
+  type: 'ARMOR';
   id?: string;
   name: Name | Name2 | Name3 | string;
   weight?: string;
@@ -22,7 +20,7 @@ export interface IArmor {
     | string[]
     | Useaction2
     | Useaction3
-    | (Useaction4 | string)[]
+    | Array<Useaction4 | string>
     | Useaction5
     | Useaction4
     | Useaction7
@@ -31,7 +29,7 @@ export interface IArmor {
     | Useaction10
     | Useaction11
     | string;
-  qualities?: (number | string)[][];
+  qualities?: Array<Array<number | string>>;
   bashing?: number;
   looks_like?: string;
   warmth?: number;
@@ -229,17 +227,17 @@ interface Ammorestriction {
   ammo_pistol_tiny?: number;
   ammo_pistol?: number;
   ammo_pistol_magnum?: number;
-  '32'?: number;
-  '38'?: number;
-  '40'?: number;
-  '44'?: number;
-  '45'?: number;
-  '46'?: number;
-  '57'?: number;
-  '380'?: number;
-  '454'?: number;
-  '460'?: number;
-  '500'?: number;
+  32?: number;
+  38?: number;
+  40?: number;
+  44?: number;
+  45?: number;
+  46?: number;
+  57?: number;
+  380?: number;
+  454?: number;
+  460?: number;
+  500?: number;
   '762x25'?: number;
   '357mag'?: number;
   '357sig'?: number;

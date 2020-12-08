@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IMaterial {
-  type: CDDA_JSON_TYPES.material;
+  type: 'material';
   id: string;
   name: string;
   density?: number;
@@ -24,10 +22,10 @@ export interface IMaterial {
   burn_data?: Burndatum[];
   repaired_with?: string;
   salvaged_into?: string;
-  burn_products?: (number | string)[][];
+  burn_products?: Array<Array<number | string>>;
   compacts_into?: string[];
   rotting?: boolean;
-  vitamins?: (number | string)[][];
+  vitamins?: Array<Array<number | string>>;
   soft?: boolean;
   reinforces?: boolean;
   '//'?: string;

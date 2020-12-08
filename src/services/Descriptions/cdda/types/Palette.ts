@@ -1,7 +1,5 @@
-import { CDDA_JSON_TYPES } from './names'
-
 export interface IPalette {
-  type: CDDA_JSON_TYPES.palette;
+  type: 'palette';
   id: string;
   furniture?: Furniture;
   terrain?: Terrain;
@@ -25,7 +23,7 @@ export interface IPalette {
 }
 
 interface Computers {
-  '6': _62;
+  6: _62;
 }
 
 interface _62 {
@@ -51,7 +49,7 @@ interface Nested {
 }
 
 interface D2 {
-  chunks: (number | string)[][];
+  chunks: Array<Array<number | string>>;
 }
 
 interface Signs {
@@ -67,14 +65,14 @@ interface Gaspumps {
 }
 
 interface Vehicles {
-  'ɱ': _10;
-  'ƃ': _10;
-  'ɔ': _10;
-  'Ƨ': _10;
+  ɱ: _10;
+  ƃ: _10;
+  ɔ: _10;
+  Ƨ: _10;
   '^': _10;
-  'Я': _10;
-  'Г': _10;
-  'ւ': _10;
+  Я: _10;
+  Г: _10;
+  ւ: _10;
 }
 
 interface _10 {
@@ -89,10 +87,10 @@ interface Vendingmachines {
   D?: R;
   F?: R;
   V?: V2;
-  '8'?: R;
-  '9'?: R;
-  '4'?: R;
-  '5'?: R;
+  8?: R;
+  9?: R;
+  4?: R;
+  5?: R;
 }
 
 interface V2 {
@@ -105,15 +103,15 @@ interface R {
 
 interface Sealeditem {
   '#'?: _9;
-  '1'?: _5;
-  '2'?: _5;
-  '3'?: _5;
-  '4'?: _5;
-  '5'?: _5;
-  '6'?: _5;
-  '7'?: _5;
-  '8'?: _5;
-  '9'?: _5;
+  1?: _5;
+  2?: _5;
+  3?: _5;
+  4?: _5;
+  5?: _5;
+  6?: _5;
+  7?: _5;
+  8?: _5;
+  9?: _5;
 }
 
 interface _9 {
@@ -124,10 +122,10 @@ interface _9 {
 
 interface Liquids {
   g?: G;
-  '0'?: G;
-  'Я'?: G;
-  '6'?: G;
-  '7'?: G;
+  0?: G;
+  Я?: G;
+  6?: G;
+  7?: G;
   H?: G;
 }
 
@@ -149,7 +147,7 @@ interface _8 {
 }
 
 interface Monsters {
-  '0'?: _0;
+  0?: _0;
   '!'?: S[];
   '.'?: S[];
 }
@@ -192,8 +190,8 @@ interface _7 {
 }
 
 interface Traps {
-  '2': string;
-  '7': string;
+  2: string;
+  7: string;
 }
 
 interface Mapping {
@@ -270,7 +268,7 @@ interface Items {
   U?: B3 | B2[] | C[] | U4 | B2 | _3;
   x?: B2[] | B2 | _3;
   X?: B2[] | B2 | _3;
-  '$'?: B2[] | B2 | _3;
+  $?: B2[] | B2 | _3;
   j?: _3[] | C[] | B2;
   L?: _3[] | B2[] | C[] | B2 | _3;
   W?: _3[] | B2[] | C[] | _3 | B3[];
@@ -280,20 +278,20 @@ interface Items {
   a?: C[] | B2 | _3;
   A?: C[] | _3 | A3;
   H?: _3;
-  '9'?: C[] | B2;
+  9?: C[] | B2;
   '!'?: C;
   c?: _3[] | B2[] | B2 | _3;
   h?: C;
   '%'?: B2;
   '~'?: B2;
-  '1'?: _3[] | _3 | U4[];
-  '2'?: _3[] | _3 | U4[];
-  '3'?: _3[] | _3 | U4[];
-  '4'?: _3[] | _3 | U4[];
-  '5'?: _3 | U4[];
-  '6'?: C[] | _3 | U4[];
-  '7'?: _3[] | _3;
-  '8'?: _3[] | C[] | B2;
+  1?: _3[] | _3 | U4[];
+  2?: _3[] | _3 | U4[];
+  3?: _3[] | _3 | U4[];
+  4?: _3[] | _3 | U4[];
+  5?: _3 | U4[];
+  6?: C[] | _3 | U4[];
+  7?: _3[] | _3;
+  8?: _3[] | C[] | B2;
   '&'?: C;
   E?: C;
   f?: _3[] | C[] | B2 | _3;
@@ -467,49 +465,48 @@ interface Toilets {
   T?: _2;
 }
 
-interface _2 {
-}
+interface _2 {}
 
 interface _ {
   amount?: number[];
 }
 
 interface Terrain {
-  '0'?: ((number | string)[] | string)[] | string;
-  '1'?: string[] | ((number | string)[] | string)[] | string;
-  '2'?: string[] | string;
-  '3'?: string[] | string;
-  '4'?: string;
-  '5'?: string[] | string;
-  '6'?: string;
-  '7'?: string[] | ((number | string)[] | string)[] | string;
-  '8'?: ((number | string)[] | string)[] | string;
-  '9'?: string[] | string;
-  ' '?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
-  '!'?: string[] | ((number | string)[] | string)[] | string;
-  '#'?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
-  $?: string[] | ((number | string)[] | string)[] | string;
-  '%'?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
-  '&'?: ((number | string)[] | string)[] | string;
-  "'"?: ((number | string)[] | string)[] | string;
+  0?: Array<Array<number | string> | string> | string;
+  1?: string[] | Array<Array<number | string> | string> | string;
+  2?: string[] | string;
+  3?: string[] | string;
+  4?: string;
+  5?: string[] | string;
+  6?: string;
+  7?: string[] | Array<Array<number | string> | string> | string;
+  8?: Array<Array<number | string> | string> | string;
+  9?: string[] | string;
+  ' '?: string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string;
+  '!'?: string[] | Array<Array<number | string> | string> | string;
+  '#'?: string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string;
+  $?: string[] | Array<Array<number | string> | string> | string;
+  '%'?: string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string;
+  '&'?: Array<Array<number | string> | string> | string;
+  "'"?: Array<Array<number | string> | string> | string;
   '('?: string;
   ')'?: string[] | string;
-  '*'?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
-  '+'?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
-  ','?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
-  '-'?: string[] | ((number | string)[] | string)[] | string;
-  '.'?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
+  '*'?: string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string;
+  '+'?: string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string;
+  ','?: string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string;
+  '-'?: string[] | Array<Array<number | string> | string> | string;
+  '.'?: string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string;
   ':'?: string[] | string;
-  ';'?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
+  ';'?: string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string;
   '<'?: string;
-  '='?: string[] | ((number | string)[] | string)[] | string;
+  '='?: string[] | Array<Array<number | string> | string> | string;
   '>'?: string;
   '?'?: string[] | string;
   '@'?: string[] | string;
   A?: string[] | string;
-  B?: (number | string)[][] | string;
+  B?: Array<Array<number | string>> | string;
   C?: string;
-  D?: string[] | ((number | string)[] | string)[] | string;
+  D?: string[] | Array<Array<number | string> | string> | string;
   E?: string;
   F?: string;
   G?: string;
@@ -517,56 +514,56 @@ interface Terrain {
   I?: string[] | string;
   J?: string[] | string;
   K?: string;
-  L?: ((number | string)[] | string)[] | (number | string)[][] | string;
+  L?: Array<Array<number | string> | string> | Array<Array<number | string>> | string;
   M?: string[] | string;
-  N?: (number | string)[][] | string;
+  N?: Array<Array<number | string>> | string;
   O?: string;
   P?: string;
   Q?: string[] | string;
-  R?: ((number | string)[] | string)[] | string;
-  S?: string[] | ((number | string)[] | string)[] | string;
-  T?: string[] | (number | string)[][] | string;
+  R?: Array<Array<number | string> | string> | string;
+  S?: string[] | Array<Array<number | string> | string> | string;
+  T?: string[] | Array<Array<number | string>> | string;
   U?: string;
   V?: string[] | string;
-  W?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
+  W?: string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string;
   X?: string[] | string;
   Y?: string;
-  Z?: ((number | string)[] | string)[] | string;
+  Z?: Array<Array<number | string> | string> | string;
   '^'?: string[] | string;
-  _?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
+  _?: string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string;
   a?: string;
-  b?: ((number | string)[] | string)[] | string;
+  b?: Array<Array<number | string> | string> | string;
   c?: string;
   d?: string[] | string;
   e?: string;
   f?: string;
   g?: string;
   h?: string[] | string;
-  i?: (number | string)[][] | string;
+  i?: Array<Array<number | string>> | string;
   j?: string;
   k?: string;
   l?: string[] | string;
-  m?: ((number | string)[] | string)[] | string;
+  m?: Array<Array<number | string> | string> | string;
   n?: string[] | string;
-  o?: string[] | ((number | string)[] | string)[] | string;
+  o?: string[] | Array<Array<number | string> | string> | string;
   p?: string[] | string;
   q?: string;
   r?: string[] | string;
-  s?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
+  s?: string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string;
   t?: string[] | string;
-  u?: (number | string)[][] | string;
+  u?: Array<Array<number | string>> | string;
   v?: string[] | string;
-  w?: string[] | ((number | string)[] | string)[] | string;
-  x?: ((number | string)[] | string)[] | (number | string)[][] | string;
+  w?: string[] | Array<Array<number | string> | string> | string;
+  x?: Array<Array<number | string> | string> | Array<Array<number | string>> | string;
   y?: string;
   z?: string;
   '{'?: string;
-  '|'?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
+  '|'?: string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string;
   '}'?: string;
-  '['?: ((number | string)[] | string)[] | string;
+  '['?: Array<Array<number | string> | string> | string;
   ']'?: string;
-  '/'?: ((number | string)[] | string)[] | (number | string)[][] | string;
-  '~'?: string[] | ((number | string)[] | string)[] | string;
+  '/'?: Array<Array<number | string> | string> | Array<Array<number | string>> | string;
+  '~'?: string[] | Array<Array<number | string> | string> | string;
   '`'?: string[] | string;
   ó?: string;
   '˽'?: string;
@@ -574,7 +571,7 @@ interface Terrain {
   ɔ?: string;
   Г?: string;
   ɱ?: string;
-  ϻ?: ((number | string)[] | string)[];
+  ϻ?: Array<Array<number | string> | string>;
   Я?: string;
   ւ?: string;
   Ŋ?: string;
@@ -591,92 +588,92 @@ interface Terrain {
 }
 
 interface Furniture {
-  '3'?: string;
-  '4'?: string;
+  3?: string;
+  4?: string;
   '('?: string;
   ')'?: string;
   '*'?: string;
   '?'?: string;
   '@'?: string[] | string;
-  A?: ((number | string)[] | string)[] | string;
+  A?: Array<Array<number | string> | string> | string;
   B?: string;
   C?: string[] | string;
   D?: string[] | string;
   F?: string;
   H?: string[] | string;
-  K?: ((number | string)[] | string)[] | string;
-  L?: ((number | string)[] | string)[] | string;
-  O?: string[] | ((number | string)[] | string)[] | string;
+  K?: Array<Array<number | string> | string> | string;
+  L?: Array<Array<number | string> | string> | string;
+  O?: string[] | Array<Array<number | string> | string> | string;
   Q?: string;
-  S?: (number | string)[][] | string;
-  T?: ((number | string)[] | string)[] | string;
+  S?: Array<Array<number | string>> | string;
+  T?: Array<Array<number | string> | string> | string;
   W?: string[] | string;
-  X?: string[] | ((number | string)[] | string)[] | string;
-  b?: ((number | string)[] | string)[] | string;
+  X?: string[] | Array<Array<number | string> | string> | string;
+  b?: Array<Array<number | string> | string> | string;
   c?: string[] | string;
   d?: string[] | string;
   e?: string;
   f?: string;
   g?: string[] | string;
-  h?: string[] | ((number | string)[] | string)[] | string;
+  h?: string[] | Array<Array<number | string> | string> | string;
   j?: string;
   k?: string[] | string;
   m?: string[] | string;
   o?: string;
-  p?: string[] | ((number | string)[] | string)[] | string;
+  p?: string[] | Array<Array<number | string> | string> | string;
   q?: string[] | string;
   r?: string[] | string;
   s?: string[] | string;
   t?: string;
   u?: string[] | string;
-  x?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
+  x?: string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string;
   ']'?: string;
   '#'?: string;
   R?: string[] | string;
   V?: string[] | string;
-  Y?: ((number | string)[] | string)[] | string;
+  Y?: Array<Array<number | string> | string> | string;
   Z?: string[] | string;
   a?: string[] | string;
   i?: string[] | string;
-  v?: string[] | (number | string)[][] | string;
+  v?: string[] | Array<Array<number | string>> | string;
   y?: string[] | string;
-  z?: string[] | ((number | string)[] | string)[] | string;
+  z?: string[] | Array<Array<number | string> | string> | string;
   '~'?: string;
   I?: string[] | string;
-  l?: string[] | ((number | string)[] | string)[] | string;
+  l?: string[] | Array<Array<number | string> | string> | string;
   M?: string;
   n?: string;
   N?: string[] | string;
   U?: string[] | string;
   $?: string;
-  P?: ((number | string)[] | string)[] | string;
+  P?: Array<Array<number | string> | string> | string;
   '%'?: string;
-  '0'?: ((number | string)[] | string)[] | string;
-  '2'?: string[] | string;
-  '5'?: string;
-  '7'?: string[] | string;
-  '8'?: string[] | string;
-  '9'?: string;
+  0?: Array<Array<number | string> | string> | string;
+  2?: string[] | string;
+  5?: string;
+  7?: string[] | string;
+  8?: string[] | string;
+  9?: string;
   '='?: string;
   '!'?: string;
-  '1'?: string[] | string;
-  '6'?: string;
+  1?: string[] | string;
+  6?: string;
   '&'?: string;
   E?: string[] | string;
   '^'?: string[] | string;
   w?: string[] | string;
   '{'?: string;
   '}'?: string;
-  '.'?: ((number | string)[] | number | string | string)[][];
-  ';'?: ((number | string)[] | string)[] | (number | string)[][] | string;
-  ','?: ((number | string)[] | string)[] | (number | string)[][] | string;
+  '.'?: Array<Array<Array<number | string> | number | string | string>>;
+  ';'?: Array<Array<number | string> | string> | Array<Array<number | string>> | string;
+  ','?: Array<Array<number | string> | string> | Array<Array<number | string>> | string;
   G?: string;
   J?: string[] | string;
-  ' '?: ((number | string)[] | number | string | string)[][];
+  ' '?: Array<Array<Array<number | string> | number | string | string>>;
   '['?: string;
   ':'?: string;
   '/'?: string;
-  "'"?: ((number | string)[] | string)[] | string;
+  "'"?: Array<Array<number | string> | string> | string;
   '₸'?: string;
   '∞'?: string;
   '≠'?: string;
@@ -702,7 +699,6 @@ interface Furniture {
   Ʌ?: string;
   _?: string;
   '`'?: string;
-  '|'?: ((number | string)[] | string)[];
+  '|'?: Array<Array<number | string> | string>;
   '+'?: string;
 }
-

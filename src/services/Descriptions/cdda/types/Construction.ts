@@ -1,13 +1,11 @@
-import { CDDA_JSON_TYPES } from './names';
-
 export interface IConstruction {
-  type: CDDA_JSON_TYPES.construction;
+  type: 'construction';
   id: string;
   group: string;
   category: string;
-  required_skills?: (number | string)[][];
+  required_skills?: Array<Array<number | string>>;
   time: number | string;
-  qualities?: (Quality[] | Quality)[];
+  qualities?: Array<Quality[] | Quality>;
   pre_special?: string;
   post_flags?: string[];
   post_special?: string;
@@ -15,12 +13,12 @@ export interface IConstruction {
   pre_flags?: string[] | string;
   dark_craftable?: boolean;
   post_terrain?: string;
-  components?: (number | string)[][][];
+  components?: Array<Array<Array<number | string>>>;
   pre_terrain?: string;
   '//'?: string;
   byproducts?: Byproduct[];
-  tools?: ((number | string)[] | (number | string)[] | string | string)[][];
-  using?: (number | string)[][];
+  tools?: Array<Array<Array<number | string> | Array<number | string> | string | string>>;
+  using?: Array<Array<number | string>>;
   '//2'?: string;
   vehicle_start?: boolean;
   skill?: string;

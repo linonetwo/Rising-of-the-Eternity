@@ -132,9 +132,9 @@ interface Monsters {
   g?: O2;
   B?: W3;
   S?: W3;
-  '''?: O2;
+  "'"?: O2;
   b?: O2;
-  '$'?: O2;
+  $?: O2;
   ','?: _34;
   s?: O2;
   ':'?: O2;
@@ -1219,7 +1219,7 @@ interface Z {
 interface Vehicles {
   v?: V;
   V?: V;
-  '$'?: _12;
+  $?: _12;
   '.'?: _13;
   G?: G2;
   J?: J;
@@ -1229,7 +1229,7 @@ interface Vehicles {
   s?: _13;
   C?: U;
   W?: _12;
-  '''?: U;
+  "'"?: U;
   p?: U;
   '>'?: U;
   '<'?: _14;
@@ -2510,7 +2510,7 @@ interface Furniture {
   k?: string[] | string;
   J?: string[] | string;
   N?: string[] | string;
-  '$'?: string[] | string;
+  $?: string[] | string;
   ','?: string[] | ((number | string)[] | string)[] | string;
   '1'?: string[] | string;
   '4'?: string[] | string;
@@ -2556,7 +2556,7 @@ interface Furniture {
   '5'?: string[] | string;
   '#'?: string[] | ((number | string)[] | string)[] | string;
   '{'?: string[] | string;
-  'Á'?: string;
+  Á?: string;
   ':'?: string[] | string;
   '*'?: string[] | ((number | string)[] | string)[] | string;
   _?: ((number | string)[] | string)[] | string;
@@ -2566,34 +2566,34 @@ interface Furniture {
   '>'?: string[] | string;
   '+'?: string;
   ']'?: string[] | string;
-  '''?: string;
+  "'"?: string;
   '~'?: (number | string)[][] | string;
   ';'?: string;
-  'Δ'?: string;
+  Δ?: string;
   '('?: string;
   '['?: string[] | string;
   '±'?: string[] | string;
   '‡'?: string[] | string;
-  'Ŧ'?: string[] | string;
+  Ŧ?: string[] | string;
   '<'?: string[];
-  'А'?: string;
-  'Б'?: string;
-  'В'?: string;
-  'Г'?: string;
-  'Д'?: string;
-  'Е'?: string;
-  'Ю'?: string;
-  'Т'?: string;
-  'х'?: string;
+  А?: string;
+  Б?: string;
+  В?: string;
+  Г?: string;
+  Д?: string;
+  Е?: string;
+  Ю?: string;
+  Т?: string;
+  х?: string;
   '³'?: string;
-  'ƃ'?: string;
+  ƃ?: string;
   '♦'?: string;
   '♣'?: string;
-  'Я'?: string;
-  'Ʌ'?: string;
+  Я?: string;
+  Ʌ?: string;
   '♥'?: string;
   '♠'?: string;
-  'Ŋ'?: string;
+  Ŋ?: string;
   '˽'?: string;
 }
 
@@ -2627,7 +2627,7 @@ interface Terrain {
   '?'?: string[] | string;
   M?: string[] | string;
   '.'?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
-  '''?: string[] | (number | string)[][] | string;
+  "'"?: string[] | (number | string)[][] | string;
   ':'?: string[] | ((number | string)[] | string)[] | (number | string)[][] | string;
   '#'?: string[] | string;
   R?: string[] | string;
@@ -2664,7 +2664,7 @@ interface Terrain {
   '^'?: string[] | string;
   '*'?: string[] | ((number | string)[] | string)[] | string;
   E?: string[] | string;
-  '$'?: string[] | ((number | string)[] | string)[] | string;
+  $?: string[] | ((number | string)[] | string)[] | string;
   F?: string[] | string;
   z?: string[] | ((number | string)[] | string)[] | string;
   Z?: string[] | string;
@@ -2688,10 +2688,10 @@ interface Terrain {
   n?: string;
   '}'?: string[] | string;
   '&'?: string[] | string;
-  'Ŧ'?: string[] | string;
+  Ŧ?: string[] | string;
   '±'?: string[] | string;
-  'Δ'?: string;
-  'Ʌ'?: string;
+  Δ?: string;
+  Ʌ?: string;
   '/'?: string[] | string;
   ']'?: string[] | string;
   D?: string[] | string;
@@ -2704,24 +2704,24 @@ interface Terrain {
   '♦'?: string;
   '♣'?: string;
   '‡'?: string[] | string;
-  'Ы'?: string;
+  Ы?: string;
   '₸'?: string;
   '≠'?: string;
   '³'?: string;
   '°'?: string;
-  'Ю'?: string[] | string;
-  'х'?: string;
-  'Т'?: string;
-  'ƃ'?: string;
+  Ю?: string[] | string;
+  х?: string;
+  Т?: string;
+  ƃ?: string;
   '˽'?: string;
-  'Я'?: string;
-  'ó'?: string;
-  'Ħ'?: string;
-  'Ʃ'?: string;
-  'Ʉ'?: string;
-  'ǝ'?: string;
-  'ȴ'?: string;
-  'Ŋ'?: string;
+  Я?: string;
+  ó?: string;
+  Ħ?: string;
+  Ʃ?: string;
+  Ʉ?: string;
+  ǝ?: string;
+  ȴ?: string;
+  Ŋ?: string;
 }
 
 interface _22 {
@@ -3068,7 +3068,7 @@ interface Placemonster {
 }
 
 interface Items {
-  '''?: _;
+  "'"?: _;
   ':'?: _[] | _2[] | _2 | _;
   D?: _[] | D2 | D3[] | _2 | _;
   W?: _[] | W2 | _2 | _;
@@ -3120,7 +3120,7 @@ interface Items {
   l?: L[] | L2 | _[] | D2 | _2[] | D3[] | _2 | _ | L6[] | D2[];
   v?: _2[] | _2 | F6 | _;
   x?: _[] | _2[] | _2 | _;
-  '$'?: L[] | _[] | D2 | _2[] | _2 | _ | _7[];
+  $?: L[] | _[] | D2 | _2[] | _2 | _ | _7[];
   i?: _[] | _2[] | _2 | _;
   V?: _2[] | _2 | _;
   U?: _[] | _2[] | _2 | _;
@@ -3160,26 +3160,26 @@ interface Items {
   '‡'?: _[] | _2;
   '♠'?: _[] | _;
   '∞'?: D3;
-  'А'?: _5;
-  'Б'?: _8;
-  'В'?: _2;
-  'Г'?: F;
-  'Д'?: _;
+  А?: _5;
+  Б?: _8;
+  В?: _2;
+  Г?: F;
+  Д?: _;
   '>'?: _;
   '|'?: _;
-  'Ʌ'?: _2[] | _2;
+  Ʌ?: _2[] | _2;
   '♣'?: _[];
   '♦'?: _;
   '♥'?: _;
   '±'?: _[] | _2 | _;
-  'Ŧ'?: _[] | _2[] | _2;
+  Ŧ?: _[] | _2[] | _2;
   '³'?: _2[];
-  'ɱ'?: _2;
+  ɱ?: _2;
   '▤'?: _[] | _2;
-  'Ħ'?: D3;
-  'Δ'?: _[] | _2[] | _2;
-  'Ʉ'?: _2;
-  'ǝ'?: _2[] | _2;
+  Ħ?: D3;
+  Δ?: _[] | _2[] | _2;
+  Ʉ?: _2;
+  ǝ?: _2[] | _2;
 }
 
 interface _8 {

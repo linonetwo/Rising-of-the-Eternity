@@ -1,18 +1,22 @@
 /* eslint-disable @typescript-eslint/consistent-type-assertions */
 import { IProcessors, ICDDAJSON } from './types';
-import { IGun, InspectResultWithContent } from '../types';
+import { InspectResultWithContent } from '../types';
 
 /**
  * Loaders of each type of CDDA data JSON Object, load things into GUN db
  */
-export const knowledgeBaseBuilders = {} as IProcessors<IGun>;
+export const knowledgeBaseBuilders = {} as IProcessors<Loki>;
 
 /**
  * Put all things from CDDA data JSON to GUN db
  * @param fileItem an InspectResultWithContent from getFileJSON()
  * @param knowledgeBase an GUN db instance
  */
-export function buildKnowledgeBaseFromCDDAData(fileItem: InspectResultWithContent<ICDDAJSON[]>, knowledgeBase: IGun): IGun {
+export function buildKnowledgeBaseFromCDDAData<DB>(
+  fileItem: InspectResultWithContent<ICDDAJSON[]>,
+  knowledgeBase: DB,
+  knowledgeBaseBuilders = {} as IProcessors<DB>,
+): DB {
   if (fileItem.fileType === 'data') {
     const { content } = fileItem;
     if (Array.isArray(content)) {
@@ -38,13 +42,3 @@ export function buildKnowledgeBaseFromCDDAData(fileItem: InspectResultWithConten
   }
   return knowledgeBase;
 }
-
-// ##        #######     ###    ########  ######## ########   ######
-// ##       ##     ##   ## ##   ##     ## ##       ##     ## ##    ##
-// ##       ##     ##  ##   ##  ##     ## ##       ##     ## ##
-// ##       ##     ## ##     ## ##     ## ######   ########   ######
-// ##       ##     ## ######### ##     ## ##       ##   ##         ##
-// ##       ##     ## ##     ## ##     ## ##       ##    ##  ##    ##
-// ########  #######  ##     ## ########  ######## ##     ##  ######
-
-knowledgeBaseBuilders.achievement = (item, gun) => {};

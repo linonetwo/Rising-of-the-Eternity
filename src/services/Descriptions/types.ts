@@ -1,11 +1,8 @@
 import { InspectTreeResult } from 'fs-jetpack/types';
-import { IGunChainReference } from 'gun/types/chain';
 
-/**
- * Gun db without .then , if we don't exclude "then" from IGunChainReference, it will cause the Promise<IGunChainReference> return value error (The return type of an async function must either be a valid promise or must not contain a callable 'then' member.ts(1058)
-)
- */
-export type IGun = Omit<IGunChainReference, 'then'>;
+import { IService } from '@/services/types';
+
+export interface IDescriptionStore extends IService {}
 
 /**
  * 基本类似于 inspectData https://www.npmjs.com/package/fs-jetpack#inspecttreepath-options ，但是多了 content 包含 JSON parse 过的文件内容

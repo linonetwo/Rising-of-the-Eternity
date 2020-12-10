@@ -1,6 +1,10 @@
 import { app, BrowserWindow } from 'electron';
 import installExtension, { REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS } from 'electron-devtools-installer';
 
+import { container } from '@/services';
+import { IElectronMainThreadService } from '@/services/Main';
+import SERVICE_IDENTIFIER from '@/services/identifiers';
+
 import './handlers';
 
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
@@ -40,7 +44,11 @@ const createWindow = () => {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow);
+app.on('ready', () => {
+  const main = container.get<IElectronMainThreadService>(SERVICE_IDENTIFIER.Main);
+  void main.init();
+  createWindow();
+});
 
 app
   .whenReady()

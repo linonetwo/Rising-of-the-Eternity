@@ -13,6 +13,7 @@ const webpackAlias = {
   '@constants': rootResolve('src/constants'),
   '@redux': rootResolve('src/redux'),
   '@ecs': rootResolve('src/ecs'),
+  '@services': rootResolve('src/services'),
 };
 
 module.exports = {

@@ -26,6 +26,7 @@ module.exports = {
           ['@constants', './src/constants'],
           ['@redux', './src/redux'],
           ['@ecs', './src/ecs'],
+          ['@services', './src/services'],
         ],
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },

@@ -5,7 +5,9 @@ import { IDescriptionStore } from '@/services/Descriptions/types';
 import SERVICE_IDENTIFIER from '@/services/identifiers';
 import TAG from '@/services/tags';
 
-export interface IElectronMainThreadService extends IService {}
+export interface IElectronMainThreadService extends IService {
+  cdda: IDescriptionStore;
+}
 
 @injectable()
 export class Main implements IElectronMainThreadService {

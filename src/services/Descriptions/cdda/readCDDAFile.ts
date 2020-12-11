@@ -79,10 +79,13 @@ async function getFileJSON(inspectData: InspectTreeResult, parentPath = ''): Pro
  * 读取原始文件内容，打平成一维数组，并带上路径信息
  */
 export async function readCDDASourceFiles(sourceModDirectory: string): Promise<Array<InspectResultWithContent<ICDDAJSON[]>>> {
-  const folders = await fs.inspectTreeAsync(sourceModDirectory);
-  if (folders !== undefined) {
-    const foldersWithContent = await getFileJSON(folders);
-    return foldersWithContent;
+  const sourceModDirectoryInspectResult = await fs.inspectTreeAsync(sourceModDirectory);
+  if (sourceModDirectoryInspectResult !== undefined) {
+    const { children } = sourceModDirectoryInspectResult;
+    const foldersWithContent = await Promise.all(
+      children.map(async (subFileOrFolder) => await getFileJSON(subFileOrFolder, sourceModDirectory)),
+    );
+    return flatten(foldersWithContent);
   }
   return [];
 }

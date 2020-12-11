@@ -38,7 +38,7 @@ export function buildKnowledgeBaseFromCDDAData<DB>(
     // TODO: handle PNG loading
   } else {
     // TODO: use logger instead
-    console.warn(`Get fileItem.fileType === ${fileItem.fileType}, content is broken in ${fileItem.filePath}`);
+    console.warn(`Get fileItem.fileType === ${fileItem.fileType}, content is broken in ${fileItem.filePath}: ${fileItem.errorMessage}`);
   }
   return knowledgeBase;
 }

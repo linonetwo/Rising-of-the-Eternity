@@ -8,13 +8,16 @@
   "include": [
     // whatever paths you intend to lint
     "src/**/*.ts",
+    "scripts/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "./.eslintrc.js",
     "./webpack.main.config.js",
     "./webpack.plugins.js",
     "./webpack.renderer.config.js",
-    "./webpack.rules.js"
+    "./webpack.rules.js",
+    "./*.json",
+    "./*.js"
   ],
   "exclude": ["resources/**/*.js"]
 }

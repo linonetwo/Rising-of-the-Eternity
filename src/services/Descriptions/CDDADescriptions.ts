@@ -13,6 +13,7 @@ import {
 } from './cdda';
 import { modFolder } from '@/constants/paths';
 import { IDescriptionStore, ExtraDatabaseCollections, IDescriptionLoadingError } from './types';
+import { mergeJSONComments } from './cdda/utils';
 
 @injectable()
 export class CDDADescriptions implements IDescriptionStore {
@@ -191,6 +192,11 @@ export class CDDADescriptions implements IDescriptionStore {
       const collection = getCollectionOrCreate<typeof item>(type, { unique: ['id'], indices: ['id'] });
       if (round === 0) {
         // expand { id: string[] } into { id:string }[]
+        if (Array.isArray(id)) {
+          const newItems = id.map((anID) => ({ ...item, id: anID }));
+          return newItems.map((newItem) => knowledgeBaseBuilders.talk_topic(newItem, round, context));
+        }
+        // now we have id: string
         const existedItem = collection.findOne({ id: { $contains: id } });
         if (existedItem === null) {
           collection.insertOne(item);
@@ -205,6 +211,7 @@ export class CDDADescriptions implements IDescriptionStore {
               }
             }
             // merge comments
+            mergeJSONComments(item, oldItem);
           });
         }
       }

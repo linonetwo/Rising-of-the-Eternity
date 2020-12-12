@@ -34,6 +34,19 @@ users.insert([
   { name: 'Thor', age: 35 },
   { name: 'Loki', age: 30 },
 ]);
-const results = users.find({ age: { $gte: 35 } });
+const result = users.findOne({ age: { $gte: 35 } });
+
 // DEBUG: console
-console.log(`results`, results);
+console.log(`results`, result);
+users.insert({ name: 'PP', age: 30, friend: result });
+
+users.findAndUpdate({ name: 'Thor' }, (thor) => {
+  thor.age = 36;
+});
+
+console.log('PP', users.findOne({ name: 'PP' }));
+console.log('Thor', users.findOne({ name: 'Thor' }));
+
+const aaadb = db.getCollection('aaa');
+aaadb.insert({ bbb: 3 });
+console.log(aaadb.find());

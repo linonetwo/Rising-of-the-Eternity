@@ -1,6 +1,7 @@
 const fs = require('fs-extra');
 const path = require('path');
 const Loki = require('lokijs');
+const _ = require('lodash');
 
 const base = './resources/mods/cdda/core';
 const mods = './resources/mods/cdda/mods';
@@ -29,24 +30,11 @@ let contents = files.flatMap((name) => fs.readJsonSync(name));
 console.log(`contents.length`, contents.length);
 
 const db = new Loki('example.db');
-const users = db.addCollection('users');
+const users = db.addCollection('users', { unique: ['id'], indices: ['id'] });
 users.insert([
-  { name: 'Thor', age: 35 },
-  { name: 'Loki', age: 30 },
+  { name: 'Thor', age: 35, friends: ['aaa', 'bbb'], id: '3' },
+  { name: 'Loki', age: 30, id: ['3', '4'] },
 ]);
-const result = users.findOne({ age: { $gte: 35 } });
-
+const result = users.findOne({ id: { $contains: '3' } });
 // DEBUG: console
-console.log(`results`, result);
-users.insert({ name: 'PP', age: 30, friend: result });
-
-users.findAndUpdate({ name: 'Thor' }, (thor) => {
-  thor.age = 36;
-});
-
-console.log('PP', users.findOne({ name: 'PP' }));
-console.log('Thor', users.findOne({ name: 'Thor' }));
-
-const aaadb = db.getCollection('aaa');
-aaadb.insert({ bbb: 3 });
-console.log(aaadb.find());
+console.log(`result`, result);

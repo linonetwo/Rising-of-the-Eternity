@@ -1,8 +1,16 @@
 import { injectable } from 'inversify';
-import Loki, { Collection, CollectionOptions } from 'lokijs';
+import Loki, { Collection } from 'lokijs';
 import path from 'path';
+import { pick } from 'lodash';
 
-import { readCDDASourceFiles, buildKnowledgeBaseFromCDDAData, IProcessors, ICDDAJSON } from './cdda';
+import {
+  readCDDASourceFiles,
+  buildKnowledgeBaseFromCDDAData,
+  IProcessors,
+  ICDDAJSONWithComments,
+  CDDA_JSON_TYPES,
+  ICDDATypeMap,
+} from './cdda';
 import { modFolder } from '@/constants/paths';
 import { IDescriptionStore, ExtraDatabaseCollections, IDescriptionLoadingError } from './types';
 
@@ -37,16 +45,24 @@ export class CDDADescriptions implements IDescriptionStore {
    */
   private buildLoaders(): IProcessors<Loki> {
     /** Get db collection, and create on if it is not exist, make sure you can get one */
-    const getCollectionOrCreate = <D extends ICDDAJSON>(collectionName: string, options: Partial<CollectionOptions<D>>): Collection<D> => {
+    const getCollectionOrCreate = <D extends ICDDAJSONWithComments & { id: string | string[] }>(
+      collectionName: string,
+      options: Partial<CollectionOptions<D>>,
+    ): Collection<D> => {
       let collection = this.database.getCollection<D>(collectionName);
       if (collection === null) {
         collection = this.database.addCollection<D>(collectionName, options);
       }
       return collection;
     };
-    /** By default we simply put things into collection on the first pass */
-    const defaultFirstRound = <D extends ICDDAJSON>(item: D, round: number): Collection<D> => {
-      const collection = getCollectionOrCreate<D>('achievement', { unique: ['id'], indices: ['id'] });
+    /** By default we simply put things into collection on the first pass
+     * Some type don't have id, such as 'uncraft', some have array of id such as 'overmap_terrain', don't use this default method
+     */
+    const insertItemInCollectionWithIndex = <D extends ICDDAJSONWithComments & { id: string | string[] }>(
+      item: D,
+      round: number,
+    ): Collection<D> => {
+      const collection = getCollectionOrCreate<D>(item.type, { unique: ['id'], indices: ['id'] });
       if (round === 0) {
         collection.insertOne(item);
       }
@@ -63,131 +79,152 @@ export class CDDADescriptions implements IDescriptionStore {
     // ##       ##     ## ##     ## ##     ## ##       ##    ##  ##    ##
     // ########  #######  ##     ## ########  ######## ##     ##  ######
 
-    knowledgeBaseBuilders.achievement = defaultFirstRound;
-    knowledgeBaseBuilders.activity_type = defaultFirstRound;
-    knowledgeBaseBuilders.AMMO = defaultFirstRound;
-    knowledgeBaseBuilders.ammo_effect = defaultFirstRound;
-    knowledgeBaseBuilders.ammunition_type = defaultFirstRound;
-    knowledgeBaseBuilders.anatomy = defaultFirstRound;
-    knowledgeBaseBuilders.ARMOR = defaultFirstRound;
-    knowledgeBaseBuilders.ascii_art = defaultFirstRound;
-    knowledgeBaseBuilders.BATTERY = defaultFirstRound;
-    knowledgeBaseBuilders.behavior = defaultFirstRound;
-    knowledgeBaseBuilders.bionic = defaultFirstRound;
-    knowledgeBaseBuilders.BIONIC_ITEM = defaultFirstRound;
-    knowledgeBaseBuilders.body_part = defaultFirstRound;
-    knowledgeBaseBuilders.BOOK = defaultFirstRound;
-    knowledgeBaseBuilders.butchery_requirement = defaultFirstRound;
-    knowledgeBaseBuilders.charge_removal_blacklist = defaultFirstRound;
-    knowledgeBaseBuilders.city_building = defaultFirstRound;
-    knowledgeBaseBuilders.clothing_mod = defaultFirstRound;
-    knowledgeBaseBuilders.colordef = defaultFirstRound;
-    knowledgeBaseBuilders.COMESTIBLE = defaultFirstRound;
-    knowledgeBaseBuilders.conduct = defaultFirstRound;
-    knowledgeBaseBuilders.construction = defaultFirstRound;
-    knowledgeBaseBuilders.construction_category = defaultFirstRound;
-    knowledgeBaseBuilders.construction_group = defaultFirstRound;
-    knowledgeBaseBuilders.disease_type = defaultFirstRound;
-    knowledgeBaseBuilders.dream = defaultFirstRound;
-    knowledgeBaseBuilders.effect_type = defaultFirstRound;
-    knowledgeBaseBuilders.emit = defaultFirstRound;
-    knowledgeBaseBuilders.enchantment = defaultFirstRound;
-    knowledgeBaseBuilders.ENGINE = defaultFirstRound;
-    knowledgeBaseBuilders.event_statistic = defaultFirstRound;
-    knowledgeBaseBuilders.event_transformation = defaultFirstRound;
-    knowledgeBaseBuilders.EXTERNAL_OPTION = defaultFirstRound;
-    knowledgeBaseBuilders.faction = defaultFirstRound;
-    knowledgeBaseBuilders.fault = defaultFirstRound;
-    knowledgeBaseBuilders.field_type = defaultFirstRound;
-    knowledgeBaseBuilders.furniture = defaultFirstRound;
-    knowledgeBaseBuilders.gate = defaultFirstRound;
-    knowledgeBaseBuilders.GENERIC = defaultFirstRound;
-    knowledgeBaseBuilders.GUN = defaultFirstRound;
-    knowledgeBaseBuilders.GUNMOD = defaultFirstRound;
-    knowledgeBaseBuilders.harvest = defaultFirstRound;
-    knowledgeBaseBuilders.hit_range = defaultFirstRound;
-    knowledgeBaseBuilders.item_action = defaultFirstRound;
-    knowledgeBaseBuilders.ITEM_BLACKLIST = defaultFirstRound;
-    knowledgeBaseBuilders.ITEM_CATEGORY = defaultFirstRound;
-    knowledgeBaseBuilders.item_group = defaultFirstRound;
-    knowledgeBaseBuilders.json_flag = defaultFirstRound;
-    knowledgeBaseBuilders.LOOT_ZONE = defaultFirstRound;
-    knowledgeBaseBuilders.MAGAZINE = defaultFirstRound;
-    knowledgeBaseBuilders.map_extra = defaultFirstRound;
-    knowledgeBaseBuilders.mapgen = defaultFirstRound;
-    knowledgeBaseBuilders.martial_art = defaultFirstRound;
-    knowledgeBaseBuilders.material = defaultFirstRound;
-    knowledgeBaseBuilders.MIGRATION = defaultFirstRound;
-    knowledgeBaseBuilders.mission_definition = defaultFirstRound;
-    knowledgeBaseBuilders.MOD_INFO = defaultFirstRound;
-    knowledgeBaseBuilders.mod_tileset = defaultFirstRound;
-    knowledgeBaseBuilders.MONSTER = defaultFirstRound;
-    knowledgeBaseBuilders.monster_adjustment = defaultFirstRound;
-    knowledgeBaseBuilders.monster_attack = defaultFirstRound;
-    knowledgeBaseBuilders.MONSTER_BLACKLIST = defaultFirstRound;
-    knowledgeBaseBuilders.MONSTER_FACTION = defaultFirstRound;
-    knowledgeBaseBuilders.MONSTER_WHITELIST = defaultFirstRound;
-    knowledgeBaseBuilders.monstergroup = defaultFirstRound;
-    knowledgeBaseBuilders.morale_type = defaultFirstRound;
-    knowledgeBaseBuilders.movement_mode = defaultFirstRound;
-    knowledgeBaseBuilders.mutation = defaultFirstRound;
-    knowledgeBaseBuilders.mutation_category = defaultFirstRound;
-    knowledgeBaseBuilders.mutation_type = defaultFirstRound;
-    knowledgeBaseBuilders.npc = defaultFirstRound;
-    knowledgeBaseBuilders.npc_class = defaultFirstRound;
-    knowledgeBaseBuilders.obsolete_terrain = defaultFirstRound;
-    knowledgeBaseBuilders.overlay_order = defaultFirstRound;
-    knowledgeBaseBuilders.overmap_connection = defaultFirstRound;
-    knowledgeBaseBuilders.overmap_land_use_code = defaultFirstRound;
-    knowledgeBaseBuilders.overmap_location = defaultFirstRound;
-    knowledgeBaseBuilders.overmap_special = defaultFirstRound;
-    knowledgeBaseBuilders.overmap_terrain = defaultFirstRound;
-    knowledgeBaseBuilders.palette = defaultFirstRound;
-    knowledgeBaseBuilders.PET_ARMOR = defaultFirstRound;
-    knowledgeBaseBuilders.profession = defaultFirstRound;
-    knowledgeBaseBuilders.profession_item_substitutions = defaultFirstRound;
-    knowledgeBaseBuilders.proficiency = defaultFirstRound;
-    knowledgeBaseBuilders.recipe = defaultFirstRound;
-    knowledgeBaseBuilders.recipe_category = defaultFirstRound;
-    knowledgeBaseBuilders.recipe_group = defaultFirstRound;
-    knowledgeBaseBuilders.region_overlay = defaultFirstRound;
-    knowledgeBaseBuilders.region_settings = defaultFirstRound;
-    knowledgeBaseBuilders.relic_procgen_data = defaultFirstRound;
-    knowledgeBaseBuilders.requirement = defaultFirstRound;
-    knowledgeBaseBuilders.rotatable_symbol = defaultFirstRound;
-    knowledgeBaseBuilders.scenario = defaultFirstRound;
-    knowledgeBaseBuilders.SCENARIO_BLACKLIST = defaultFirstRound;
-    knowledgeBaseBuilders.scent_type = defaultFirstRound;
-    knowledgeBaseBuilders.score = defaultFirstRound;
-    knowledgeBaseBuilders.skill = defaultFirstRound;
-    knowledgeBaseBuilders.skill_boost = defaultFirstRound;
-    knowledgeBaseBuilders.skill_display_type = defaultFirstRound;
-    knowledgeBaseBuilders.snippet = defaultFirstRound;
-    knowledgeBaseBuilders.SPECIES = defaultFirstRound;
-    knowledgeBaseBuilders.speech = defaultFirstRound;
-    knowledgeBaseBuilders.SPELL = defaultFirstRound;
-    knowledgeBaseBuilders.start_location = defaultFirstRound;
-    knowledgeBaseBuilders.talk_topic = defaultFirstRound;
-    knowledgeBaseBuilders.technique = defaultFirstRound;
-    knowledgeBaseBuilders.ter_furn_transform = defaultFirstRound;
-    knowledgeBaseBuilders.terrain = defaultFirstRound;
-    knowledgeBaseBuilders.TOOL = defaultFirstRound;
-    knowledgeBaseBuilders.TOOL_ARMOR = defaultFirstRound;
-    knowledgeBaseBuilders.tool_quality = defaultFirstRound;
-    knowledgeBaseBuilders.TOOLMOD = defaultFirstRound;
-    knowledgeBaseBuilders.TRAIT_BLACKLIST = defaultFirstRound;
-    knowledgeBaseBuilders.trait_group = defaultFirstRound;
-    knowledgeBaseBuilders.trap = defaultFirstRound;
-    knowledgeBaseBuilders.uncraft = defaultFirstRound;
-    knowledgeBaseBuilders.vehicle = defaultFirstRound;
-    knowledgeBaseBuilders.vehicle_group = defaultFirstRound;
-    knowledgeBaseBuilders.vehicle_part = defaultFirstRound;
-    knowledgeBaseBuilders.vehicle_part_category = defaultFirstRound;
-    knowledgeBaseBuilders.vehicle_placement = defaultFirstRound;
-    knowledgeBaseBuilders.vehicle_spawn = defaultFirstRound;
-    knowledgeBaseBuilders.vitamin = defaultFirstRound;
-    knowledgeBaseBuilders.weather_type = defaultFirstRound;
-    knowledgeBaseBuilders.WHEEL = defaultFirstRound;
+    knowledgeBaseBuilders.achievement = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.activity_type = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.AMMO = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.ammo_effect = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.ammunition_type = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.anatomy = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.ARMOR = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.ascii_art = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.BATTERY = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.behavior = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.bionic = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.BIONIC_ITEM = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.body_part = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.BOOK = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.butchery_requirement = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.charge_removal_blacklist = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.city_building = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.clothing_mod = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.colordef = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.COMESTIBLE = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.conduct = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.construction = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.construction_category = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.construction_group = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.disease_type = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.dream = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.effect_type = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.emit = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.enchantment = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.ENGINE = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.event_statistic = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.event_transformation = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.EXTERNAL_OPTION = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.faction = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.fault = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.field_type = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.furniture = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.gate = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.GENERIC = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.GUN = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.GUNMOD = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.harvest = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.hit_range = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.item_action = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.ITEM_BLACKLIST = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.ITEM_CATEGORY = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.item_group = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.json_flag = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.LOOT_ZONE = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.MAGAZINE = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.map_extra = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.mapgen = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.martial_art = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.material = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.MIGRATION = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.mission_definition = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.MOD_INFO = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.mod_tileset = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.MONSTER = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.monster_adjustment = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.monster_attack = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.MONSTER_BLACKLIST = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.MONSTER_FACTION = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.MONSTER_WHITELIST = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.monstergroup = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.morale_type = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.movement_mode = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.mutation = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.mutation_category = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.mutation_type = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.npc = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.npc_class = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.obsolete_terrain = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.overlay_order = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.overmap_connection = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.overmap_land_use_code = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.overmap_location = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.overmap_special = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.overmap_terrain = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.palette = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.PET_ARMOR = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.profession = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.profession_item_substitutions = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.proficiency = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.recipe = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.recipe_category = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.recipe_group = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.region_overlay = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.region_settings = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.relic_procgen_data = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.requirement = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.rotatable_symbol = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.scenario = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.SCENARIO_BLACKLIST = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.scent_type = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.score = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.skill = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.skill_boost = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.skill_display_type = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.snippet = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.SPECIES = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.speech = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.SPELL = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.start_location = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.talk_topic = (item, round, context) => {
+      const { type, id } = item;
+      const collection = getCollectionOrCreate<typeof item>(type, { unique: ['id'], indices: ['id'] });
+      if (round === 0) {
+        const existedItem = collection.findOne({ id });
+        if (existedItem === null) {
+          collection.insertOne(item);
+        } else {
+          collection.findAndUpdate(pick(existedItem, '$loki'), (oldItem) => {
+            // concat responses array if both array exists
+            if (item.responses !== undefined) {
+              if (oldItem.responses !== undefined) {
+                oldItem.responses.push(...item.responses);
+              } else {
+                oldItem.responses = item.responses;
+              }
+            }
+            // merge comments
+          });
+        }
+      }
+    };
+    knowledgeBaseBuilders.technique = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.ter_furn_transform = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.terrain = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.TOOL = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.TOOL_ARMOR = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.tool_quality = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.TOOLMOD = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.TRAIT_BLACKLIST = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.trait_group = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.trap = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.uncraft = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.vehicle = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.vehicle_group = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.vehicle_part = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.vehicle_part_category = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.vehicle_placement = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.vehicle_spawn = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.vitamin = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.weather_type = insertItemInCollectionWithIndex;
+    knowledgeBaseBuilders.WHEEL = insertItemInCollectionWithIndex;
 
     return knowledgeBaseBuilders;
   }
@@ -213,5 +250,9 @@ export class CDDADescriptions implements IDescriptionStore {
       console.groupEnd();
       console.log('');
     });
+  }
+
+  public getItemByID<TName extends CDDA_JSON_TYPES, T extends ICDDATypeMap[TName]>(type: TName, id: string): T | null {
+    return this.database.getCollection<T>(type).findOne({ id: { $contains: id } } as any);
   }
 }

@@ -1,0 +1,1 @@
+import { injectable } from 'inversify';

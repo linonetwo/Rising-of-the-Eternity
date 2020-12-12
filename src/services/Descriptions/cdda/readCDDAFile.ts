@@ -4,7 +4,7 @@ import { InspectTreeResult } from 'fs-jetpack/types';
 import path from 'path';
 import { flatten } from 'lodash';
 
-import { ICDDAJSON } from './types';
+import { ICDDAJSONWithComments } from './types';
 import { InspectResultWithContent } from '../types';
 
 /**
@@ -12,7 +12,10 @@ import { InspectResultWithContent } from '../types';
  * @param inspectData https://www.npmjs.com/package/fs-jetpack#inspecttreepath-options
  * @param parentPath 用于拼凑 filePath 用的父级路径
  */
-async function getFileJSON(inspectData: InspectTreeResult, parentPath = ''): Promise<Array<InspectResultWithContent<ICDDAJSON[]>>> {
+async function getFileJSON(
+  inspectData: InspectTreeResult,
+  parentPath = '',
+): Promise<Array<InspectResultWithContent<ICDDAJSONWithComments[]>>> {
   const filePath = path.join(parentPath, inspectData.name);
   if (inspectData.type === 'file') {
     if (inspectData.name.endsWith('json')) {
@@ -21,7 +24,7 @@ async function getFileJSON(inspectData: InspectTreeResult, parentPath = ''): Pro
       let content;
       if (rawJsonString !== undefined) {
         try {
-          content = JSON.parse(rawJsonString) as ICDDAJSON[];
+          content = JSON.parse(rawJsonString) as ICDDAJSONWithComments[];
         } catch (error) {
           return [
             {
@@ -78,7 +81,7 @@ async function getFileJSON(inspectData: InspectTreeResult, parentPath = ''): Pro
 /**
  * 读取原始文件内容，打平成一维数组，并带上路径信息
  */
-export async function readCDDASourceFiles(sourceModDirectory: string): Promise<Array<InspectResultWithContent<ICDDAJSON[]>>> {
+export async function readCDDASourceFiles(sourceModDirectory: string): Promise<Array<InspectResultWithContent<ICDDAJSONWithComments[]>>> {
   const sourceModDirectoryInspectResult = await fs.inspectTreeAsync(sourceModDirectory);
   if (sourceModDirectoryInspectResult !== undefined) {
     const { children } = sourceModDirectoryInspectResult;

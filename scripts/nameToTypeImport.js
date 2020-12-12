@@ -10,15 +10,6 @@ const CDDA_JSON_TYPES = contents.map((content, index) => {
   const matchResult = typeNameMatcher.exec(content);
   return matchResult[1];
 });
-const CDDA_JSON_TYPES_WITH_ID = contents.filter((content, index) => {
-  const typeNameMatcher = /type: '(.+)';/gm;
-  const matchResult = typeNameMatcher.exec(content);
-  return matchResult[1];
-}).map((content, index) => {
-  const typeNameMatcher = /type: '(.+)';/gm;
-  const matchResult = typeNameMatcher.exec(content);
-  return matchResult[1];
-});
 
 const importStatements =
   typeNames.map((type) => `import { I${type} } from './${type}';\n`).join('') +

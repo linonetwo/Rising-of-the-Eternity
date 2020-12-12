@@ -21,7 +21,6 @@ export interface IVehicle {
     | Parts15
     | Parts16
     | Parts17
-    | Parts18
   >;
   items?: Array<
     Item | Items2 | Items3 | Items4 | Items5 | Items6 | Items7 | Items8 | Items9 | Items10 | Items11 | Items12 | Items13 | Items14
@@ -150,15 +149,15 @@ interface Item {
   item_groups: string[];
 }
 
-interface Parts18 {
+interface Parts17 {
   x: number;
   y: number;
-  parts?: Array<Part2 | Part2 | string | string>;
+  parts?: Array<Part2 | string | string>;
   part?: string;
   fuel?: string;
 }
 
-interface Parts17 {
+interface Parts16 {
   x: number;
   y: number;
   parts?: Array<Part3 | Part2 | Part2 | string | string | string>;
@@ -171,16 +170,6 @@ interface Part3 {
   ammo_qty: number[];
 }
 
-interface Parts16 {
-  x: number;
-  y: number;
-  part?: string;
-  fuel?: string;
-  parts?: string[];
-  '//'?: string;
-  ammo?: number;
-}
-
 interface Parts15 {
   x: number;
   y: number;
@@ -189,20 +178,9 @@ interface Parts15 {
   ammo?: number;
   ammo_types?: string[];
   ammo_qty?: number[];
-  fuel?: string;
 }
 
 interface Parts14 {
-  x: number;
-  y: number;
-  parts?: Array<Part2 | string | string>;
-  part?: string;
-  ammo?: number;
-  ammo_qty?: number[];
-  fuel?: string;
-}
-
-interface Parts13 {
   x: number;
   y: number;
   part?: string;
@@ -210,14 +188,7 @@ interface Parts13 {
   fuel?: string;
 }
 
-interface Parts12 {
-  x: number;
-  y: number;
-  parts?: Array<Part2 | string | string>;
-  part?: string;
-}
-
-interface Parts11 {
+interface Parts13 {
   x: number;
   y: number;
   parts?: Array<Part2 | Part2 | Parts32 | string | string | string>;
@@ -231,35 +202,36 @@ interface Parts32 {
   ammo_qty: number[];
 }
 
-interface Parts10 {
+interface Parts12 {
   x: number;
   y: number;
   parts?: Array<Part2 | string | string>;
   part?: string;
   ammo?: number;
-  ammo_types?: string[];
   ammo_qty?: number[];
+  fuel?: string;
 }
 
-interface Parts9 {
+interface Parts11 {
   x: number;
   y: number;
   part: string;
 }
 
-interface Parts8 {
+interface Parts10 {
   x: number;
   y: number;
   parts: string[];
 }
 
-interface Parts7 {
+interface Parts9 {
   x: number;
   y: number;
-  parts: Array<Part2 | string | string>;
+  parts?: Array<Part2 | string | string>;
+  part?: string;
 }
 
-interface Parts6 {
+interface Parts8 {
   x: number;
   y: number;
   part?: string;
@@ -269,22 +241,28 @@ interface Parts6 {
   ammo_qty?: number[];
 }
 
-interface Parts5 {
+interface Parts7 {
   x: number;
   y: number;
   part?: string;
   parts?: string[];
 }
 
-interface Parts4 {
+interface Parts6 {
+  y: number;
+  x: number;
+  parts: Array<Part2 | string>;
+}
+
+interface Parts5 {
   x: number;
   y: number;
-  parts?: Array<Part2 | string | string>;
+  parts?: Array<Part2 | Part2 | string | string>;
   part?: string;
   fuel?: string;
 }
 
-interface Parts3 {
+interface Parts4 {
   x: number;
   y: number;
   part?: string;
@@ -295,15 +273,26 @@ interface Parts3 {
   ammo_qty?: number[];
 }
 
+interface Parts3 {
+  y: number;
+  x: number;
+  parts: Array<Part2 | string | string>;
+}
+
 interface Parts2 {
   x: number;
   y: number;
-  parts: Array<Part2 | string>;
+  parts?: Array<Part2 | string | string>;
+  part?: string;
+  ammo?: number;
+  ammo_types?: string[];
+  ammo_qty?: number[];
+  fuel?: string;
 }
 
 interface Part2 {
-  part: string;
   fuel: string;
+  part: string;
 }
 
 interface Part {

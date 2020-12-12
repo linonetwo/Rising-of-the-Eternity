@@ -4,11 +4,11 @@ export interface IEnchantment {
   condition?: string;
   ench_effects?: Encheffect[];
   emitter?: string;
-  values?: Value[];
-  hit_me_effect?: Hitmeeffect[];
   hit_you_effect?: Hityoueffect[];
+  values?: Value[];
   has?: string;
   mutations?: string[];
+  hit_me_effect?: Hitmeeffect[];
   intermittent_activation?: Intermittentactivation;
 }
 
@@ -25,14 +25,6 @@ interface Spelleffect {
   id: string;
 }
 
-interface Hityoueffect {
-  id: string;
-  hit_self?: boolean;
-  once_in?: number;
-  message?: string;
-  min_level?: number;
-}
-
 interface Hitmeeffect {
   id: string;
   hit_self?: boolean;
@@ -45,6 +37,14 @@ interface Value {
   value: string;
   multiply?: number;
   add?: number;
+}
+
+interface Hityoueffect {
+  id: string;
+  hit_self?: boolean;
+  once_in?: number;
+  message?: string;
+  min_level?: number;
 }
 
 interface Encheffect {

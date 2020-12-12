@@ -1,22 +1,17 @@
 export interface IToolArmor {
+  abstract?: string;
   type: 'TOOL_ARMOR';
-  id?: string;
+  name: Name | Name2 | Name3 | string;
+  description?: Description | string;
   weight?: string;
   volume?: string;
   price?: number;
+  bashing?: number;
   material?: string[];
   symbol?: string;
   color?: string;
   covers?: string[];
-  sided?: boolean;
   coverage?: number;
-  warmth?: number;
-  flags?: string[];
-  name: Name | Name2 | Name3 | string;
-  description?: Description | string;
-  relic_data?: Relicdata;
-  abstract?: string;
-  bashing?: number;
   material_thickness?: number;
   pocket_data?: Pocketdatum[];
   use_action?:
@@ -36,15 +31,20 @@ export interface IToolArmor {
     | Useaction14
     | Useaction15
     | Useaction16;
+  flags?: string[];
   'copy-from'?: string;
+  id?: string;
+  relic_data?: Relicdata;
   environmental_protection?: number;
   weight_capacity_bonus?: string;
   encumbrance?: number;
   max_encumbrance?: number;
   looks_like?: string;
   charges_per_use?: number;
+  warmth?: number;
   category?: string;
   to_hit?: number;
+  sided?: boolean;
   qualities?: Array<Array<number | string>>;
   max_charges?: number;
   initial_charges?: number;
@@ -73,6 +73,29 @@ interface Armorportiondatum {
   covers: string[];
   coverage: number;
   encumbrance: number;
+}
+
+interface Relicdata {
+  passive_effects?: Passiveeffect[];
+  charge_info?: Chargeinfo;
+}
+
+interface Chargeinfo {
+  recharge_type: string;
+  time: string;
+  regenerate_ammo: boolean;
+}
+
+interface Passiveeffect {
+  has: string;
+  condition: string;
+  values: Value[];
+}
+
+interface Value {
+  value: string;
+  multiply?: number;
+  add?: number;
 }
 
 interface Useaction16 {
@@ -228,29 +251,6 @@ interface Ammorestriction {
   ampoule?: number;
   stimpack_ammo?: number;
   nitrox?: number;
-}
-
-interface Relicdata {
-  passive_effects?: Passiveeffect[];
-  charge_info?: Chargeinfo;
-}
-
-interface Chargeinfo {
-  recharge_type: string;
-  time: string;
-  regenerate_ammo: boolean;
-}
-
-interface Passiveeffect {
-  has: string;
-  condition: string;
-  values: Value[];
-}
-
-interface Value {
-  value: string;
-  add?: number;
-  multiply?: number;
 }
 
 interface Description {

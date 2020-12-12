@@ -10,17 +10,12 @@ export interface IRecipe {
   using?: Array<Array<Array<Array<number | string> | number | string>>>;
   qualities?: Array<Quality[] | Quality[] | Qualities3 | Quality | Quality>;
   components?: Array<Array<Array<number | string>>>;
-  description?: string;
   autolearn?: boolean | Array<Array<number | string>>;
-  never_learn?: boolean;
-  construction_blueprint?: string;
-  blueprint_name?: string;
-  '//'?: string;
-  blueprint_needs?: Blueprintneeds;
-  check_blueprint_needs?: boolean;
-  '//0'?: string;
-  reversible?: boolean;
-  decomp_learn?: number;
+  result_mult?: number;
+  byproducts?: Array<Array<number | string | string>>;
+  tools?: Array<Array<Array<number | string>>>;
+  proficiencies?: Proficiency[];
+  skills_required?: Array<Array<number | number | string | string>>;
   book_learn?:
     | Booklearn
     | Booklearn2
@@ -39,25 +34,29 @@ export interface IRecipe {
     | Booklearn15
     | Booklearn16
     | Booklearn17;
-  tools?: Array<Array<Array<number | string>>>;
-  id_suffix?: string;
-  'copy-from'?: string;
-  result_mult?: number;
-  byproducts?: Array<Array<number | string | string>>;
-  proficiencies?: Proficiency[];
-  skills_required?: Array<Array<number | number | string | string>>;
   flags?: string[];
+  'copy-from'?: string;
   batch_time_factors?: number[];
+  id_suffix?: string;
   charges?: number;
+  reversible?: boolean;
+  '//'?: string;
+  decomp_learn?: number;
   obsolete?: boolean;
   abstract?: string;
+  never_learn?: boolean;
   delete_flags?: string[];
   contained?: boolean;
   container?: string;
   '//2'?: string;
+  description?: string;
+  construction_blueprint?: string;
   blueprint_provides?: Blueprintprovide[];
   blueprint_requires?: Blueprintprovide[];
+  blueprint_name?: string;
+  check_blueprint_needs?: boolean;
   blueprint_excludes?: Blueprintprovide[];
+  blueprint_needs?: Blueprintneeds;
   blueprint_resources?: string[];
   '//blueprint_requires'?: Blueprintrequire[];
   extend?: Extend;
@@ -75,17 +74,26 @@ interface Blueprintrequire {
   id: string;
 }
 
+interface Blueprintneeds {
+  time?: string;
+  skills?: Array<Array<number | string>>;
+  inline?: Inline;
+}
+
+interface Inline {
+  tools: Array<Array<Array<number | string>>>;
+  qualities: Quality2[][];
+  components: Array<Array<Array<number | string>>>;
+}
+
+interface Quality2 {
+  id: string;
+  level?: number;
+}
+
 interface Blueprintprovide {
   id: string;
   amount?: number;
-}
-
-interface Proficiency {
-  proficiency: string;
-  required?: boolean;
-  time_multiplier?: number;
-  fail_multiplier?: number;
-  learning_time_multiplier?: number;
 }
 
 interface Booklearn17 {
@@ -177,21 +185,12 @@ interface Textbookgaswarfare {
   recipe_name: string;
 }
 
-interface Blueprintneeds {
-  time?: string;
-  skills?: Array<Array<number | string>>;
-  inline?: Inline;
-}
-
-interface Inline {
-  tools: Array<Array<Array<number | string>>>;
-  qualities: Quality2[][];
-  components: Array<Array<Array<number | string>>>;
-}
-
-interface Quality2 {
-  id: string;
-  level?: number;
+interface Proficiency {
+  proficiency: string;
+  required?: boolean;
+  time_multiplier?: number;
+  fail_multiplier?: number;
+  learning_time_multiplier?: number;
 }
 
 interface Qualities3 {

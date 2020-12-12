@@ -14,14 +14,14 @@ export interface ITerrain {
   roof?: string;
   light_emitted?: number;
   '//'?: string[] | string;
-  examine_action?: string;
-  harvest_by_season?: Harvestbyseason[];
-  alias?: string[] | string;
   open?: string;
   close?: string;
+  examine_action?: string;
   connects_to?: string;
-  'copy-from'?: string;
+  alias?: string[] | string;
+  harvest_by_season?: Harvestbyseason[];
   transforms_into?: string;
+  'copy-from'?: string;
   heat_radiation?: number;
   trap?: string;
   max_volume?: string;
@@ -77,11 +77,11 @@ interface Bash {
   explosive?: number;
   str_min_supported?: number;
   bash_below?: boolean;
-  '//'?: string;
   sound_vol?: number;
   sound_fail_vol?: number;
   str_min_blocked?: number;
   str_max_blocked?: number;
+  '//'?: string;
   ter_set_bashed_from_above?: string;
 }
 

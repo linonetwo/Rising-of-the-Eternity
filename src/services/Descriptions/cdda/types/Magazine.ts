@@ -1,11 +1,9 @@
 export interface IMagazine {
   id?: string;
+  looks_like?: string;
   type: 'MAGAZINE';
-  category?: string;
-  name: Name | Name2 | string;
+  name: Name;
   description?: string;
-  pocket_data?: Pocketdatum[];
-  flags?: string[];
   weight?: string;
   volume?: string;
   price?: number;
@@ -14,18 +12,20 @@ export interface IMagazine {
   symbol?: string;
   color?: string;
   ammo_type?: string[] | string;
-  count?: number;
   capacity?: number;
-  looks_like?: string;
+  flags?: string[];
+  pocket_data?: Pocketdatum[];
+  category?: string;
   reload_time?: number;
-  'copy-from'?: string;
-  linkage?: string;
-  default_ammo?: string;
   ascii_picture?: string;
+  count?: number;
   '//'?: string;
+  'copy-from'?: string;
   bashing?: number;
   to_hit?: number;
   longest_side?: string;
+  default_ammo?: string;
+  linkage?: string;
   armor_data?: Armordata;
   abstract?: string;
 }
@@ -45,21 +45,11 @@ interface Pocketdatum {
 }
 
 interface Ammorestriction {
-  battery?: number;
-  test_9mm?: number;
   308?: number;
   crystallized_mana?: number;
-  ammo_rifle?: number;
-  ammo_grenade?: number;
-  ammo_pistol?: number;
-  ammo_pistol_magnum?: number;
-  ammo_pistol_tiny?: number;
-  ammo_rifle_foreign?: number;
-  ammo_railgun?: number;
-  ammo_rifle_huge?: number;
-  ammo_shot?: number;
   '8x40mm'?: number;
   afs_foam?: number;
+  battery?: number;
   223?: number;
   charcoal?: number;
   40?: number;
@@ -103,11 +93,7 @@ interface Ammorestriction {
   weldgas?: number;
 }
 
-interface Name2 {
-  str: string;
-  str_pl: string;
-}
-
 interface Name {
   str: string;
+  str_pl?: string;
 }

@@ -4,9 +4,9 @@ export interface IMapgen {
   om_terrain?: string[] | string[][] | string;
   weight?: number;
   object: Object;
-  update_mapgen_id?: string;
   '//'?: string;
   nested_mapgen_id?: string;
+  update_mapgen_id?: string;
   '//2'?: string;
   '//3'?: string;
 }
@@ -186,6 +186,12 @@ interface Object {
     | Placeloot87
     | Placeloot88
   >;
+  rotation?: number[] | number;
+  vehicles?: Vehicles;
+  monster?: Monster;
+  signs?: Signs;
+  npcs?: Npcs;
+  item?: Item8;
   set?: Array<
     | Set
     | Set2
@@ -213,17 +219,8 @@ interface Object {
     | Set24
     | Set25
   >;
-  gaspumps?: Gaspumps;
-  place_vendingmachines?: Placevendingmachine[];
-  place_fields?: Placefield[];
-  fields?: Fields;
-  rotation?: number[] | number;
-  vehicles?: Vehicles;
-  monster?: Monster;
-  signs?: Signs;
-  npcs?: Npcs;
-  item?: Item8;
   mapping?: Mapping;
+  place_fields?: Placefield[];
   traps?: Traps;
   place_traps?: Placetrap[];
   place_signs?: Placesign[];
@@ -278,14 +275,17 @@ interface Object {
   place_terrain?: Placeterrain[];
   place_furniture?: Placefurniture[];
   place_graffiti?: Placegraffiti[];
+  fields?: Fields3;
   computers?: Computers;
   liquids?: Liquids;
   place_toilets?: Placetoilet[];
   sealed_item?: Sealeditem;
+  gaspumps?: Gaspumps;
   monsters?: Monsters;
   '//'?: string;
   place_rubble?: Placerubble[];
   add?: Add[];
+  place_vendingmachines?: Placevendingmachine[];
   place_liquids?: Placeliquid[];
   place_gaspumps?: Placegaspump[];
   place_ter_furn_transforms?: Placeterfurntransform[];
@@ -329,6 +329,12 @@ interface Placeliquid {
   repeat?: number[] | number;
 }
 
+interface Placevendingmachine {
+  item_group?: string;
+  x: number;
+  y: number;
+}
+
 interface Add {
   item: string;
   x: number[] | number[] | number | number;
@@ -345,32 +351,32 @@ interface Placerubble {
 }
 
 interface Monsters {
-  z?: _15;
+  z?: _13;
   W?: W3;
-  ' '?: O2;
-  '.'?: _34;
+  ' '?: O;
+  '.'?: _32;
   '~'?: W3;
-  h?: O2;
-  o?: O2;
-  '#'?: O2 | W3[];
-  _?: _34;
-  '%'?: O2;
-  g?: O2;
+  h?: O;
+  o?: O;
+  '#'?: O | W3[];
+  _?: _32;
+  '%'?: O;
+  g?: O;
   B?: W3;
   S?: W3;
-  "'"?: O2;
-  b?: O2;
-  $?: O2;
-  ','?: _34;
-  s?: O2;
-  ':'?: O2;
-  '!'?: _34;
+  "'"?: O;
+  b?: O;
+  $?: O;
+  ','?: _32;
+  s?: O;
+  ':'?: O;
+  '!'?: _32;
   u?: W3;
-  m?: _15;
+  m?: _13;
   '/'?: W3[];
 }
 
-interface _34 {
+interface _32 {
   monster: string;
   chance: number;
   density?: number;
@@ -382,8 +388,30 @@ interface W3 {
   density: number;
 }
 
+interface Gaspumps {
+  G?: G2;
+  '&'?: _9;
+  $?: _9;
+  O?: O3;
+  J?: _9;
+  D?: D6;
+  1?: _9;
+}
+
+interface D6 {
+  fuel: string;
+}
+
+interface O3 {
+  amount: number[];
+}
+
+interface G2 {
+  fuel?: string;
+}
+
 interface Sealeditem {
-  '^'?: _29;
+  '^'?: _27;
   Q?: Q4;
   p?: Q4;
   P?: Q4;
@@ -394,37 +422,37 @@ interface Sealeditem {
   5?: _110;
   6?: _110;
   8?: _110;
-  D?: D6;
-  '♥'?: _30;
-  '♠'?: _30;
-  '♦'?: _30;
-  '♣'?: _30;
-  Ʌ?: _31;
-  Δ?: _31;
-  '‡'?: _31;
-  '%'?: _31;
-  '#'?: _32;
-  ')'?: _31;
-  M?: _29;
-  '='?: O3;
-  '{'?: _29;
-  '°'?: _29;
-  e?: _29;
-  I?: _29;
-  j?: _29;
-  z?: _29;
-  u?: _29;
-  m?: _29;
+  D?: D5;
+  '♥'?: _28;
+  '♠'?: _28;
+  '♦'?: _28;
+  '♣'?: _28;
+  Ʌ?: _29;
+  Δ?: _29;
+  '‡'?: _29;
+  '%'?: _29;
+  '#'?: _30;
+  ')'?: _29;
+  M?: _27;
+  '='?: O2;
+  '{'?: _27;
+  '°'?: _27;
+  e?: _27;
+  I?: _27;
+  j?: _27;
+  z?: _27;
+  u?: _27;
+  m?: _27;
   0?: _02;
-  7?: _29;
-  9?: _29;
-  $?: _29;
-  '~'?: _29;
-  '&'?: _29;
-  '!'?: _33;
+  7?: _27;
+  9?: _27;
+  $?: _27;
+  '~'?: _27;
+  '&'?: _27;
+  '!'?: _31;
 }
 
-interface _33 {
+interface _31 {
   items: _;
   furniture: string;
   chance: number;
@@ -437,26 +465,26 @@ interface _02 {
   chance?: number;
 }
 
-interface _32 {
+interface _30 {
   item?: _;
   furniture: string;
   items?: _;
   chance?: number;
 }
 
-interface _31 {
+interface _29 {
   item: W2;
   furniture: string;
   chance: number;
 }
 
-interface _30 {
+interface _28 {
   item: C2;
   furniture: string;
   chance?: number;
 }
 
-interface D6 {
+interface D5 {
   item?: W2;
   furniture: string;
   chance: number;
@@ -475,7 +503,7 @@ interface Q4 {
   item?: W2;
 }
 
-interface _29 {
+interface _27 {
   item: W2;
   furniture: string;
 }
@@ -500,8 +528,8 @@ interface Liquids {
   w?: E2;
   h?: E2;
   4?: E2;
-  ' '?: _28[];
-  '.'?: _28[];
+  ' '?: _26[];
+  '.'?: _26[];
   ','?: E2;
   Z?: E2;
   ';'?: E2;
@@ -512,7 +540,7 @@ interface Liquids {
   ')'?: E2;
 }
 
-interface _28 {
+interface _26 {
   liquid: string;
   amount: number[];
   chance: number;
@@ -581,6 +609,47 @@ interface Option {
   name: string;
   action: string;
   security?: number;
+}
+
+interface Fields3 {
+  l?: L4;
+  L?: L4;
+  W?: L4;
+  '!'?: L4;
+  '?'?: L4;
+  '#'?: L4;
+  1?: L4;
+  2?: L4;
+  3?: L4;
+  4?: L4;
+  5?: L4;
+  6?: L4;
+  f?: L4;
+  u?: L4;
+  i?: L4;
+  I?: L4;
+  M?: L4;
+  q?: L4;
+  '`'?: L4;
+  '('?: L4;
+  U?: L4;
+  '/'?: Fields;
+  B?: L4;
+  T?: L4;
+  S?: L4;
+  '='?: L4;
+  Q?: Q3;
+}
+
+interface Q3 {
+  field: string;
+  intensity: number;
+}
+
+interface L4 {
+  field: string;
+  intensity: number;
+  age: number;
 }
 
 interface Placegraffiti {
@@ -768,7 +837,6 @@ interface Placeitem2 {
 interface Nested {
   1?: _1;
   0?: _0;
-  '|'?: _0;
   U?: _1;
   Z?: _1;
   J?: _0;
@@ -777,6 +845,7 @@ interface Nested {
   4?: _1;
   R?: _1;
   G?: _1;
+  '|'?: _0;
   '-'?: _0;
   А?: _0;
   Б?: _0;
@@ -888,7 +957,7 @@ interface Vendingmachines {
   7?: _62;
   8?: _62;
   9?: _62;
-  ñ?: _27;
+  ñ?: _25;
   D?: _62;
   F?: _62;
   1?: _62;
@@ -907,7 +976,7 @@ interface Vendingmachines {
   '['?: _62;
 }
 
-interface _27 {
+interface _25 {
   item_group: string;
   reinforced: boolean;
 }
@@ -944,27 +1013,36 @@ interface Placetrap {
 }
 
 interface Traps {
-  _?: string[] | _26 | string;
+  _?: string[] | _24 | string;
   '='?: string;
-  2?: _26 | string;
+  2?: _24 | string;
   3?: string;
   4?: string;
   5?: string;
   6?: string;
   F?: string;
   q?: string;
-  f?: _26;
-  g?: _26;
-  p?: _26;
-  1?: _26;
+  f?: _24;
+  g?: _24;
+  p?: _24;
+  1?: _24;
   c?: string;
   v?: string;
   T?: string;
   Я?: string;
 }
 
-interface _26 {
+interface _24 {
   trap: string;
+}
+
+interface Placefield {
+  x: number[] | number[] | number | number;
+  y: number[] | number[] | number | number;
+  field: string;
+  age?: number;
+  intensity?: number;
+  repeat?: number[] | number;
 }
 
 interface Mapping {
@@ -977,37 +1055,37 @@ interface Mapping {
   h?: H2;
   e?: E;
   Y?: Y5;
-  $?: _19;
+  $?: _17;
   r?: R2;
   c?: C3;
-  d?: D4;
+  d?: D;
   b?: B3;
   l?: L3;
-  ']'?: _20;
-  t?: _20;
-  '*'?: _20;
-  '.'?: _21;
-  L?: D4;
-  o?: O3;
+  ']'?: _18;
+  t?: _18;
+  '*'?: _18;
+  '.'?: _19;
+  L?: D;
+  o?: O2;
   u?: U2;
   S?: S2;
   R?: R3;
-  ' '?: _24;
-  C?: _20;
-  D?: D5;
-  s?: _21;
-  x?: _20;
-  N?: _21;
-  n?: _21;
-  '!'?: _25;
-  f?: _20;
+  ' '?: _20;
+  C?: _18;
+  D?: D4;
+  s?: _19;
+  x?: _18;
+  N?: _19;
+  n?: _19;
+  '!'?: _21;
+  f?: _18;
   F?: F2;
-  O?: _20;
+  O?: _18;
   V?: V3;
-  '~'?: _20;
-  ','?: _24;
+  '~'?: _18;
+  ','?: _20;
   U?: F2;
-  '#'?: _20;
+  '#'?: _18;
   M?: M;
 }
 
@@ -1023,16 +1101,16 @@ interface F2 {
   items: D3[];
 }
 
-interface _25 {
+interface _21 {
   item: X2[];
 }
 
-interface D5 {
+interface D4 {
   items?: _;
   item?: W2[];
 }
 
-interface _24 {
+interface _20 {
   item: _[];
 }
 
@@ -1052,16 +1130,16 @@ interface U2 {
   furniture?: string;
 }
 
-interface O3 {
+interface O2 {
   items: _;
   furniture: string;
 }
 
-interface _21 {
+interface _19 {
   items: _;
 }
 
-interface _20 {
+interface _18 {
   items: _[];
 }
 
@@ -1080,7 +1158,7 @@ interface B3 {
   items?: _[] | _;
 }
 
-interface D4 {
+interface D {
   items: _[] | _;
   furniture?: string;
 }
@@ -1097,7 +1175,7 @@ interface R2 {
   item?: _[] | W2;
 }
 
-interface _19 {
+interface _17 {
   furniture: string;
   item: X2;
 }
@@ -1117,25 +1195,25 @@ interface Fields2 {
 
 interface E {
   items: _;
-  fields?: _11;
+  fields?: Fields;
   furniture?: string;
 }
 
 interface H2 {
   item: X2 | _[];
-  fields?: _11;
+  fields?: Fields;
 }
 
 interface B2 {
   item?: W2;
-  fields?: _11;
+  fields?: Fields;
   items?: D3[];
 }
 
 interface H {
   item: Item11;
   furniture?: string;
-  fields?: _11;
+  fields?: Fields;
 }
 
 interface Item11 {
@@ -1147,18 +1225,18 @@ interface Item11 {
 interface W {
   item: W2;
   furniture: string;
-  fields: _11;
+  fields: Fields;
 }
 
 interface _93 {
   item: X2;
-  fields: _11;
+  fields: Fields;
 }
 
 interface X3 {
   furniture?: string;
   item?: Item10;
-  fields?: _11;
+  fields?: Fields;
   items?: _[] | _;
   terrain?: string;
   traps?: string;
@@ -1172,426 +1250,16 @@ interface Item10 {
 interface Y4 {
   furniture: string;
   item: Item9;
-  fields: _11;
+  fields: Fields;
+}
+
+interface Fields {
+  field: string;
 }
 
 interface Item9 {
   item: string;
   count: number;
-}
-
-interface Item8 {
-  x?: X2 | X22 | _[] | X2[];
-  X?: X2 | X23[] | X2[];
-  V?: X2;
-  I?: W2;
-  H?: Collection;
-  Y?: _[];
-  y?: X22;
-  k?: K;
-  K?: K2;
-  v?: V2;
-  '.'?: _[] | _;
-  l?: _[] | W2 | D2[];
-  L?: W2;
-  R?: X2;
-  c?: C2;
-  '~'?: _17;
-  $?: X2 | V2[];
-  D?: C2[];
-  J?: _[] | W2;
-  T?: X2 | W2 | _ | W2[];
-  d?: W2;
-  '#'?: _[] | F6 | _;
-  '@'?: _ | W2[];
-  W?: _;
-  '!'?: _18;
-  C?: R7;
-  f?: X2;
-  1?: _;
-  _?: _[] | _2;
-  i?: D2;
-  S?: S;
-  '&'?: _[];
-  '?'?: D2;
-  '^'?: _[];
-  A?: _2[] | W2 | _;
-  j?: _;
-  h?: D2;
-  o?: _2;
-  q?: _;
-  U?: _;
-  Ы?: _2;
-  r?: R | _[] | _;
-  t?: C2;
-  u?: _[] | W2;
-  e?: _;
-  3?: D2;
-  8?: _2;
-  ' '?: _[];
-  M?: _;
-  F?: _;
-  B?: B;
-  n?: _[];
-  '*'?: _;
-  0?: W2;
-  m?: _;
-  s?: _;
-  ü?: _;
-  a?: A[] | _;
-}
-
-interface A {
-  item: string;
-  amount: number[] | number;
-  chance: number;
-}
-
-interface B {
-  item: string;
-  chance?: number;
-  amount: number[];
-  'custom-flags': string[];
-}
-
-interface R {
-  item: string;
-  chance: number;
-  amount: number[];
-}
-
-interface S {
-  item: string;
-  chance: number;
-  repeat?: number[];
-  amount?: number[];
-}
-
-interface _18 {
-  item: string;
-  chance: number;
-  amount?: number[];
-}
-
-interface _17 {
-  item: string;
-  amount?: number[];
-  chance?: number;
-  repeat?: number[];
-}
-
-interface C2 {
-  item: string;
-  chance?: number;
-}
-
-interface V2 {
-  item: string;
-  amount?: number[];
-  chance?: number;
-}
-
-interface K2 {
-  item: string;
-  amount?: number[];
-}
-
-interface K {
-  item: string;
-  amount?: number;
-}
-
-interface X23 {
-  item: string;
-  amount?: number;
-  chance?: number;
-}
-
-interface X22 {
-  item: string;
-  count: number[];
-}
-
-interface X2 {
-  item: string;
-  amount: number[];
-}
-
-interface Npcs {
-  z?: Z2;
-  Z?: Z2;
-  '@'?: Z2;
-  v?: Z2;
-  T?: Z2;
-  G?: Z2;
-  Q?: Z2;
-  1?: Z2;
-  2?: Z2;
-  3?: Z2;
-  4?: Z2;
-  5?: Z2;
-  6?: Z2;
-  7?: Z2;
-}
-
-interface Z2 {
-  class: string;
-}
-
-interface Signs {
-  Y?: Y3;
-  P?: P;
-  p?: P;
-  s?: P;
-  S?: P;
-  i?: P;
-}
-
-interface P {
-  signage: string;
-}
-
-interface Y3 {
-  snippet: string;
-}
-
-interface Monster {
-  z?: Z;
-  y?: Y;
-  '@'?: _15;
-  t?: _15;
-  Z?: _15;
-  H?: _15;
-  v?: _15;
-  G?: _15;
-  g?: _15;
-  O?: O2;
-  q?: Q2;
-  r?: _15;
-  7?: _15;
-  8?: _15;
-  ö?: _15;
-  X?: Q2;
-  Y?: Y2;
-  M?: _15;
-  T?: _15;
-  o?: _15;
-  '~'?: _15 | O2[];
-  B?: _15;
-  ' '?: O2;
-  K?: _15;
-  Q?: Q3;
-  u?: Q2;
-  '('?: _15 | O2[];
-  '!'?: O2;
-  S?: _15;
-  '.'?: O2 | O2[];
-  ','?: O2 | _15 | O2[];
-  C?: _15;
-  _?: _15 | O2[];
-  '#'?: O2[];
-  '`'?: O2;
-  '^'?: O2;
-  U?: O2;
-  ':'?: _16;
-  '<'?: _15;
-  A?: _15;
-  k?: _15;
-  i?: O2;
-  ü?: _15;
-}
-
-interface _16 {
-  monster: string;
-  chance?: number;
-}
-
-interface Q3 {
-  monster: string;
-  name: string;
-}
-
-interface Y2 {
-  monster: string;
-  name?: string;
-  friendly?: boolean;
-}
-
-interface Q2 {
-  monster: string;
-  name?: string;
-}
-
-interface O2 {
-  monster: string;
-  chance: number;
-}
-
-interface _15 {
-  monster: string;
-}
-
-interface Y {
-  monster: string;
-  friendly: boolean;
-}
-
-interface Z {
-  monster: string;
-  friendly?: boolean;
-  chance?: number;
-}
-
-interface Vehicles {
-  v?: V;
-  V?: V;
-  $?: _12;
-  '.'?: _13;
-  G?: G2;
-  J?: J;
-  U?: U;
-  Q?: U;
-  o?: J;
-  s?: _13;
-  C?: U;
-  W?: _12;
-  "'"?: U;
-  p?: U;
-  '>'?: U;
-  '<'?: _14;
-  c?: _12;
-  T?: _12;
-  '*'?: _14;
-  ')'?: _14;
-  ']'?: _14;
-}
-
-interface _14 {
-  vehicle: string;
-  chance: number;
-  rotation: number;
-}
-
-interface U {
-  vehicle: string;
-  chance: number;
-}
-
-interface J {
-  vehicle: string;
-  chance: number;
-  fuel: number;
-  status: number;
-}
-
-interface G2 {
-  vehicle: string;
-  chance: number;
-  fuel: number;
-  status: number;
-  rotation: number;
-}
-
-interface _13 {
-  vehicle: string;
-  chance: number;
-  status?: number;
-}
-
-interface _12 {
-  vehicle: string;
-  chance: number;
-  status: number;
-}
-
-interface V {
-  vehicle: string;
-  chance: number;
-  status?: number;
-  fuel?: number;
-  rotation?: number;
-}
-
-interface Fields {
-  '!'?: _10;
-  l?: _10;
-  L?: _10;
-  W?: _10;
-  '?'?: _10;
-  '#'?: _10;
-  1?: _10;
-  2?: _10;
-  3?: _10;
-  4?: _10;
-  5?: _10;
-  6?: _10;
-  f?: _10;
-  u?: _10;
-  i?: _10;
-  I?: _10;
-  M?: _10;
-  q?: _10;
-  '`'?: _10;
-  '('?: _10;
-  U?: _10;
-  '/'?: _11;
-  B?: _10;
-  T?: _10;
-  S?: _10;
-  '='?: _10;
-  Q?: Q;
-}
-
-interface Q {
-  field: string;
-  intensity: number;
-}
-
-interface _11 {
-  field: string;
-}
-
-interface _10 {
-  field: string;
-  intensity: number;
-  age: number;
-}
-
-interface Placefield {
-  field: string;
-  x: number[] | number[] | number | number;
-  y: number[] | number[] | number | number;
-  age?: number;
-  intensity?: number;
-  repeat?: number[] | number;
-}
-
-interface Placevendingmachine {
-  x: number;
-  y: number;
-  item_group?: string;
-}
-
-interface Gaspumps {
-  '&'?: _9;
-  G?: G;
-  $?: _9;
-  O?: O;
-  J?: _9;
-  D?: D;
-  1?: _9;
-}
-
-interface D {
-  fuel: string;
-}
-
-interface O {
-  amount: number[];
-}
-
-interface G {
-  fuel?: string;
 }
 
 interface Set25 {
@@ -1805,6 +1473,338 @@ interface Set {
   x2: number;
   y: number;
   y2: number;
+}
+
+interface Item8 {
+  x?: X2 | X22 | _[] | X2[];
+  X?: X2 | X23[] | X2[];
+  V?: X2;
+  I?: W2;
+  H?: Collection;
+  Y?: _[];
+  y?: X22;
+  k?: K;
+  K?: K2;
+  v?: V2;
+  '.'?: _[] | _;
+  l?: _[] | W2 | D2[];
+  L?: W2;
+  R?: X2;
+  c?: C2;
+  '~'?: _15;
+  $?: X2 | V2[];
+  D?: C2[];
+  J?: _[] | W2;
+  T?: X2 | W2 | _ | W2[];
+  d?: W2;
+  '#'?: _[] | F6 | _;
+  '@'?: _ | W2[];
+  W?: _;
+  '!'?: _16;
+  C?: R7;
+  f?: X2;
+  1?: _;
+  _?: _[] | _2;
+  i?: D2;
+  S?: S;
+  '&'?: _[];
+  '?'?: D2;
+  '^'?: _[];
+  A?: _2[] | W2 | _;
+  j?: _;
+  h?: D2;
+  o?: _2;
+  q?: _;
+  U?: _;
+  Ы?: _2;
+  r?: R | _[] | _;
+  t?: C2;
+  u?: _[] | W2;
+  e?: _;
+  3?: D2;
+  8?: _2;
+  ' '?: _[];
+  M?: _;
+  F?: _;
+  B?: B;
+  n?: _[];
+  '*'?: _;
+  0?: W2;
+  m?: _;
+  s?: _;
+  ü?: _;
+  a?: A[] | _;
+}
+
+interface A {
+  item: string;
+  amount: number[] | number;
+  chance: number;
+}
+
+interface B {
+  item: string;
+  chance?: number;
+  amount: number[];
+  'custom-flags': string[];
+}
+
+interface R {
+  item: string;
+  chance: number;
+  amount: number[];
+}
+
+interface S {
+  item: string;
+  chance: number;
+  repeat?: number[];
+  amount?: number[];
+}
+
+interface _16 {
+  item: string;
+  chance: number;
+  amount?: number[];
+}
+
+interface _15 {
+  item: string;
+  amount?: number[];
+  chance?: number;
+  repeat?: number[];
+}
+
+interface C2 {
+  item: string;
+  chance?: number;
+}
+
+interface V2 {
+  item: string;
+  amount?: number[];
+  chance?: number;
+}
+
+interface K2 {
+  item: string;
+  amount?: number[];
+}
+
+interface K {
+  item: string;
+  amount?: number;
+}
+
+interface X23 {
+  item: string;
+  amount?: number;
+  chance?: number;
+}
+
+interface X22 {
+  item: string;
+  count: number[];
+}
+
+interface X2 {
+  item: string;
+  amount: number[];
+}
+
+interface Npcs {
+  z?: Z2;
+  Z?: Z2;
+  '@'?: Z2;
+  v?: Z2;
+  T?: Z2;
+  G?: Z2;
+  Q?: Z2;
+  1?: Z2;
+  2?: Z2;
+  3?: Z2;
+  4?: Z2;
+  5?: Z2;
+  6?: Z2;
+  7?: Z2;
+}
+
+interface Z2 {
+  class: string;
+}
+
+interface Signs {
+  Y?: Y3;
+  P?: P;
+  p?: P;
+  s?: P;
+  S?: P;
+  i?: P;
+}
+
+interface P {
+  signage: string;
+}
+
+interface Y3 {
+  snippet: string;
+}
+
+interface Monster {
+  z?: Z;
+  y?: Y;
+  '@'?: _13;
+  t?: _13;
+  Z?: _13;
+  H?: _13;
+  v?: _13;
+  G?: _13;
+  g?: _13;
+  O?: O;
+  q?: Q;
+  r?: _13;
+  7?: _13;
+  8?: _13;
+  ö?: _13;
+  X?: Q;
+  Y?: Y2;
+  M?: _13;
+  T?: _13;
+  o?: _13;
+  '~'?: _13 | O[];
+  B?: _13;
+  ' '?: O;
+  K?: _13;
+  Q?: Q2;
+  u?: Q;
+  '('?: _13 | O[];
+  '!'?: O;
+  S?: _13;
+  '.'?: O | O[];
+  ','?: O | _13 | O[];
+  C?: _13;
+  _?: _13 | O[];
+  '#'?: O[];
+  '`'?: O;
+  '^'?: O;
+  U?: O;
+  ':'?: _14;
+  '<'?: _13;
+  A?: _13;
+  k?: _13;
+  i?: O;
+  ü?: _13;
+}
+
+interface _14 {
+  monster: string;
+  chance?: number;
+}
+
+interface Q2 {
+  monster: string;
+  name: string;
+}
+
+interface Y2 {
+  monster: string;
+  name?: string;
+  friendly?: boolean;
+}
+
+interface Q {
+  monster: string;
+  name?: string;
+}
+
+interface O {
+  monster: string;
+  chance: number;
+}
+
+interface _13 {
+  monster: string;
+}
+
+interface Y {
+  monster: string;
+  friendly: boolean;
+}
+
+interface Z {
+  monster: string;
+  friendly?: boolean;
+  chance?: number;
+}
+
+interface Vehicles {
+  v?: V;
+  V?: V;
+  $?: _10;
+  '.'?: _11;
+  G?: G;
+  J?: J;
+  U?: U;
+  Q?: U;
+  o?: J;
+  s?: _11;
+  C?: U;
+  W?: _10;
+  "'"?: U;
+  p?: U;
+  '>'?: U;
+  '<'?: _12;
+  c?: _10;
+  T?: _10;
+  '*'?: _12;
+  ')'?: _12;
+  ']'?: _12;
+}
+
+interface _12 {
+  vehicle: string;
+  chance: number;
+  rotation: number;
+}
+
+interface U {
+  vehicle: string;
+  chance: number;
+}
+
+interface J {
+  vehicle: string;
+  chance: number;
+  fuel: number;
+  status: number;
+}
+
+interface G {
+  vehicle: string;
+  chance: number;
+  fuel: number;
+  status: number;
+  rotation: number;
+}
+
+interface _11 {
+  vehicle: string;
+  chance: number;
+  status?: number;
+}
+
+interface _10 {
+  vehicle: string;
+  chance: number;
+  status: number;
+}
+
+interface V {
+  vehicle: string;
+  chance: number;
+  status?: number;
+  fuel?: number;
+  rotation?: number;
 }
 
 interface Placeloot88 {
@@ -2861,7 +2861,6 @@ interface Terrain {
   Q?: string[] | string;
   ','?: string[] | Array<Array<number | string> | string> | Array<Array<number | string>> | string;
   g?: string[] | string;
-  '='?: string[] | string;
   j?: string;
   P?: string[] | Array<Array<number | string> | string> | string;
   y?: string[] | string;
@@ -2891,6 +2890,7 @@ interface Terrain {
   '*'?: string[] | Array<Array<number | string> | string> | string;
   E?: string[] | string;
   $?: string[] | Array<Array<number | string> | string> | string;
+  '='?: string[] | string;
   F?: string[] | string;
   z?: string[] | Array<Array<number | string> | string> | string;
   Z?: string[] | string;
@@ -2956,8 +2956,8 @@ interface _22 {
 
 interface Toilets {
   T?: T;
-  t?: T2;
   '&'?: T;
+  t?: T2;
   ';'?: _9;
   '%'?: _9;
   a?: _9;
@@ -3333,22 +3333,15 @@ interface Items {
   ']'?: _[] | _2[] | _;
   '#'?: _[] | D2 | _2[] | _2 | _ | R7[];
   p?: _[] | D3[] | _2 | _;
-  8?: _[] | _2[] | D3[] | _2 | _;
-  Y?: _[] | D2 | _2[] | _2 | _;
-  z?: _[] | _2[] | _2 | _;
-  B?: _[] | D2 | _2[] | D3[] | _2 | _ | B7;
-  T?: _[] | D2 | _2[] | _2 | _;
-  F?: F | _[] | _2[] | D3[] | _2 | _;
-  '`'?: _[] | _2[] | D3[] | W2 | _2 | _;
-  k?: _[] | _2[] | _2 | _;
-  Z?: D3;
   l?: L[] | L2 | _[] | D2 | _2[] | D3[] | _2 | _ | L6[] | D2[];
   v?: _2[] | _2 | F6 | _;
   x?: _[] | _2[] | _2 | _;
   $?: L[] | _[] | D2 | _2[] | _2 | _ | _7[];
   i?: _[] | _2[] | _2 | _;
   V?: _2[] | _2 | _;
+  k?: _[] | _2[] | _2 | _;
   U?: _[] | _2[] | _2 | _;
+  T?: _[] | D2 | _2[] | _2 | _;
   J?: _[] | _2[] | _2 | _;
   '.'?: _[] | _2[] | W2 | _2 | _;
   '}'?: _2[] | _2 | _;
@@ -3361,30 +3354,37 @@ interface Items {
   M?: _[] | _2[] | _2 | _;
   0?: _[] | _2[] | D3[] | _2 | _;
   '&'?: _[] | D2 | _2[] | D3[] | _2 | _ | R7[];
+  '`'?: _[] | _2[] | D3[] | W2 | _2 | _;
   '='?: _[] | _2[] | D3[] | _2 | _;
   '~'?: _[] | _2[] | D3[] | _2 | _;
   '!'?: _4 | _[] | D2 | _2[] | D3[] | _2 | _;
   S?: _[] | _2[] | D3[] | _2 | _;
+  F?: F | _[] | _2[] | D3[] | _2 | _;
   G?: _[] | _2[] | _2 | _;
+  B?: _[] | D2 | _2[] | D3[] | _2 | _ | B7;
   y?: D3;
   P?: _[] | _2[] | _2 | _;
   E?: _[] | _2[] | _2 | _;
   9?: _2[] | _2 | _;
   '^'?: _[] | _2[] | _2 | _ | R7[];
   '{'?: _[] | D2 | _2[] | _2 | _ | R7[] | R8;
+  Y?: _[] | D2 | _2[] | _2 | _;
   ','?: _2[] | D3[] | _;
   7?: _[] | D2 | _2[] | D3[] | _2 | _;
+  8?: _[] | _2[] | D3[] | _2 | _;
   1?: _[] | _2[] | _2 | _;
   5?: D2 | _2[] | _2 | _;
   6?: D2 | _2[] | _2 | _;
   n?: _[] | _2[] | D3[] | _2 | _;
   ')'?: D2 | _2[] | _2 | _;
   '/'?: _[] | _;
+  Z?: D3;
   '['?: _[] | _2[] | _2 | _;
   '-'?: _[] | W2 | _;
   '‡'?: _[] | _2;
   '♠'?: _[] | _;
   '∞'?: D3;
+  z?: _[] | _2[] | _2 | _;
   А?: _5;
   Б?: _8;
   В?: _2;
@@ -3446,6 +3446,38 @@ interface Collection {
   count?: number[];
 }
 
+interface B7 {
+  item: Item5;
+  chance: number;
+}
+
+interface Item5 {
+  subtype: string;
+  entries: Entry5[];
+}
+
+interface Entry5 {
+  group?: string;
+  prob: number;
+  item?: string;
+}
+
+interface F {
+  item: Item4;
+  repeat: number[];
+  chance: number;
+}
+
+interface Item4 {
+  subtype: string;
+  entries: Entry4[];
+}
+
+interface Entry4 {
+  item: string;
+  prob: number;
+}
+
 interface _4 {
   item: Item3;
   chance: number;
@@ -3469,38 +3501,6 @@ interface L {
   item: string;
   chance?: number;
   repeat?: number[];
-}
-
-interface F {
-  item: Item5;
-  repeat: number[];
-  chance: number;
-}
-
-interface Item5 {
-  subtype: string;
-  entries: Entry5[];
-}
-
-interface Entry5 {
-  item: string;
-  prob: number;
-}
-
-interface B7 {
-  item: Item4;
-  chance: number;
-}
-
-interface Item4 {
-  subtype: string;
-  entries: Entry4[];
-}
-
-interface Entry4 {
-  group?: string;
-  prob: number;
-  item?: string;
 }
 
 interface X {

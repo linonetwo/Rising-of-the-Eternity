@@ -9,38 +9,19 @@ export interface IMutation {
   valid?: boolean;
   social_modifiers?: Socialmodifiers;
   debug?: boolean;
-  visibility?: number;
-  ugliness?: number;
-  enchantments?: string[];
-  category?: string[];
-  mixed_effect?: boolean;
   purifiable?: boolean;
-  profession?: boolean;
-  weakness_to_water?: number;
-  ignored_by?: string[];
-  scent_type?: string;
-  thirst_modifier?: number;
-  cancels?: string[];
-  can_only_eat?: string[];
-  can_only_heal_with?: string[];
-  vitamin_rates?: Array<Array<number | string>>;
-  healing_awake?: number;
-  healing_resting?: number;
-  healthy_rate?: number;
-  bleed_resist?: number;
-  fat_to_max_hp?: number;
-  anger_relations?: Array<Array<number | string>>;
-  allowed_category?: string[];
-  no_cbm_on_bp?: string[];
-  armor?: Armor[];
-  flags?: string[];
   prereqs?: string[];
   spells_learned?: Array<Array<number | string>>;
   crafting_speed_multiplier?: number;
+  cancels?: string[];
+  flags?: string[];
   bionic_mana_penalty?: number;
   bionic_slot_bonuses?: Bionicslotbonuses;
+  bleed_resist?: number;
   passive_mods?: Passivemods;
   hp_modifier?: number;
+  armor?: Armor[];
+  enchantments?: string[];
   speed_modifier?: number;
   weight_capacity_modifier?: number;
   casting_time_multiplier?: number;
@@ -48,6 +29,7 @@ export interface IMutation {
   encumbrance_multiplier_always?: Encumbrancemultiplieralways;
   mana_multiplier?: number;
   threshold?: boolean;
+  category?: string[];
   threshreq?: string[] | string;
   mana_modifier?: number;
   lumination?: Array<Array<number | string>>;
@@ -58,6 +40,10 @@ export interface IMutation {
   types?: string[];
   mana_regen_multiplier?: number;
   encumbrance_always?: Array<Array<number | string>>;
+  healing_awake?: number;
+  mixed_effect?: boolean;
+  visibility?: number;
+  ugliness?: number;
   restricts_gear?: string[];
   attacks?:
     | Attack
@@ -76,6 +62,7 @@ export interface IMutation {
   wet_protection?: Wetprotection[];
   cut_dmg_bonus?: number;
   butchering_quality?: number;
+  anger_relations?: Array<Array<number | string>>;
   destroys_gear?: boolean;
   movecost_modifier?: number;
   prereqs2?: string[];
@@ -97,13 +84,17 @@ export interface IMutation {
   max_stamina_modifier?: number;
   stamina_regen_modifier?: number;
   player_display?: boolean;
+  profession?: boolean;
   hearing_modifier?: number;
+  scent_type?: string;
   craft_skill_bonus?: Array<Array<number | string>>;
   movecost_obstacle_modifier?: number;
   scent_intensity?: number;
   bodytemp_sleep?: number;
   hp_modifier_secondary?: number;
+  healing_resting?: number;
   fatigue_regen_modifier?: number;
+  thirst_modifier?: number;
   cost?: number;
   time?: number;
   hunger?: boolean;
@@ -127,6 +118,7 @@ export interface IMutation {
   fatigue?: boolean;
   rand_cut_bonus?: Randcutbonus;
   spawn_item?: Rangedmutation;
+  vitamin_rates?: Array<Array<number | string>>;
 }
 
 interface Randcutbonus {
@@ -286,6 +278,14 @@ interface Encumbrancemultiplieralways {
   mouth: number;
 }
 
+interface Armor {
+  parts: string[] | string;
+  cut?: number;
+  bash?: number;
+  bullet?: number;
+  acid?: number;
+}
+
 interface Passivemods {
   dex_mod?: number;
   str_mod?: number;
@@ -295,14 +295,6 @@ interface Passivemods {
 
 interface Bionicslotbonuses {
   torso: number;
-}
-
-interface Armor {
-  parts: string[] | string;
-  cut?: number;
-  bash?: number;
-  bullet?: number;
-  acid?: number;
 }
 
 interface Socialmodifiers {

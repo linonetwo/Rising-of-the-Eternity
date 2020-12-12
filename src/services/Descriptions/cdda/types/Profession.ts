@@ -98,8 +98,7 @@ interface Items {
     | Both60
     | Both61
     | Both62
-    | Both63
-    | Both64;
+    | Both63;
   male?: string[] | Male2 | Male3;
   female?: string[] | Male2 | Male3;
 }
@@ -129,7 +128,7 @@ interface Entry57 {
   charges: number;
 }
 
-interface Both64 {
+interface Both63 {
   items: string[];
   entries: Entry56[];
 }
@@ -143,7 +142,7 @@ interface Entry56 {
   'contents-group'?: string;
 }
 
-interface Both63 {
+interface Both62 {
   items: string[];
   entries: Entry55[];
 }
@@ -158,16 +157,16 @@ interface Entry55 {
   'contents-item'?: string;
 }
 
-interface Both62 {
+interface Both61 {
   items: string[];
   entries: Entry16[];
 }
 
-interface Both61 {
+interface Both60 {
   entries: Entry12[];
 }
 
-interface Both60 {
+interface Both59 {
   items: string[];
   entries: Entry54[];
 }
@@ -180,7 +179,7 @@ interface Entry54 {
   count?: number;
 }
 
-interface Both59 {
+interface Both58 {
   ammo: number;
   items: string[];
   entries: Entry53[];
@@ -195,7 +194,7 @@ interface Entry53 {
   count?: number;
 }
 
-interface Both58 {
+interface Both57 {
   items: string[];
   entries: Entry52[];
 }
@@ -206,7 +205,7 @@ interface Entry52 {
   'custom-flags'?: string[];
 }
 
-interface Both57 {
+interface Both56 {
   ammo: number;
   items: string[];
   entries: Entry51[];
@@ -219,7 +218,7 @@ interface Entry51 {
   count?: number;
 }
 
-interface Both56 {
+interface Both55 {
   items: string[];
   entries: Entry50[];
 }
@@ -230,7 +229,7 @@ interface Entry50 {
   'container-item': string;
 }
 
-interface Both55 {
+interface Both54 {
   ammo: number;
   items: string[];
   entries: Entry49[];
@@ -244,7 +243,7 @@ interface Entry49 {
   count?: number;
 }
 
-interface Both54 {
+interface Both53 {
   items: string[];
   entries: Entry48[];
 }
@@ -257,7 +256,7 @@ interface Entry48 {
   'custom-flags'?: string[];
 }
 
-interface Both53 {
+interface Both52 {
   items: string[];
   entries: Entry47[];
 }
@@ -267,12 +266,12 @@ interface Entry47 {
   charges?: number;
 }
 
-interface Both52 {
+interface Both51 {
   items: string[];
   entries: Entry4[];
 }
 
-interface Both51 {
+interface Both50 {
   ammo: number;
   items: string[];
   entries: Entry46[];
@@ -287,11 +286,11 @@ interface Entry46 {
   count?: number;
 }
 
-interface Both50 {
+interface Both49 {
   items: string[];
 }
 
-interface Both49 {
+interface Both48 {
   items: string[];
   entries: Entry45[];
 }
@@ -304,7 +303,7 @@ interface Entry45 {
   'contents-group'?: string;
 }
 
-interface Both48 {
+interface Both47 {
   items: string[];
   entries: Entry44[];
 }
@@ -315,7 +314,7 @@ interface Entry44 {
   'contents-item'?: string;
 }
 
-interface Both47 {
+interface Both46 {
   items: string[];
   entries: Entry43[];
 }
@@ -327,7 +326,7 @@ interface Entry43 {
   'container-item'?: string;
 }
 
-interface Both46 {
+interface Both45 {
   items: string[];
   entries: Entry42[];
 }
@@ -338,11 +337,6 @@ interface Entry42 {
   charges?: number;
 }
 
-interface Both45 {
-  items: string[];
-  entries: Entry40[];
-}
-
 interface Both44 {
   items: string[];
   entries: Entry41[];
@@ -350,21 +344,22 @@ interface Both44 {
 
 interface Entry41 {
   item: string;
+  'custom-flags': string[];
+}
+
+interface Both43 {
+  items: string[];
+  entries: Entry40[];
+}
+
+interface Entry40 {
+  item: string;
   'ammo-item'?: string;
   charges?: number;
   'container-item'?: string;
   'custom-flags'?: string[];
   'contents-item'?: string[];
   'contents-group'?: string[];
-}
-
-interface Both43 {
-  entries: Entry40[];
-}
-
-interface Entry40 {
-  item: string;
-  'custom-flags': string[];
 }
 
 interface Both42 {

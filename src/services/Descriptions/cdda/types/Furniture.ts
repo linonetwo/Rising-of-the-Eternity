@@ -12,15 +12,15 @@ export interface IFurniture {
   max_volume?: string;
   bash?: Bash;
   deconstruct?: Deconstruct;
-  bgcolor?: string[] | string;
   looks_like?: string;
   coverage?: number;
+  bgcolor?: string[] | string;
   workbench?: Workbench;
   crafting_pseudo_item?: string;
   emissions?: string[];
   light_emitted?: number;
-  'copy-from'?: string;
   deployed_item?: string;
+  'copy-from'?: string;
   comfort?: number;
   floor_bedding_warmth?: number;
   bonus_fire_warmth_feet?: number;

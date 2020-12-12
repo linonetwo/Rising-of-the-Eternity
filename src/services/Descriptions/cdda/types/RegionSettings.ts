@@ -21,7 +21,7 @@ interface Overmapfeatureflagsettings {
   clear_blacklist: boolean;
   blacklist: any[];
   clear_whitelist: boolean;
-  whitelist: string[];
+  whitelist: any[];
 }
 
 interface Weather {
@@ -32,14 +32,6 @@ interface Weather {
   base_wind_distrib_peaks?: number;
   base_wind_season_variation?: number;
   weather_types: string[];
-  summer_temp_manual_mod?: number;
-  spring_temp_manual_mod?: number;
-  autumn_temp_manual_mod?: number;
-  winter_temp_manual_mod?: number;
-  spring_humidity_manual_mod?: number;
-  summer_humidity_manual_mod?: number;
-  autumn_humidity_manual_mod?: number;
-  winter_humidity_manual_mod?: number;
 }
 
 interface City {
@@ -83,7 +75,7 @@ interface Shops {
   gym_fitness?: number;
   gym_fitness_1?: number;
   s_liquor: number;
-  s_gun?: number;
+  s_gun: number;
   s_gun_1?: number;
   s_gun_2?: number;
   s_gun_3?: number;
@@ -127,9 +119,9 @@ interface Shops {
   s_garage?: number;
   s_garage_1?: number;
   s_garage_2?: number;
-  station_radio?: number;
+  station_radio: number;
   station_radio_1?: number;
-  office_doctor?: number;
+  office_doctor: number;
   office_doctor_1?: number;
   office_doctor_2?: number;
   office_tower_collapsed?: number;
@@ -149,7 +141,7 @@ interface Shops {
   abstorefront: number;
   abstorefront_1?: number;
   abstorefront_2?: number;
-  police?: number;
+  police: number;
   police_1?: number;
   police_2?: number;
   fire_station?: number;
@@ -257,12 +249,11 @@ interface Shops {
   homeless_shelter?: number;
   parking_garage?: number;
   s_restaurant_deserted_test?: number;
-  motel_city?: number;
 }
 
 interface Parks {
   park: number;
-  pool?: number;
+  pool: number;
   pool_1?: number;
   pool_2?: number;
   pool_3?: number;
@@ -292,19 +283,11 @@ interface Parks {
   cs_public_space?: number;
   cs_city_dump_small?: number;
   cs_open_sewer?: number;
-  s_gas?: number;
-  s_gas_1?: number;
-  church?: number;
-  church_1?: number;
-  s_lot?: number;
-  smallscrapyard?: number;
-  orchard?: number;
-  garage_gas_city?: number;
 }
 
 interface Houses {
   '2storyModern01'?: number;
-  house_w_1?: number;
+  house_w_1: number;
   house_two_story_basement?: number;
   house_crack1?: number;
   house_crack2?: number;
@@ -313,7 +296,7 @@ interface Houses {
   house_prepper?: number;
   house_prepper2?: number;
   house_fortified?: number;
-  duplex?: number;
+  duplex: number;
   house_duplex2?: number;
   house_duplex3?: number;
   house_duplex4?: number;
@@ -440,16 +423,16 @@ interface Mapextras {
   forest_water: Forestwater2;
   field: Field;
   road: Road;
-  bridgehead_ground?: Bridgeheadground;
-  road_nesw_manhole?: Roadneswmanhole;
+  bridgehead_ground: Bridgeheadground;
+  road_nesw_manhole: Roadneswmanhole;
   build: Build;
-  marloss?: Marloss;
+  marloss: Marloss;
   subway: Subway;
-  research_facility_lot?: Researchfacilitylot;
-  research_facility_interior?: Researchfacilityinterior;
-  river?: River;
-  lake_shore?: River;
-  sewer?: Sewer;
+  research_facility_lot: Researchfacilitylot;
+  research_facility_interior: Researchfacilityinterior;
+  river: River;
+  lake_shore: River;
+  sewer: Sewer;
 }
 
 interface Sewer {
@@ -527,12 +510,12 @@ interface Subway {
 }
 
 interface Extras10 {
-  mx_military?: number;
-  mx_science?: number;
-  mx_collegekids?: number;
+  mx_military: number;
+  mx_science: number;
+  mx_collegekids: number;
   mx_portal: number;
   mx_portal_in: number;
-  mx_casings?: number;
+  mx_casings: number;
 }
 
 interface Marloss {
@@ -550,18 +533,18 @@ interface Build {
 }
 
 interface Extras8 {
-  mx_house_spider?: number;
-  mx_house_wasp?: number;
+  mx_house_spider: number;
+  mx_house_wasp: number;
   mx_military: number;
   mx_science: number;
   mx_collegekids: number;
   mx_portal: number;
   mx_crater: number;
   mx_portal_in: number;
-  mx_point_burned_ground?: number;
-  mx_casings?: number;
-  mx_looters?: number;
-  mx_corpses?: number;
+  mx_point_burned_ground: number;
+  mx_casings: number;
+  mx_looters: number;
+  mx_corpses: number;
 }
 
 interface Roadneswmanhole {
@@ -589,22 +572,21 @@ interface Road {
 
 interface Extras5 {
   mx_helicopter: number;
-  mx_military?: number;
-  mx_science?: number;
-  mx_collegekids?: number;
+  mx_military: number;
+  mx_science: number;
+  mx_collegekids: number;
   mx_roadblock: number;
   mx_bandits_block: number;
-  mx_drugdeal?: number;
+  mx_drugdeal: number;
   mx_supplydrop: number;
   mx_portal: number;
   mx_crater: number;
   mx_portal_in: number;
-  mx_roadworks?: number;
-  mx_mayhem?: number;
-  mx_casings?: number;
-  mx_corpses?: number;
-  mx_prison_bus?: number;
-  mx_minefield?: number;
+  mx_roadworks: number;
+  mx_mayhem: number;
+  mx_casings: number;
+  mx_corpses: number;
+  mx_prison_bus: number;
 }
 
 interface Field {
@@ -614,26 +596,25 @@ interface Field {
 
 interface Extras4 {
   mx_helicopter: number;
-  mx_military?: number;
-  mx_science?: number;
-  mx_collegekids?: number;
-  mx_drugdeal?: number;
-  mx_supplydrop?: number;
+  mx_military: number;
+  mx_science: number;
+  mx_collegekids: number;
+  mx_drugdeal: number;
+  mx_supplydrop: number;
   mx_portal: number;
   mx_crater: number;
   mx_portal_in: number;
-  mx_point_dead_vegetation?: number;
-  mx_grass?: number;
-  mx_trees?: number;
-  mx_fallen_shed?: number;
-  mx_pond?: number;
-  mx_point_burned_ground?: number;
-  mx_casings?: number;
-  mx_corpses?: number;
-  mx_nest_wasp?: number;
-  mx_mass_grave?: number;
-  mx_grave?: number;
-  mx_minefield?: number;
+  mx_point_dead_vegetation: number;
+  mx_grass: number;
+  mx_trees: number;
+  mx_fallen_shed: number;
+  mx_pond: number;
+  mx_point_burned_ground: number;
+  mx_casings: number;
+  mx_corpses: number;
+  mx_nest_wasp: number;
+  mx_mass_grave: number;
+  mx_grave: number;
 }
 
 interface Forestwater2 {
@@ -643,29 +624,28 @@ interface Forestwater2 {
 
 interface Extras3 {
   mx_helicopter: number;
-  mx_military?: number;
-  mx_science?: number;
-  mx_collegekids?: number;
-  mx_drugdeal?: number;
-  mx_supplydrop?: number;
+  mx_military: number;
+  mx_science: number;
+  mx_collegekids: number;
+  mx_drugdeal: number;
+  mx_supplydrop: number;
   mx_portal: number;
   mx_crater: number;
   mx_portal_in: number;
-  mx_grass?: number;
-  mx_fallen_shed?: number;
+  mx_grass: number;
+  mx_fallen_shed: number;
   mx_spider: number;
   mx_grove: number;
   mx_shrubbery: number;
   mx_clearcut: number;
   mx_pond: number;
   mx_clay_deposit: number;
-  mx_point_dead_vegetation?: number;
-  mx_point_burned_ground?: number;
-  mx_casings?: number;
-  mx_corpses?: number;
-  mx_nest_dermatik?: number;
-  mx_mass_grave?: number;
-  mx_minefield?: number;
+  mx_point_dead_vegetation: number;
+  mx_point_burned_ground: number;
+  mx_casings: number;
+  mx_corpses: number;
+  mx_nest_dermatik: number;
+  mx_mass_grave: number;
 }
 
 interface Forestthick2 {
@@ -675,16 +655,16 @@ interface Forestthick2 {
 
 interface Extras2 {
   mx_helicopter: number;
-  mx_military?: number;
-  mx_science?: number;
-  mx_collegekids?: number;
-  mx_drugdeal?: number;
-  mx_supplydrop?: number;
+  mx_military: number;
+  mx_science: number;
+  mx_collegekids: number;
+  mx_drugdeal: number;
+  mx_supplydrop: number;
   mx_portal: number;
   mx_crater: number;
   mx_portal_in: number;
-  mx_grass?: number;
-  mx_fallen_shed?: number;
+  mx_grass: number;
+  mx_fallen_shed: number;
   mx_shia: number;
   mx_spider: number;
   mx_jabberwock: number;
@@ -693,12 +673,11 @@ interface Extras2 {
   mx_clearcut: number;
   mx_pond: number;
   mx_clay_deposit: number;
-  mx_point_dead_vegetation?: number;
-  mx_point_burned_ground?: number;
-  mx_casings?: number;
-  mx_corpses?: number;
-  mx_mass_grave?: number;
-  mx_minefield?: number;
+  mx_point_dead_vegetation: number;
+  mx_point_burned_ground: number;
+  mx_casings: number;
+  mx_corpses: number;
+  mx_mass_grave: number;
 }
 
 interface Forest2 {
@@ -708,28 +687,27 @@ interface Forest2 {
 
 interface Extras {
   mx_helicopter: number;
-  mx_military?: number;
-  mx_science?: number;
-  mx_collegekids?: number;
-  mx_drugdeal?: number;
-  mx_supplydrop?: number;
+  mx_military: number;
+  mx_science: number;
+  mx_collegekids: number;
+  mx_drugdeal: number;
+  mx_supplydrop: number;
   mx_portal: number;
   mx_crater: number;
   mx_portal_in: number;
-  mx_grass?: number;
-  mx_fallen_shed?: number;
+  mx_grass: number;
+  mx_fallen_shed: number;
   mx_spider: number;
   mx_grove: number;
   mx_shrubbery: number;
   mx_clearcut: number;
   mx_pond: number;
   mx_clay_deposit: number;
-  mx_point_dead_vegetation?: number;
-  mx_point_burned_ground?: number;
-  mx_casings?: number;
-  mx_corpses?: number;
-  mx_mass_grave?: number;
-  mx_minefield?: number;
+  mx_point_dead_vegetation: number;
+  mx_point_burned_ground: number;
+  mx_casings: number;
+  mx_corpses: number;
+  mx_mass_grave: number;
 }
 
 interface Foresttrailsettings {
@@ -767,7 +745,7 @@ interface Forestwater {
   item_group_chance: number;
   item_spawn_iterations: number;
   clear_groundcover: boolean;
-  groundcover: Groundcover3;
+  groundcover: Groundcover2;
   clear_components: boolean;
   components: Components3;
   clear_terrain_furniture: boolean;
@@ -785,14 +763,11 @@ interface Twatersh {
 }
 
 interface Furniture2 {
-  f_region_water_plant?: number;
-  f_cattails?: number;
-  f_lilypad?: number;
-  f_lotus?: number;
+  f_region_water_plant: number;
 }
 
 interface Components3 {
-  trees: Trees2;
+  trees: Trees3;
   shrubs_and_flowers?: Shrubsandflowers;
   clutter?: Clutter2;
   water: Water2;
@@ -803,10 +778,10 @@ interface Other4 {
   sequence: number;
   chance: number;
   clear_types: boolean;
-  types: Types10;
+  types: Types11;
 }
 
-interface Types10 {
+interface Types11 {
   t_grass: number;
   t_shrub: number;
   t_dirt: number;
@@ -816,10 +791,10 @@ interface Water2 {
   sequence: number;
   chance: number;
   clear_types: boolean;
-  types: Types9;
+  types: Types10;
 }
 
-interface Types9 {
+interface Types10 {
   t_swater_sh?: number;
   t_swater_dp?: number;
   t_water_sh: number;
@@ -829,23 +804,23 @@ interface Clutter2 {
   sequence: number;
   chance: number;
   clear_types: boolean;
-  types: Types8;
+  types: Types9;
 }
 
-interface Types8 {
+interface Types9 {
   t_trunk: number;
   f_boulder_small: number;
   f_boulder_medium: number;
 }
 
-interface Trees2 {
+interface Trees3 {
   sequence: number;
   chance: number;
   clear_types: boolean;
-  types: Types7;
+  types: Types8;
 }
 
-interface Types7 {
+interface Types8 {
   t_tree?: number;
   t_tree_young?: number;
   t_tree_pine?: number;
@@ -873,12 +848,8 @@ interface Types7 {
   t_tree_dead: number;
 }
 
-interface Groundcover3 {
+interface Groundcover2 {
   t_region_groundcover_swamp?: number;
-  t_grass_long?: number;
-  t_grass_tall?: number;
-  t_moss?: number;
-  t_dirt?: number;
 }
 
 interface Forestthick {
@@ -887,7 +858,7 @@ interface Forestthick {
   item_group_chance: number;
   item_spawn_iterations: number;
   clear_groundcover: boolean;
-  groundcover: Groundcover2;
+  groundcover: Groundcover;
   clear_components: boolean;
   components: Components2;
   clear_terrain_furniture: boolean;
@@ -895,7 +866,7 @@ interface Forestthick {
 }
 
 interface Components2 {
-  trees: Trees;
+  trees: Trees2;
   shrubs_and_flowers?: Shrubsandflowers;
   clutter?: Clutter;
   water: Water;
@@ -906,19 +877,25 @@ interface Other3 {
   sequence: number;
   chance: number;
   clear_types: boolean;
-  types: Types6;
+  types: Types7;
 }
 
-interface Types6 {
+interface Types7 {
   t_shrub: number;
   t_pit: number;
 }
 
-interface Groundcover2 {
-  t_region_groundcover_forest?: number;
-  t_grass_long?: number;
-  t_grass_tall?: number;
-  t_dirt?: number;
+interface Trees2 {
+  sequence: number;
+  chance: number;
+  clear_types: boolean;
+  types: Types6;
+}
+
+interface Types6 {
+  t_region_tree?: number;
+  f_mutcactus_test?: number;
+  t_tree_dead?: number;
 }
 
 interface Forest {
@@ -992,29 +969,8 @@ interface Shrubsandflowers {
 }
 
 interface Types2 {
-  t_region_shrub?: number;
-  f_region_weed?: number;
-  t_underbrush?: number;
-  t_shrub?: number;
-  t_shrub_blueberry?: number;
-  t_shrub_strawberry?: number;
-  t_shrub_blackberry?: number;
-  t_shrub_raspberry?: number;
-  t_shrub_huckleberry?: number;
-  t_shrub_grape?: number;
-  t_shrub_rose?: number;
-  t_shrub_hydrangea?: number;
-  t_shrub_lilac?: number;
-  f_black_eyed_susan?: number;
-  f_lily?: number;
-  f_flower_tulip?: number;
-  f_flower_spurge?: number;
-  f_chamomile?: number;
-  f_dandelion?: number;
-  f_datura?: number;
-  f_dahlia?: number;
-  f_bluebell?: number;
-  f_mutpoppy?: number;
+  t_region_shrub: number;
+  f_region_weed: number;
 }
 
 interface Trees {
@@ -1029,39 +985,10 @@ interface Types {
   t_tree_willow?: number;
   t_tree_dead?: number;
   f_mutcactus_test?: number;
-  t_tree_young?: number;
-  t_tree?: number;
-  t_tree_birch?: number;
-  t_tree_elm?: number;
-  t_tree_cottonwood?: number;
-  t_tree_pine?: number;
-  t_tree_maple?: number;
-  t_tree_hickory?: number;
-  t_tree_walnut?: number;
-  t_tree_chestnut?: number;
-  t_tree_hazelnut?: number;
-  t_tree_beech?: number;
-  t_tree_blackjack?: number;
-  t_tree_coffee?: number;
-  t_tree_apple?: number;
-  t_tree_apricot?: number;
-  t_tree_cherry?: number;
-  t_tree_peach?: number;
-  t_tree_pear?: number;
-  t_tree_plum?: number;
-  t_tree_elderberry?: number;
-  t_tree_mulberry?: number;
-  t_tree_deadpine?: number;
-  t_tree_hickory_dead?: number;
 }
 
 interface Groundcover {
   t_region_groundcover_forest?: number;
-  t_grass_long?: number;
-  t_grass_tall?: number;
-  t_dirt?: number;
-  t_search_test?: number;
-  t_sand?: number;
 }
 
 interface Overmapforestsettings {
@@ -1156,7 +1083,6 @@ interface Boostedother {
   f_mustard?: number;
   t_shrub?: number;
   f_mutcactus_test?: number;
-  f_burdock?: number;
 }
 
 interface Other {
@@ -1170,50 +1096,6 @@ interface Other {
   t_shrub?: number;
   f_mutpoppy?: number;
   f_mutcactus_test?: number;
-  t_cactus?: number;
-  t_tree_young?: number;
-  t_tree?: number;
-  t_tree_birch?: number;
-  t_tree_elm?: number;
-  t_tree_cottonwood?: number;
-  t_tree_pine?: number;
-  t_tree_maple?: number;
-  t_tree_willow?: number;
-  t_tree_hickory?: number;
-  t_tree_walnut?: number;
-  t_tree_chestnut?: number;
-  t_tree_hazelnut?: number;
-  t_tree_beech?: number;
-  t_tree_blackjack?: number;
-  t_tree_coffee?: number;
-  t_tree_apple?: number;
-  t_tree_apricot?: number;
-  t_tree_cherry?: number;
-  t_tree_peach?: number;
-  t_tree_pear?: number;
-  t_tree_plum?: number;
-  t_tree_elderberry?: number;
-  t_tree_mulberry?: number;
-  t_tree_deadpine?: number;
-  t_tree_hickory_dead?: number;
-  t_tree_dead?: number;
-  t_shrub_blueberry?: number;
-  t_shrub_strawberry?: number;
-  t_shrub_blackberry?: number;
-  t_shrub_raspberry?: number;
-  t_shrub_huckleberry?: number;
-  t_shrub_grape?: number;
-  t_shrub_rose?: number;
-  t_shrub_hydrangea?: number;
-  t_shrub_lilac?: number;
-  f_black_eyed_susan?: number;
-  f_lily?: number;
-  f_flower_tulip?: number;
-  f_flower_spurge?: number;
-  f_bluebell?: number;
-  f_dahlia?: number;
-  f_datura?: number;
-  f_dandelion?: number;
 }
 
 interface Regionterrainandfurniture {
@@ -1231,7 +1113,7 @@ interface Furniture {
 interface Fregionwaterplant {
   f_cattails: number;
   f_lilypad: number;
-  f_lotus?: number;
+  f_lotus: number;
 }
 
 interface Fregionweed {
@@ -1239,15 +1121,15 @@ interface Fregionweed {
   f_flower_spurge: number;
   f_chamomile: number;
   f_datura: number;
-  f_bluebell?: number;
+  f_bluebell: number;
   f_burdock: number;
   f_dahlia: number;
-  f_black_eyed_susan?: number;
-  f_lily?: number;
-  f_flower_tulip?: number;
+  f_black_eyed_susan: number;
+  f_lily: number;
+  f_flower_tulip: number;
   f_mutpoppy: number;
-  f_sunflower?: number;
-  f_mustard?: number;
+  f_sunflower: number;
+  f_mustard: number;
 }
 
 interface Fregionflowerdecorative {
@@ -1332,7 +1214,7 @@ interface Tregiontreeshade {
   t_tree_birch: number;
   t_tree_elm: number;
   t_tree_cottonwood: number;
-  t_tree_alder?: number;
+  t_tree_alder: number;
   t_tree_maple: number;
   t_tree_willow: number;
   t_tree_hickory: number;
@@ -1390,7 +1272,7 @@ interface Tregionshrubfruit {
   t_shrub_grape: number;
   t_shrub_blackberry: number;
   t_shrub_huckleberry: number;
-  t_shrub_peanut?: number;
+  t_shrub_peanut: number;
 }
 
 interface Tregionshrub {
@@ -1418,35 +1300,28 @@ interface Tregiongrass {
 }
 
 interface Tregiongroundcoverbarren {
-  t_dirt?: number;
+  t_dirt: number;
   t_grass_dead: number;
   t_railroad_rubble: number;
-  t_searth_test?: number;
-  t_sand?: number;
 }
 
 interface Tregiongroundcoverswamp {
   t_grass_long: number;
   t_grass_tall: number;
-  t_moss?: number;
+  t_moss: number;
   t_dirt: number;
 }
 
 interface Tregiongroundcoverforest {
-  t_grass_long?: number;
-  t_grass_tall?: number;
-  t_moss?: number;
+  t_grass_long: number;
+  t_grass_tall: number;
+  t_moss: number;
   t_grass_dead: number;
-  t_shrub?: number;
-  t_tree_dead?: number;
-  t_dirt?: number;
 }
 
 interface Tregiongroundcoverurban {
-  t_grass?: number;
+  t_grass: number;
   t_grass_dead: number;
-  t_dirt?: number;
-  t_searth_test?: number;
 }
 
 interface Tregiongroundcover {

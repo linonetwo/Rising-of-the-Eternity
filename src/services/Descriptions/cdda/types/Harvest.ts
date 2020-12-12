@@ -15,27 +15,17 @@ export interface IHarvest {
     | Entries11
     | Entries12
     | Entries13
-    | Entries14
   >;
   message?: string;
   '//'?: string;
-  leftovers?: string;
-}
-
-interface Entries14 {
-  drop: string;
-  type: string;
-  mass_ratio?: number;
-  scale_num?: number[];
-  max?: number;
 }
 
 interface Entries13 {
   drop: string;
   type: string;
   mass_ratio?: number;
-  base_num?: number[];
   scale_num?: number[];
+  max?: number;
 }
 
 interface Entries12 {
@@ -43,7 +33,7 @@ interface Entries12 {
   type: string;
   mass_ratio?: number;
   base_num?: number[];
-  max?: number;
+  scale_num?: number[];
 }
 
 interface Entries11 {

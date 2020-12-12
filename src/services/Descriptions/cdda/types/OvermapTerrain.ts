@@ -10,9 +10,9 @@ export interface IOvermapTerrain {
   mapgen?: Mapgen[];
   flags?: string[];
   'copy-from'?: string;
-  spawns?: Spawns;
   abstract?: string;
   '//'?: string;
+  spawns?: Spawns;
   land_use_code?: string;
   extend?: Extend;
   delete?: Extend;

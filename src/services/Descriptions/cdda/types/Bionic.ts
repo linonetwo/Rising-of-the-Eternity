@@ -28,8 +28,8 @@ export interface IBionic {
   capacity?: string;
   passive_fuel_efficiency?: number;
   weight_capacity_bonus?: string;
-  '//'?: string;
   learned_spells?: Learnedspells;
+  '//'?: string;
   learned_proficiencies?: string[];
   spell_on_activation?: Spellonactivation;
 }

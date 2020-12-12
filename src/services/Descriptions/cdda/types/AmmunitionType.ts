@@ -3,5 +3,4 @@ export interface IAmmunitionType {
   id: string;
   name: string;
   default: string;
-  '//'?: string;
 }

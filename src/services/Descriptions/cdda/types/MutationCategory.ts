@@ -5,12 +5,12 @@ export interface IMutationCategory {
   threshold_mut: string;
   mutagen_message: string;
   iv_message: string;
-  memorial_message?: string;
   iv_sound?: boolean;
   iv_sound_message?: string;
   iv_sound_id?: string;
   iv_noise?: number;
   iv_additional_mutations?: number;
+  memorial_message?: string;
   wip?: boolean;
   iv_min_mutations?: number;
   iv_additional_mutations_chance?: number;

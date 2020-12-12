@@ -2,7 +2,7 @@ export interface IGunmod {
   id: string;
   type: 'GUNMOD';
   name: Name | Name2 | Name3 | string;
-  description?: string;
+  description: string;
   weight?: string;
   volume?: string;
   price?: number;
@@ -17,26 +17,26 @@ export interface IGunmod {
   gun_data?: Gundata;
   flags?: string[];
   pocket_data?: Pocketdatum[];
+  '//'?: string;
   bashing?: number;
+  handling_modifier?: number;
   consume_chance?: number;
   consume_divisor?: number;
-  damage_modifier?: Rangeddamage;
-  dispersion_modifier?: number;
+  loudness_modifier?: number;
+  integral_volume?: string;
   sight_dispersion?: number;
   aim_speed?: number;
-  handling_modifier?: number;
-  loudness_modifier?: number;
-  '//'?: string;
-  integral_volume?: string;
   min_skills?: Array<Array<number | string>>;
   use_action?: Useaction;
+  dispersion_modifier?: number;
   'copy-from'?: string;
-  acceptable_ammo?: string[];
-  magazine_adaptor?: Array<Array<string[] | string>>;
   range_modifier?: number;
+  damage_modifier?: Rangeddamage;
   ammo_effects?: string[];
+  acceptable_ammo?: string[];
   mode_modifier?: Array<Array<Array<string[] | number | string>>>;
   ammo_modifier?: string[] | string;
+  magazine_adaptor?: Array<Array<string[] | string>>;
   ups_charges_multiplier?: number;
   integral_weight?: string;
   weight_multiplier?: number;
@@ -70,17 +70,15 @@ interface Useaction {
 interface Pocketdatum {
   pocket_type: string;
   ammo_restriction?: Ammorestriction;
-  rigid?: boolean;
   holster?: boolean;
   max_contains_volume?: string;
   max_contains_weight?: string;
   item_restriction?: string[];
+  rigid?: boolean;
 }
 
 interface Ammorestriction {
   shot?: number;
-  ammo_grenade?: number;
-  ammo_shot?: number;
   signal_flare?: number;
   bolt?: number;
   shotpaper?: number;

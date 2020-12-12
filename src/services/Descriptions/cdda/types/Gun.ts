@@ -36,8 +36,6 @@ export interface IGun {
   reload?: number;
   ups_charges?: number;
   min_strength?: number;
-  use_action?: Useaction;
-  min_cycle_recoil?: number;
   armor_data?: Armordata;
   longest_side?: string;
   cutting?: number;
@@ -46,16 +44,30 @@ export interface IGun {
   reload_noise?: string;
   proportional?: Proportional;
   relative?: Relative;
-  extend?: Extend;
-  default_mods?: string[];
-  recoil?: number;
   abstract?: string;
+  extend?: Extend;
+  use_action?: Useaction;
   '//2'?: string;
+  recoil?: number;
   ascii_picture?: string;
+  min_cycle_recoil?: number;
   sight_dispersion?: number;
+  default_mods?: string[];
   magazines?: Array<Array<string[] | string>>;
   delete?: Extend;
   burst?: number;
+}
+
+interface Useaction {
+  menu_text: string;
+  type: string;
+  target: string;
+  qualities_needed: Qualitiesneeded;
+  msg: string;
+}
+
+interface Qualitiesneeded {
+  SCREW_FINE: number;
 }
 
 interface Extend {
@@ -93,18 +105,6 @@ interface Armordata {
   sided?: boolean;
 }
 
-interface Useaction {
-  menu_text: string;
-  type: string;
-  target: string;
-  qualities_needed?: Qualitiesneeded;
-  msg: string;
-}
-
-interface Qualitiesneeded {
-  SCREW_FINE: number;
-}
-
 interface Pocketdatum {
   pocket_type: string;
   ammo_restriction?: Ammorestriction;
@@ -114,31 +114,22 @@ interface Pocketdatum {
   item_restriction?: string[];
   allowed_speedloaders?: string[];
   rigid?: boolean;
-  magazine_well?: string;
   watertight?: boolean;
+  magazine_well?: string;
 }
 
 interface Ammorestriction {
   3006?: number;
   223?: number;
   fusion?: number;
-  arrow?: number;
   arrow_orichalcum?: number;
+  arrow?: number;
   38?: number;
   380?: number;
   '9mm'?: number;
   '357mag'?: number;
   shot?: number;
   308?: number;
-  ammo_black_powder?: number;
-  ammo_grenade?: number;
-  ammo_pistol?: number;
-  ammo_pistol_magnum?: number;
-  ammo_pistol_tiny?: number;
-  ammo_rifle?: number;
-  ammo_rifle_huge?: number;
-  ammo_rocket?: number;
-  ammo_shot?: number;
   pellets?: number;
   plasma?: number;
   nail?: number;

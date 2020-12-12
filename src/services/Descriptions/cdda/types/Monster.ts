@@ -8,26 +8,19 @@ export interface IMonster {
   volume?: string;
   weight?: string;
   upgrades?: Upgrade | Upgrades2 | Upgrades3 | boolean | Upgrades5;
+  looks_like?: string;
   default_faction?: string;
-  bodytype?: string;
   species?: string[] | string;
   hp?: number;
   speed?: number;
-  material?: string[];
   symbol?: string;
   color?: string;
   aggression?: number;
   morale?: number;
-  melee_skill?: number;
-  melee_dice?: number;
-  melee_dice_sides?: number;
-  melee_cut?: number;
+  luminance?: number;
   dodge?: number;
-  armor_bash?: number;
-  armor_cut?: number;
-  vision_day?: number;
-  vision_night?: number;
   harvest?: string;
+  fear_triggers?: string[];
   special_attacks?: Array<
     | Specialattack
     | Specialattack
@@ -38,54 +31,43 @@ export interface IMonster {
     | Specialattacks6
     | Specialattacks8
     | Specialattacks9
-    | Specialattacks10
+    | Specialattacks9
     | Specialattacks11
-    | Specialattacks11
-    | Specialattacks11
-    | Specialattacks11
-    | Specialattacks15
-    | Specialattacks16
+    | Specialattacks12
+    | Specialattacks13
+    | Specialattacks14
+    | Specialattacks14
+    | Specialattacks14
     | Specialattacks17
-    | Specialattacks18
-    | Specialattacks18
-    | Specialattacks18
+    | Specialattacks17
+    | Specialattacks19
+    | Specialattacks20
     | Specialattacks21
-    | Specialattacks21
-    | Specialattacks21
-    | Specialattacks24
+    | Specialattacks22
+    | Specialattacks22
+    | Specialattacks22
     | Specialattacks25
     | Specialattacks26
     | Specialattacks27
     | Specialattacks28
     | Specialattacks28
-    | Specialattacks28
-    | Specialattacks28
-    | Specialattacks32
-    | Specialattacks33
+    | Specialattacks30
+    | Spelldata
+    | Spelldata
+    | Spelldata
     | Specialattacks34
     | Specialattacks35
     | Specialattacks36
-    | Specialattacks36
+    | Specialattacks37
     | Specialattacks38
-    | Spelldata
-    | Spelldata
-    | Spelldata
-    | Spelldata
-    | Spelldata
+    | Specialattacks38
+    | Specialattacks38
+    | Specialattacks38
+    | Specialattacks42
+    | Specialattacks43
     | Specialattacks44
-    | Specialattacks45
+    | Specialattacks44
     | Specialattacks46
-    | Specialattacks47
-    | Specialattacks48
-    | Specialattacks49
-    | Specialattacks49
-    | Specialattacks49
-    | Specialattacks49
-    | Specialattacks53
-    | Specialattacks54
-    | Specialattacks55
-    | Specialattacks55
-    | Specialattacks57
     | Array<number | string>
     | Array<number | string>
     | Array<number | string>
@@ -120,67 +102,63 @@ export interface IMonster {
     | Array<number | string>
     | Array<number | string>
     | Array<number | string>
-    | Array<number | string>
-    | Array<number | string>
-    | Array<number | string>
-    | Array<number | string>
-    | Array<number | string>
-    | Array<number | string>
-    | Array<number | string>
-    | Array<number | string>
-    | Array<number | string>
-    | Array<number | string>
+    | Specialattacks81
+    | Specialattacks82
+    | Specialattacks83
+    | Specialattacks84
+    | Specialattacks85
+    | Specialattacks86
+    | Specialattacks87
+    | Specialattacks87
+    | Specialattacks87
+    | Specialattacks87
+    | Specialattacks87
+    | Specialattacks87
+    | Specialattacks93
+    | Specialattacks93
+    | Specialattacks95
+    | Specialattacks96
+    | Specialattacks96
+    | Specialattacks96
+    | Specialattacks96
+    | Specialattacks100
+    | Specialattacks101
     | Specialattacks102
-    | Specialattacks103
-    | Specialattacks104
+    | Specialattacks102
+    | Specialattacks102
     | Specialattacks105
-    | Specialattacks106
+    | Specialattacks105
     | Specialattacks107
-    | Specialattacks108
+    | Specialattacks107
     | Specialattacks109
-    | Specialattacks110
-    | Specialattacks110
-    | Specialattacks110
-    | Specialattacks110
-    | Specialattacks110
-    | Specialattacks110
-    | Specialattacks110
-    | Specialattacks117
-    | Specialattacks117
-    | Specialattacks119
-    | Specialattacks120
-    | Specialattacks120
-    | Specialattacks120
-    | Specialattacks120
-    | Specialattacks124
-    | Specialattacks125
-    | Specialattacks126
-    | Specialattacks126
-    | Specialattacks126
-    | Specialattacks129
-    | Specialattacks129
-    | Specialattacks131
-    | Specialattacks131
-    | Specialattacks133
-    | Specialattacks133
-    | Specialattacks133
-    | Specialattacks133
-    | Specialattacks133
-    | Specialattacks133
-    | Specialattacks139
-    | Specialattacks139
+    | Specialattacks109
+    | Specialattacks109
+    | Specialattacks112
+    | Specialattacks112
   >;
   death_function?: string[];
   flags?: string[];
-  categories?: string[];
-  path_settings?: Pathsettings;
+  melee_skill?: number;
+  melee_dice?: number;
+  melee_dice_sides?: number;
+  melee_cut?: number;
+  armor_bash?: number;
+  armor_cut?: number;
+  armor_bullet?: number;
+  vision_day?: number;
+  vision_night?: number;
+  material?: string[];
+  bodytype?: string;
+  diff?: number;
+  armor_stab?: number;
+  armor_acid?: number;
+  armor_fire?: number;
   anger_triggers?: string[];
-  baby_flags?: string[];
   '//'?: string[] | string;
-  biosignature?: Biosignature;
-  fear_triggers?: string[];
-  extend?: Extend;
+  path_settings?: Pathsettings;
+  '//2'?: string;
   delete?: Delete;
+  emit_fields?: Emitfield[];
   death_drops?:
     | Deathdrop
     | Deathdrops2[]
@@ -193,27 +171,22 @@ export interface IMonster {
     | Deathdrops9[]
     | Deathdrops10
     | string;
-  placate_triggers?: string[];
-  diff?: number;
   starting_ammo?: Startingammo;
-  reproduction?: Reproduction;
-  armor_bullet?: number;
-  armor_stab?: number;
-  emit_fields?: Emitfield[];
-  looks_like?: string;
-  luminance?: number;
-  armor_acid?: number;
-  armor_fire?: number;
-  '//2'?: string;
+  extend?: Extend;
   regenerates?: number;
+  reproduction?: Reproduction;
+  baby_flags?: string[];
   phase?: string;
   melee_damage?: Meleedamage[];
+  categories?: string[];
+  placate_triggers?: string[];
   zombify_into?: string;
   relative?: Relative;
   special_when_hit?: Array<number | string>;
-  attack_effs?: Attackeff[];
+  biosignature?: Biosignature;
   burn_into?: string;
   revert_to_itype?: string;
+  attack_effs?: Attackeff[];
   abstract?: string;
   scents_ignored?: string[];
   alias?: string;
@@ -230,10 +203,15 @@ export interface IMonster {
 
 interface Attackeff {
   id: string;
-  duration?: number;
   chance?: number;
+  duration?: number;
   affect_hit_bp?: boolean;
   '//'?: string;
+}
+
+interface Biosignature {
+  biosig_item: string;
+  biosig_timer: number;
 }
 
 interface Relative {
@@ -261,11 +239,6 @@ interface Meleedamage {
   armor_penetration?: number;
 }
 
-interface Emitfield {
-  emit_id: string;
-  delay: string;
-}
-
 interface Reproduction {
   baby_egg?: string;
   baby_count: number;
@@ -273,25 +246,55 @@ interface Reproduction {
   baby_monster?: string;
 }
 
+interface Extend {
+  special_attacks?: Array<
+    | Specialattack2
+    | Spelldata
+    | Array<number | string>
+    | Array<number | string>
+    | Specialattacks105
+    | Specialattacks62
+    | Specialattacks107
+    | Specialattacks107
+  >;
+  flags?: string[];
+  death_function?: string[];
+}
+
+interface Specialattacks62 {
+  type: string;
+  cooldown: number;
+  move_cost: number;
+  gun_type: string;
+  ammo_type: string;
+  fake_skills: Array<Array<number | string>>;
+  fake_dex: number;
+  fake_per: number;
+  require_targeting_player: boolean;
+  description: string;
+  ranges: Array<Array<number | string>>;
+  no_ammo_sound: string;
+}
+
+interface Specialattack2 {
+  id?: string;
+  cooldown: number;
+  damage_max_instance?: Damagemaxinstance2[];
+  type?: string;
+  max_range?: number;
+}
+
 interface Startingammo {
-  '762_51'?: number;
-  napalm?: number;
-  '40mm_incendiary'?: number;
-  223?: number;
-  milk_raw_choc?: number;
   rock?: number;
-  pistol_ball?: number;
-  rifle_huge_ball?: number;
-  rifle_ball?: number;
-  grenade_ammo_hedp?: number;
-  grenade_ammo_beanbag?: number;
   acidic_bore?: number;
   556?: number;
   '40x46mm_m433'?: number;
+  napalm?: number;
   nail?: number;
   water?: number;
   '8mm_caseless'?: number;
   shot_beanbag?: number;
+  '762_51'?: number;
   '5x50dart'?: number;
   steel_rail?: number;
   xray_laser_barrel?: number;
@@ -365,6 +368,11 @@ interface Deathdrop {
   '//': string;
 }
 
+interface Emitfield {
+  emit_id: string;
+  delay: string;
+}
+
 interface Delete {
   flags?: string[];
   categories?: string[];
@@ -377,68 +385,24 @@ interface Upgrades {
   into_group?: string;
 }
 
-interface Extend {
-  flags?: string[];
-  special_attacks?: Array<
-    | Specialattack2
-    | Spelldata
-    | Array<number | string>
-    | Array<number | string>
-    | Specialattacks129
-    | Specialattacks62
-    | Specialattacks131
-    | Specialattacks131
-  >;
-  categories?: string[];
-  death_function?: string[];
-}
-
-interface Specialattacks62 {
-  type: string;
-  cooldown: number;
-  move_cost: number;
-  gun_type: string;
-  ammo_type: string;
-  fake_skills: Array<Array<number | string>>;
-  fake_dex: number;
-  fake_per: number;
-  require_targeting_player: boolean;
-  description: string;
-  ranges: Array<Array<number | string>>;
-  no_ammo_sound: string;
-}
-
-interface Specialattack2 {
-  id?: string;
-  cooldown: number;
-  damage_max_instance?: Damagemaxinstance2[];
-  type?: string;
-  max_range?: number;
-}
-
-interface Biosignature {
-  biosig_item: string;
-  biosig_timer: number;
-}
-
 interface Pathsettings {
-  max_dist?: number;
   '//min_dist'?: number;
+  max_dist?: number;
 }
 
-interface Specialattacks139 {
+interface Specialattacks112 {
   type: string;
   spell_data: Spelldata;
   cooldown: number;
 }
 
-interface Specialattacks133 {
+interface Specialattacks109 {
   type: string;
   cooldown: number;
   damage_max_instance: Damagemaxinstance2[];
 }
 
-interface Specialattacks131 {
+interface Specialattacks107 {
   type: string;
   cooldown: number;
   move_cost: number;
@@ -451,7 +415,7 @@ interface Specialattacks131 {
   description: string;
 }
 
-interface Specialattacks129 {
+interface Specialattacks105 {
   type: string;
   spell_data: Spelldata3;
   cooldown: number;
@@ -463,7 +427,7 @@ interface Spelldata3 {
   hit_self: boolean;
 }
 
-interface Specialattacks126 {
+interface Specialattacks102 {
   type: string;
   cooldown: number;
   move_cost: number;
@@ -471,7 +435,7 @@ interface Specialattacks126 {
   min_consider_range: number;
 }
 
-interface Specialattacks125 {
+interface Specialattacks101 {
   type: string;
   cooldown: number;
   gun_type: string;
@@ -481,40 +445,40 @@ interface Specialattacks125 {
   description: string;
 }
 
-interface Specialattacks124 {
+interface Specialattacks100 {
   type: string;
   cooldown: number;
   min_mul: number;
   '//': string;
 }
 
-interface Specialattacks120 {
+interface Specialattacks96 {
   type: string;
   cooldown: number;
   max_range: number;
   allow_no_target: boolean;
 }
 
-interface Specialattacks119 {
+interface Specialattacks95 {
   type: string;
   cooldown: number;
   max_range?: number;
   allow_no_target?: boolean;
 }
 
-interface Specialattacks117 {
+interface Specialattacks93 {
   type: string;
   cooldown: number;
   accuracy: number;
   no_infection_chance: number;
 }
 
-interface Specialattacks110 {
+interface Specialattacks87 {
   type: string;
   cooldown: number;
 }
 
-interface Specialattacks109 {
+interface Specialattacks86 {
   '//': string;
   type: string;
   cooldown: number;
@@ -534,15 +498,7 @@ interface Specialattacks109 {
   no_ammo_sound: string;
 }
 
-interface Specialattacks108 {
-  type: string;
-  cooldown: number;
-  max_range: number;
-  min_consider_range: number;
-  max_consider_range: number;
-}
-
-interface Specialattacks107 {
+interface Specialattacks85 {
   type: string;
   cooldown: number;
   move_cost: number;
@@ -554,7 +510,7 @@ interface Specialattacks107 {
   ranges: Array<Array<number | string>>;
 }
 
-interface Specialattacks106 {
+interface Specialattacks84 {
   type?: string;
   cooldown?: number;
   max_range?: number;
@@ -564,30 +520,13 @@ interface Specialattacks106 {
   id?: string;
 }
 
-interface Specialattacks105 {
-  type: string;
-  cooldown: number;
-  move_cost: number;
-  gun_type: string;
-  max_ammo: number;
-  ranges: Array<Array<number | string>>;
-  require_targeting_npc: boolean;
-  require_targeting_monster: boolean;
-  laser_lock: boolean;
-  targeting_cost: number;
-  targeting_sound: string;
-  targeting_volume: number;
-  description: string;
-  no_ammo_sound: string;
-}
-
-interface Specialattacks104 {
+interface Specialattacks83 {
   type: string;
   cooldown: number;
   damage_max_instance: Damagemaxinstance3[];
 }
 
-interface Specialattacks103 {
+interface Specialattacks82 {
   type: string;
   cooldown: number;
   gun_type: string;
@@ -596,7 +535,7 @@ interface Specialattacks103 {
   description: string;
 }
 
-interface Specialattacks102 {
+interface Specialattacks81 {
   type: string;
   cooldown: number;
   gun_type: string;
@@ -613,7 +552,7 @@ interface Specialattacks102 {
   targeting_volume: number;
 }
 
-interface Specialattacks57 {
+interface Specialattacks46 {
   id?: string;
   damage_max_instance?: Damagemaxinstance4[];
   type?: string;
@@ -627,7 +566,7 @@ interface Damagemaxinstance4 {
   armor_multiplier?: number;
 }
 
-interface Specialattacks55 {
+interface Specialattacks44 {
   type: string;
   cooldown: number;
   gun_type: string;
@@ -635,7 +574,7 @@ interface Specialattacks55 {
   ranges: Array<Array<number | string>>;
 }
 
-interface Specialattacks54 {
+interface Specialattacks43 {
   type: string;
   cooldown: number;
   gun_type: string;
@@ -653,7 +592,7 @@ interface Specialattacks54 {
   targeting_volume: number;
 }
 
-interface Specialattacks53 {
+interface Specialattacks42 {
   type: string;
   cooldown: number;
   move_cost: number;
@@ -672,7 +611,7 @@ interface Specialattacks53 {
   no_ammo_sound: string;
 }
 
-interface Specialattacks49 {
+interface Specialattacks38 {
   type: string;
   spell_data: Spelldata2;
   cooldown: number;
@@ -683,7 +622,7 @@ interface Spelldata2 {
   min_level: number;
 }
 
-interface Specialattacks48 {
+interface Specialattacks37 {
   type: string;
   cooldown: number;
   gun_type: string;
@@ -699,7 +638,7 @@ interface Specialattacks48 {
   targeting_volume: number;
 }
 
-interface Specialattacks47 {
+interface Specialattacks36 {
   type: string;
   move_cost: number;
   cooldown: number;
@@ -716,7 +655,7 @@ interface Specialattacks47 {
   targeting_volume: number;
 }
 
-interface Specialattacks46 {
+interface Specialattacks35 {
   type: string;
   cooldown: number;
   accuracy: number;
@@ -730,29 +669,21 @@ interface Damagemaxinstance3 {
   armor_penetration: number;
 }
 
-interface Specialattacks45 {
-  type: string;
-  cooldown: number;
-  accuracy: number;
-  damage_max_instance: Damagemaxinstance2[];
-  effects: Effect[];
-}
-
-interface Specialattacks44 {
+interface Specialattacks34 {
   type: string;
   cooldown: number;
   max_range?: number;
   damage_max_instance?: Damagemaxinstance2[];
 }
 
-interface Specialattacks38 {
+interface Specialattacks30 {
   type: string;
   cooldown: number;
   accuracy: number;
   damage_max_instance: Damagemaxinstance2[];
 }
 
-interface Specialattacks36 {
+interface Specialattacks28 {
   type: string;
   cooldown: number;
   move_cost: number;
@@ -769,7 +700,7 @@ interface Specialattacks36 {
   no_ammo_sound: string;
 }
 
-interface Specialattacks35 {
+interface Specialattacks27 {
   type: string;
   cooldown: number;
   gun_type: string;
@@ -788,7 +719,7 @@ interface Specialattacks35 {
   targeting_volume: number;
 }
 
-interface Specialattacks34 {
+interface Specialattacks26 {
   type: string;
   cooldown: number;
   gun_type: string;
@@ -796,14 +727,7 @@ interface Specialattacks34 {
   description: string;
 }
 
-interface Specialattacks33 {
-  type: string;
-  damage_max_instance: Damagemaxinstance2[];
-  effects: Effect[];
-  cooldown: number;
-}
-
-interface Specialattacks32 {
+interface Specialattacks25 {
   type: string;
   cooldown: number;
   accuracy: number;
@@ -818,18 +742,18 @@ interface Effect {
   bp: string;
 }
 
-interface Specialattacks28 {
+interface Specialattacks22 {
   id: string;
   damage_max_instance: Damagemaxinstance2[];
 }
 
-interface Specialattacks27 {
+interface Specialattacks21 {
   id: string;
   cooldown: number;
   damage_max_instance: Damagemaxinstance2[];
 }
 
-interface Specialattacks26 {
+interface Specialattacks20 {
   type: string;
   cooldown: number;
   move_cost?: number;
@@ -842,7 +766,7 @@ interface Specialattacks26 {
   description?: string;
 }
 
-interface Specialattacks25 {
+interface Specialattacks19 {
   type: string;
   cooldown: number;
   move_cost: number;
@@ -861,27 +785,20 @@ interface Specialattacks25 {
   targeting_volume: number;
 }
 
-interface Specialattacks24 {
-  type: string;
-  no_infection_chance: number;
-  damage_max_instance: Damagemaxinstance2[];
-  cooldown: number;
-}
-
-interface Specialattacks21 {
+interface Specialattacks17 {
   type: string;
   spell_data: Spelldata;
   cooldown: number;
   monster_message: string;
 }
 
-interface Specialattacks18 {
+interface Specialattacks14 {
   type: string;
   cooldown: number;
   min_mul: number;
 }
 
-interface Specialattacks17 {
+interface Specialattacks13 {
   type: string;
   cooldown: number;
   gun_type: string;
@@ -890,7 +807,7 @@ interface Specialattacks17 {
   require_sunlight: boolean;
 }
 
-interface Specialattacks16 {
+interface Specialattacks12 {
   id?: string;
   cooldown: number;
   damage_max_instance?: Damagemaxinstance2[];
@@ -903,7 +820,7 @@ interface Spelldata {
   id: string;
 }
 
-interface Specialattacks15 {
+interface Specialattacks11 {
   type: string;
   cooldown: number;
   gun_type: string;
@@ -911,12 +828,12 @@ interface Specialattacks15 {
   targeting_sound: string;
 }
 
-interface Specialattacks11 {
+interface Specialattacks9 {
   id: string;
   damage_max_instance: Damagemaxinstance[];
 }
 
-interface Specialattacks10 {
+interface Specialattacks8 {
   type?: string;
   cooldown?: number;
   max_range?: number;
@@ -931,23 +848,6 @@ interface Damagemaxinstance2 {
   damage_type: string;
   amount: number;
   armor_multiplier: number;
-}
-
-interface Specialattacks9 {
-  type: string;
-  cooldown: number;
-  min_mul: number;
-  no_infection_chance: number;
-}
-
-interface Specialattacks8 {
-  type: string;
-  cooldown: number;
-  gun_type: string;
-  ammo_type: string;
-  fake_skills: Array<Array<number | string>>;
-  fake_dex: number;
-  ranges: Array<Array<number | string>>;
 }
 
 interface Specialattacks6 {

@@ -30,32 +30,31 @@ export interface IArmor {
     | Useaction11
     | string;
   qualities?: Array<Array<number | string>>;
-  bashing?: number;
-  looks_like?: string;
+  'copy-from'?: string;
+  category?: string;
   warmth?: number;
-  repairs_like?: string;
+  proportional?: Proportional;
   environmental_protection?: number;
   to_hit?: number;
-  max_encumbrance?: number;
-  sided?: boolean;
-  category?: string;
-  power_armor?: boolean;
-  '//'?: string;
-  armor_portion_data?: Armorportiondatum[];
-  valid_mods?: string[];
-  'copy-from'?: string;
-  armor_data?: Armordata;
-  proportional?: Proportional;
+  bashing?: number;
   techniques?: string[];
   relic_data?: Relicdata;
+  looks_like?: string;
+  sided?: boolean;
+  max_encumbrance?: number;
+  '//'?: string;
   '//2'?: string;
+  repairs_like?: string;
   snippet_category?: Snippetcategory[];
+  valid_mods?: string[];
+  armor_portion_data?: Armorportiondatum[];
   delete?: Delete;
   relative?: Relative;
   cutting?: number;
   abstract?: string;
   extend?: Delete;
   ascii_picture?: string;
+  power_armor?: boolean;
   longest_side?: string;
   properties?: string[][];
 }
@@ -67,6 +66,13 @@ interface Relative {
 
 interface Delete {
   flags: string[];
+}
+
+interface Armorportiondatum {
+  covers?: string[];
+  coverage?: number;
+  encumbrance?: number[];
+  sided?: boolean;
 }
 
 interface Snippetcategory {
@@ -125,20 +131,6 @@ interface Proportional {
   price?: number;
   warmth?: number;
   volume?: number;
-}
-
-interface Armordata {
-  covers: string[];
-  coverage: number;
-  encumbrance: number;
-  material_thickness: number;
-}
-
-interface Armorportiondatum {
-  covers?: string[];
-  coverage?: number;
-  encumbrance?: number[];
-  sided?: boolean;
 }
 
 interface Useaction11 {
@@ -209,43 +201,35 @@ interface Pocketdatum {
   max_item_length?: string;
   moves?: number;
   flag_restriction?: string[];
-  '//'?: string;
+  ammo_restriction?: Ammorestriction;
+  pocket_type?: string;
+  weight_multiplier?: number;
   rigid?: boolean;
   watertight?: boolean;
-  max_item_volume?: string;
-  airtight?: boolean;
-  fire_protection?: boolean;
-  spoil_multiplier?: number;
-  pocket_type?: string;
-  ammo_restriction?: Ammorestriction;
-  item_restriction?: string[];
-  weight_multiplier?: number;
   magazine_well?: string;
+  max_item_volume?: string;
 }
 
 interface Ammorestriction {
-  ammo_pistol_tiny?: number;
-  ammo_pistol?: number;
-  ammo_pistol_magnum?: number;
-  32?: number;
-  38?: number;
-  40?: number;
-  44?: number;
-  45?: number;
-  46?: number;
-  57?: number;
-  380?: number;
-  454?: number;
-  460?: number;
-  500?: number;
-  '762x25'?: number;
-  '357mag'?: number;
-  '357sig'?: number;
-  '38super'?: number;
-  '10mm'?: number;
-  '45colt'?: number;
-  '9x18'?: number;
-  '9mm'?: number;
+  32: number;
+  38: number;
+  40: number;
+  44: number;
+  45: number;
+  46: number;
+  57: number;
+  380: number;
+  454: number;
+  460: number;
+  500: number;
+  '762x25': number;
+  '357mag': number;
+  '357sig': number;
+  '38super': number;
+  '10mm': number;
+  '45colt': number;
+  '9x18': number;
+  '9mm': number;
 }
 
 interface Name3 {

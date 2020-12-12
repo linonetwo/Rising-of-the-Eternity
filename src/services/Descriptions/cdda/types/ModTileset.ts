@@ -7,7 +7,7 @@ export interface IModTileset {
 interface Tilesnew {
   file: string;
   tiles: Tile[];
-  '//'?: string;
+  '//': string;
   sprite_width?: number;
   sprite_height?: number;
   sprite_offset_x?: number;
@@ -15,8 +15,8 @@ interface Tilesnew {
 }
 
 interface Tile {
-  id: string[] | string | string | string;
-  fg: Fg[] | any[] | number[] | number[] | number | number | number | number;
+  id: string[] | string | string;
+  fg: Fg[] | any[] | number[] | number[] | number | number | number;
   bg?: any[];
   rotates?: boolean;
 }

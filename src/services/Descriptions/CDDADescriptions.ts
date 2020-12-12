@@ -45,7 +45,7 @@ export class CDDADescriptions implements IDescriptionStore {
    */
   private buildLoaders(): IProcessors<Loki> {
     /** Get db collection, and create on if it is not exist, make sure you can get one */
-    const getCollectionOrCreate = <D extends ICDDAJSONWithComments & { id: string | string[] }>(
+    const getCollectionOrCreate = <D extends ICDDAJSONWithComments>(
       collectionName: string,
       options: Partial<CollectionOptions<D>>,
     ): Collection<D> => {
@@ -58,11 +58,14 @@ export class CDDADescriptions implements IDescriptionStore {
     /** By default we simply put things into collection on the first pass
      * Some type don't have id, such as 'uncraft', some have array of id such as 'overmap_terrain', don't use this default method
      */
-    const insertItemInCollectionWithIndex = <D extends ICDDAJSONWithComments & { id: string | string[] }>(
-      item: D,
-      round: number,
-    ): Collection<D> => {
-      const collection = getCollectionOrCreate<D>(item.type, { unique: ['id'], indices: ['id'] });
+    const insertItemInCollectionWithIndex = <D extends ICDDAJSONWithComments>(item: D, round: number): Collection<D> => {
+      // From https://github.com/CleverRaven/Cataclysm-DDA/blob/c380afc798df064ab76645a0a2f66358d425e3bc/doc/NPCs.md#id
+      // The topic id can also be an array of strings. This is loaded as if several topics with the exact same content have been given in json, each associated with an id from the id, array. Note that loading from json will append responses and, if defined in json, override the dynamic_line and the replace_built_in_responses setting. This allows adding responses to several topics at once.
+      // But we will expand "one item with list of id" into "several items" before add them into the db, so we hack the type check below
+      const collection = getCollectionOrCreate<D & { id?: string | string[]; abstract?: string }>(item.type, {
+        unique: ['id', 'abstract'],
+        indices: ['id', 'abstract'],
+      });
       if (round === 0) {
         collection.insertOne(item);
       }
@@ -187,7 +190,8 @@ export class CDDADescriptions implements IDescriptionStore {
       const { type, id } = item;
       const collection = getCollectionOrCreate<typeof item>(type, { unique: ['id'], indices: ['id'] });
       if (round === 0) {
-        const existedItem = collection.findOne({ id });
+        // expand { id: string[] } into { id:string }[]
+        const existedItem = collection.findOne({ id: { $contains: id } });
         if (existedItem === null) {
           collection.insertOne(item);
         } else {
@@ -252,7 +256,21 @@ export class CDDADescriptions implements IDescriptionStore {
     });
   }
 
-  public getItemByID<TName extends CDDA_JSON_TYPES, T extends ICDDATypeMap[TName]>(type: TName, id: string): T | null {
-    return this.database.getCollection<T>(type).findOne({ id: { $contains: id } } as any);
+  /**
+   * Get item by type and id, note that not every type have id, and even type have id, some don't have one or have "abstract" (which should use getItemByAbstractID() to load)
+   * @param type type of JSON
+   * @param id id of item
+   */
+  public getItemByID<T extends ICDDATypeMap[CDDA_JSON_TYPES]>(type: CDDA_JSON_TYPES, id: string): T | null {
+    return this.database.getCollection<T & { id: string }>(type).findOne({ id: { $contains: id } });
+  }
+
+  /**
+   * Some item is abstract, so they don't have "id", instead have "abstract"
+   * @param type type of JSON
+   * @param abstractID content of "abstract" field
+   */
+  public getItemByAbstractID<T extends ICDDATypeMap[CDDA_JSON_TYPES]>(type: CDDA_JSON_TYPES, abstractID: string): T | null {
+    return this.database.getCollection<T & { abstract: string }>(type).findOne({ abstract: { $contains: abstractID } });
   }
 }

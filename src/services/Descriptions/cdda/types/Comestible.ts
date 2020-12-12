@@ -1,33 +1,26 @@
 export interface IComestible {
-  type: 'COMESTIBLE';
   id?: string;
+  'copy-from'?: string;
+  type: 'COMESTIBLE';
   name: Name | Name2 | Name3 | string;
-  weight?: string;
-  color?: string;
-  spoils_in?: number | string;
-  container?: string;
-  comestible_type?: string;
-  symbol?: string;
-  quench?: number;
-  healthy?: number;
-  calories?: number;
   description?: string;
+  delete?: Delete;
   price?: number | string;
-  price_postapoc?: number | string;
-  material?: string[] | string;
+  symbol?: string;
+  color?: string;
   volume?: string;
+  weight?: string;
   flags?: string[];
+  container?: string;
   charges?: number;
-  vitamins?: Array<Array<number | string>>;
-  fun?: number;
-  category?: string;
-  smoking_result?: string;
-  '//'?: string;
-  rot_spawn?: string;
-  rot_spawn_chance?: number;
   phase?: string;
-  brewable?: Brewable;
-  addiction_type?: string;
+  freezing_point?: number;
+  category?: string;
+  spoils_in?: number | string;
+  comestible_type?: string;
+  material?: string[] | string;
+  vitamins?: Array<Array<number | string>>;
+  stack_size?: number;
   use_action?:
     | Useaction
     | string[]
@@ -60,19 +53,25 @@ export interface IComestible {
     | Useaction29
     | Useaction30
     | Useaction31;
-  stim?: number;
-  addiction_potential?: number;
+  quench?: number;
+  calories?: number;
+  fun?: number;
+  healthy?: number;
+  rot_spawn?: string;
+  rot_spawn_chance?: number;
+  '//'?: string;
   primary_material?: string;
-  freezing_point?: number;
-  stack_size?: number;
-  'copy-from'?: string;
-  looks_like?: string;
-  delete?: Delete;
   parasites?: number;
   tool?: string;
   ammo_data?: Ammodata;
+  addiction_type?: string;
+  stim?: number;
+  addiction_potential?: number;
+  looks_like?: string;
   seed_data?: Seeddata;
+  price_postapoc?: number | string;
   emits?: string[];
+  brewable?: Brewable;
   cooks_like?: string;
   proportional?: Proportional;
   sealed?: boolean;
@@ -81,6 +80,7 @@ export interface IComestible {
   explode_in_fire?: boolean;
   explosion?: Explosion;
   abstract?: string;
+  smoking_result?: string;
   snippet_category?: Snippetcategory[] | string;
   relative?: Relative;
   extend?: Delete;
@@ -160,6 +160,11 @@ interface Proportional {
   healthy?: number;
 }
 
+interface Brewable {
+  time: string;
+  results: string[];
+}
+
 interface Seeddata {
   plant_name: string;
   fruit: string;
@@ -171,10 +176,6 @@ interface Seeddata {
 
 interface Ammodata {
   ammo_type: string;
-}
-
-interface Delete {
-  flags: string[];
 }
 
 interface Useaction31 {
@@ -462,9 +463,8 @@ interface Useaction {
   move_cost: number;
 }
 
-interface Brewable {
-  time: string;
-  results: string[];
+interface Delete {
+  flags: string[];
 }
 
 interface Name3 {

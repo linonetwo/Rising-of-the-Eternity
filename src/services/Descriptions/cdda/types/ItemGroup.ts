@@ -70,7 +70,7 @@ export interface IItemGroup {
     | Entries65
     | Entries66
     | Entries67
-    | Distribution14
+    | Entries68
     | Entries69
     | Entries70
     | Entries71
@@ -86,8 +86,8 @@ export interface IItemGroup {
     | Entries81
     | Entries82
     | Entries83
-    | Entries84
     | Distribution4
+    | Entries85
     | Entries86
     | Entries87
     | Entries88
@@ -101,30 +101,30 @@ export interface IItemGroup {
     | Entries96
     | Entries97
     | Entries98
-    | Entries99
-    | Entries100
     | Collection13
+    | Entries100
+    | Entries101
     | Entries102
     | Entries103
     | Entries104
     | Entries105
-    | Entries106
+    | Collection10
     | Entries107
     | Entries108
-    | Collection10
+    | Entries109
     | Entries110
-    | Entries111
+    | Collection8
     | Entries112
     | Entries113
     | Entries114
     | Entries115
-    | Collection8
+    | Collection3
     | Entries117
     | Entries118
     | Entries119
     | Entries120
     | Entries121
-    | Collection3
+    | Entries122
     | Entries123
     | Entries124
     | Entries125
@@ -138,20 +138,20 @@ export interface IItemGroup {
     | Entries133
     | Entries134
     | Entries135
-    | Entries136
-    | Entries137
+    | Collection21
+    | Collection14
     | Entries138
     | Entries139
     | Entries140
-    | Collection21
-    | Collection14
-    | Entries143
-    | Entries144
-    | Entries145
-    | Entries146
+    | Entries141
+    | Entries142
     | Distribution
-    | Entries148
+    | Entries144
     | Collection
+    | Entries146
+    | Entries147
+    | Entries148
+    | Entries149
     | Entries150
     | Entries151
     | Entries152
@@ -159,21 +159,21 @@ export interface IItemGroup {
     | Entries154
     | Entries155
     | Entries156
-    | Entries157
+    | Collection25
     | Entries158
     | Entries159
     | Entries160
     | Entries161
-    | Collection25
+    | Entries162
     | Entries163
     | Entries164
     | Entries165
     | Entries166
-    | Entries167
-    | Entries168
-    | Entries169
     | Collection7
     | Distribution10
+    | Entries169
+    | Entries170
+    | Entries171
     | Entries172
     | Entries173
     | Entries174
@@ -184,14 +184,11 @@ export interface IItemGroup {
     | Entries179
     | Entries180
     | Entries181
-    | Entries182
-    | Entries183
-    | Entries184
   >;
   items?: Array<
     | Item
-    | Items2
-    | Entries4
+    | Entries2
+    | Entries5
     | Items4
     | Items4
     | Items4
@@ -208,67 +205,72 @@ export interface IItemGroup {
     | Items4
     | Items4
     | Items19
-    | Entries7
     | Entries8
+    | Entries9
     | Items22
     | Items23
     | Items24
     | Items25
-    | Entries23
-    | Entries25
+    | Entries24
+    | Entries26
     | Items28
-    | Entries30
-    | Items30
-    | Entries34
-    | Items32
-    | Items32
+    | Entries31
+    | Entries35
+    | Items31
+    | Items31
+    | Items33
     | Items34
     | Items35
-    | Items36
-    | Entries40
+    | Entries41
+    | Items37
     | Items38
-    | Items39
-    | Items39
-    | Items39
-    | Items39
-    | Items39
+    | Items38
+    | Items38
+    | Items38
+    | Items38
+    | Items43
     | Items44
-    | Entries45
-    | Items46
-    | Items46
-    | Distribution23
-    | Entries57
-    | Items50
-    | Items51
-    | Items51
-    | Items51
-    | Items51
-    | Items51
-    | Items51
-    | Items51
-    | Items51
-    | Items51
-    | Items51
-    | Items51
-    | Items51
-    | Items51
-    | Items51
-    | Items51
-    | Items51
-    | Items51
-    | Items51
-    | Items51
-    | Items51
-    | Items51
-    | Items51
-    | Items51
-    | Items51
-    | Items51
-    | Items51
-    | Items51
-    | Items78
-    | Items79
-    | Items80
+    | Entries44
+    | Entries44
+    | Entries44
+    | Entries44
+    | Entries44
+    | Entries44
+    | Entries44
+    | Entries46
+    | Items53
+    | Items53
+    | Items55
+    | Items56
+    | Items56
+    | Items56
+    | Items56
+    | Items56
+    | Items56
+    | Items56
+    | Items56
+    | Items56
+    | Items56
+    | Items56
+    | Items56
+    | Items56
+    | Items56
+    | Items56
+    | Items56
+    | Items56
+    | Items56
+    | Items56
+    | Items56
+    | Items56
+    | Items56
+    | Items56
+    | Items56
+    | Items56
+    | Items56
+    | Items56
+    | Items83
+    | Items84
+    | Items85
     | Entries67
     | Entries67
     | Entries67
@@ -292,73 +294,72 @@ export interface IItemGroup {
     | Entries67
     | Entries67
     | Entries67
-    | Entries67
-    | Items105
-    | Items106
-    | Distribution14
-    | Items108
-    | Distribution32
+    | Items109
     | Items110
-    | Items110
-    | Entries75
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries77
-    | Entries82
-    | Entries82
-    | Entries82
-    | Entries82
-    | Entries82
-    | Entries82
-    | Entries82
-    | Entries82
-    | Entries82
-    | Entries82
-    | Entries82
-    | Entries82
-    | Entries82
-    | Entries82
-    | Entries82
-    | Entries82
-    | Entries82
-    | Entries82
-    | Items169
-    | Items170
+    | Items111
+    | Distribution30
+    | Items113
+    | Items113
+    | Entries74
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries76
+    | Entries81
+    | Entries81
+    | Entries81
+    | Entries81
+    | Entries81
+    | Entries81
+    | Entries81
+    | Entries81
+    | Entries81
+    | Entries81
+    | Entries81
+    | Entries81
+    | Entries81
+    | Entries81
+    | Entries81
+    | Entries81
+    | Entries81
+    | Entries81
+    | Distribution36
+    | Items173
+    | Items174
     | Distribution4
     | Distribution4
     | Distribution4
@@ -373,55 +374,34 @@ export interface IItemGroup {
     | Distribution4
     | Distribution4
     | Distribution4
-    | Items185
-    | Items186
-    | Items187
-    | Items188
     | Items189
     | Items190
-    | Items190
-    | Items190
-    | Items190
-    | Items190
-    | Items190
-    | Items190
-    | Items190
-    | Items190
-    | Items190
-    | Items190
-    | Items190
-    | Items202
-    | Items203
-    | Items204
-    | Entries99
-    | Collection13
+    | Items191
+    | Items192
+    | Items193
+    | Items194
+    | Items194
+    | Items194
+    | Items194
+    | Items194
+    | Items194
+    | Items194
+    | Items194
+    | Items194
+    | Items194
+    | Items194
+    | Items205
+    | Items206
     | Items207
-    | Entries108
-    | Entries111
-    | Entries111
-    | Entries111
-    | Entries111
-    | Entries111
-    | Entries111
-    | Entries111
-    | Entries111
-    | Entries111
-    | Entries111
-    | Entries111
-    | Entries111
-    | Entries111
-    | Items222
-    | Entries114
-    | Entries115
-    | Entries115
-    | Entries115
-    | Entries115
-    | Entries115
-    | Entries115
-    | Entries115
-    | Entries115
-    | Items232
-    | Items233
+    | Entries97
+    | Collection13
+    | Items210
+    | Items211
+    | Entries105
+    | Items213
+    | Entries110
+    | Items215
+    | Items216
     | Array<number | string>
     | Array<number | string>
     | Array<number | string>
@@ -519,46 +499,57 @@ export interface IItemGroup {
     | Array<number | string>
     | Array<number | string>
     | Array<number | string>
-    | Array<number | string>
-    | Array<number | string>
-    | Entries126
-    | Entries126
-    | Entries126
-    | Entries126
-    | Entries126
-    | Entries126
-    | Entries129
-    | Entries129
-    | Entries129
-    | Entries132
-    | Entries132
-    | Entries132
-    | Entries132
-    | Entries132
-    | Entries132
-    | Entries132
+    | Entries120
+    | Entries120
+    | Entries120
+    | Entries120
+    | Entries120
+    | Entries120
+    | Entries122
+    | Entries122
+    | Entries122
+    | Entries122
+    | Entries122
+    | Entries122
+    | Entries122
+    | Entries122
+    | Entries122
+    | Entries122
+    | Entries122
+    | Entries122
+    | Entries122
+    | Entries124
+    | Entries124
+    | Entries124
+    | Entries127
+    | Entries127
+    | Entries127
+    | Entries127
+    | Entries127
+    | Entries127
+    | Entries127
+    | Items343
+    | Items344
+    | Items344
+    | Items346
+    | Items347
+    | Items348
     | Items349
-    | Items350
-    | Items350
-    | Items352
-    | Items353
-    | Items354
-    | Items355
-    | Items356
-    | Entries140
-    | Entries140
-    | Entries140
-    | Entries140
-    | Entries140
-    | Entries140
-    | Entries140
-    | Entries140
+    | Entries135
+    | Entries135
+    | Entries135
+    | Entries135
+    | Entries135
+    | Entries135
+    | Entries135
+    | Entries135
     | Collection27
-    | Entries144
+    | Entries139
+    | Entries142
     | Distribution
     | Distribution
     | Collection18
-    | Items370
+    | Items364
     | Collection
     | Collection
     | Collection
@@ -608,44 +599,43 @@ export interface IItemGroup {
     | Collection
     | Collection
     | Collection
-    | Collection
-    | Items421
-    | Entries155
-    | Items423
-    | Items424
-    | Items425
-    | Items426
+    | Items414
+    | Entries151
+    | Items416
+    | Items417
+    | Items418
+    | Items419
     | Collection25
-    | Items428
-    | Items429
+    | Items421
+    | Items422
     | Collection7
-    | Items431
-    | Items431
+    | Items424
+    | Items424
     | Distribution10
     | Distribution10
     | Distribution10
+    | Items429
+    | Items430
+    | Items430
+    | Items430
+    | Items430
+    | Items434
+    | Items435
     | Items436
     | Items437
-    | Items437
-    | Items437
-    | Items437
-    | Items441
-    | Items442
-    | Items443
-    | Items444
   >;
   '//'?: string;
-  'container-item'?: string;
-  on_overflow?: string;
   '//2'?: string;
   '//3'?: string;
-  magazine?: number;
   ammo?: number;
+  magazine?: number;
+  'container-item'?: string;
+  on_overflow?: string;
   groups?: Array<Array<number | string> | string>;
   '//TODO'?: string;
 }
 
-interface Items444 {
+interface Items437 {
   item?: string;
   collection?: Collection33[];
   prob?: number;
@@ -661,23 +651,23 @@ interface Collection33 {
   'count-max'?: number;
 }
 
-interface Items443 {
+interface Items436 {
   group?: string;
   item?: string;
-  distribution?: Distribution44[];
-  collection?: Items35[];
+  distribution?: Distribution43[];
+  collection?: Items34[];
   prob?: number;
 }
 
-interface Items442 {
+interface Items435 {
   group?: string;
   damage?: number[] | number;
   prob?: number;
-  distribution?: Entries26[];
+  distribution?: Entries27[];
   item?: string;
 }
 
-interface Items441 {
+interface Items434 {
   item: string;
   'custom-flags'?: string[];
   'ammo-item'?: string;
@@ -685,7 +675,7 @@ interface Items441 {
   count?: number;
 }
 
-interface Items437 {
+interface Items430 {
   item: string;
   prob: number;
   'charges-min': number;
@@ -693,63 +683,63 @@ interface Items437 {
   sealed: boolean;
 }
 
-interface Items436 {
+interface Items429 {
   item: string;
   charges?: number;
   count?: number;
 }
 
-interface Items431 {
+interface Items424 {
   group: string;
   prob: number;
   'count-min': number;
   'count-max': number;
 }
 
-interface Items429 {
+interface Items422 {
   item: string;
   prob: number;
   charges?: number[];
   damage?: number[];
 }
 
-interface Items428 {
+interface Items421 {
   item: string;
   prob: number;
   charges: number[] | number;
 }
 
-interface Items426 {
+interface Items419 {
   item: string;
   prob: number;
   'container-group': string;
 }
 
-interface Items425 {
+interface Items418 {
   item?: string;
   distribution?: Distribution4[];
 }
 
-interface Items424 {
+interface Items417 {
   item: string;
   charges: number;
   'charges-min': number;
 }
 
-interface Items423 {
+interface Items416 {
   group?: string;
   prob?: number;
   item?: string;
-  distribution?: Distribution50[];
+  distribution?: Distribution49[];
 }
 
-interface Distribution50 {
+interface Distribution49 {
   collection?: Distribution[];
   prob: number;
   item?: string;
 }
 
-interface Items421 {
+interface Items414 {
   item?: string;
   prob: number;
   'charges-min'?: number;
@@ -759,43 +749,33 @@ interface Items421 {
   amount?: number[];
 }
 
-interface Items370 {
+interface Items364 {
   item: string;
   'custom-flags'?: string[];
   'ammo-item'?: string;
   charges?: number;
 }
 
-interface Items356 {
+interface Items349 {
   distribution?: Distribution4[];
   prob: number;
   group?: string;
 }
 
-interface Items355 {
+interface Items348 {
   distribution?: Distribution4[];
   prob: number;
   collection?: Distribution4[];
 }
 
-interface Items354 {
-  group?: string;
-  prob: number;
-  item?: string;
-  'charges-min'?: number;
-  'charges-max'?: number;
-  damage?: number[];
-  'contents-item'?: string[];
-}
-
-interface Items353 {
+interface Items347 {
   group?: string;
   item?: string;
   prob?: number;
-  distribution?: Entries4[];
+  distribution?: Entries5[];
 }
 
-interface Items352 {
+interface Items346 {
   item: string;
   prob: number;
   'charges-min': number;
@@ -804,7 +784,7 @@ interface Items352 {
   sealed?: boolean;
 }
 
-interface Items350 {
+interface Items344 {
   item: string;
   prob: number;
   'charges-min': number;
@@ -813,19 +793,19 @@ interface Items350 {
   sealed: boolean;
 }
 
-interface Items349 {
+interface Items343 {
   item: string;
   count: number;
 }
 
-interface Items233 {
+interface Items216 {
   item: string;
   'container-item'?: string;
   charges?: number;
   count?: number;
 }
 
-interface Items232 {
+interface Items215 {
   item: string;
   charges: number[];
   'container-item': string;
@@ -833,19 +813,19 @@ interface Items232 {
   sealed: boolean;
 }
 
-interface Items222 {
+interface Items213 {
   item?: string;
   prob?: number;
-  distribution?: Distribution49[];
+  distribution?: Distribution48[];
 }
 
-interface Distribution49 {
+interface Distribution48 {
   collection?: Collection3[];
   prob: number;
   item?: string;
 }
 
-interface Items207 {
+interface Items211 {
   collection?: Collection32[];
   prob: number;
   item?: string;
@@ -857,54 +837,63 @@ interface Collection32 {
   'charges-min'?: number;
 }
 
-interface Items204 {
+interface Items210 {
+  item?: string;
+  prob: number;
+  'charges-min'?: number;
+  'charges-max'?: number;
+  'container-item'?: string;
+  group?: string;
+}
+
+interface Items207 {
   group: string;
   'count-min': number;
   'count-max': number;
 }
 
-interface Items203 {
-  distribution: Distribution48[];
+interface Items206 {
+  distribution: Distribution47[];
 }
 
-interface Distribution48 {
+interface Distribution47 {
   item: string;
   prob: number;
   damage?: number[];
 }
 
-interface Items202 {
+interface Items205 {
   group?: string;
   item?: string;
   prob?: number;
   collection?: Collection3[];
-  distribution?: Entries4[];
+  distribution?: Entries5[];
 }
 
-interface Items190 {
+interface Items194 {
   item: string;
   prob: number;
   'custom-flags': string[];
 }
 
-interface Items189 {
-  distribution: Entries34[];
+interface Items193 {
+  distribution: Entries35[];
   prob: number;
 }
 
-interface Items188 {
-  distribution?: Distribution47[];
+interface Items192 {
+  distribution?: Distribution46[];
   group?: string;
   prob?: number;
 }
 
-interface Distribution47 {
+interface Distribution46 {
   collection?: Distribution[];
   prob: number;
   group?: string;
 }
 
-interface Items187 {
+interface Items191 {
   group?: string;
   prob: number;
   item?: string;
@@ -913,36 +902,36 @@ interface Items187 {
   charges?: number;
 }
 
-interface Items186 {
+interface Items190 {
   item: string;
   count?: number[] | number;
   charges?: number[];
 }
 
-interface Items185 {
+interface Items189 {
   group?: string;
   item?: string;
-  distribution?: Distribution44[];
+  distribution?: Distribution43[];
 }
 
-interface Items170 {
+interface Items174 {
   group?: string;
   prob: number;
-  distribution?: Entries19[];
+  distribution?: Entries20[];
 }
 
-interface Items169 {
+interface Items173 {
   item: string;
   prob: number;
   'charges-max': number;
 }
 
-interface Items110 {
+interface Items113 {
   distribution: Distribution[];
   prob: number;
 }
 
-interface Items108 {
+interface Items111 {
   item: string;
   prob: number;
   'charges-max'?: number;
@@ -950,18 +939,18 @@ interface Items108 {
   sealed?: boolean;
 }
 
-interface Items106 {
+interface Items110 {
   collection: Collection13[];
   prob: number;
 }
 
-interface Items105 {
+interface Items109 {
   item: string;
   count: number;
   prob: number;
 }
 
-interface Items80 {
+interface Items85 {
   item: string;
   prob: number;
   'count-min'?: number;
@@ -969,35 +958,35 @@ interface Items80 {
   'custom-flags'?: string[];
 }
 
-interface Items79 {
+interface Items84 {
   distribution: Collection[];
   prob: number;
 }
 
-interface Items78 {
-  distribution: Distribution46[];
+interface Items83 {
+  distribution: Distribution45[];
 }
 
-interface Distribution46 {
+interface Distribution45 {
   item?: string;
   prob: number;
-  collection?: Entries45[];
+  collection?: Entries46[];
 }
 
-interface Items51 {
+interface Items56 {
   item: string;
   prob: number;
   'charges-min': number;
 }
 
-interface Items50 {
+interface Items55 {
   group?: string;
   item?: string;
   prob?: number;
-  distribution?: Distribution44[];
+  distribution?: Distribution43[];
 }
 
-interface Items46 {
+interface Items53 {
   collection: Collection31[];
   prob: number;
 }
@@ -1005,23 +994,32 @@ interface Items46 {
 interface Collection31 {
   item?: string;
   prob: number;
-  distribution?: Entries82[];
+  distribution?: Entries81[];
 }
 
 interface Items44 {
+  item: string;
+  prob: number;
+  'charges-min'?: number;
+  'charges-max'?: number;
+  'container-item'?: string;
+  'contents-group'?: string;
+}
+
+interface Items43 {
   item: string;
   'contents-group'?: string;
   'container-item'?: string;
 }
 
-interface Items39 {
+interface Items38 {
   item: string;
   prob: number;
   'container-item': string;
   sealed: boolean;
 }
 
-interface Items38 {
+interface Items37 {
   item?: string;
   count?: number;
   charges?: number;
@@ -1030,7 +1028,7 @@ interface Items38 {
   sealed?: boolean;
 }
 
-interface Items36 {
+interface Items35 {
   group?: string;
   prob: number;
   damage?: number[];
@@ -1038,26 +1036,17 @@ interface Items36 {
   item?: string;
 }
 
-interface Items35 {
+interface Items34 {
   distribution: Distribution4[];
 }
 
-interface Items34 {
-  distribution: Entries100[];
+interface Items33 {
+  distribution: Entries98[];
 }
 
-interface Items32 {
-  distribution: Entries82[];
+interface Items31 {
+  distribution: Entries81[];
   prob: number;
-}
-
-interface Items30 {
-  item: string;
-  prob: number;
-  'container-item'?: string;
-  'charges-min'?: number;
-  'charges-max'?: number;
-  'contents-group'?: string;
 }
 
 interface Items28 {
@@ -1074,10 +1063,10 @@ interface Items25 {
 }
 
 interface Items24 {
-  distribution: Distribution45[];
+  distribution: Distribution44[];
 }
 
-interface Distribution45 {
+interface Distribution44 {
   item?: string;
   prob: number;
   charges?: number[];
@@ -1100,12 +1089,12 @@ interface Items22 {
 interface Items19 {
   group?: string;
   item?: string;
-  distribution?: Distribution44[];
+  distribution?: Distribution43[];
   prob?: number;
   charges?: number[];
 }
 
-interface Distribution44 {
+interface Distribution43 {
   item?: string;
   prob?: number;
   collection?: Collection13[];
@@ -1118,39 +1107,30 @@ interface Items4 {
   charges: number;
 }
 
-interface Items2 {
-  item?: string;
-  prob: number;
-  'container-item'?: string;
-  'charges-min'?: number;
-  'charges-max'?: number;
-  group?: string;
-}
-
 interface Item {
   item: string;
   charges: number[];
 }
 
-interface Entries184 {
+interface Entries181 {
   item: string;
   'ammo-item'?: string;
   charges?: number;
   count?: number;
 }
 
-interface Entries183 {
+interface Entries180 {
   group?: string;
   count?: number[];
   prob: number;
-  distribution?: Distribution43[];
+  distribution?: Distribution42[];
   item?: string;
   'charges-min'?: number;
   'count-min'?: number;
   'count-max'?: number;
 }
 
-interface Distribution43 {
+interface Distribution42 {
   item?: string;
   prob: number;
   'charges-min'?: number;
@@ -1159,16 +1139,16 @@ interface Distribution43 {
   sealed?: boolean;
   charges?: number;
   count?: number[];
-  distribution?: Distribution27[];
+  distribution?: Distribution25[];
 }
 
-interface Entries182 {
+interface Entries179 {
   item: string;
   'count-min': number;
   'count-max': number;
 }
 
-interface Entries181 {
+interface Entries178 {
   distribution?: Distribution4[];
   item?: string;
   prob?: number;
@@ -1176,14 +1156,14 @@ interface Entries181 {
   collection?: Collection3[];
 }
 
-interface Entries180 {
+interface Entries177 {
   item: string;
   count?: number[];
   prob?: number;
   'charges-min'?: number;
 }
 
-interface Entries179 {
+interface Entries176 {
   group?: string;
   prob: number;
   'damage-min'?: number;
@@ -1192,32 +1172,32 @@ interface Entries179 {
   count?: number[];
 }
 
-interface Entries178 {
+interface Entries175 {
   item: string;
   prob: number;
   charges?: number[] | number;
   'charges-min'?: number;
 }
 
-interface Entries177 {
+interface Entries174 {
   group?: string;
   damage?: number[];
   prob?: number;
-  distribution?: Distribution42[];
+  distribution?: Distribution41[];
 }
 
-interface Distribution42 {
+interface Distribution41 {
   collection: Collection30[];
 }
 
 interface Collection30 {
-  distribution?: Distribution41[];
+  distribution?: Distribution40[];
   group?: string;
   damage?: number[];
   prob?: number;
 }
 
-interface Distribution41 {
+interface Distribution40 {
   group?: string;
   damage?: number[];
   prob?: number;
@@ -1229,14 +1209,14 @@ interface Collection29 {
   group?: string;
   damage?: number[];
   prob?: number;
-  distribution?: Distribution15[];
+  distribution?: Distribution14[];
 }
 
-interface Entries176 {
+interface Entries173 {
   group?: string;
   count?: number[];
   prob: number;
-  distribution?: Distribution40[];
+  distribution?: Distribution39[];
   item?: string;
   'charges-min'?: number;
   'count-min'?: number;
@@ -1245,7 +1225,7 @@ interface Entries176 {
   sealed?: boolean;
 }
 
-interface Distribution40 {
+interface Distribution39 {
   item?: string;
   prob: number;
   'charges-min'?: number;
@@ -1255,7 +1235,7 @@ interface Distribution40 {
   count?: number[];
 }
 
-interface Entries175 {
+interface Entries172 {
   item: string;
   prob: number;
   'count-min'?: number;
@@ -1264,14 +1244,14 @@ interface Entries175 {
   'container-item'?: string;
 }
 
-interface Entries174 {
+interface Entries171 {
   item: string;
   count?: number[];
   prob: number;
   'charges-min'?: number;
 }
 
-interface Entries173 {
+interface Entries170 {
   group?: string;
   damage?: number[];
   distribution?: Collection[];
@@ -1279,11 +1259,11 @@ interface Entries173 {
   item?: string;
 }
 
-interface Entries172 {
+interface Entries169 {
   item?: string;
   count?: number[];
   prob: number;
-  distribution?: Distribution39[];
+  distribution?: Distribution38[];
   'charges-min'?: number;
   collection?: Collection28[];
 }
@@ -1294,7 +1274,7 @@ interface Collection28 {
   'charges-min': number;
 }
 
-interface Distribution39 {
+interface Distribution38 {
   item?: string;
   count?: number[];
   prob: number;
@@ -1303,27 +1283,27 @@ interface Distribution39 {
   group?: string;
 }
 
-interface Entries169 {
+interface Entries166 {
   item: string;
   'ammo-item'?: string;
   charges?: number;
 }
 
-interface Entries168 {
+interface Entries165 {
   group?: string;
   damage?: number[];
-  distribution?: Distribution38[];
+  distribution?: Distribution37[];
   item?: string;
   'charges-min'?: number;
   'charges-max'?: number;
 }
 
-interface Distribution38 {
+interface Distribution37 {
   group?: string;
   damage?: number[];
   prob: number;
   collection?: Collection27[];
-  distribution?: Entries19[];
+  distribution?: Entries20[];
 }
 
 interface Collection27 {
@@ -1332,7 +1312,24 @@ interface Collection27 {
   prob: number;
 }
 
-interface Entries167 {
+interface Entries164 {
+  distribution?: Distribution36[];
+  prob: number;
+  item?: string;
+  'charges-min'?: number;
+  'container-item'?: string;
+  'charges-max'?: number;
+}
+
+interface Distribution36 {
+  item: string;
+  prob: number;
+  'charges-min'?: number;
+  'charges-max'?: number;
+  'container-item'?: string;
+}
+
+interface Entries163 {
   item?: string;
   prob: number;
   charges?: number[];
@@ -1340,13 +1337,13 @@ interface Entries167 {
   group?: string;
 }
 
-interface Entries166 {
+interface Entries162 {
   group?: string;
   item?: string;
   damage?: number;
 }
 
-interface Entries165 {
+interface Entries161 {
   item: string;
   prob: number;
   'charges-min'?: number;
@@ -1354,7 +1351,17 @@ interface Entries165 {
   'container-item'?: string;
 }
 
-interface Entries164 {
+interface Entries160 {
+  item: string;
+  'count-min'?: number;
+  'count-max'?: number;
+  prob?: number;
+  'charges-min'?: number;
+  'charges-max'?: number;
+  'container-item'?: string;
+}
+
+interface Entries159 {
   item: string;
   prob?: number;
   'ammo-item'?: string;
@@ -1362,15 +1369,15 @@ interface Entries164 {
   count?: number;
 }
 
-interface Entries163 {
+interface Entries158 {
   distribution?: Collection[];
   group?: string;
   count?: number[];
   prob?: number;
 }
 
-interface Entries161 {
-  distribution?: Distribution36[];
+interface Entries156 {
+  distribution?: Distribution34[];
   group?: string;
   prob?: number;
   'damage-min'?: number;
@@ -1381,20 +1388,20 @@ interface Entries161 {
 }
 
 interface Collection26 {
-  distribution: Distribution37[];
+  distribution: Distribution35[];
   prob?: number;
 }
 
-interface Distribution37 {
+interface Distribution35 {
   group?: string;
   prob: number;
   'damage-min'?: number;
   'damage-max'?: number;
   item?: string;
-  collection?: Entries45[];
+  collection?: Entries46[];
 }
 
-interface Distribution36 {
+interface Distribution34 {
   item?: string;
   prob: number;
   'damage-min'?: number;
@@ -1402,7 +1409,7 @@ interface Distribution36 {
   group?: string;
 }
 
-interface Entries160 {
+interface Entries155 {
   item: string;
   count?: number[] | number;
   charges?: number[] | number;
@@ -1411,29 +1418,19 @@ interface Entries160 {
   'charges-min'?: number;
 }
 
-interface Entries159 {
-  group?: string;
-  prob: number;
-  item?: string;
-  'charges-min'?: number;
-  'container-item'?: string;
-  'charges-max'?: number;
-  charges?: number;
-}
-
-interface Entries158 {
+interface Entries154 {
   item?: string;
   prob: number;
   count?: number[];
   collection?: Distribution4[];
 }
 
-interface Entries157 {
+interface Entries153 {
   group: string;
   count: number[];
 }
 
-interface Entries156 {
+interface Entries152 {
   group: string;
   artifact: Artifact;
   prob: number;
@@ -1450,17 +1447,17 @@ interface Rules {
   max_negative_power: number;
 }
 
-interface Entries155 {
+interface Entries151 {
   item: string;
   prob: number;
   count?: number[];
 }
 
-interface Entries154 {
-  distribution: Distribution35[];
+interface Entries150 {
+  distribution: Distribution33[];
 }
 
-interface Distribution35 {
+interface Distribution33 {
   collection?: Collection25[];
   prob: number;
   item?: string;
@@ -1473,7 +1470,7 @@ interface Collection25 {
   count?: number[];
 }
 
-interface Entries153 {
+interface Entries149 {
   item?: string;
   prob: number;
   collection?: Distribution4[];
@@ -1481,28 +1478,28 @@ interface Entries153 {
   count?: number[];
 }
 
-interface Entries152 {
-  distribution?: Distribution34[];
+interface Entries148 {
+  distribution?: Distribution32[];
   prob?: number;
   group?: string;
   count?: number[];
 }
 
-interface Distribution34 {
+interface Distribution32 {
   group: string;
   damage?: number[];
   prob?: number;
   'contents-item'?: string;
 }
 
-interface Entries151 {
+interface Entries147 {
   distribution?: Distribution[];
   prob: number;
   item?: string;
   charges?: number[];
 }
 
-interface Entries150 {
+interface Entries146 {
   group?: string;
   'contents-group'?: string;
   prob: number;
@@ -1511,18 +1508,25 @@ interface Entries150 {
   'charges-max'?: number;
 }
 
-interface Entries148 {
+interface Entries144 {
   group?: string;
   damage?: number[];
   collection?: Collection[];
   prob?: number;
 }
 
-interface Entries146 {
-  distribution: Distribution33[];
+interface Entries142 {
+  group?: string;
+  prob?: number;
+  item?: string;
+  distribution?: Entries2[];
 }
 
-interface Distribution33 {
+interface Entries141 {
+  distribution: Distribution31[];
+}
+
+interface Distribution31 {
   item?: string;
   prob?: number;
   charges?: number[];
@@ -1533,24 +1537,24 @@ interface Collection24 {
   item?: string;
   'charges-min'?: number;
   'charges-max'?: number;
-  distribution?: Distribution32[];
+  distribution?: Distribution30[];
 }
 
-interface Distribution32 {
+interface Distribution30 {
   item: string;
   prob: number;
   'charges-min'?: number;
   'charges-max'?: number;
 }
 
-interface Entries145 {
+interface Entries140 {
   distribution?: Distribution4[];
   prob: number;
   item?: string;
   'container-item'?: string;
 }
 
-interface Entries144 {
+interface Entries139 {
   group?: string;
   prob: number;
   item?: string;
@@ -1558,11 +1562,11 @@ interface Entries144 {
   'count-max'?: number;
 }
 
-interface Entries143 {
-  distribution: Distribution31[];
+interface Entries138 {
+  distribution: Distribution29[];
 }
 
-interface Distribution31 {
+interface Distribution29 {
   distribution?: Distribution4[];
   prob: number;
   collection?: Collection23[];
@@ -1570,38 +1574,38 @@ interface Distribution31 {
 }
 
 interface Collection23 {
-  distribution?: Entries129[];
+  distribution?: Entries124[];
   item?: string;
 }
 
-interface Entries140 {
+interface Entries135 {
   item: string;
   prob: number;
   charges: number;
   'container-item': string;
 }
 
-interface Entries139 {
-  distribution?: Distribution30[];
+interface Entries134 {
+  distribution?: Distribution28[];
   prob?: number;
-  collection?: Entries25[];
+  collection?: Entries26[];
 }
 
-interface Distribution30 {
-  distribution?: Distribution29[];
+interface Distribution28 {
+  distribution?: Distribution27[];
   prob: number;
   collection?: Collection19[];
   item?: string;
   'container-item'?: string;
 }
 
-interface Distribution29 {
+interface Distribution27 {
   item: string;
   'contents-item'?: string;
   prob: number;
 }
 
-interface Entries138 {
+interface Entries133 {
   group?: string;
   damage?: number[];
   prob?: number;
@@ -1609,20 +1613,20 @@ interface Entries138 {
   item?: string;
 }
 
-interface Entries137 {
+interface Entries132 {
   group?: string;
   prob: number;
   item?: string;
   charges?: number[] | number;
 }
 
-interface Entries136 {
+interface Entries131 {
   item?: string;
-  collection?: Entries45[];
+  collection?: Entries46[];
   prob?: number;
 }
 
-interface Entries135 {
+interface Entries130 {
   group?: string;
   count?: number[] | number;
   item?: string;
@@ -1634,7 +1638,7 @@ interface Entries135 {
   'charges-max'?: number;
 }
 
-interface Entries134 {
+interface Entries129 {
   group?: string;
   prob: number;
   item?: string;
@@ -1642,7 +1646,7 @@ interface Entries134 {
   'charges-min'?: number;
 }
 
-interface Entries133 {
+interface Entries128 {
   group?: string;
   prob?: number;
   '//'?: string;
@@ -1652,18 +1656,18 @@ interface Entries133 {
   damage?: number;
 }
 
-interface Entries132 {
+interface Entries127 {
   item: string;
   prob: number;
   'count-min': number;
   'count-max': number;
 }
 
-interface Entries131 {
+interface Entries126 {
   group?: string;
   count?: number[];
   prob: number;
-  distribution?: Distribution28[];
+  distribution?: Distribution26[];
   item?: string;
   'charges-min'?: number;
   'count-min'?: number;
@@ -1672,17 +1676,17 @@ interface Entries131 {
   sealed?: boolean;
 }
 
-interface Distribution28 {
+interface Distribution26 {
   item?: string;
   prob: number;
   'charges-min'?: number;
   'container-item'?: string;
   sealed?: boolean;
-  distribution?: Distribution27[];
+  distribution?: Distribution25[];
   count?: number[];
 }
 
-interface Distribution27 {
+interface Distribution25 {
   collection?: Collection22[];
   prob: number;
   item?: string;
@@ -1700,7 +1704,7 @@ interface Collection22 {
   count?: number[];
 }
 
-interface Entries130 {
+interface Entries125 {
   group?: string;
   prob: number;
   item?: string;
@@ -1710,39 +1714,45 @@ interface Entries130 {
   charges?: number[] | number;
 }
 
-interface Entries129 {
+interface Entries124 {
   distribution: Distribution4[];
   prob: number;
 }
 
-interface Entries128 {
+interface Entries123 {
   item?: string;
   prob: number;
   damage?: number[];
   group?: string;
 }
 
-interface Entries127 {
+interface Entries122 {
+  item: string;
+  prob: number;
+  'container-item': string;
+}
+
+interface Entries121 {
   distribution?: Distribution3[];
   group?: string;
   damage?: number[];
   prob?: number;
 }
 
-interface Entries126 {
+interface Entries120 {
   group: string;
   count: number[];
   prob: number;
 }
 
-interface Entries125 {
+interface Entries119 {
   item?: string;
   count?: number[];
   prob?: number;
-  collection?: Entries40[];
+  collection?: Entries41[];
 }
 
-interface Entries124 {
+interface Entries118 {
   item?: string;
   count?: number[];
   prob: number;
@@ -1752,14 +1762,14 @@ interface Entries124 {
   group?: string;
 }
 
-interface Entries123 {
+interface Entries117 {
   group?: string;
   prob?: number;
   damage?: number[];
-  distribution?: Distribution26[];
+  distribution?: Distribution24[];
 }
 
-interface Distribution26 {
+interface Distribution24 {
   collection: Collection21[];
 }
 
@@ -1769,87 +1779,63 @@ interface Collection21 {
   damage?: number[];
 }
 
-interface Entries121 {
+interface Entries115 {
   item: string;
   count: number;
   prob: number;
   charges?: number;
 }
 
-interface Entries120 {
+interface Entries114 {
   group?: string;
   count: number[];
   prob: number;
   item?: string;
 }
 
-interface Entries119 {
+interface Entries113 {
   item: string;
   'count-min': number;
   'count-max': number;
   prob?: number;
 }
 
-interface Entries118 {
-  item: string;
-  'count-min'?: number;
-  'count-max'?: number;
-  prob?: number;
-  'container-item'?: string;
-  'charges-min'?: number;
-  'charges-max'?: number;
-}
-
-interface Entries117 {
-  item?: string;
-  prob: number;
-  group?: string;
-  'charges-min'?: number;
-}
-
-interface Entries115 {
-  item: string;
-  prob: number;
-  'container-item': string;
-  'charges-min': number;
-  'charges-max': number;
-}
-
-interface Entries114 {
-  item: string;
-  prob: number;
-  'count-min'?: number;
-  'count-max'?: number;
-}
-
-interface Entries113 {
-  item?: string;
-  damage?: number[];
-  group?: string;
-  prob?: number;
-}
-
 interface Entries112 {
-  collection: Collection17[];
-}
-
-interface Entries111 {
-  item: string;
-  'container-item': string;
+  item?: string;
   prob: number;
+  group?: string;
+  'charges-min'?: number;
 }
 
 interface Entries110 {
+  item: string;
+  prob: number;
+  'count-min'?: number;
+  'count-max'?: number;
+}
+
+interface Entries109 {
+  item?: string;
+  damage?: number[];
+  group?: string;
+  prob?: number;
+}
+
+interface Entries108 {
+  collection: Collection17[];
+}
+
+interface Entries107 {
   group?: string;
   damage?: number[];
   prob?: number;
   item?: string;
   'charges-min'?: number;
   'charges-max'?: number;
-  distribution?: Distribution25[];
+  distribution?: Distribution23[];
 }
 
-interface Distribution25 {
+interface Distribution23 {
   item?: string;
   group?: string;
   prob?: number;
@@ -1857,13 +1843,13 @@ interface Distribution25 {
   'charges-max'?: number;
 }
 
-interface Entries108 {
+interface Entries105 {
   item: string;
   count?: number[];
   prob?: number;
 }
 
-interface Entries107 {
+interface Entries104 {
   item?: string;
   prob: number;
   'charges-min'?: number;
@@ -1873,13 +1859,13 @@ interface Entries107 {
   count?: number[];
 }
 
-interface Entries106 {
-  distribution?: Distribution24[];
+interface Entries103 {
+  distribution?: Distribution22[];
   item?: string;
   prob?: number;
 }
 
-interface Distribution24 {
+interface Distribution22 {
   collection?: Collection20[];
   prob: number;
   item?: string;
@@ -1894,47 +1880,30 @@ interface Collection20 {
   group?: string;
 }
 
-interface Entries105 {
-  distribution?: Distribution23[];
+interface Entries102 {
+  group?: string;
   prob: number;
   item?: string;
   'charges-min'?: number;
-  'container-item'?: string;
   'charges-max'?: number;
-}
-
-interface Distribution23 {
-  item: string;
-  prob: number;
   'container-item'?: string;
-  'charges-min'?: number;
-  'charges-max'?: number;
+  charges?: number;
 }
 
-interface Entries104 {
-  distribution?: Entries16[];
+interface Entries101 {
+  distribution?: Entries17[];
   prob: number;
-  collection?: Entries82[];
+  collection?: Entries81[];
 }
 
-interface Entries103 {
+interface Entries100 {
   item: string;
   'ammo-item': string;
   charges: number;
   'container-item': string;
 }
 
-interface Entries102 {
-  group?: string;
-  damage?: number[];
-  item?: string;
-  prob?: number;
-  'container-item'?: string;
-  'charges-min'?: number;
-  'charges-max'?: number;
-}
-
-interface Entries100 {
+interface Entries98 {
   item?: string;
   prob: number;
   'charges-min'?: number;
@@ -1942,14 +1911,14 @@ interface Entries100 {
   charges?: number[] | number;
 }
 
-interface Entries99 {
+interface Entries97 {
   group?: string;
   count?: number[];
   prob?: number;
   item?: string;
 }
 
-interface Entries98 {
+interface Entries96 {
   group?: string;
   'damage-min'?: number;
   'damage-max'?: number;
@@ -1958,7 +1927,7 @@ interface Entries98 {
   damage?: number;
 }
 
-interface Entries97 {
+interface Entries95 {
   item?: string;
   damage?: number[];
   count?: number[];
@@ -1966,40 +1935,40 @@ interface Entries97 {
   prob?: number;
 }
 
-interface Entries96 {
+interface Entries94 {
   item?: string;
   count?: number[];
   prob: number;
-  collection?: Entries82[];
+  collection?: Entries81[];
 }
 
-interface Entries95 {
+interface Entries93 {
   item: string;
   'container-item': string;
   prob: number;
   charges: number[];
 }
 
-interface Entries94 {
+interface Entries92 {
   distribution?: Collection[];
   item?: string;
 }
 
-interface Entries93 {
+interface Entries91 {
   group?: string;
   distribution?: Collection[];
 }
 
-interface Entries92 {
-  collection: Entries4[];
+interface Entries90 {
+  collection: Entries5[];
   prob: number;
 }
 
-interface Entries91 {
-  distribution: Distribution22[];
+interface Entries89 {
+  distribution: Distribution21[];
 }
 
-interface Distribution22 {
+interface Distribution21 {
   collection?: Collection19[];
   prob: number;
   group?: string;
@@ -2011,61 +1980,52 @@ interface Collection19 {
   'charges-max'?: number;
 }
 
-interface Entries90 {
+interface Entries88 {
   group?: string;
   damage?: number[];
   prob?: number;
-  distribution?: Distribution21[];
+  distribution?: Distribution20[];
   item?: string;
   'charges-min'?: number;
   'charges-max'?: number;
 }
 
-interface Distribution21 {
+interface Distribution20 {
   group?: string;
   prob?: number;
   damage?: number[];
-  distribution?: Distribution20[];
+  distribution?: Distribution19[];
 }
 
-interface Distribution20 {
+interface Distribution19 {
   group: string;
   damage: number[];
   prob: number;
   'contents-item'?: string;
 }
 
-interface Entries89 {
-  group?: string;
-  damage?: number[];
-  item?: string;
-  prob?: number;
-  charges?: number[];
-  count?: number[];
-}
-
-interface Entries88 {
+interface Entries87 {
   group: string;
   'count-min': number;
   'count-max': number;
   prob?: number;
 }
 
-interface Entries87 {
+interface Entries86 {
   group: string;
   'count-min'?: number;
   'count-max'?: number;
   prob?: number;
 }
 
-interface Entries86 {
+interface Entries85 {
   item: string;
   count?: number[];
   prob: number;
   charges?: number[];
 }
 
-interface Entries84 {
+interface Entries83 {
   group?: string;
   count?: number[];
   prob: number;
@@ -2074,33 +2034,33 @@ interface Entries84 {
   charges?: number[];
 }
 
-interface Entries83 {
-  distribution?: Distribution19[];
+interface Entries82 {
+  distribution?: Distribution18[];
   group?: string;
   damage?: number[];
 }
 
-interface Distribution19 {
+interface Distribution18 {
   item: string;
   count: number;
   damage?: number[];
   prob: number;
 }
 
-interface Entries82 {
+interface Entries81 {
   item: string;
   count: number[];
   prob: number;
 }
 
-interface Entries81 {
+interface Entries80 {
   group: string;
   prob: number;
   'charges-min': number;
   'charges-max': number;
 }
 
-interface Entries80 {
+interface Entries79 {
   group?: string;
   prob: number;
   item?: string;
@@ -2110,7 +2070,7 @@ interface Entries80 {
   'charges-min'?: number;
 }
 
-interface Entries79 {
+interface Entries78 {
   group?: string;
   prob: number;
   item?: string;
@@ -2119,38 +2079,38 @@ interface Entries79 {
   collection?: Distribution4[];
 }
 
-interface Entries78 {
+interface Entries77 {
   item: string;
   charges: number[];
   'container-item': string;
 }
 
-interface Entries77 {
+interface Entries76 {
   item: string;
   prob: number;
   charges: number[];
 }
 
-interface Entries76 {
+interface Entries75 {
   item?: string;
   group?: string;
   count?: number[];
 }
 
-interface Entries75 {
+interface Entries74 {
   item: string;
   'ammo-item': string;
   charges: number;
   'contents-item': string[];
 }
 
-interface Entries74 {
+interface Entries73 {
   group?: string;
   damage?: number[];
   item?: string;
 }
 
-interface Entries73 {
+interface Entries72 {
   item?: string;
   prob: number;
   'charges-min'?: number;
@@ -2160,20 +2120,20 @@ interface Entries73 {
   charges?: number;
 }
 
-interface Entries72 {
+interface Entries71 {
   item: string;
   prob: number;
   'container-item'?: string;
 }
 
-interface Entries71 {
+interface Entries70 {
   item?: string;
   count?: number[];
   prob?: number;
   collection?: Collection3[];
 }
 
-interface Entries70 {
+interface Entries69 {
   collection: Collection18[];
 }
 
@@ -2183,8 +2143,8 @@ interface Collection18 {
   item?: string;
 }
 
-interface Entries69 {
-  distribution?: Distribution18[];
+interface Entries68 {
+  distribution?: Distribution17[];
   prob: number;
   item?: string;
   'charges-min'?: number;
@@ -2194,7 +2154,7 @@ interface Entries69 {
   group?: string;
 }
 
-interface Distribution18 {
+interface Distribution17 {
   item?: string;
   prob?: number;
   'charges-min'?: number;
@@ -2264,21 +2224,21 @@ interface Entries59 {
   group?: string;
   prob?: number;
   damage?: number[];
-  distribution?: Distribution17[];
+  distribution?: Distribution16[];
 }
 
-interface Distribution17 {
+interface Distribution16 {
   collection: Collection16[];
 }
 
 interface Collection16 {
-  distribution?: Distribution16[];
+  distribution?: Distribution15[];
   group?: string;
   damage?: number[];
   prob?: number;
 }
 
-interface Distribution16 {
+interface Distribution15 {
   group?: string;
   damage?: number[];
   prob?: number;
@@ -2290,11 +2250,11 @@ interface Collection15 {
   group?: string;
   damage?: number[];
   prob?: number;
-  distribution?: Distribution15[];
+  distribution?: Distribution14[];
   item?: string;
 }
 
-interface Distribution15 {
+interface Distribution14 {
   distribution?: Distribution10[];
   group?: string;
   damage?: number[];
@@ -2318,26 +2278,13 @@ interface Collection14 {
 
 interface Entries57 {
   group?: string;
-  prob?: number;
-  item?: string;
-  distribution?: Distribution14[];
-}
-
-interface Distribution14 {
-  group?: string;
-  prob: number;
-  item?: string;
-}
-
-interface Entries56 {
-  group?: string;
   damage?: number[];
   item?: string;
   'contents-group'?: string;
   prob?: number;
 }
 
-interface Entries55 {
+interface Entries56 {
   item?: string;
   prob?: number;
   charges?: number[];
@@ -2345,7 +2292,7 @@ interface Entries55 {
   collection?: Distribution4[];
 }
 
-interface Entries54 {
+interface Entries55 {
   group?: string;
   damage?: number[];
   prob?: number;
@@ -2353,31 +2300,31 @@ interface Entries54 {
   collection?: Distribution4[];
 }
 
-interface Entries53 {
+interface Entries54 {
   item: string;
   prob: number;
   charges?: number;
   'charges-min'?: number;
 }
 
-interface Entries52 {
+interface Entries53 {
   item: string;
   'charges-min'?: number;
   'charges-max'?: number;
   count?: number[];
 }
 
-interface Entries51 {
-  distribution: Entries8[];
+interface Entries52 {
+  distribution: Entries9[];
 }
 
-interface Entries50 {
+interface Entries51 {
   item: string;
   damage: number[];
   count?: number[];
 }
 
-interface Entries49 {
+interface Entries50 {
   item: string;
   count?: number[] | number;
   'charges-min'?: number;
@@ -2387,7 +2334,7 @@ interface Entries49 {
   'ammo-item'?: string;
 }
 
-interface Entries48 {
+interface Entries49 {
   item?: string;
   prob: number;
   group?: string;
@@ -2400,7 +2347,7 @@ interface Entries48 {
   charges?: number;
 }
 
-interface Entries47 {
+interface Entries48 {
   distribution?: Distribution[];
   prob: number;
   item?: string;
@@ -2411,7 +2358,7 @@ interface Collection13 {
   item: string;
 }
 
-interface Entries46 {
+interface Entries47 {
   group?: string;
   damage?: number[];
   prob?: number;
@@ -2455,7 +2402,7 @@ interface Distribution11 {
   damage?: number[];
   prob?: number;
   item?: string;
-  collection?: Entries26[];
+  collection?: Entries27[];
 }
 
 interface Distribution10 {
@@ -2464,16 +2411,24 @@ interface Distribution10 {
   damage: number[];
 }
 
-interface Entries45 {
+interface Entries46 {
   group?: string;
   item?: string;
 }
 
-interface Entries44 {
+interface Entries45 {
   distribution?: Collection[];
   prob: number;
   item?: string;
   charges?: number[];
+}
+
+interface Entries44 {
+  item: string;
+  prob: number;
+  'charges-min': number;
+  'charges-max': number;
+  'container-item': string;
 }
 
 interface Entries43 {
@@ -2503,21 +2458,11 @@ interface Entries42 {
 }
 
 interface Entries41 {
-  group?: string;
-  damage?: number[];
-  item?: string;
-  'charges-min'?: number;
-  'charges-max'?: number;
-  prob?: number;
-  count?: number[];
-}
-
-interface Entries40 {
   item: string;
   count: number[];
 }
 
-interface Entries39 {
+interface Entries40 {
   distribution?: Distribution8[];
   item?: string;
   count?: number[];
@@ -2537,12 +2482,12 @@ interface Collection10 {
   'charges-min'?: number;
 }
 
-interface Entries38 {
+interface Entries39 {
   item: string;
   'custom-flags'?: string[];
 }
 
-interface Entries37 {
+interface Entries38 {
   item?: string;
   prob: number;
   group?: string;
@@ -2550,13 +2495,13 @@ interface Entries37 {
   sealed?: boolean;
 }
 
-interface Entries36 {
+interface Entries37 {
   item: string;
   'container-item': string;
   charges: number;
 }
 
-interface Entries35 {
+interface Entries36 {
   distribution?: Distribution7[];
   prob?: number;
   item?: string;
@@ -2576,19 +2521,19 @@ interface Distribution7 {
   count?: number[];
 }
 
-interface Entries34 {
+interface Entries35 {
   group: string;
   count?: number[];
   prob: number;
 }
 
-interface Entries33 {
+interface Entries34 {
   item: string;
   prob: number;
   'contents-group'?: string;
 }
 
-interface Entries32 {
+interface Entries33 {
   collection: Collection9[];
   prob: number;
 }
@@ -2599,7 +2544,7 @@ interface Collection9 {
   prob?: number;
 }
 
-interface Entries31 {
+interface Entries32 {
   item?: string;
   prob: number;
   group?: string;
@@ -2607,12 +2552,12 @@ interface Entries31 {
   count?: number[];
 }
 
-interface Entries30 {
+interface Entries31 {
   group: string;
   damage: number[];
 }
 
-interface Entries29 {
+interface Entries30 {
   item: string;
   'container-item'?: string;
   sealed?: boolean;
@@ -2620,14 +2565,14 @@ interface Entries29 {
   'charges-max'?: number;
 }
 
-interface Entries28 {
+interface Entries29 {
   item?: string;
   damage?: number[];
   count?: number[];
   group?: string;
 }
 
-interface Entries27 {
+interface Entries28 {
   item?: string;
   count?: number[];
   prob: number;
@@ -2639,32 +2584,32 @@ interface Collection8 {
   count?: number[];
 }
 
-interface Entries26 {
+interface Entries27 {
   item: string;
   damage: number[];
 }
 
-interface Entries25 {
+interface Entries26 {
   group?: string;
   item?: string;
   prob?: number;
 }
 
-interface Entries24 {
+interface Entries25 {
   group?: string;
   damage?: number[];
   prob?: number;
   distribution?: Collection[];
 }
 
-interface Entries23 {
+interface Entries24 {
   item?: string;
   count?: number[];
   prob: number;
   group?: string;
 }
 
-interface Entries22 {
+interface Entries23 {
   item: string;
   charges?: number[];
   'container-item'?: string;
@@ -2673,26 +2618,26 @@ interface Entries22 {
   'charges-min'?: number;
 }
 
-interface Entries21 {
+interface Entries22 {
   item: string;
   prob?: number;
   'container-item'?: string;
 }
 
-interface Entries20 {
+interface Entries21 {
   group?: string;
   distribution?: Distribution4[];
   prob?: number;
   item?: string;
 }
 
-interface Entries19 {
+interface Entries20 {
   group: string;
   prob: number;
   'contents-item'?: string;
 }
 
-interface Entries18 {
+interface Entries19 {
   collection: Collection7[];
   prob: number;
 }
@@ -2702,7 +2647,7 @@ interface Collection7 {
   prob?: number;
 }
 
-interface Entries17 {
+interface Entries18 {
   collection: Collection6[];
 }
 
@@ -2711,20 +2656,20 @@ interface Collection6 {
   prob?: number;
 }
 
-interface Entries16 {
+interface Entries17 {
   item: string;
   prob: number;
   charges?: number;
 }
 
-interface Entries15 {
+interface Entries16 {
   group?: string;
   item?: string;
   charges?: number;
   damage?: number[];
 }
 
-interface Entries14 {
+interface Entries15 {
   distribution?: Distribution6[];
   item?: string;
   prob?: number;
@@ -2746,7 +2691,7 @@ interface Collection5 {
   'charges-min'?: number;
 }
 
-interface Entries13 {
+interface Entries14 {
   item: string;
   'container-item'?: string;
   count?: number;
@@ -2754,7 +2699,7 @@ interface Entries13 {
   'ammo-item'?: string;
 }
 
-interface Entries12 {
+interface Entries13 {
   distribution?: Distribution5[];
   item?: string;
   collection?: Distribution4[];
@@ -2780,13 +2725,13 @@ interface Collection3 {
   prob?: number;
 }
 
-interface Entries11 {
+interface Entries12 {
   item: string;
   prob: number;
   'custom-flags'?: string[];
 }
 
-interface Entries10 {
+interface Entries11 {
   distribution?: Distribution3[];
   group?: string;
   damage?: number[];
@@ -2805,7 +2750,7 @@ interface Collection2 {
   prob?: number;
 }
 
-interface Entries9 {
+interface Entries10 {
   item: string;
   count?: number[];
   charges?: number[] | number;
@@ -2814,14 +2759,14 @@ interface Entries9 {
   'container-item'?: string;
 }
 
-interface Entries8 {
+interface Entries9 {
   group?: string;
   prob: number;
   item?: string;
   charges?: number;
 }
 
-interface Entries7 {
+interface Entries8 {
   item?: string;
   prob: number;
   group?: string;
@@ -2829,14 +2774,14 @@ interface Entries7 {
   'charges-max'?: number;
 }
 
-interface Entries6 {
+interface Entries7 {
   item: string;
   prob: number;
   charges?: number[];
   'contents-item'?: string;
 }
 
-interface Entries5 {
+interface Entries6 {
   distribution?: Distribution2[];
   prob?: number;
   group?: string;
@@ -2857,23 +2802,29 @@ interface Distribution2 {
   'contents-item'?: string;
 }
 
-interface Entries4 {
+interface Entries5 {
   item?: string;
   prob: number;
   group?: string;
   charges?: number[];
 }
 
-interface Entries3 {
+interface Entries4 {
   item: string;
   'ammo-item': string;
   charges: number;
 }
 
-interface Entries2 {
+interface Entries3 {
   item: string;
   'charges-min': number;
   'charges-max': number;
+}
+
+interface Entries2 {
+  item?: string;
+  prob: number;
+  group?: string;
 }
 
 interface Entry {

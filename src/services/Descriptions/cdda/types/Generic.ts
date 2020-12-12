@@ -37,35 +37,35 @@ export interface IGeneric {
     | Useaction23
     | string;
   flags?: string[];
-  longest_side?: string;
-  to_hit?: number;
-  techniques?: string[];
   bashing?: number;
+  cutting?: number;
+  to_hit?: number;
   qualities?: Array<Array<number | string>>;
   '//'?: string;
-  cutting?: number;
-  ascii_picture?: string;
-  pocket_data?: Pocketdatum[];
-  armor_data?: Armordata;
-  properties?: string[][];
   'copy-from'?: string;
+  pocket_data?: Pocketdatum[];
   relic_data?: Relicdata;
+  techniques?: string[];
   looks_like?: string;
   proportional?: Proportional;
   relative?: Relative;
+  longest_side?: string;
   abstract?: string;
+  armor_data?: Armordata;
   '//electric'?: number;
   container?: string;
-  snippet_category?: Snippetcategory[] | string;
   book_data?: Bookdata;
+  properties?: string[][];
   '//0'?: string;
   '//1'?: string;
   '//spoils_in'?: string;
+  ascii_picture?: string;
   insulation?: number;
   explode_in_fire?: boolean;
   explosion?: Explosion;
   emits?: string[];
   stackable?: boolean;
+  snippet_category?: Snippetcategory[] | string;
   milling?: Milling;
   extend?: Extend;
   countdown_action?: Countdownaction;
@@ -116,6 +116,11 @@ interface Milling {
   conversion_rate: number;
 }
 
+interface Snippetcategory {
+  id: string;
+  text: string;
+}
+
 interface Explosion {
   power: number;
   shrapnel: Shrapnel;
@@ -130,9 +135,14 @@ interface Bookdata {
   martial_art: string;
 }
 
-interface Snippetcategory {
-  id: string;
-  text: string;
+interface Armordata {
+  covers: string[];
+  coverage: number;
+  encumbrance?: number;
+  warmth?: number;
+  material_thickness: number;
+  environmental_protection?: number;
+  sided?: boolean;
 }
 
 interface Relative {
@@ -177,34 +187,24 @@ interface Value {
   add: number;
 }
 
-interface Armordata {
-  covers: string[];
-  sided?: boolean;
-  coverage: number;
-  material_thickness: number;
-  encumbrance?: number;
-  warmth?: number;
-  environmental_protection?: number;
-}
-
 interface Pocketdatum {
   pocket_type?: string;
-  watertight?: boolean;
-  rigid?: boolean;
-  max_contains_volume: string;
-  max_item_volume?: string;
-  max_contains_weight: string;
   moves?: number;
+  max_contains_volume: string;
+  max_contains_weight: string;
+  max_item_volume?: string;
   max_item_length?: string;
-  airtight?: boolean;
-  open_container?: boolean;
-  sealed_data?: Sealeddata;
-  '//'?: string;
-  item_restriction?: string[];
   spoil_multiplier?: number;
   weight_multiplier?: number;
   volume_multiplier?: number;
+  rigid?: boolean;
   magazine_well?: string;
+  open_container?: boolean;
+  watertight?: boolean;
+  airtight?: boolean;
+  sealed_data?: Sealeddata;
+  '//'?: string;
+  item_restriction?: string[];
   flag_restriction?: string[];
 }
 

@@ -58,47 +58,46 @@ export interface ITool {
     | Useaction42
     | Useaction43
     | Useaction44
-    | Array<Useaction42 | string>
+    | Useaction45[]
     | Useaction46
     | Useaction47[]
     | Useaction48
-    | Useaction49[]
-    | Useaction50
+    | Useaction49
+    | Array<Useaction27 | Useaction502 | string>
     | Useaction51
-    | Array<Useaction27 | Useaction522 | string>
+    | Useaction52
     | Useaction53
-    | Useaction54
+    | Array<Useaction34 | Useaction262 | Useaction543 | string>
     | Useaction55
-    | Array<Useaction34 | Useaction262 | Useaction563 | string>
-    | Useaction57
     | Useaction29
-    | Useaction59
+    | Useaction57
     | Useaction28
+    | Useaction59
+    | Useaction60
     | Useaction61
     | Useaction62
     | Useaction63
     | Useaction64
-    | Useaction65
+    | Useaction65[]
     | Useaction66
-    | Useaction67[]
+    | Useaction67
     | Useaction68
     | Useaction69
     | Useaction70
     | Useaction71
     | Useaction72
     | Useaction73
-    | Useaction74
-    | Useaction75
     | Array<Useaction24 | string>
-    | Useaction522
+    | Useaction502
+    | Useaction76
+    | Useaction77
     | Useaction78
-    | Useaction79
+    | Useaction65
     | Useaction80
-    | Useaction67
-    | Useaction82
-    | Useaction83[]
-    | Useaction84
-    | Useaction85;
+    | Useaction81
+    | Useaction82[]
+    | Useaction83
+    | Useaction84;
   category?: string;
   explode_in_fire?: boolean;
   explosion?: Explosion5;
@@ -108,25 +107,20 @@ export interface ITool {
   max_charges?: number;
   turns_per_charge?: number;
   '//'?: string;
-  longest_side?: string;
-  cutting?: number;
-  techniques?: string[];
-  min_skills?: Array<Array<number | string>>;
-  min_intelligence?: number;
-  min_perception?: number;
-  ammo?: string[] | string;
   charges_per_use?: number;
-  pocket_data?: Pocketdatum[];
-  looks_like?: string;
   sub?: string;
   relic_data?: Relicdata;
+  pocket_data?: Pocketdatum[];
   revert_to?: string;
   emits?: string[];
+  techniques?: string[];
+  ammo?: string[] | string;
   abstract?: string;
   proportional?: Proportional;
-  delete?: Delete;
+  cutting?: number;
   integral_volume?: string;
   gunmod_data?: Gunmoddata;
+  looks_like?: string;
   countdown_action?: Countdownaction;
   countdown_interval?: number;
   power_draw?: number;
@@ -136,9 +130,12 @@ export interface ITool {
   extend?: Extend;
   magazines?: Array<Array<string[] | string>>;
   repairs_like?: string;
+  longest_side?: string;
+  delete?: Delete;
   revert_msg?: string;
   properties?: string[][];
   snippet_category?: Snippetcategory[];
+  min_skills?: Array<Array<number | string>>;
   thrown_damage?: Throwndamage[];
   relative?: Relative;
 }
@@ -156,6 +153,10 @@ interface Throwndamage {
 interface Snippetcategory {
   id: string;
   text: string;
+}
+
+interface Delete {
+  qualities: Array<Array<number | string>>;
 }
 
 interface Extend {
@@ -176,16 +177,62 @@ interface Gunmoddata {
   mode_modifier?: Array<Array<string[] | number | string>>;
 }
 
-interface Delete {
-  flags?: string[];
-  qualities?: Array<Array<number | string>>;
-}
-
 interface Proportional {
   cutting?: number;
   price: number;
   weight?: number;
   volume?: number;
+}
+
+interface Pocketdatum {
+  pocket_type?: string;
+  holster?: boolean;
+  ammo_restriction?: Ammorestriction;
+  max_contains_volume?: string;
+  max_contains_weight?: string;
+  item_restriction?: string[];
+  rigid?: boolean;
+  max_item_length?: string;
+  watertight?: boolean;
+  magazine_well?: string;
+  airtight?: boolean;
+  moves?: number;
+  flag_restriction?: string[];
+  open_container?: boolean;
+  '//'?: string;
+}
+
+interface Ammorestriction {
+  crystallized_mana?: number;
+  thread?: number;
+  charcoal?: number;
+  money?: number;
+  candle_wax?: number;
+  plutonium?: number;
+  esbit?: number;
+  gasoline?: number;
+  tinder?: number;
+  lamp_oil?: number;
+  conc_alcohol?: number;
+  butane?: number;
+  match?: number;
+  extinguishing_agent?: number;
+  fish_bait?: number;
+  glowstick_juice?: number;
+  flare_nitrate?: number;
+  anesthetic?: number;
+  albuterol?: number;
+  ampoule?: number;
+  oxygen?: number;
+  permanent_ink?: number;
+  aerosol_paint?: number;
+  black_pen_ink?: number;
+  graphite?: number;
+  blue_pen_ink?: number;
+  red_pen_ink?: number;
+  green_pen_ink?: number;
+  soap?: number;
+  tape?: number;
 }
 
 interface Relicdata {
@@ -218,57 +265,6 @@ interface Chargeinfo {
   regenerate_ammo: boolean;
 }
 
-interface Pocketdatum {
-  pocket_type?: string;
-  holster?: boolean;
-  max_contains_volume?: string;
-  max_contains_weight?: string;
-  item_restriction?: string[];
-  ammo_restriction?: Ammorestriction;
-  rigid?: boolean;
-  max_item_length?: string;
-  watertight?: boolean;
-  magazine_well?: string;
-  airtight?: boolean;
-  moves?: number;
-  flag_restriction?: string[];
-  open_container?: boolean;
-  '//'?: string;
-}
-
-interface Ammorestriction {
-  match?: number;
-  crystallized_mana?: number;
-  thread?: number;
-  charcoal?: number;
-  money?: number;
-  candle_wax?: number;
-  plutonium?: number;
-  esbit?: number;
-  gasoline?: number;
-  tinder?: number;
-  lamp_oil?: number;
-  conc_alcohol?: number;
-  butane?: number;
-  extinguishing_agent?: number;
-  fish_bait?: number;
-  glowstick_juice?: number;
-  flare_nitrate?: number;
-  anesthetic?: number;
-  albuterol?: number;
-  ampoule?: number;
-  oxygen?: number;
-  permanent_ink?: number;
-  aerosol_paint?: number;
-  black_pen_ink?: number;
-  graphite?: number;
-  blue_pen_ink?: number;
-  red_pen_ink?: number;
-  green_pen_ink?: number;
-  soap?: number;
-  tape?: number;
-}
-
 interface Explosion5 {
   power: number;
   shrapnel?: Shrapnel | Shrapnel2 | Shrapnel3 | number;
@@ -283,7 +279,7 @@ interface Shrapnel3 {
   recovery: number;
 }
 
-interface Useaction85 {
+interface Useaction84 {
   type: string;
   fields_type: string;
   fields_radius: number;
@@ -295,13 +291,13 @@ interface Useaction85 {
   explosion: Explosion3;
 }
 
-interface Useaction84 {
+interface Useaction83 {
   type: string;
   msg: string;
   target: string;
 }
 
-interface Useaction83 {
+interface Useaction82 {
   target?: string;
   msg?: string;
   menu_text?: string;
@@ -312,7 +308,16 @@ interface Useaction83 {
   moves?: number;
 }
 
-interface Useaction82 {
+interface Useaction81 {
+  type: string;
+  msg: string;
+  target: string;
+  active: boolean;
+  need_charges: number;
+  need_charges_msg: string;
+}
+
+interface Useaction80 {
   type: string;
   allow_under_player: boolean;
   trap: string;
@@ -321,13 +326,13 @@ interface Useaction82 {
   done_message: string;
 }
 
-interface Useaction80 {
+interface Useaction78 {
   type: string;
   moves: number;
   moves_slow: number;
 }
 
-interface Useaction79 {
+interface Useaction77 {
   type: string;
   sound_volume: number;
   sound_msg: string;
@@ -341,7 +346,7 @@ interface Explosion4 {
   shrapnel: number;
 }
 
-interface Useaction78 {
+interface Useaction76 {
   type: string;
   no_deactivate_msg: string;
   sound_volume: number;
@@ -349,7 +354,7 @@ interface Useaction78 {
   explosion: Explosion;
 }
 
-interface Useaction75 {
+interface Useaction73 {
   target: string;
   msg: string;
   active: boolean;
@@ -359,7 +364,7 @@ interface Useaction75 {
   not_ready_msg: string;
 }
 
-interface Useaction74 {
+interface Useaction72 {
   type: string;
   bury_question: string;
   bury: Bury;
@@ -369,14 +374,14 @@ interface Useaction74 {
   done_message: string;
 }
 
-interface Useaction73 {
+interface Useaction71 {
   type: string;
   spell_id: string;
   no_fail: boolean;
   level: number;
 }
 
-interface Useaction72 {
+interface Useaction70 {
   target: string;
   msg: string;
   target_charges: number;
@@ -385,7 +390,7 @@ interface Useaction72 {
   type: string;
 }
 
-interface Useaction71 {
+interface Useaction69 {
   type: string;
   monster_id: string;
   friendly_msg: string;
@@ -395,14 +400,14 @@ interface Useaction71 {
   skills: string[];
 }
 
-interface Useaction70 {
+interface Useaction68 {
   target: string;
   msg: string;
   menu_text: string;
   type: string;
 }
 
-interface Useaction69 {
+interface Useaction67 {
   type: string;
   npc_class_id: string;
   summon_msg: string;
@@ -410,7 +415,7 @@ interface Useaction69 {
   moves: number;
 }
 
-interface Useaction68 {
+interface Useaction66 {
   target: string;
   msg: string;
   active: boolean;
@@ -420,7 +425,7 @@ interface Useaction68 {
   type: string;
 }
 
-interface Useaction67 {
+interface Useaction65 {
   type: string;
   verb: string;
   gerund: string;
@@ -428,7 +433,7 @@ interface Useaction67 {
   material_restricted: boolean;
 }
 
-interface Useaction66 {
+interface Useaction64 {
   type: string;
   target: string;
   msg: string;
@@ -436,7 +441,7 @@ interface Useaction66 {
   menu_text: string;
 }
 
-interface Useaction65 {
+interface Useaction63 {
   need_wielding: boolean;
   target: string;
   msg: string;
@@ -446,7 +451,7 @@ interface Useaction65 {
   type: string;
 }
 
-interface Useaction64 {
+interface Useaction62 {
   type: string;
   allow_underwater: boolean;
   bury_question: string;
@@ -464,12 +469,12 @@ interface Bury {
   done_message: string;
 }
 
-interface Useaction63 {
+interface Useaction61 {
   type: string;
   max_weight: string;
 }
 
-interface Useaction62 {
+interface Useaction60 {
   type: string;
   monster_id: string;
   friendly_msg: string;
@@ -480,7 +485,7 @@ interface Useaction62 {
   skills: string[];
 }
 
-interface Useaction61 {
+interface Useaction59 {
   type: string;
   draw_explosion_radius: number;
   draw_explosion_color: string;
@@ -490,7 +495,7 @@ interface Useaction61 {
   no_deactivate_msg: string;
 }
 
-interface Useaction59 {
+interface Useaction57 {
   type: string;
   no_deactivate_msg: string;
   sound_volume: number;
@@ -498,7 +503,7 @@ interface Useaction59 {
   explosion: Explosion2;
 }
 
-interface Useaction57 {
+interface Useaction55 {
   target: string;
   msg: string;
   moves: number;
@@ -508,7 +513,7 @@ interface Useaction57 {
   '//': string;
 }
 
-interface Useaction563 {
+interface Useaction543 {
   type: string;
   target: string;
   active: boolean;
@@ -517,14 +522,14 @@ interface Useaction563 {
   moves: number;
 }
 
-interface Useaction55 {
+interface Useaction53 {
   type: string;
   vehicle_name: string;
   unfold_msg: string;
   moves: number;
 }
 
-interface Useaction54 {
+interface Useaction52 {
   type: string;
   draw_explosion_radius: number;
   draw_explosion_color: string;
@@ -535,7 +540,7 @@ interface Useaction54 {
   no_deactivate_msg: string;
 }
 
-interface Useaction53 {
+interface Useaction51 {
   type: string;
   target_id: string;
   moves: number;
@@ -544,7 +549,7 @@ interface Useaction53 {
   lacks_fuel_message: string;
 }
 
-interface Useaction522 {
+interface Useaction502 {
   type: string;
   moves: number;
   noise: number;
@@ -556,7 +561,7 @@ interface Useaction522 {
   '//': string;
 }
 
-interface Useaction51 {
+interface Useaction49 {
   target: string;
   msg: string;
   active: boolean;
@@ -567,7 +572,7 @@ interface Useaction51 {
   type: string;
 }
 
-interface Useaction50 {
+interface Useaction48 {
   type: string;
   needs_solid_neighbor: boolean;
   trap: string;
@@ -576,7 +581,7 @@ interface Useaction50 {
   done_message: string;
 }
 
-interface Useaction49 {
+interface Useaction47 {
   type: string;
   moves?: number;
   target?: string;
@@ -585,7 +590,7 @@ interface Useaction49 {
   menu_text?: string;
 }
 
-interface Useaction48 {
+interface Useaction46 {
   type: string;
   draw_explosion_radius: number;
   draw_explosion_color: string;
@@ -593,7 +598,7 @@ interface Useaction48 {
   sound_volume: number;
 }
 
-interface Useaction47 {
+interface Useaction45 {
   type: string;
   item_action_type?: string;
   materials: string[];
@@ -604,7 +609,7 @@ interface Useaction47 {
   clothing_mods?: string[];
 }
 
-interface Useaction46 {
+interface Useaction44 {
   type: string;
   vehicle_name: string;
   tools_needed: Toolsneeded;
@@ -616,7 +621,7 @@ interface Toolsneeded {
   hand_pump: number;
 }
 
-interface Useaction44 {
+interface Useaction43 {
   need_wielding: boolean;
   target: string;
   msg: string;
@@ -628,7 +633,7 @@ interface Useaction44 {
   type: string;
 }
 
-interface Useaction43 {
+interface Useaction42 {
   type: string;
   fields_type: string;
   fields_radius: number;
@@ -637,15 +642,6 @@ interface Useaction43 {
   sound_volume: number;
   sound_msg: string;
   no_deactivate_msg: string;
-}
-
-interface Useaction42 {
-  target: string;
-  msg: string;
-  active: boolean;
-  need_charges: number;
-  need_charges_msg: string;
-  type: string;
 }
 
 interface Useaction41 {

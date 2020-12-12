@@ -1,8 +1,8 @@
 export interface ITerFurnTransform {
   type: 'ter_furn_transform';
   id: string;
-  terrain?: Terrain[];
   fail_message?: string;
+  terrain?: Terrain[];
   furniture?: Furniture[];
   '//'?: string;
 }
@@ -16,8 +16,8 @@ interface Furniture {
 
 interface Terrain {
   result: Array<Array<number | string>> | string | string;
-  valid_flags?: string[];
   valid_terrain?: string[];
   message?: string;
   message_good?: boolean;
+  valid_flags?: string[];
 }

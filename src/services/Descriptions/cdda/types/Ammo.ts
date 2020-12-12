@@ -17,35 +17,35 @@ export interface IAmmo {
   effects?: string[];
   bashing?: number;
   category?: string;
+  phase?: string;
   flags?: string[];
+  looks_like?: string;
   dispersion?: number;
   loudness?: number;
-  to_hit?: number;
-  qualities?: Array<Array<number | string>>;
-  looks_like?: string;
-  '//'?: string;
-  price_postapoc?: number;
-  cutting?: number;
   critical_multiplier?: number;
-  casing?: string;
-  recoil?: number;
-  phase?: string;
   container?: string;
+  to_hit?: number;
+  '//'?: string;
+  qualities?: Array<Array<number | string>>;
+  recoil?: number;
   'copy-from'?: string;
-  abstract?: string;
-  extend?: Extend;
-  drop?: string;
   relative?: Relative;
-  proportional?: Proportional;
-  delete?: Delete;
+  price_postapoc?: number;
+  casing?: string;
+  drop?: string;
   '//2'?: string;
   sealed?: boolean;
   use_action?: string[];
   '//freezing_point'?: number;
   drop_action?: Dropaction;
+  extend?: Extend;
+  cutting?: number;
+  proportional?: Proportional;
   longest_side?: string;
   show_stats?: boolean;
   seed_data?: Seeddata;
+  delete?: Delete;
+  abstract?: string;
   explode_in_fire?: boolean;
   explosion?: Explosion;
 }
@@ -55,6 +55,12 @@ interface Explosion {
   shrapnel: number;
 }
 
+interface Delete {
+  effects?: string[];
+  flags?: string[];
+  casing?: string;
+}
+
 interface Seeddata {
   fruit: string;
   '//': string;
@@ -62,29 +68,15 @@ interface Seeddata {
   grow: string;
 }
 
-interface Dropaction {
-  type: string;
-  emits: string[];
-  scale_qty: boolean;
-}
-
-interface Delete {
-  effects?: string[];
-  flags?: string[];
-  casing?: string;
-}
-
 interface Proportional {
-  price?: number;
-  damage?: Damage3;
-  dispersion?: number;
-  recoil?: number;
-  price_postapoc?: number;
-  count?: number;
-  loudness?: number;
-  range?: number;
   weight?: number;
   volume?: number;
+  price?: number;
+  damage?: Damage3;
+  recoil?: number;
+  dispersion?: number;
+  loudness?: number;
+  range?: number;
 }
 
 interface Damage3 {
@@ -93,13 +85,22 @@ interface Damage3 {
   armor_penetration?: number;
 }
 
+interface Extend {
+  effects: string[];
+}
+
+interface Dropaction {
+  type: string;
+  emits: string[];
+  scale_qty: boolean;
+}
+
 interface Relative {
-  damage?: Damage2;
-  range?: number;
-  pierce?: number;
   price?: number;
+  damage?: Damage2;
   dispersion?: number;
   loudness?: number;
+  range?: number;
   recoil?: number;
 }
 
@@ -107,10 +108,6 @@ interface Damage2 {
   damage_type: string;
   amount?: number;
   armor_penetration?: number;
-}
-
-interface Extend {
-  effects: string[];
 }
 
 interface Damage {

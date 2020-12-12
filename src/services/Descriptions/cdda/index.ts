@@ -1,3 +1,3 @@
 export { readCDDASourceFiles } from './readCDDAFile';
 export { buildKnowledgeBaseFromCDDAData } from './buildCDDAKnowledgeBase';
-export { IProcessors } from './types';
+export { IProcessors, ICDDAJSON } from './types';

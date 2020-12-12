@@ -6,7 +6,7 @@ const fileNames = fs.readdirSync(typeFolder);
 const typeNames = fileNames.filter((name) => name !== 'index.ts' && name !== 'names.ts').map((name) => name.replace('.ts', ''));
 const contents = typeNames.map((name) => fs.readFileSync(path.join(typeFolder, `${name}.ts`), 'utf-8'));
 const CDDA_JSON_TYPES = contents.map((content, index) => {
-  const typeNameMatcher = /type: CDDA_JSON_TYPES\.(.+);/gm;
+  const typeNameMatcher = /type: '(.+)';/gm;
   const matchResult = typeNameMatcher.exec(content);
   return matchResult[1];
 });
@@ -16,8 +16,8 @@ const importStatements =
   `import { CDDA_JSON_TYPES } from './names';\nexport { CDDA_JSON_TYPES };\n`;
 const ICDDAJSONDeclaration = `\nexport type ICDDAJSON =\n  |` + typeNames.map((type) => ` I${type}`).join('\n  |') + ';\n';
 const ICDDAJSONProcessorsDeclaration =
-  `\nexport interface IProcessors<CONTEXT> extends Record<CDDA_JSON_TYPES, (item: never, context: CONTEXT) => void> {\n` +
-  typeNames.map((type, index) => `  ${CDDA_JSON_TYPES[index]}: (item: I${type}, context: CONTEXT) => void;`).join('\n') +
+  `\nexport interface IProcessors<CONTEXT> extends Record<CDDA_JSON_TYPES, (item: never, round: number, context: CONTEXT) => void> {\n` +
+  typeNames.map((type, index) => `  ${CDDA_JSON_TYPES[index]}: (item: I${type}, round: number, context: CONTEXT) => void;`).join('\n') +
   '\n}\n';
 fs.writeFileSync(
   './src/services/Descriptions/cdda/types/index.ts',

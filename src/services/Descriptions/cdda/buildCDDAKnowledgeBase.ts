@@ -8,12 +8,15 @@ import { InspectResultWithContent, IDescriptionLoadingError } from '../types';
  * Put all things from CDDA data JSON to GUN db
  * @param fileItem an InspectResultWithContent from getFileJSON()
  * @param knowledgeBase an GUN db instance
+ * @param addErrorLog add error message for later print
+ * @param round we may go through data for several passes, so we can load things, and build relations later
  */
 export function buildKnowledgeBaseFromCDDAData<DB>(
   fileItem: InspectResultWithContent<ICDDAJSON[]>,
   knowledgeBase: DB,
   knowledgeBaseBuilders: IProcessors<DB>,
   addErrorLog: (log: IDescriptionLoadingError) => void,
+  round: number,
 ): DB {
   const { filePath, type: fileType } = fileItem;
   if (fileItem.fileType === 'data') {
@@ -30,7 +33,7 @@ export function buildKnowledgeBaseFromCDDAData<DB>(
             message: `No resource loader found for JSON description with type: ${descriptionItem.type}`,
           });
         } else {
-          translator(descriptionItem as never, knowledgeBase);
+          translator(descriptionItem as never, round, knowledgeBase);
         }
       }
     } else {

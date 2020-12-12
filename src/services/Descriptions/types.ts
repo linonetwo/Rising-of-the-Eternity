@@ -4,7 +4,7 @@ import { IService } from '@/services/types';
 
 export interface IDescriptionStore extends IService {
   addErrorLog: (log: IDescriptionLoadingError) => void;
-  printErrorLogToConsole(): void;
+  printErrorLogToConsole: () => void;
 }
 
 /**

@@ -12,11 +12,12 @@ import {
   ICDDATypeMap,
 } from './cdda';
 import { modFolder } from '@/constants/paths';
-import { IDescriptionStore, ExtraDatabaseCollections, IDescriptionLoadingError } from './types';
+import { ExtraDatabaseCollections, IDescriptionLoadingError } from './types';
 import { mergeJSONComments } from './cdda/utils';
+import { IService } from '@/services/types';
 
 @injectable()
-export class CDDADescriptions implements IDescriptionStore {
+export class CDDADescriptions implements IService {
   private readonly database: Loki;
   private readonly errorLogs: Collection<IDescriptionLoadingError>;
 

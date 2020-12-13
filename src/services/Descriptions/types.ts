@@ -1,12 +1,5 @@
 import { InspectTreeResult } from 'fs-jetpack/types';
 
-import { IService } from '@/services/types';
-
-export interface IDescriptionStore extends IService {
-  addErrorLog: (log: IDescriptionLoadingError) => void;
-  printErrorLogToConsole: () => void;
-}
-
 /**
  * 基本类似于 inspectData https://www.npmjs.com/package/fs-jetpack#inspecttreepath-options ，但是多了 content 包含 JSON parse 过的文件内容
  */

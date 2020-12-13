@@ -1,13 +1,23 @@
 import 'reflect-metadata';
-import { Container } from 'inversify';
+import { injectable, inject, Container } from 'inversify';
 
-import SERVICE_IDENTIFIER from '@/services/identifiers';
-import TAG from '@/services/tags';
-import { IElectronMainThreadService, Main } from '@/services/Main';
-import { IDescriptionStore } from '@/services/Descriptions/types';
+import { IService } from '@/services/types';
 import { CDDADescriptions } from '@/services/Descriptions/CDDADescriptions';
+import { MapGenerator } from '@/services/MapGenerator';
+
+@injectable()
+export class Main implements IService {
+  @inject(CDDADescriptions) public readonly cdda!: CDDADescriptions;
+  @inject(MapGenerator) public readonly mapGenerator!: MapGenerator;
+
+  async init(): Promise<void> {
+    await this.cdda.init();
+    await this.mapGenerator.init();
+  }
+}
 
 export const container = new Container();
 
-container.bind<IDescriptionStore>(SERVICE_IDENTIFIER.DescriptionStore).to(CDDADescriptions).whenTargetNamed(TAG.CDDA);
-container.bind<IElectronMainThreadService>(SERVICE_IDENTIFIER.Main).to(Main);
+container.bind<CDDADescriptions>(CDDADescriptions).toSelf();
+container.bind<MapGenerator>(MapGenerator).toSelf();
+container.bind<Main>(Main).toSelf();

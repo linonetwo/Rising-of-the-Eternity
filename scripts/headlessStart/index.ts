@@ -1,6 +1,4 @@
-import { container } from '@/services';
-import { IElectronMainThreadService } from '@/services/Main';
-import SERVICE_IDENTIFIER from '@/services/identifiers';
+import { container, Main } from '@/services';
 
-const main = container.get<IElectronMainThreadService>(SERVICE_IDENTIFIER.Main);
+const main = container.get(Main);
 void main.init().then(() => main.cdda.printErrorLogToConsole());

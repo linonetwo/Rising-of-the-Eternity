@@ -2,9 +2,9 @@
 
 We generate map on three different levels:
 
-- World (Global 6kkm)
-- Overmap (City 6km)
-- Map (House 24m)
+- World, contains 100x100 Biome (Global 6kkm)
+- Biome, contains 250x250 Overmap (City 6km)
+- Overmap, contains 24x24 Tile (House 24m)
 
 We generate Overmap and Map using data from CDDA, where Overmap is a concept come from CDDA.
 

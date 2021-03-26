@@ -4,6 +4,7 @@
     "PIXI",
     "icdda",
     "icddajson",
-    "lokijs"
+    "lokijs",
+    "worldmap"
   ]
 }
